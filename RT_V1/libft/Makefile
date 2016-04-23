@@ -42,11 +42,11 @@ INCLUDES = -I ./includes/
 
 all: $(NAME)
 
-$(NAME): object
+$(NAME): $(OBJS)
 	@ar rc $(NAME) $(OBJS)
 	@ranlib $(NAME)
 
-object: $(SRCS) 
+$(OBJS): $(SRCS)
 	@$(GWC) -c $(INCLUDES) $(SRCS)
 	@mv $(OBJ) $(OBJDIR)
 
