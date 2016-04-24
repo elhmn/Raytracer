@@ -10,14 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+#include <mlx.h>
 
-int		main(void)
+#define WIDTH 400
+#define HEIGHT 400
+#define TITLE "MY WINDOW"
+
+int	main(int ac, char **av)
 {
-	int		i;
+	void	*win;
+	void	*mlx;
 
-	i = 0;
-	while (i < 10)
-		printf("Bonjour [ %d ] \n", i++);
+
+
+	win = NULL;
+	mlx = NULL;
+	
+	(void)ac;
+	(void)av;
+	(void)mlx;
+	(void)win;
+
+	if (!(mlx = mlx_init()))
+	{
+		ft_putendl("Error while loading mlx"); //Debug
+		return (-1);
+	}
+	if (!(win = mlx_new_window(mlx, WIDTH, HEIGHT, TITLE)))
+	{
+		ft_putendl("Error while creating window"); //Debug
+		return (-1);
+	}
+	mlx_loop(mlx); //Debug
 	return (0);
 }

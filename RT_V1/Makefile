@@ -28,7 +28,7 @@ FLAG = -Wall -Werror -Wextra
 
 INCLUDES = -I ./includes/
 
-LIB = -L ./libft/ -lft
+LIB = -L ./libft/ -lft -L /usr/lib64/ -lmlx -lX11 -lXext
 
 all: $(NAME)
 
@@ -37,7 +37,7 @@ $(NAME): $(OBJS)
 
 $(OBJS): $(SRCS)
 	make -C ./libft
-	gcc $(FLAG) -c $(SRCS) &&  mv $(OBJ) $(OBJDIR)
+	gcc $(FLAG) -c $(SRCS) $(INCLUDES) &&  mv $(OBJ) $(OBJDIR)
 
 clean:
 	make clean -C ./libft
