@@ -17,12 +17,20 @@
 #define HEIGHT 400
 #define TITLE "MY WINDOW"
 
+/*
+**			TO_DO	
+**	+Get scene from file
+**	+Load scene
+**	+Loop
+**		- Raytracer
+**		- Realtime events
+**		- Simple Real Time Renderer
+*/
+
 int	main(int ac, char **av)
 {
 	void	*win;
 	void	*mlx;
-
-
 
 	win = NULL;
 	mlx = NULL;
