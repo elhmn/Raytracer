@@ -12,7 +12,7 @@
 
 NAME = RTV1
 
-SRC = main.c
+SRC = main.c check_errors.c fun_err_01.c
 
 OBJ = $(SRC:.c=.o)
 

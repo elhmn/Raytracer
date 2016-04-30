@@ -82,16 +82,6 @@ typedef struct	s_ray
 }				t_ray;
 
 /*
-** mlx environnement structure
-*/
-
-typedef struct s_env
-{
-	void	*mlx;
-	void	*win;
-}				t_env;
-
-/*
 ** screen
 */
 
@@ -105,5 +95,26 @@ typedef struct	s_screen
 	int			resY;
 }				t_screen;
 
+/*
+** mlx environnement structure
+*/
+
+typedef struct s_env
+{
+	void	*mlx;
+	void	*win;
+}				t_env;
+
+typedef struct s_rt
+{
+	t_env		e;
+	t_screen	screen;
+	t_camera	camera;
+	t_space		space;
+	t_ray		**ray;
+
+	//and maybe something to store pixels color
+	//char		**pixels;
+}				t_rt;
 
 #endif
