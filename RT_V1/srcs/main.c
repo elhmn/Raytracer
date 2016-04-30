@@ -28,20 +28,19 @@
 **		- Raytracer
 **		- Realtime events
 **		- Simple Real Time Renderer
+**	+Destroy objects
 */
 
 int	main(int ac, char **av)
 {
-	t_env		*e;
+	t_rt		*rt;
 
+	rt = NULL;
 	(void)av;
 	(void)ac;
-	if (!(e = (t_env*)malloc(sizeof(t_env))))
-		check_errors(MALLOC, "main.c", "e");
-	if (!(e->mlx = mlx_init()))
-		check_errors(MALLOC, "main.c", "mlx");
-	if (!(e->win = mlx_new_window(e->mlx, WIDTH, HEIGHT, TITLE)))
-		check_errors(MALLOC, "main.c", "win");
-	mlx_loop(e->mlx); //Debug
+	
+	init_rt(&rt);
+	mlx_loop_hook(rt->env->mlx, loop_hook, (void*)rt->env);
+	mlx_loop(rt->env->mlx); //Debug
 	return (0);
 }

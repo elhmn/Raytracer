@@ -16,7 +16,8 @@
 ** s_camera define
 */
 
-# define FOV			30
+# define FOV			60
+# define RAD(x)			(x * M_PI) / 180.0
 
 /*
 ** 3D coordinate structure
@@ -107,14 +108,38 @@ typedef struct s_env
 
 typedef struct s_rt
 {
-	t_env		e;
-	t_screen	screen;
-	t_camera	camera;
-	t_space		space;
+	t_env		*env;
+	t_screen	*screen;
+	t_camera	*camera;
+	t_space		*space;
 	t_ray		**ray;
 
 	//and maybe something to store pixels color
 	//char		**pixels;
 }				t_rt;
+
+/*
+** mlx_callback_00.c
+*/
+
+int			loop_hook(void *param);
+
+/*
+** init_var_00.c
+*/
+
+void		init_rt(t_rt **rt);
+void		init_env(t_env **env);
+void		init_screen(t_screen **screen);
+void		init_camera(t_camera **camera, t_screen screen);
+
+/*
+** init_var_01.c
+*/
+
+void		init_ray(t_ray ***ray);
+void		init_space(t_space **space);
+void		init_base_self(t_base *b);
+void		init_base_zero(t_base *b);
 
 #endif

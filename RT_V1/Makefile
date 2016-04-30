@@ -12,7 +12,8 @@
 
 NAME = RTV1
 
-SRC = main.c check_errors.c fun_err_01.c
+SRC = main.c check_errors.c fun_err_01.c mlx_callback_00.c init_var_00.c \
+		init_var_01.c put_var_00.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -28,7 +29,7 @@ FLAG = -Wall -Werror -Wextra
 
 INCLUDES = -I ./includes/
 
-LIB = -L ./libft/ -lft -L /usr/lib64/ -lmlx -lX11 -lXext
+LIB = -lm -L ./libft/ -lft -L /usr/lib64/ -lmlx -lX11 -lXext
 
 all: $(NAME)
 
