@@ -30,8 +30,8 @@ void		init_base_self(t_base *b)
 	b->j.z = 0;
 	
 	b->k.x = 0;
-	b->k.y = 1;
-	b->k.z = 0;
+	b->k.y = 0;
+	b->k.z = 1;
 }
 
 void		init_base_zero(t_base *b)

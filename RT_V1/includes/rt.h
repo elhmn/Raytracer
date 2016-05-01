@@ -51,6 +51,7 @@ typedef struct	s_camera
 {
 	t_base		self;
 	t_base		space;
+	t_pos		v_up;
 	double		dist;
 	double		fieldOfView;
 }				t_camera;
@@ -122,24 +123,77 @@ typedef struct s_rt
 ** mlx_callback_00.c
 */
 
-int			loop_hook(void *param);
+int				loop_hook(void *param);
 
 /*
 ** init_var_00.c
 */
 
-void		init_rt(t_rt **rt);
-void		init_env(t_env **env);
-void		init_screen(t_screen **screen);
-void		init_camera(t_camera **camera, t_screen screen);
+void			init_rt(t_rt **rt);
+void			init_env(t_env **env);
+void			init_screen(t_screen **screen);
+void			init_camera(t_camera **camera, t_screen screen);
 
 /*
 ** init_var_01.c
 */
 
-void		init_ray(t_ray ***ray);
-void		init_space(t_space **space);
-void		init_base_self(t_base *b);
-void		init_base_zero(t_base *b);
+void			init_ray(t_ray ***ray);
+void			init_space(t_space **space);
+void			init_base_self(t_base *b);
+void			init_base_zero(t_base *b);
 
+/*
+** put_var_00.c
+*/
+
+void			put_pos(t_pos pos);
+void			put_base(t_base base);
+void			put_camera(t_camera camera);
+void			put_space(t_space space);
+void			put_screen(t_screen screen);
+
+/*
+** put_var_01.c
+*/
+
+void	put_ray(t_ray ray);
+
+/*
+** set_var_00.c
+*/
+
+void			set_pos(t_pos *pos, double x,
+				double y, double z);
+
+/*
+** pos_function_00.c
+*/
+
+void			pos_add_to_pos(t_pos *p1, t_pos p2);
+void			pos_add_to_pos_values(t_pos *pos,
+				double x, double y, double z);
+void			pos_sub_to_pos(t_pos *p1, t_pos p2);
+void			pos_sub_to_pos_values(t_pos *pos,
+				double x, double y, double z);
+double			pos_dot_product(t_pos p1, t_pos p2);
+
+/*
+** pos_function_01.c
+*/
+
+void			pos_add_to_number(t_pos *pos, double nbr);
+void			pos_sub_to_number(t_pos *pos, double nbr);
+void			pos_mult_to_number(t_pos *pos, double nbr);
+void			pos_div_to_number(t_pos *pos, double nbr);
+
+/*
+** pos_function_02.c
+*/
+
+t_pos			pos_cross_product(t_pos p1, t_pos p2);
+void			pos_copy(t_pos *dest, t_pos src);
+t_pos			pos_vector(t_pos p1, t_pos p2);
+t_pos			pos_normalize(t_pos pos);
+double			pos_norme(t_pos pos);
 #endif

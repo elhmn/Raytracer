@@ -16,10 +16,6 @@
 #include <mlx.h>
 #include <stdlib.h>
 
-#define WIDTH 400
-#define HEIGHT 400
-#define TITLE "MY WINDOW"
-
 /*
 **			TO_DO
 **	+Get scene from file
@@ -40,7 +36,12 @@ int	main(int ac, char **av)
 	(void)ac;
 	
 	init_rt(&rt);
+	put_space(*(rt->space));
+	put_camera(*(rt->camera));
+	put_screen(*(rt->screen));
+//	t_ray ray;
+//	put_ray(ray);
 	mlx_loop_hook(rt->env->mlx, loop_hook, (void*)rt->env);
-	mlx_loop(rt->env->mlx); //Debug
+//	mlx_loop(rt->env->mlx); //Debug
 	return (0);
 }

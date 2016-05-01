@@ -65,6 +65,7 @@ void		init_camera(t_camera **camera, t_screen screen)
 		camera[0]->fieldOfView = FOV;
 		camera[0]->dist = (double)(screen.pixelWidth * screen.resX)
 		/ (double)(tan(RAD((camera[0]->fieldOfView / 2.)) * 2.));
+		set_pos(&(camera[0]->v_up), 0, 1, 0);
 	}
 	(void)camera;
 	ft_putendl("init_camera called"); //Debug

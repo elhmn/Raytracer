@@ -13,7 +13,8 @@
 NAME = RTV1
 
 SRC = main.c check_errors.c fun_err_01.c mlx_callback_00.c init_var_00.c \
-		init_var_01.c put_var_00.c
+		init_var_01.c put_var_00.c set_var_00.c put_var_01.c pos_function_00.c \
+		pos_function_01.c pos_function_02.c
 
 OBJ = $(SRC:.c=.o)
 
