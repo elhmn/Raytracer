@@ -5,9 +5,9 @@
 ** s_screen define
 */
 
-# define RESX			400
+# define RESX			600
 # define RESY			400
-# define SCREEN_WIDTH	400
+# define SCREEN_WIDTH	600
 # define SCREEN_HEIGHT	400
 # define PIXEL_HEIGHT	1
 # define PIXEL_WIDTH	1
@@ -18,6 +18,7 @@
 
 # define FOV			60
 # define RAD(x)			(x * M_PI) / 180.0
+# define SAFE_DIST		200
 
 /*
 ** 3D coordinate structure
@@ -132,16 +133,24 @@ int				loop_hook(void *param);
 void			init_rt(t_rt **rt);
 void			init_env(t_env **env);
 void			init_screen(t_screen **screen);
-void			init_camera(t_camera **camera, t_screen screen);
+void			init_camera(t_camera **camera, t_screen screen, t_space *space);
 
 /*
 ** init_var_01.c
 */
 
-void			init_ray(t_ray ***ray);
+void			init_ray_array(t_ray ***ray, t_screen *screen);
+void			set_ray_array_zero(t_ray **ray, t_screen *screen);
 void			init_space(t_space **space);
 void			init_base_self(t_base *b);
-void			init_base_zero(t_base *b);
+void			set_base_zero(t_base *b);
+
+/*
+** init_var_02.c
+*/
+
+void			init_ray(t_ray *ray);
+void			init_camera_base(t_camera *cam, t_base *space);
 
 /*
 ** put_var_00.c
@@ -157,7 +166,7 @@ void			put_screen(t_screen screen);
 ** put_var_01.c
 */
 
-void	put_ray(t_ray ray);
+void			put_ray(t_ray ray);
 
 /*
 ** set_var_00.c

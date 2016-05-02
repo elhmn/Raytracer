@@ -13,9 +13,9 @@ void		init_rt(t_rt **rt)
 			check_errors(MALLOC, "init_var_00.c", "rt");
 		init_env(&((*rt)->env));
 		init_screen(&((*rt)->screen));
-		init_camera(&((*rt)->camera), *((*rt)->screen));
 		init_space(&((*rt)->space));
-		init_ray(&((*rt)->ray));
+		init_camera(&((*rt)->camera), *((*rt)->screen), (*rt)->space);
+		init_ray_array(&((*rt)->ray), (*rt)->screen);
 	}
 	ft_putendl("init_rt called"); //Debug
 }
@@ -54,18 +54,19 @@ void		init_screen(t_screen **screen)
 	ft_putendl("init_screen called"); //Debug
 }
 
-void		init_camera(t_camera **camera, t_screen screen)
+void		init_camera(t_camera **camera, t_screen screen, t_space *space)
 {
-	if (camera)
+	if (camera && space)
 	{
 		if (!(*camera = (t_camera*)malloc(sizeof(t_camera))))
 			check_errors(MALLOC, "init_var_00.c", "camera");
 		init_base_self(&(camera[0]->self));
-		init_base_zero(&(camera[0]->space));
 		camera[0]->fieldOfView = FOV;
 		camera[0]->dist = (double)(screen.pixelWidth * screen.resX)
 		/ (double)(tan(RAD((camera[0]->fieldOfView / 2.)) * 2.));
+		set_base_zero(&(camera[0]->space));
 		set_pos(&(camera[0]->v_up), 0, 1, 0);
+		init_camera_base(*camera, &(space->self));
 	}
 	(void)camera;
 	ft_putendl("init_camera called"); //Debug

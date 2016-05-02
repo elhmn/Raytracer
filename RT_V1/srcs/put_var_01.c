@@ -6,6 +6,11 @@
 
 void	put_ray(t_ray ray)
 {
-	printf("put ray\n"); //Debug
-	(void)ray;
+	printf("camPos : ");
+	put_pos(ray.camPos);
+	printf("spPos : ");
+	put_pos(ray.spPos);
+	printf("col");
+	printf("[%ld]\n", (long)ray.col);
+	printf("\n");
 }
