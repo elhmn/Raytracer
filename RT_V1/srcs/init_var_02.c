@@ -32,3 +32,22 @@ void	init_camera_base(t_camera *cam, t_base *space)
 	}
 }
 
+void	init_objs(t_list **objs)
+{
+	(void)objs;
+	
+	//Load objects properties from a file
+	//create objects
+	//init objects
+	//add objects to list
+
+	if (objs)
+	{
+		if (!(*objs = ft_lstnew(NULL, 0)))
+			check_errors(MALLOC, "init_var_02.c", "objs");
+		(*objs)->content = NULL;
+	}
+		
+	ft_putendl("init_objs called"); //Debug
+}
+

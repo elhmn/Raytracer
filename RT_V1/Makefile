@@ -44,6 +44,7 @@ $(OBJS): $(SRCS)
 clean:
 	make clean -C ./libft
 	rm -f $(OBJS)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

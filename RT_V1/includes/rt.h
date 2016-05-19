@@ -1,6 +1,8 @@
 #ifndef RT_H
 # define RT_H
 
+# include "libft.h"
+
 /*
 ** s_screen define
 */
@@ -68,6 +70,56 @@ typedef struct	s_space
 }				t_space;
 
 /*
+** Objet structure
+*/
+
+enum		e_type
+{
+	CIRCLE,
+	SPHERE,
+	PLANE,
+	SQUARE,
+	TORE,
+	NONE
+};
+
+/*
+** Objects data structures
+*/
+
+typedef	struct	s_dataSphere
+{
+	double		r;
+}				t_dataSphere;
+
+typedef	struct	s_dataCircle
+{
+	double		r;
+}				t_dataCircle;
+
+/*
+** object structure
+*/
+
+typedef struct	s_obj
+{
+	/*
+	** attributs
+	*/
+
+	int			type;
+	void		*data;
+
+	t_pos		camPos;
+	t_pos		spPos;
+
+	/*
+	** functions
+	*/
+	void		*ifCollision;
+}				t_obj;
+
+/*
 ** Ray structure
 */
 
@@ -115,6 +167,7 @@ typedef struct s_rt
 	t_camera	*camera;
 	t_space		*space;
 	t_ray		**ray;
+	t_list		*objs;
 
 	//and maybe something to store pixels color
 	//char		**pixels;
@@ -151,6 +204,7 @@ void			set_base_zero(t_base *b);
 
 void			init_ray(t_ray *ray);
 void			init_camera_base(t_camera *cam, t_base *space);
+void			init_objs(t_list **objs);
 
 /*
 ** put_var_00.c

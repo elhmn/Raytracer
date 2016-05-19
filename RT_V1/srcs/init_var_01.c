@@ -20,8 +20,10 @@ void		set_ray_array_zero(t_ray **ray, t_screen *screen)
 		{
 			j = -1;
 			while (++j < max_x)
+			{
 				init_ray(ray[i] + j);
-			put_ray(ray[i][j - 1]);
+			//	put_ray(ray[i][j]); //DEBUG
+			}
 		}
 	}
 }

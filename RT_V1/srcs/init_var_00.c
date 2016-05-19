@@ -16,6 +16,7 @@ void		init_rt(t_rt **rt)
 		init_space(&((*rt)->space));
 		init_camera(&((*rt)->camera), *((*rt)->screen), (*rt)->space);
 		init_ray_array(&((*rt)->ray), (*rt)->screen);
+		init_objs(&(*rt)->objs);
 	}
 	ft_putendl("init_rt called"); //Debug
 }
@@ -50,7 +51,6 @@ void		init_screen(t_screen **screen)
 		screen[0]->resX = RESX;
 		screen[0]->resY = RESY;
 	}
-	(void)screen;
 	ft_putendl("init_screen called"); //Debug
 }
 
@@ -68,6 +68,5 @@ void		init_camera(t_camera **camera, t_screen screen, t_space *space)
 		set_pos(&(camera[0]->v_up), 0, 1, 0);
 		init_camera_base(*camera, &(space->self));
 	}
-	(void)camera;
 	ft_putendl("init_camera called"); //Debug
 }

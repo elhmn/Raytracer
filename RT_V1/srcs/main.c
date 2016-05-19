@@ -36,9 +36,9 @@ int	main(int ac, char **av)
 	(void)ac;
 	
 	init_rt(&rt);
-	put_space(*(rt->space));
-	put_camera(*(rt->camera));
-	put_screen(*(rt->screen));
+	put_space(*(rt->space)); //Debug
+	put_camera(*(rt->camera)); //Debug
+	put_screen(*(rt->screen)); //Debug
 //	t_ray ray;
 //	put_ray(ray);
 	mlx_loop_hook(rt->env->mlx, loop_hook, (void*)rt->env);
