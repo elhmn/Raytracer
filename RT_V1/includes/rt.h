@@ -221,6 +221,9 @@ void			put_screen(t_screen screen);
 */
 
 void			put_ray(t_ray ray);
+void			put_sphere(t_dataSphere *data);
+void			put_type(int type);
+void			put_obj(void *obj);
 
 /*
 ** set_var_00.c

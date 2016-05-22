@@ -15,17 +15,44 @@ void	put_ray(t_ray ray)
 	ft_putendl("");
 }
 
-//void	put_plane(t_planeData *data)
-//{
+void	put_sphere(t_dataSphere *data)
+{
+	t_dataSphere *sp;
 
-//}
+	sp = (t_dataSphere*)data;
+	if (sp)
+	{
+		ft_putstr("radius =  [");
+		ft_putdbl(sp->radius);
+		ft_putendl("");
+	}
+}
 
-//void	put_obj(void *obj, int type, void *data)
-//{
-//	if (type == SPHERE)
-//		put_sphere();
-//	else if (type == CIRCLE)
-//		put_circle();
-//	else if (type == PLANE)
-//		put_plane();
-//}
+void	put_type(int type)
+{
+	if (type == SPHERE)
+		ft_putstr("Sphere");
+	else
+		ft_putstr("Unknown");
+}
+
+void	put_obj(void *obj)
+{
+	t_obj		*o;
+
+	o = (t_obj*)obj;
+	if (o)
+	{
+		ft_putstr("Obj : ");
+		put_type(o->type);
+		ft_putendl(" {\n");
+		ft_putstr("camPos -> ");
+		put_pos(o->camPos);
+		ft_putstr("spPos -> ");
+		put_pos(o->spPos);
+		//put Data for each type //Debug
+		if (o->type == SPHERE)
+			put_sphere(o->data);
+		ft_putendl("\n}\n");
+	}
+}

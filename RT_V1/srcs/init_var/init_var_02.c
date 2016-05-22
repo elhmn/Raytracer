@@ -53,6 +53,7 @@ void	init_objs(t_list **objs)
 		if (!(*objs = ft_lstnew(NULL, 0)))
 			check_errors(MALLOC, "init_var_02.c", "objs");
 		(*objs)->content = new_obj(SPHERE, (void*)data, pos);
+		put_obj((*objs)->content);
 	}
 		
 	ft_putendl("init_objs called"); //Debug
