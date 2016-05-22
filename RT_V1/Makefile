@@ -20,6 +20,7 @@ POS_DIR = pos_functions/
 SET_DIR = set_var/
 OBJFUNC_DIR = obj_functions/
 PUT_DIR = put_var/
+DRAW_DIR = draw/
 	
 
 MAIN = main.c
@@ -38,6 +39,8 @@ OBJFUNC = obj_function_00.c
 
 PUT = put_var_00.c put_var_01.c
 
+DRAW = draw.c color.c
+
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))
 INITS =  $(addprefix $(INIT_DIR), $(INIT))
@@ -46,12 +49,13 @@ POSS =  $(addprefix $(POS_DIR), $(POS))
 SETS =  $(addprefix $(SET_DIR), $(SET))
 OBJFUNCS =  $(addprefix $(OBJFUNC_DIR), $(OBJFUNC))
 PUTS =  $(addprefix $(PUT_DIR), $(PUT))
+DRAWS =  $(addprefix $(DRAW_DIR), $(DRAW))
 
 SRC_OBJ = $(MAIN) $(ERR) $(INIT) $(MLX) $(POS) $(OBJFUNC) \
-			$(SET) $(PUT)
+			$(SET) $(PUT) $(DRAW)
 
 SRC = 	$(MAINS) $(ERRS) $(INITS) $(MLXS) $(POSS) $(OBJFUNCS) \
-		$(SETS) $(PUTS)
+		$(SETS) $(PUTS) $(DRAWS)
 		
 
 OBJ = $(SRC_OBJ:.c=.o)

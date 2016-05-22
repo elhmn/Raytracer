@@ -4,6 +4,14 @@
 # include "libft.h"
 
 /*
+** s_color n define
+*/
+
+# define MASK_R		0xFF0000
+# define MASK_G		0x00FF00
+# define MASK_B		0x0000FF
+
+/*
 ** s_screen define
 */
 
@@ -22,6 +30,8 @@
 # define RAD(x)			(x * M_PI) / 180.0
 # define SAFE_DIST		200
 
+typedef unsigned int	t_uint;
+
 /*
 ** 3D coordinate structure
 */
@@ -31,6 +41,7 @@ typedef struct	s_pos
 	double		x;
 	double		y;
 	double		z;
+
 }				t_pos;
 
 /*
@@ -137,6 +148,34 @@ typedef struct	s_ray
 }				t_ray;
 
 /*
+** structure de stockage de couleur
+*/
+
+typedef struct		s_color
+{
+	unsigned int	alpha;
+	unsigned int	color;
+	unsigned int	r;
+	unsigned int	g;
+	unsigned int	b;
+}					t_color;
+
+/*
+**layer struct
+**depht  =>layer depht
+**img ==> img is not appropriate for this program
+*/
+
+typedef struct		s_lay
+{
+	void		*img;
+	int			bpp;
+	int			line;
+	int			endian;
+	int			depht;
+}					t_lay;
+
+/*
 ** screen
 */
 
@@ -158,6 +197,7 @@ typedef struct s_env
 {
 	void	*mlx;
 	void	*win;
+	void	*img;
 }				t_env;
 
 typedef struct s_rt
@@ -168,6 +208,9 @@ typedef struct s_rt
 	t_space		*space;
 	t_ray		**ray;
 	t_list		*objs;
+
+	t_lay		lay;
+	char		*img;
 
 	//and maybe something to store pixels color
 	//char		**pixels;
@@ -231,6 +274,7 @@ void			put_obj(void *obj);
 
 void			set_pos(t_pos *pos, double x,
 				double y, double z);
+void			set_img(char **img, void *voidImg, t_lay *lay);
 
 /*
 ** pos_function_00.c
@@ -267,6 +311,19 @@ double			pos_norme(t_pos pos);
 ** obj_function_00.c
 */
 
-void	*new_obj(int type, void *data, t_pos spPos);
+void			*new_obj(int type, void *data, t_pos spPos);
+
+/*
+** draw.c
+*/
+
+void			pixel_put_img(t_rt *rt, int x, int y, t_color *col);
+
+/*
+** color.c
+*/
+
+t_uint			rgb_to_color(t_uint r, t_uint g, t_uint b);
+void			set_color(t_color *col);
 
 #endif

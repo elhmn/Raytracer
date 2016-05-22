@@ -17,6 +17,7 @@ void		init_rt(t_rt **rt)
 		init_camera(&((*rt)->camera), *((*rt)->screen), (*rt)->space);
 		init_ray_array(&((*rt)->ray), (*rt)->screen);
 		init_objs(&(*rt)->objs);
+		(*rt)->img = NULL; 
 	}
 	ft_putendl("init_rt called"); //Debug
 }
@@ -33,6 +34,8 @@ void		init_env(t_env **env)
 		if (!((*env)->win = mlx_new_window((*env)->mlx,
 			SCREEN_WIDTH, SCREEN_HEIGHT, "RTV1")))
 			check_errors(MALLOC, "init_var_00.c", "win");
+		if (!((*env)->img = mlx_new_image((*env)->mlx, SCREEN_WIDTH, SCREEN_HEIGHT)))
+			check_errors(MALLOC, "init_var_00.c", "img");
 	}
 	ft_putendl("init_env called"); //Debug
 }
