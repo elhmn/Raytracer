@@ -9,77 +9,107 @@ void		put_pos(t_pos pos)
 {
 	(void)pos;
 
-	//replace printf with ft_printf
-	printf("(%lf, %lf, %lf)\n", pos.x, pos.y, pos.z);
+	//replace printf with
+	ft_putstr("(");
+	ft_putdbl(pos.x);
+	ft_putstr(", ");
+	ft_putdbl(pos.y);
+	ft_putstr(", ");
+	ft_putdbl(pos.z);
+	ft_putstr(")");
+	ft_putendl("");
+
+//	printf("(%lf, %lf, %lf)\n", pos.x, pos.y, pos.z);
 
 //	ft_putendl("Put pos"); //Debug
 }
 
 void		put_base(t_base base)
 {
-	(void)base;
-	
 	//replace printf with ft_printf
-	printf("o -> ");
+	ft_putstr("o -> ");
 	put_pos(base.o);
-	printf("i -> ");
+	ft_putstr("i -> ");
 	put_pos(base.i);
-	printf("j -> ");
+	ft_putstr("j -> ");
 	put_pos(base.j);
-	printf("k -> ");
+	ft_putstr("k -> ");
 	put_pos(base.k);
 
 //	ft_putendl("Put base"); //Debug
 }
 
+// do the same thing with the function bellow
+
 void		put_camera(t_camera camera)
 {
-	printf("CAMERA \n{\n");
+	ft_putstr("CAMERA \n{\n");
 	
-	printf("\nself \n{\n");
+	ft_putstr("\nself \n{\n");
 	put_base(camera.self);
-	printf("}\n");
+	ft_putstr("}\n");
 
-	printf("\nspace \n{\n");
+	ft_putstr("\nspace \n{\n");
 	put_base(camera.space);
-	printf("}\n");
+	ft_putstr("}\n");
 
-	printf("\nv_up \n{\n");
+	ft_putstr("\nv_up \n{\n");
 	put_pos(camera.v_up);
-	printf("}\n");
+	ft_putstr("}\n");
 
-	printf("\ndist = [%lf]\n", camera.dist);
+	ft_putstr("\ndist = [");
+	ft_putdbl(camera.dist);
+	ft_putendl("]");
 	
-	printf("\nfieldOfView = [%lf]\n", camera.fieldOfView);
+	ft_putstr("\nfieldOfView = [");
+	ft_putdbl(camera.fieldOfView);
+	ft_putendl("]");
 
-	printf("\n} END\n");
+	ft_putstr("\n} END\n");
 }
 
 void	put_space(t_space space)
 {
-	printf("SPACE \n{\n");
+	ft_putstr("SPACE \n{\n");
 
-	printf("\nself \n{\n");
+	ft_putstr("\nself \n{\n");
 	put_base(space.self);
-	printf("}\n");
+	ft_putstr("}\n");
 
-	printf("\ncamera \n{\n");
+	ft_putstr("\ncamera \n{\n");
 	put_base(space.camera);
-	printf("}\n");
+	ft_putstr("}\n");
 
-	printf("\n} END\n");
+	ft_putstr("\n} END\n");
 }
 
 void	put_screen(t_screen screen)
 {
-	printf("SCREEN \n{\n\n");
+	ft_putstr("SCREEN \n{\n\n");
 
-	printf("pixelWidth = [%d]\n", screen.pixelWidth);
-	printf("pixelHeight = [%d]\n", screen.pixelHeight);
-	printf("width = [%d]\n", screen.width);
-	printf("height = [%d]\n", screen.height);
-	printf("resX = [%d]\n", screen.resX);
-	printf("resY = [%d]\n", screen.resY);
+	ft_putstr("pixelWidth = [");
+	ft_putdbl(screen.pixelWidth);
+	ft_putendl("]");
 
-	printf("\n} END\n");
+	ft_putstr("pixelHeight = [");
+	ft_putdbl(screen.pixelHeight);
+	ft_putendl("]");
+
+	ft_putstr("width = [");
+	ft_putdbl(screen.width);
+	ft_putendl("]");
+
+	ft_putstr("height = [");
+	ft_putdbl(screen.height);
+	ft_putendl("]");
+
+	ft_putstr("resX = [");
+	ft_putdbl(screen.resX);
+	ft_putendl("]");
+
+	ft_putstr("resY = [");
+	ft_putdbl(screen.resY);
+	ft_putendl("]");
+
+	ft_putstr("\n} END\n");
 }

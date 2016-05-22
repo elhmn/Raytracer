@@ -89,12 +89,12 @@ enum		e_type
 
 typedef	struct	s_dataSphere
 {
-	double		r;
+	double		radius;
 }				t_dataSphere;
 
 typedef	struct	s_dataCircle
 {
-	double		r;
+	double		radius;
 }				t_dataCircle;
 
 /*
@@ -259,4 +259,11 @@ void			pos_copy(t_pos *dest, t_pos src);
 t_pos			pos_vector(t_pos p1, t_pos p2);
 t_pos			pos_normalize(t_pos pos);
 double			pos_norme(t_pos pos);
+
+/*
+** obj_function_00.c
+*/
+
+void	*new_obj(int type, void *data, t_pos spPos);
+
 #endif

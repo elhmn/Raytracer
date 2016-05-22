@@ -6,11 +6,26 @@
 
 void	put_ray(t_ray ray)
 {
-	printf("camPos : ");
+	ft_putstr("camPos : ");
 	put_pos(ray.camPos);
-	printf("spPos : ");
+	ft_putstr("spPos : ");
 	put_pos(ray.spPos);
-	printf("col");
-	printf("[%ld]\n", (long)ray.col);
-	printf("\n");
+	ft_putstr("col :");
+	ft_putnbr(ray.col);
+	ft_putendl("");
 }
+
+//void	put_plane(t_planeData *data)
+//{
+
+//}
+
+//void	put_obj(void *obj, int type, void *data)
+//{
+//	if (type == SPHERE)
+//		put_sphere();
+//	else if (type == CIRCLE)
+//		put_circle();
+//	else if (type == PLANE)
+//		put_plane();
+//}

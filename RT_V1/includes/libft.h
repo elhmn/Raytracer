@@ -102,4 +102,11 @@ void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstadd_end(t_list **alst, t_list *new);
 t_list	*ft_lstmap(t_list *lst, t_list *(*f) (t_list *elem));
 
+
+/*
+** ft_putdbl.c
+*/
+
+void			ft_putdbl(double nbr);
+
 #endif 
