@@ -12,14 +12,53 @@
 
 NAME = RTV1
 
-SRC = 	main.c check_errors.c fun_err_01.c mlx_callback_00.c init_var_00.c \
-		init_var_01.c put_var_00.c set_var_00.c put_var_01.c pos_function_00.c \
-		pos_function_01.c pos_function_02.c init_var_02.c \
-		obj_function_00.c
+ERR_DIR = error_handling/
+MAIN_DIR = main_functions/
+INIT_DIR = init_var/
+MLX_DIR = mlx_functions/
+POS_DIR = pos_functions/
+SET_DIR = set_var/
+OBJFUNC_DIR = obj_functions/
+PUT_DIR = put_var/
+	
 
-OBJ = $(SRC:.c=.o)
+MAIN = main.c
+
+ERR = check_errors.c fun_err_01.c
+
+INIT = init_var_00.c init_var_01.c init_var_02.c
+
+MLX = mlx_callback_00.c
+
+POS = pos_function_00.c pos_function_01.c pos_function_02.c
+
+SET = set_var_00.c
+
+OBJFUNC = obj_function_00.c
+
+PUT = put_var_00.c put_var_01.c
+
+MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
+ERRS =  $(addprefix $(ERR_DIR), $(ERR))
+INITS =  $(addprefix $(INIT_DIR), $(INIT))
+MLXS =  $(addprefix $(MLX_DIR), $(MLX))
+POSS =  $(addprefix $(POS_DIR), $(POS))
+SETS =  $(addprefix $(SET_DIR), $(SET))
+OBJFUNCS =  $(addprefix $(OBJFUNC_DIR), $(OBJFUNC))
+PUTS =  $(addprefix $(PUT_DIR), $(PUT))
+
+SRC_OBJ = $(MAIN) $(ERR) $(INIT) $(MLX) $(POS) $(OBJFUNC) \
+			$(SET) $(PUT)
+
+SRC = 	$(MAINS) $(ERRS) $(INITS) $(MLXS) $(POSS) $(OBJFUNCS) \
+		$(SETS) $(PUTS)
+		
+
+OBJ = $(SRC_OBJ:.c=.o)
 
 OBJDIR = ./objs/
+
+REPS =  $(addprefix $(OBJ_DIR), $(REP))
 
 SRCDIR = ./srcs/
 
@@ -46,6 +85,7 @@ clean:
 	make clean -C ./libft
 	rm -f $(OBJS)
 	rm -f $(OBJ)
+	rm -f ./*.o
 
 fclean: clean
 	rm -f $(NAME)
