@@ -27,22 +27,22 @@
 **	+Destroy objects
 */
 
-//void	drawSquare(t_rt *rt)
-//{
-//	t_color		col;
-//	int			i;
-//	int			j;
-//
-//	i = -1;
-//	col.color = 0xFFFFFF;
-//	set_color(&col);
-//	while (++i < SCREEN_WIDTH / 2)
-//	{
-//		j = -1;
-//		while (++j < SCREEN_HEIGHT / 2)
-//			pixel_put_img(rt, i, j, &col);
-//	}
-//}
+void	drawSquare(t_rt *rt)
+{
+	t_color		col;
+	int			i;
+	int			j;
+
+	i = -1;
+	col.color = 0xFFFFFF;
+	set_color(&col);
+	while (++i < SCREEN_WIDTH / 2)
+	{
+		j = -1;
+		while (++j < SCREEN_HEIGHT / 2)
+			pixel_put_img(rt, i, j, &col);
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -57,14 +57,12 @@ int	main(int ac, char **av)
 //	put_space(*(rt->space)); //Debug
 //	put_camera(*(rt->camera)); //Debug
 //	put_screen(*(rt->screen)); //Debug
-//	t_ray ray;
-//	put_ray(ray);
-	
+
 //	set_img(&(rt->img), rt->env->img, &(rt->lay));	
 //	drawSquare(rt); //Debug
 //	mlx_put_image_to_window(rt->env->mlx, rt->env->win, rt->env->img, 0, 0);
 
-//	mlx_loop_hook(rt->env->mlx, loop_hook, (void*)rt->env);
-//	mlx_loop(rt->env->mlx); //Debug
+	mlx_loop_hook(rt->env->mlx, loop_hook, (void*)rt);
+	mlx_loop(rt->env->mlx);
 	return (0);
 }
