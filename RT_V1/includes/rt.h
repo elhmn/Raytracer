@@ -326,4 +326,10 @@ void			pixel_put_img(t_rt *rt, int x, int y, t_color *col);
 t_uint			rgb_to_color(t_uint r, t_uint g, t_uint b);
 void			set_color(t_color *col);
 
+/*
+** raytracer.c
+*/
+
+void			raytracer(t_rt *rt);
+
 #endif

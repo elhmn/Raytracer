@@ -55,7 +55,7 @@ void	init_objs(t_list **objs)
 		(*objs)->content = new_obj(SPHERE, (void*)data, pos);
 		put_obj((*objs)->content);
 	}
-		
+
 	ft_putendl("init_objs called"); //Debug
 }
 

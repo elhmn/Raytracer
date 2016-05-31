@@ -11,13 +11,13 @@ int		loop_hook(void *param)
 	t_rt	*rt;
 
 	rt = (t_rt*)param;
-	(void)param;
+	ft_putendl("loop_hook enter"); //Debug
 	if (rt)
 	{
-		ft_putendl("je suis con"); //Debug
-		//raytracer(rt);
-		//put_ray_image;
+		raytracer(rt);
+		//put_ray_image();
 		//put_image_to_window;
 	}
+	ft_putendl("loop_hook exit"); //Debug
 	return (0);
 }
