@@ -16,29 +16,35 @@ static void	rt_check_error(t_rt *rt)
 		check_errors(NUL, "raytracer.c", "rt->ray");
 }
 
-//static void	rt_get_color(t_rt *rt)
-//{
-	// pour chaque objet
-	// set distance to inf ou max float
-//	while ()
-//	{
+static void	rt_get_ray_color(t_ray *r, t_list *o,t_rt *rt)
+{
+	t_list	*list;
+
+	list = o;
+	(void)rt;
+	(void)r;
+//	 pour chaque objet
+//	 set distance to inf ou max float
+	while (list != NULL)
+	{
 		// if prev_distance < distance
 		// ray colored as the object
-//		if ()
-//		{
+		if (42)
+		{
 			//determine color with more RT algorithms
-//		}
-//	}
+		}
+		list = list->next;
+	}
 //	(void)rt;
-//}
+}
 
 static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 {
+	int		pX;
+	int		pY;
 	double	x;
 	double	y;
 	double	z;
-	int		pX;
-	int		pY;
 	t_pos	*c;
 
 	if (!r)
@@ -75,7 +81,7 @@ void		raytracer(t_rt *rt)
 			rt_set_ray_pos(j, i, r[i] + j, rt);
 			if (i == 0) //Debug
 				put_ray(r[i][j]); //Debug
-//			rt_get_color();
+			rt_get_ray_color(r[i] + j, o, rt);
 		}
 	}
 	ft_putendl("raytracer");
