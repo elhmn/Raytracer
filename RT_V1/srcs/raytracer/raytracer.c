@@ -3,6 +3,7 @@
 #include "check_errors.h"
 #include "libft.h"
 #include "rt.h"
+#include "put_var.h"
 
 static void	rt_check_error(t_rt *rt)
 {
@@ -19,12 +20,14 @@ static void	rt_check_error(t_rt *rt)
 static void	rt_get_ray_color(t_ray *r, t_list *o,t_rt *rt)
 {
 	t_list	*list;
+	float	d = 3.402823e+38;
 
 	list = o;
 	(void)rt;
 	(void)r;
-//	 pour chaque objet
-//	 set distance to inf ou max float
+	(void)d;
+//	pour chaque objet
+//	set distance to inf ou max float
 	while (list != NULL)
 	{
 		// if prev_distance < distance
@@ -35,7 +38,6 @@ static void	rt_get_ray_color(t_ray *r, t_list *o,t_rt *rt)
 		}
 		list = list->next;
 	}
-//	(void)rt;
 }
 
 static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)

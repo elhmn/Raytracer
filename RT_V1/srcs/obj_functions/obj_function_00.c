@@ -1,4 +1,5 @@
 #include "rt.h"
+#include "object.h"
 #include "libft.h"
 #include "check_errors.h"
 #include <stdlib.h>

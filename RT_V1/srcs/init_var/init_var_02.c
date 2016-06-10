@@ -1,5 +1,7 @@
 #include "libft.h"
 #include "check_errors.h"
+#include "put_var.h"
+#include "object.h"
 #include "rt.h"
 #include <mlx.h>
 #include <stdlib.h>
@@ -53,9 +55,9 @@ void	init_objs(t_list **objs)
 		if (!(*objs = ft_lstnew(NULL, 0)))
 			check_errors(MALLOC, "init_var_02.c", "objs");
 		(*objs)->content = new_obj(SPHERE, (void*)data, pos);
+		if (!(*objs)->content)
+			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj((*objs)->content);
 	}
-
 	ft_putendl("init_objs called"); //Debug
 }
-

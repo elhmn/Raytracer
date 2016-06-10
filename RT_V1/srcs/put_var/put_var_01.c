@@ -1,5 +1,6 @@
 #include "libft.h"
 #include "rt.h"
+#include "put_var.h"
 #include "check_errors.h"
 #include <stdio.h>
 #include <stdlib.h>
