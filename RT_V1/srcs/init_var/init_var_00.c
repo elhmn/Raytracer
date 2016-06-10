@@ -46,7 +46,7 @@ void		init_screen(t_screen **screen)
 	{
 		if (!(*screen = (t_screen*)malloc(sizeof(t_screen))))
 			check_errors(MALLOC, "init_var_00.c", "screen");
-		
+
 		screen[0]->pixelWidth = PIXEL_WIDTH;
 		screen[0]->pixelHeight = PIXEL_HEIGHT;
 		screen[0]->width = SCREEN_WIDTH;

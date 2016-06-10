@@ -81,6 +81,19 @@ typedef struct	s_space
 }				t_space;
 
 /*
+** structure de stockage de couleur
+*/
+
+typedef struct		s_color
+{
+	unsigned int	alpha;
+	unsigned int	color;
+	unsigned int	r;
+	unsigned int	g;
+	unsigned int	b;
+}					t_color;
+
+/*
 ** Ray structure
 */
 
@@ -94,21 +107,8 @@ typedef struct	s_ray
 {
 	t_pos		camPos;
 	t_pos		spPos;
-	t_col		col;
+	t_color		*col;
 }				t_ray;
-
-/*
-** structure de stockage de couleur
-*/
-
-typedef struct		s_color
-{
-	unsigned int	alpha;
-	unsigned int	color;
-	unsigned int	r;
-	unsigned int	g;
-	unsigned int	b;
-}					t_color;
 
 /*
 **layer struct

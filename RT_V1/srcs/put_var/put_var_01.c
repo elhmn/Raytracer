@@ -12,7 +12,10 @@ void	put_ray(t_ray ray)
 	ft_putstr("spPos : ");
 	put_pos(ray.spPos);
 	ft_putstr("col :");
-	ft_putnbr(ray.col);
+	if (ray.col)
+		ft_putnbr(ray.col->color);
+	else
+		ft_putnbr(0);
 	ft_putendl("");
 }
 

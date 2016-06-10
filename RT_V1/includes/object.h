@@ -35,7 +35,9 @@ typedef	struct	s_dataCircle
 ** object structure
 */
 
-typedef struct	s_obj
+typedef struct s_obj	t_obj;
+
+struct	s_obj
 {
 	/*
 	** attributs
@@ -46,18 +48,28 @@ typedef struct	s_obj
 
 	t_pos		camPos;
 	t_pos		spPos;
+	t_color		*col;
 
 	/*
 	** functions
 	*/
-	int			(*ifCollision)(t_ray *ray, void *data);
-}				t_obj;
+	float		(*ifCollision)(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
+};
 
 /*
 ** obj_function_00.c
 */
 
-void			*new_obj(int type, void *data, t_pos spPos);
+void			*new_obj(int type, void *data, t_pos spPos, t_color *col);
 
+/*
+** objects collision functions
+*/
+
+/*
+** 		collision_function/sphere_collision.c
+*/
+
+float			sphere_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
 
 #endif

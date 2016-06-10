@@ -22,6 +22,7 @@ OBJFUNC_DIR = obj_functions/
 PUT_DIR = put_var/
 DRAW_DIR = draw/
 RAYTRACER_DIR = raytracer/
+COLL_DIR = collision_functions/
 	
 
 MAIN = main.c
@@ -44,6 +45,8 @@ DRAW = draw.c color.c
 
 RAYTRACER = raytracer.c
 
+COLL = sphere_collision.c 
+
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))
 INITS =  $(addprefix $(INIT_DIR), $(INIT))
@@ -54,12 +57,13 @@ OBJFUNCS =  $(addprefix $(OBJFUNC_DIR), $(OBJFUNC))
 PUTS =  $(addprefix $(PUT_DIR), $(PUT))
 DRAWS =  $(addprefix $(DRAW_DIR), $(DRAW))
 RAYTRACERS =  $(addprefix $(RAYTRACER_DIR), $(RAYTRACER))
+COLLS =  $(addprefix $(COLL_DIR), $(COLL))
 
 SRC_OBJ = $(MAIN) $(ERR) $(INIT) $(MLX) $(POS) $(OBJFUNC) \
-			$(SET) $(PUT) $(DRAW) $(RAYTRACER)
+			$(SET) $(PUT) $(DRAW) $(RAYTRACER) $(COLL)
 
 SRC = 	$(MAINS) $(ERRS) $(INITS) $(MLXS) $(POSS) $(OBJFUNCS) \
-		$(SETS) $(PUTS) $(DRAWS) $(RAYTRACERS)
+		$(SETS) $(PUTS) $(DRAWS) $(RAYTRACERS) $(COLLS)
 		
 
 OBJ = $(SRC_OBJ:.c=.o)
