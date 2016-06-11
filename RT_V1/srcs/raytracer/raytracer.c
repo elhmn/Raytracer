@@ -78,7 +78,7 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	x = c->x - ((pX * (rt->screen->resX + 1)) / 2.) + incX * pX;
 	y = c->y + ((pY * (rt->screen->resY - 1)) / 2.) + incY * pY;
 	z = c->z + rt->camera->dist;
-	set_pos(&(r->camPos), incX, incY, c->z);
+	set_pos(&(r->camPos), incX, incY, z);
 	set_pos(&(r->spPos), x, y, z);
 }
 
