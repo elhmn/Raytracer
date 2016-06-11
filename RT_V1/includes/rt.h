@@ -28,7 +28,7 @@
 
 # define FOV			60
 # define RAD(x)			(x * M_PI) / 180.0
-# define SAFE_DIST		200
+# define SAFE_DIST		200	
 
 typedef unsigned int	t_uint;
 

@@ -42,7 +42,7 @@ double	pos_norme(t_pos pos)
 t_pos	pos_vector(t_pos p1, t_pos p2)
 {
 	t_pos	ret;
-	
+
 	pos_copy(&ret, p2);
 	pos_sub_to_pos(&ret, p1);
 	return (ret);

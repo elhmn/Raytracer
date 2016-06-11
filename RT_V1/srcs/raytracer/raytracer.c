@@ -101,8 +101,8 @@ void		raytracer(t_rt *rt)
 		while (++j < rt->screen->resX)
 		{
 			rt_set_ray_pos(j, i, r[i] + j, rt);
-			if (i == 0) //Debug
-				put_ray(r[i][j]); //Debug
+//			if (i == 0) //Debug
+//				put_ray(r[i][j]); //Debug
 			rt_get_ray_color(r[i] + j, o, rt);
 		}
 	}
