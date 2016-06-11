@@ -11,7 +11,7 @@
 
 static double	delta(t_pos e)
 {
-	return (pow(e.y, 2.) - (4. * e.x * e.z));
+	return (pow(e.y, 2) - (4. * e.x * e.z));
 }
 
 static double	getDist(t_pos e, double delta)
@@ -60,22 +60,23 @@ static double		is_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt)
 			u = pos_normalize(u);
 			v = pos_vector(cam->space.o, obj->spPos);
 //			put_pos(u); //debug
-			e.x = pos_dot_product(u, u); // a
+			e.x = pos_dot_product(u, u);//a
 //	ft_putstr("a = ");
 //	ft_putdbl(e.x); //Debug
 //	ft_putendl("");
-			e.y = 2. * pos_dot_product(u, v);//b
+			e.y = 2 * pos_dot_product(u, v);//b
 //	ft_putstr("b = ");
 //	ft_putdbl(e.y); //Debug
 //	ft_putendl("");
 			e.z = pos_dot_product(v, v) - pow(dat->radius, 2);// c
+
 //	ft_putstr("c = ");
 //	ft_putdbl(e.z); //Debug
 //	ft_putendl("");
 			if ((tmp = delta(e)) < 0.)
 				ret = -1.;
 			else if (tmp == 0.)
-				ret = -1. * e.y / 2. * e.x;
+				ret = -1. * e.y / (2. * e.x);
 			else
 				ret = getDist(e, tmp);
 //			ft_putdbl(tmp);//debug
