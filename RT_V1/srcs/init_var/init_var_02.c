@@ -63,7 +63,6 @@ void	init_objs(t_list **objs)
 		(*objs)->content = new_obj(SPHERE, (void*)data, pos, col);
 		if (!(*objs)->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
-		//set object collision function
 		put_obj((*objs)->content);
 	}
 	ft_putendl("init_objs called"); //Debug

@@ -39,21 +39,14 @@ static void	rt_get_ray_color(t_ray *r, t_list *o, t_rt *rt)
 
 	list = o;
 	d = 3.402823e+38;
-//	pour chaque objet
-//	set distance to inf ou max float
 	while (list != NULL)
 	{
 		obj = (t_obj*)list->content;
 		if (d > (ret = get_distance(r, obj, rt))
 			&& ret >= 0)
 		{
-//			ft_putendl("je suis con"); //debug
 			r->col = obj->col;
 			d = ret;
-		}
-		else if (ret < 0)
-		{
-			r->col = NULL; // replace NULL by black
 		}
 		// if prev_distance < distance
 		// ray colored as the object
