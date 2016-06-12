@@ -25,7 +25,29 @@
 **		- Raytracer
 **		- Realtime events
 **		- Simple Real Time Renderer
-**	+Destroy objects
+**	+Destroy objects (don't forget to do that)
+*/
+
+/*
+**			TO_DO_2
+**	+Create Other Objects
+**		-Plane
+**		-Cylindre
+**		-Cone
+**		-Tore (bonus)
+**	+Camera transformation
+**		-Camera movement
+**		-Camera rotation
+**		-Camera lookAt object
+**	+Create Light source
+**		-Luminosite
+**		-Ombres
+**		-Brillance (bonus)
+**	+MultiSpot (bonus)
+**	+Load those object from file
+**		-Design file format
+**	+Load Scene from file
+**	+Create multiple scene files for Defence at 42
 */
 
 int	main(int ac, char **av)
