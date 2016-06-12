@@ -47,6 +47,7 @@ static void	rt_get_ray_color(t_ray *r, t_list *o, t_rt *rt)
 		if (d > (ret = get_distance(r, obj, rt))
 			&& ret >= 0)
 		{
+//			ft_putendl("je suis con"); //debug
 			r->col = obj->col;
 			d = ret;
 		}

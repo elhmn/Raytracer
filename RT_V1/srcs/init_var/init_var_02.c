@@ -43,12 +43,12 @@ void	init_objs(t_list **objs)
 	//get_sphereData()
 	if (!(data = (t_dataSphere*)malloc(sizeof(t_dataSphere))))
 		check_errors(MALLOC, "init_var_02.c", "data");
-	data->radius = 200.;
+	data->radius = 350.;
 	set_pos(&pos, 0, 0, 0);
 	// simplifier la creation et l initialisation des couleurs
 	if (!(col = (t_color*)malloc(sizeof(t_color))))
 		check_errors(MALLOC, "init_var_02.c", "col");
-	col->color = rgb_to_color(255, 255, 255);
+	col->color = rgb_to_color(255, 255, 00);
 	set_color(col);
 
 	//Load objects properties from a file

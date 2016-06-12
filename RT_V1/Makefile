@@ -43,7 +43,7 @@ PUT = put_var_00.c put_var_01.c
 
 DRAW = draw.c color.c
 
-RAYTRACER = raytracer.c
+RAYTRACER = raytracer.c show.c
 
 COLL = sphere_collision.c 
 

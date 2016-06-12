@@ -256,5 +256,6 @@ void			set_color(t_color *col);
 */
 
 void			raytracer(t_rt *rt);
+void			show(t_rt *rt);
 
 #endif

@@ -26,14 +26,16 @@ static double	getDist(t_pos e, double delta)
 	rd = sqrt(delta);
 	d1 = (-1. * e.y - rd) / q;
 	d2 = (-1. * e.y + rd) / q;
-	ft_putstr("d1 = ");
-	ft_putdbl(d1); //Debug
-	ft_putendl("");
-	ft_putstr("d2 = ");
-	ft_putdbl(d2); //Debug
-	ft_putendl("");
-	ft_putendl("");
-	ft_putendl("");
+
+//	ft_putstr("d1 = ");
+//	ft_putdbl(d1); //Debug
+//	ft_putendl("");
+//	ft_putstr("d2 = ");
+//	ft_putdbl(d2); //Debug
+//	ft_putendl("");
+//	ft_putendl("");
+//	ft_putendl("");
+
 	ret = d1;
 	if (d1 > d2)
 		ret = d2;

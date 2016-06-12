@@ -45,4 +45,3 @@ void		pixel_put_img(t_rt *rt, int x, int y, t_color *col)
 		}
 	}
 }
-

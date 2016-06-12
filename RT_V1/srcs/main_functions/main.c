@@ -58,8 +58,8 @@ int	main(int ac, char **av)
 	put_space(*(rt->space)); //Debug
 	put_camera(*(rt->camera)); //Debug
 	put_screen(*(rt->screen)); //Debug
+	set_img(&(rt->img), rt->env->img, &(rt->lay));
 
-//	set_img(&(rt->img), rt->env->img, &(rt->lay));	
 //	drawSquare(rt); //Debug
 //	mlx_put_image_to_window(rt->env->mlx, rt->env->win, rt->env->img, 0, 0);
 
