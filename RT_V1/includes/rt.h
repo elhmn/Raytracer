@@ -166,6 +166,12 @@ typedef struct s_rt
 }				t_rt;
 
 /*
+** loop.c
+*/
+
+void	loop(t_rt *rt);
+
+/*
 ** mlx_callback_00.c
 */
 

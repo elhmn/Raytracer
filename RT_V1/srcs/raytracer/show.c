@@ -20,7 +20,7 @@ void	show(t_rt *rt)
 			j = -1;
 			while (++j < h)
 			{
-				pixel_put_img(rt, i, j, ray[j][i].col);	
+				pixel_put_img(rt, i, j, ray[j][i].col);
 			}
 		}
 	}

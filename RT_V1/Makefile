@@ -25,7 +25,7 @@ RAYTRACER_DIR = raytracer/
 COLL_DIR = collision_functions/
 	
 
-MAIN = main.c
+MAIN = main.c loop.c
 
 ERR = check_errors.c fun_err_01.c
 
