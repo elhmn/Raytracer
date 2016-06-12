@@ -78,7 +78,7 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	pY = rt->screen->pixelHeight;
 
 	x = c->x - ((pX * (rt->screen->resX + 1)) / 2.) + incX * pX;
-	y = c->y + ((pY * (rt->screen->resY - 1)) / 2.) + incY * pY;
+	y = c->y + ((pY * (rt->screen->resY - 1)) / 2.) - incY * pY;
 	z = c->z + rt->camera->dist;
 	set_pos(&(r->camPos), incX, incY, z);
 	set_pos(&(r->spPos), x, y, z);
@@ -95,8 +95,7 @@ void		raytracer(t_rt *rt)
 	rt_check_error(rt);
 	r = rt->ray;
 	o = rt->objs;
-	(void)o;
-	//pour chaque rayon
+//pour chaque rayon
 	while (++i < rt->screen->resY)
 	{
 		j = -1;

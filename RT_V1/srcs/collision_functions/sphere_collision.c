@@ -27,15 +27,6 @@ static double	getDist(t_pos e, double delta)
 	d1 = (-1. * e.y - rd) / q;
 	d2 = (-1. * e.y + rd) / q;
 
-//	ft_putstr("d1 = ");
-//	ft_putdbl(d1); //Debug
-//	ft_putendl("");
-//	ft_putstr("d2 = ");
-//	ft_putdbl(d2); //Debug
-//	ft_putendl("");
-//	ft_putendl("");
-//	ft_putendl("");
-
 	ret = d1;
 	if (d1 > d2)
 		ret = d2;
@@ -69,49 +60,17 @@ static double		is_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt)
 		if (cam)
 		{
 			u = pos_vector(cam->space.o, ray->spPos);
-//			put_pos(u); //debug
 			u = pos_normalize(u);
 			v = pos_vector(obj->spPos, cam->space.o);
-//			put_pos(u); //debug
 			e.x = pos_dot_product(u, u);//a
-//	ft_putstr("a = ");
-//	ft_putdbl(e.x); //Debug
-//	ft_putendl("");
 			e.y = 2. * pos_dot_product(u, v);//b
-//	ft_putstr("b = ");
-//	ft_putdbl(e.y); //Debug
-//	ft_putendl("");
 			e.z = pos_dot_product(v, v) - pow(dat->radius, 2);// c
-
-//	ft_putstr("c = ");
-//	ft_putdbl(e.z); //Debug
-//	ft_putendl("");
 			if ((tmp = delta(e)) < 0.)
 				ret = -1.;
 			else if (tmp == 0.)
 				ret = (-1. * e.y) / (2. * e.x);
 			else
 				ret = getDist(e, tmp);
-//			ft_putdbl(ret);//debug
-//			ft_putendl("");//debug
-//			if (tmp > 0)
-//			{
-//				ft_putendl("Positif"); //debug
-//				ft_putdbl(tmp); //debug
-//				ft_putendl("");//debug
-//			}
-//			if (tmp < 0)
-//			{
-//				ft_putendl("Negatif"); //debug
-//				ft_putdbl(tmp); //debug
-//				ft_putendl("");//debug
-//			}
-//			if (tmp == 0)
-//			{
-//				ft_putendl("Null"); //debug
-//				ft_putdbl(tmp); //debug
-//				ft_putendl("");//debug
-//			}
 		}
 	}
 	return (ret);
