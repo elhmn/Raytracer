@@ -53,7 +53,8 @@ struct	s_obj
 	/*
 	** functions
 	*/
-	float		(*ifCollision)(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
+
+	double		(*ifCollision)(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
 };
 
 /*
@@ -70,6 +71,6 @@ void			*new_obj(int type, void *data, t_pos spPos, t_color *col);
 ** 		collision_function/sphere_collision.c
 */
 
-float			sphere_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
+double			sphere_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
 
 #endif

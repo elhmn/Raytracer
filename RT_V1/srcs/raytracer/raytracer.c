@@ -34,8 +34,8 @@ static void	rt_get_ray_color(t_ray *r, t_list *o, t_rt *rt)
 {
 	t_list	*list;
 	t_obj	*obj;
-	float	ret;
-	float	d;
+	double	ret;
+	double	d;
 
 	list = o;
 	d = 3.402823e+38;
@@ -48,6 +48,7 @@ static void	rt_get_ray_color(t_ray *r, t_list *o, t_rt *rt)
 			&& ret >= 0)
 		{
 			r->col = obj->col;
+			d = ret;
 		}
 		else if (ret < 0)
 		{
@@ -106,5 +107,5 @@ void		raytracer(t_rt *rt)
 			rt_get_ray_color(r[i] + j, o, rt);
 		}
 	}
-	ft_putendl("raytracer");
+//	ft_putendl("raytracer"); //debug
 }

@@ -41,7 +41,6 @@ typedef struct	s_pos
 	double		x;
 	double		y;
 	double		z;
-
 }				t_pos;
 
 /*
