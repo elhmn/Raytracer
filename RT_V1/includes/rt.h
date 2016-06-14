@@ -15,6 +15,7 @@
 ** s_screen define
 */
 
+//ca segfault lorsque je change la resolution faut que je sache pourquoi
 # define RESX			600
 # define RESY			400
 # define SCREEN_WIDTH	600
