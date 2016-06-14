@@ -13,8 +13,8 @@ void	show(t_rt *rt)
 	if (rt)
 	{
 		i = -1;
-		w = rt->screen->width;
-		h = rt->screen->height;
+		w = rt->screen->resX;
+		h = rt->screen->resY;
 		while (++i < w)
 		{
 			j = -1;
