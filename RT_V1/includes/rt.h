@@ -16,6 +16,8 @@
 */
 
 //ca segfault lorsque je change la resolution faut que je sache pourquoi
+//Il me semble que pour resoudre ce probleme il suffit de changer dans la fonction show
+// w et h de sorte que w = RESX , h = RESY
 # define RESX			600
 # define RESY			400
 # define SCREEN_WIDTH	600
