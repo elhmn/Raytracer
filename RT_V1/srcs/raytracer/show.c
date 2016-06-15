@@ -1,6 +1,12 @@
 #include "rt.h"
 #include "object.h"
 
+/*
+** modifier la fonction show 
+** et y ajouter la gestion
+** de la taille des pixels = pixelRatio
+*/
+
 void	show(t_rt *rt)
 {
 	t_ray	**ray;
