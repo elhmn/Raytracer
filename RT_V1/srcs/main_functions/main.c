@@ -50,7 +50,7 @@
 **	+Create multiple scene files for Defence at 42
 */
 
-int	main(int ac, char **av)
+int		main(int ac, char **av)
 {
 	t_rt		*rt;
 	
