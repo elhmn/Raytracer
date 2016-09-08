@@ -24,11 +24,3 @@ void	ft_lstadd_end(t_list **alst, t_list *new)
 	alst = &list_tmp;
 	(*alst)->next = new;
 }
-
-/*
-t_list	*ft_lstadd_end(t_list **alst, t_list *new)
-{
-	(*alst)->next = new;
-	return (new);
-}
-*/

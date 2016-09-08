@@ -2,6 +2,7 @@
 #include "object.h"
 
 /*
+** i will solve that issue later
 ** modifier la fonction show 
 ** et y ajouter la gestion
 ** de la taille des pixels = pixelRatio
@@ -23,11 +24,9 @@ void	show(t_rt *rt)
 		h = rt->screen->resY;
 		while (++i < w)
 		{
-			j = -1;
-			while (++j < h)
-			{
-				pixel_put_img(rt, i, j, ray[j][i].col);
-			}
+				j = -1;
+				while (++j < h)
+						pixel_put_img(rt, i, j, &(ray[j][i].col));
 		}
 	}
 }

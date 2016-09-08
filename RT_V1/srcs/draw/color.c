@@ -12,6 +12,15 @@
 
 #include "rt.h"
 
+t_color			get_color(t_uint r, t_uint g, t_uint b)
+{
+	t_color		col;
+
+	col.color = rgb_to_color(r, g, b);
+	set_color(&col);
+	return (col);
+}
+
 void			set_color(t_color *col)
 {
 	if (col)

@@ -48,7 +48,7 @@ struct	s_obj
 
 	t_pos		camPos;
 	t_pos		spPos;
-	t_color		*col;
+	t_color		col;
 
 	/*
 	** functions
@@ -61,7 +61,14 @@ struct	s_obj
 ** obj_function_00.c
 */
 
-void			*new_obj(int type, void *data, t_pos spPos, t_color *col);
+void			*new_obj(int type, void *data, t_pos spPos, t_color col);
+
+/*
+** obj_function_01.c
+*/
+
+t_obj			*newSphere(t_pos spPos, int radius, t_color col);
+
 
 /*
 ** objects collision functions

@@ -106,7 +106,7 @@ typedef struct	s_ray
 {
 	t_pos		camPos;
 	t_pos		spPos;
-	t_color		*col;
+	t_color		col;
 }				t_ray;
 
 /*
@@ -232,6 +232,7 @@ void			pos_add_to_number(t_pos *pos, double nbr);
 void			pos_sub_to_number(t_pos *pos, double nbr);
 void			pos_mult_to_number(t_pos *pos, double nbr);
 void			pos_div_to_number(t_pos *pos, double nbr);
+t_pos			get_pos(double x, double y, double z);
 
 /*
 ** pos_function_02.c
@@ -254,6 +255,7 @@ void			pixel_put_img(t_rt *rt, int x, int y, t_color *col);
 ** color.c
 */
 
+t_color			get_color(t_uint r, t_uint g, t_uint b);
 t_uint			rgb_to_color(t_uint r, t_uint g, t_uint b);
 void			set_color(t_color *col);
 
