@@ -24,9 +24,9 @@ void	show(t_rt *rt)
 		h = rt->screen->resY;
 		while (++i < w)
 		{
-				j = -1;
-				while (++j < h)
-						pixel_put_img(rt, i, j, &(ray[j][i].col));
+			j = -1;
+			while (++j < h)
+				pixel_put_img(rt, i, j, &(ray[j][i].col));
 		}
 	}
 }

@@ -16,7 +16,7 @@ void	put_ray(t_ray ray)
 	ft_putendl("");
 }
 
-void	put_sphere(t_dataSphere *data)
+void	put_dataSphere(t_dataSphere *data)
 {
 	t_dataSphere *sp;
 
@@ -25,9 +25,22 @@ void	put_sphere(t_dataSphere *data)
 	{
 		ft_putstr("radius =  [");
 		ft_putdbl(sp->radius);
-		ft_putendl("");
+		ft_putendl("]");
 	}
 }
+
+void	put_dataPlane(t_dataPlane *data)
+{
+	t_dataPlane	*pl;
+
+	pl = (t_dataPlane*)data;
+	if (pl)
+	{
+		ft_putstr("v_normal -> ");
+		put_pos(pl->v_normal);
+	}
+}
+
 
 void	put_type(int type)
 {
@@ -51,9 +64,12 @@ void	put_obj(void *obj)
 		put_pos(o->camPos);
 		ft_putstr("spPos -> ");
 		put_pos(o->spPos);
-		//put Data for each type //Debug
+		//put Data for each type //Debug 
+		//clean that code to avoid if forest
 		if (o->type == SPHERE)
-			put_sphere(o->data);
+			put_dataSphere(o->data);
+		if (o->type == PLANE)
+			put_dataPlane(o->data);
 		ft_putendl("\n}\n");
 	}
 }

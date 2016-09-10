@@ -6,7 +6,7 @@
 
 void	loop(t_rt *rt)
 {
-	ft_putendl("loop_hook enter"); //Debug
+//	ft_putendl("loop_hook enter"); //Debug
 	if (rt)
 	{
 		raytracer(rt);
@@ -21,5 +21,5 @@ void	loop(t_rt *rt)
 		else
 			check_errors(NUL, "loop.c", "rt->env struct");
 	}
-	ft_putendl("loop_hook exit"); //Debug
+//	ft_putendl("loop_hook exit"); //Debug
 }

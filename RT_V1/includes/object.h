@@ -31,6 +31,11 @@ typedef	struct	s_dataCircle
 	double		radius;
 }				t_dataCircle;
 
+typedef struct	s_dataPlane
+{
+	t_pos		v_normal;
+}				t_dataPlane;
+
 /*
 ** object structure
 */
@@ -55,6 +60,11 @@ struct	s_obj
 	*/
 
 	double		(*ifCollision)(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
+
+	/*
+	** Later i want each object to have their own
+	** 3D base vector like when as mod1 objects
+	*/
 };
 
 /*

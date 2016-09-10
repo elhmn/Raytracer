@@ -26,7 +26,6 @@ void	*new_obj(int type, void	*data, t_pos spPos, t_color col)
 	{
 		obj->type = PLANE;
 	}
-
 	set_pos(&(obj->spPos), spPos.x, spPos.y, spPos.z);
 	set_pos(&(obj->camPos), 0, 0, 0);
 	obj->data = data;
