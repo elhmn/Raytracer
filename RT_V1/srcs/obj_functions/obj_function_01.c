@@ -25,6 +25,17 @@ t_obj	*newSphere(t_pos spPos, int radius, t_color col)
 	return (sphere);
 }
 
+
+/*
+** get the d from : ax + by + cz + d = 0
+*/
+
+double	get_d(t_pos v_normal)
+{
+	(void)v_normal;
+	return (0);
+}
+
 t_obj	*newPlane(t_pos spPos, t_pos v_normal, t_color col)
 {
 	t_obj			*plane;
@@ -37,6 +48,7 @@ t_obj	*newPlane(t_pos spPos, t_pos v_normal, t_color col)
 	if (!(data = (t_dataPlane*)malloc(sizeof(t_dataPlane))))
 			check_errors(MALLOC, "data", "obj_function_01.c");
 	data->v_normal = v_normal;
+	data->d = get_d(v_normal);
 	plane->data = (void*)data;
 	plane->type = PLANE;
 	plane->col = col;
@@ -45,7 +57,6 @@ t_obj	*newPlane(t_pos spPos, t_pos v_normal, t_color col)
 	set_pos(&(plane->camPos), 0, 0, 0);
 	return (plane);
 }
-
 
 /*
 ** function a ameliorer (function below)
