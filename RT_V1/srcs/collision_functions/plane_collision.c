@@ -25,12 +25,13 @@ static double		is_collision(t_ray *ray, t_dataPlane *data,
 								t_obj *obj, t_rt *rt)
 {
 	double		ret;
-	double		d;
+//	double		d;
 	double		denom;
 	double		enume;
 	t_pos		n;//vector
 	t_pos		rd;//vector
 	t_pos		ro;//vector
+	t_pos		po;
 	t_camera	*cam;
 
 	ret = -1;
@@ -39,16 +40,20 @@ static double		is_collision(t_ray *ray, t_dataPlane *data,
 		cam = rt->camera;
 		if (cam)
 		{
-			d = data->d;
+//			d = data->d;
 			n = pos_normalize(data->v_normal);
 			rd = pos_normalize(pos_vector(cam->space.o, ray->spPos));
-			ro = pos_normalize(cam->space.o);
-			enume = - (n.x * ro.x + n.y * ro.y + n.z * ro.z + d);
-			denom = n.x * rd.x + n.y * rd.y + rd.z * n.z;
-			if (denom < 1e-6)
+			ro = cam->space.o;
+			po = obj->spPos;
+			denom = pos_dot_product(n, rd);
+			if (denom > 1e-6)
 			{
+				pos_sub_to_pos(&po, ro);
+				pos_normalize(po);
+				//maybe normalized
+				enume = pos_dot_product(n, po);
 				ret = (enume) / (denom);
-//				ft_putendl("Exist !!"); //Debug
+	//			ft_putendl("Exist !!"); //Debug
 			}
 			else
 				ret = -1;
