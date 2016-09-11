@@ -38,6 +38,9 @@ void	put_dataPlane(t_dataPlane *data)
 	{
 		ft_putstr("v_normal -> ");
 		put_pos(pl->v_normal);
+		ft_putstr("d = [");
+		ft_putdbl(pl->d);
+		ft_putendl("]");
 	}
 }
 
@@ -46,6 +49,8 @@ void	put_type(int type)
 {
 	if (type == SPHERE)
 		ft_putstr("Sphere");
+	else if (type == PLANE)
+		ft_putstr("Plane");
 	else
 		ft_putstr("Unknown");
 }

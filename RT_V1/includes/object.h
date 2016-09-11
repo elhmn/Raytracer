@@ -78,7 +78,7 @@ void			*new_obj(int type, void *data, t_pos spPos, t_color col);
 ** obj_function_01.c
 */
 
-double			get_d(t_pos v_normal);
+double			get_d(t_pos n, t_pos p);
 t_obj			*newSphere(t_pos spPos, int radius, t_color col);
 t_obj			*newPlane(t_pos spPos, t_pos v_normal, t_color col);
 
@@ -91,5 +91,6 @@ t_obj			*newPlane(t_pos spPos, t_pos v_normal, t_color col);
 */
 
 double			sphere_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
+double			plane_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
 
 #endif

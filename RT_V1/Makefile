@@ -45,7 +45,7 @@ DRAW = draw.c color.c
 
 RAYTRACER = raytracer.c show.c
 
-COLL = sphere_collision.c 
+COLL = sphere_collision.c plane_collision.c
 
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))
