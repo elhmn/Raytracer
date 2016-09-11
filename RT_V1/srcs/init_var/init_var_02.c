@@ -69,7 +69,7 @@ void	init_objs(t_list **objs)
 		
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
-		tmp->content = newPlane(get_pos(0, 0, 0), get_pos(1, 0, 1), get_color(255, 255, 0));
+		tmp->content = newPlane(get_pos(0, 0,0), get_pos(0, 1, 1), get_color(0, 0, 255));
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);

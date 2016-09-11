@@ -41,13 +41,13 @@ static double	getDist(t_pos e, double delta)
 //	return (pos_add_to_pos(&pos, u));
 //}
 
-static double		is_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt)
+static double		is_collision(t_ray *ray, t_dataSphere *data,
+								t_obj *obj, t_rt *rt)
 {
 	double			ret;
 	t_camera		*cam;
-	t_pos			u; //vector
-	t_pos			v; //vector
-	t_dataSphere	*dat;
+	t_pos			u;//vector
+	t_pos			v;//vector
 	t_pos			e;
 	double			tmp;
 
@@ -55,7 +55,6 @@ static double		is_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt)
 	if (rt && data)
 	{
 		cam = rt->camera;
-		dat = (t_dataSphere*)data;
 		if (cam)
 		{
 			u = pos_vector(cam->space.o, ray->spPos);
@@ -63,7 +62,7 @@ static double		is_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt)
 			v = pos_vector(obj->spPos, cam->space.o);
 			e.x = pos_dot_product(u, u);//a
 			e.y = 2. * pos_dot_product(u, v);//b
-			e.z = pos_dot_product(v, v) - pow(dat->radius, 2);// c
+			e.z = pos_dot_product(v, v) - pow(data->radius, 2);// c
 			if ((tmp = delta(e)) < 0.)
 				ret = -1.;
 			else if (tmp == 0.)
@@ -84,10 +83,9 @@ double		sphere_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt)
 	dat = (t_dataSphere*)data;
 	if (ray && dat && rt && obj)
 	{
-		d = is_collision(ray, data, obj, rt);
+		d = is_collision(ray, dat, obj, rt);
 		//determiner si il y a des points d'intersection
 		//determiner si les points 
 	}
-//	ft_putendl("sphere collision"); //Debug
 	return (d);
 }
