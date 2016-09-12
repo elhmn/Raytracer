@@ -37,7 +37,7 @@ POS = pos_function_00.c pos_function_01.c pos_function_02.c pos_function_03.c
 
 SET = set_var_00.c
 
-OBJFUNC = obj_function_00.c obj_function_01.c
+OBJFUNC = obj_function_00.c obj_function_01.c obj_function_02.c
 
 PUT = put_var_00.c put_var_01.c
 

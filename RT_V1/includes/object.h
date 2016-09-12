@@ -82,6 +82,12 @@ t_obj			*newSphere(t_pos spPos, int radius, t_color col);
 t_obj			*newPlane(t_pos spPos, t_pos v_normal, t_color col);
 
 /*
+** obj_function_01.c
+*/
+
+void			rot_plane(t_obj *plane, t_pos r);
+
+/*
 ** objects collision functions
 */
 
