@@ -52,6 +52,11 @@ void	put_type(int type)
 		ft_putstr("Unknown");
 }
 
+/*
+** put Data for each type //Debug 
+** clean that code to avoid if forest
+*/
+
 void	put_obj(void *obj)
 {
 	t_obj		*o;
@@ -66,8 +71,6 @@ void	put_obj(void *obj)
 		put_pos(o->camPos);
 		ft_putstr("spPos -> ");
 		put_pos(o->spPos);
-		//put Data for each type //Debug 
-		//clean that code to avoid if forest
 		if (o->type == SPHERE)
 			put_dataSphere(o->data);
 		if (o->type == PLANE)

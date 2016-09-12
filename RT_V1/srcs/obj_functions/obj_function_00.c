@@ -4,7 +4,10 @@
 #include "check_errors.h"
 #include <stdlib.h>
 
-//this function has to be code properly or deleted
+/*
+** this function has to be code properly or deleted
+*/
+
 void	*new_obj(int type, void	*data, t_pos spPos, t_color col)
 {
 	t_obj		*obj;

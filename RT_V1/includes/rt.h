@@ -248,10 +248,11 @@ double			pos_norme(t_pos pos);
 ** pos_function_03.c
 */
 
-void			pos_rot_x(t_pos o, double r);
-void			pos_rot_y(t_pos o, double r);
-void			pos_rot_z(t_pos o, double r);
-void			pos_rot_xyz(t_pos o, double rx, double ry, double rz);
+void			pos_rot_x(t_pos *src, t_pos o, double r);
+void			pos_rot_y(t_pos *src, t_pos o, double r);
+void			pos_rot_z(t_pos *src, t_pos o, double r);
+void			pos_rot_xyz(t_pos *src, t_pos o, t_pos r);
+double			deg_to_rad(double r);
 
 /*
 ** draw.c

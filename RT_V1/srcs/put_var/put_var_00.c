@@ -29,7 +29,9 @@ void		put_base(t_base base)
 	put_pos(base.k);
 }
 
-// do the same thing with the function bellow
+/*
+** do the same thing with the function bellow
+*/
 
 void		put_camera(t_camera camera)
 {

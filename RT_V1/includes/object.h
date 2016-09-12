@@ -86,7 +86,7 @@ t_obj			*newPlane(t_pos spPos, t_pos v_normal, t_color col);
 */
 
 /*
-** 		collision_function/sphere_collision.c
+** 	collision_function/sphere_collision.c
 */
 
 double			sphere_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
