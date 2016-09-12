@@ -9,55 +9,33 @@
 ** plane collision function
 */
 
-/*
-static double		onPlane(t_pos n, double d, t_pos r)
-{
-	double		tmp;
-
-	tmp = n.x * r.x + n.y * r.y + n.z * r.z + d;
-	if (tmp == 0)
-		tmp = 0;
-	return (tmp);
-}
-*/
-
 static double		is_collision(t_ray *ray, t_dataPlane *data,
 								t_obj *obj, t_rt *rt)
 {
 	double		ret;
-//	double		d;
 	double		denom;
 	double		enume;
-	t_pos		n;//vector
-	t_pos		rd;//vector
-	t_pos		ro;//vector
+	t_pos		n;
+	t_pos		rd;
+	t_pos		ro;
 	t_pos		po;
 	t_camera	*cam;
 
 	ret = -1;
-	if (ray && data && obj && rt)
+	if (ray && data && obj && rt && rt->camera)
 	{
 		cam = rt->camera;
-		if (cam)
+		n = pos_normalize(data->v_normal);
+		rd = pos_normalize(pos_vector(cam->space.o, ray->spPos));
+		ro = cam->space.o;
+		po = obj->spPos;
+		denom = pos_dot_product(n, rd);
+		if (denom > 1e-6)
 		{
-//			d = data->d;
-			n = pos_normalize(data->v_normal);
-			rd = pos_normalize(pos_vector(cam->space.o, ray->spPos));
-			ro = cam->space.o;
-			po = obj->spPos;
-			denom = pos_dot_product(n, rd);
-			if (denom > 1e-6)
-			{
-				pos_sub_to_pos(&po, ro);
-				pos_normalize(po);
-				//maybe normalized
-				enume = pos_dot_product(n, po);
-				ret = (enume) / (denom);
-	//			ft_putendl("Exist !!"); //Debug
-			}
-			else
-				ret = -1;
-
+			pos_sub_to_pos(&po, ro);
+			pos_normalize(po);
+			enume = pos_dot_product(n, po);
+			ret = (enume) / (denom);
 		}
 	}
 	return (ret);

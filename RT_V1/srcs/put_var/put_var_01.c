@@ -38,9 +38,6 @@ void	put_dataPlane(t_dataPlane *data)
 	{
 		ft_putstr("v_normal -> ");
 		put_pos(pl->v_normal);
-		ft_putstr("d = [");
-		ft_putdbl(pl->d);
-		ft_putendl("]");
 	}
 }
 

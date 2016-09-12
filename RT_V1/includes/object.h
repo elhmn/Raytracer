@@ -34,7 +34,6 @@ typedef	struct	s_dataCircle
 typedef struct	s_dataPlane
 {
 	t_pos		v_normal;
-	double		d;
 }				t_dataPlane;
 
 /*
