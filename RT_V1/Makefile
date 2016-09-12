@@ -33,7 +33,7 @@ INIT = init_var_00.c init_var_01.c init_var_02.c
 
 MLX = mlx_callback_00.c
 
-POS = pos_function_00.c pos_function_01.c pos_function_02.c
+POS = pos_function_00.c pos_function_01.c pos_function_02.c pos_function_03.c
 
 SET = set_var_00.c
 

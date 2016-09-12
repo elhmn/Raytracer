@@ -244,6 +244,14 @@ t_pos			pos_vector(t_pos p1, t_pos p2);
 t_pos			pos_normalize(t_pos pos);
 double			pos_norme(t_pos pos);
 
+/*
+** pos_function_03.c
+*/
+
+void			pos_rot_x(t_pos o, double r);
+void			pos_rot_y(t_pos o, double r);
+void			pos_rot_z(t_pos o, double r);
+void			pos_rot_xyz(t_pos o, double rx, double ry, double rz);
 
 /*
 ** draw.c
