@@ -15,31 +15,34 @@ double	deg_to_rad(double r)
 
 void	pos_rot_x(t_pos *src, t_pos o, double r)
 {
-	if (src)
+	if (src && r)
 	{
 		r = deg_to_rad(r);
-		src->y = (src->y - o.y) * cos(r) - (src->z - o.z) * sin(r) + o.y;
-		src->z = (src->y - o.y) * sin(r) + (src->z - o.z) * cos(r) + o.z;
+		src->y = src->y * cos(r) - src->z * sin(r) + o.y;
+		src->z = src->y * sin(r) + src->z * cos(r) + o.z;
+		src->x += o.x;
 	}
 }
 
 void	pos_rot_y(t_pos *src, t_pos o, double r)
 {
-	if (src)
+	if (src && r)
 	{
 		r = deg_to_rad(r);
-		src->x = (src->x - o.x) * cos(r) - (src->z - o.z) * sin(r) + o.x;
-		src->z = (src->x - o.x) * sin(r) + (src->z - o.z) * cos(r) + o.z;
+		src->x = src->x * cos(r) - src->z * sin(r) + o.x;
+		src->z = src->x * sin(r) + src->z * cos(r) + o.z;
+		src->y += o.y;
 	}
 }
 
 void	pos_rot_z(t_pos *src, t_pos o, double r)
 {
-	if (src)
+	if (src && r)
 	{
 		r = deg_to_rad(r);
-		src->x = (src->x - o.x) * cos(r) - (src->y - o.y) * sin(r) + o.x;
-		src->y = (src->x - o.x) * sin(r) + (src->y - o.y) * cos(r) + o.y;
+		src->x = src->x * cos(r) - src->y * sin(r) + o.x;
+		src->y = src->x * sin(r) + src->y * cos(r) + o.y;
+		src->z += o.z;
 	}
 }
 
