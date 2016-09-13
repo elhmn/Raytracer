@@ -2,6 +2,7 @@
 #include "object.h"
 #include "check_errors.h"
 #include "rt.h"
+#include "put_var.h"
 #include <mlx.h>
 #include <stdlib.h>
 #include <math.h>
@@ -19,7 +20,17 @@ void		init_rt(t_rt **rt)
 		init_ray_array(&((*rt)->ray), (*rt)->screen);
 		init_objs(&(*rt)->objs);
 		(*rt)->img = NULL; 
-		rot_camera((*rt)->camera, get_pos(0, 20, 0));//Debug
+		put_pos((*rt)->camera->space.o);
+		put_pos((*rt)->camera->space.i);
+		put_pos((*rt)->camera->space.j);
+		put_pos((*rt)->camera->space.k);
+		rot_camera((*rt)->camera, get_pos(90, 0, 0));//Debug
+		ft_putstr("after \n");
+		put_pos((*rt)->camera->space.o);
+		put_pos((*rt)->camera->space.i);
+		put_pos((*rt)->camera->space.j);
+		put_pos((*rt)->camera->space.k);
+
 	}
 	ft_putendl("init_rt called"); //Debug
 }
@@ -70,7 +81,7 @@ void		init_camera(t_camera **camera, t_screen screen, t_space *space)
 		camera[0]->dist = (double)(screen.pixelWidth * screen.resX)
 		/ (double)(tan(RAD((camera[0]->fieldOfView / 2.)) * 2.));
 		set_base_zero(&(camera[0]->space));
-		set_pos(&(camera[0]->v_up), 0, 1, 0);
+		set_pos(&(camera[0]->v_up), 1, 1, 1);
 		init_camera_base(*camera, &(space->self));
 	}
 	ft_putendl("init_camera called"); //Debug

@@ -4,6 +4,16 @@
 #include "rt.h"
 #include "check_errors.h"
 
+void			copy_pos(t_pos *dst, t_pos src)
+{
+	if (dst)
+	{
+		dst->x = src.x;
+		dst->y = src.y;
+		dst->z = src.z;
+	}
+}
+
 void	set_pos(t_pos *pos, double x, double y, double z)
 {
 	if (pos)

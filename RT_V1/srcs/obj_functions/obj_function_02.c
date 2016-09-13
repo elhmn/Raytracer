@@ -33,8 +33,19 @@ void	rot_camera(t_camera *cam, t_pos r)
 	if (cam)
 	{
 		b = &cam->space;
-		pos_rot_xyz(&(b->i), b->o, r);
-		pos_rot_xyz(&(b->j), b->o, r);
-		pos_rot_xyz(&(b->k), b->o, r);
+		(void)b;
+		(void)r;
+		(void)cam;
+		pos_rot_xyz(&(b->o), get_pos(0, 0, 0), r);
+		pos_rot_xyz(&(b->k), get_pos(0, 0, 0), r);
+//		pos_rot_xyz(&(b->k), b->o, r);
+//		b->k = pos_normalize(b->k);
+		copy_pos(&(b->j), pos_cross_product(b->k, cam->v_up));
+//		b->j = pos_normalize(b->j);
+		copy_pos(&(b->i), pos_cross_product(b->j, b->k));
+///		b->i = pos_normalize(b->i);
+
+//		pos_rot_xyz(&(b->j), b->o, r);
+//		pos_rot_xyz(&(b->k), b->o, r);
 	}
 }

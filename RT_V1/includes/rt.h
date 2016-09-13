@@ -210,6 +210,7 @@ void			init_objs(t_list **objs);
 
 void			set_pos(t_pos *pos, double x,
 				double y, double z);
+void			copy_pos(t_pos *dst, t_pos src);
 void			set_img(char **img, void *voidImg, t_lay *lay);
 
 /*
