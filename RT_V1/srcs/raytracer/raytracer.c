@@ -59,6 +59,55 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 {
 	int		pX;
 	int		pY;
+	t_pos	t; //tmp
+	t_pos	s; //screen
+	t_pos	c; //camera
+	t_pos	n; //gaze direction
+	t_pos	u; //camera->i
+	t_pos	v; //camera->j
+
+	if (!r)
+		check_errors(NUL, "raytracer.c", "r");
+	c = rt->camera->space.o;
+
+	//set camera k i j with cross product
+	//reshape pos function to let them give out put
+	n = pos_normalize(rt->camera->space.k);
+	u = pos_normalize(rt->camera->space.i);
+	v = pos_normalize(rt->camera->space.j);
+
+	(void)u;
+	(void)v;
+	(void)s;
+	pX = rt->screen->pixelWidth;
+	pY = rt->screen->pixelHeight;
+	pos_mult_to_number(&n, rt->camera->dist);
+	pos_sub_to_pos(&c, n);
+
+	t = u;
+	pos_mult_to_number(&t, (pX * (rt->screen->resX + 1)) / 2.);
+	pos_sub_to_pos(&c, t);
+
+	t = v;
+	pos_mult_to_number(&t, (pY * (rt->screen->resY - 1)) / 2.);
+	pos_add_to_pos(&c, t);
+
+	t = u;
+	pos_mult_to_number(&t, incX * pX);
+	pos_add_to_pos(&c, t);
+	t = v;
+	pos_mult_to_number(&t, incY * pY);
+	pos_sub_to_pos(&c, t);
+
+
+//	s = c;
+	//t.x = s.x - ((pX * (rt->screen->resX + 1)) / 2.) + incX * pX;// * u.x;
+//	t.y = s.y + ((pY * (rt->screen->resY - 1)) / 2.) - incY * pY;// * v.y;
+//	t.z = s.z;
+	set_pos(&(r->camPos), incX, incY, c.z);
+	set_pos(&(r->spPos), c.x, c.y, c.z);
+
+	/*
 	double	x;
 	double	y;
 	double	z;
@@ -76,6 +125,7 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	z = c->z + rt->camera->dist;
 	set_pos(&(r->camPos), incX, incY, z);
 	set_pos(&(r->spPos), x, y, z);
+	*/
 }
 
 void		raytracer(t_rt *rt)

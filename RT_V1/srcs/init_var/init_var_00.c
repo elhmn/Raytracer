@@ -19,7 +19,7 @@ void		init_rt(t_rt **rt)
 		init_ray_array(&((*rt)->ray), (*rt)->screen);
 		init_objs(&(*rt)->objs);
 		(*rt)->img = NULL; 
-		rot_camera((*rt)->camera, get_pos(0, 0, 0));//Debug
+		rot_camera((*rt)->camera, get_pos(0, 20, 0));//Debug
 	}
 	ft_putendl("init_rt called"); //Debug
 }
