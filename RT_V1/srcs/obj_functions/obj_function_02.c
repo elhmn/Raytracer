@@ -23,6 +23,7 @@ void	rot_plane(t_obj *plane, t_pos r)
 
 /*
 ** I will work on the camera rotation that later
+** Solve that camera rotation issue later
 */
 
 void	rot_camera(t_camera *cam, t_pos r)
@@ -34,6 +35,7 @@ void	rot_camera(t_camera *cam, t_pos r)
 
 	(void)r;
 	(void)cam;
+	(void)o;
 	if (cam)
 	{
 		o = &cam->spPos;

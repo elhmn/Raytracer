@@ -55,6 +55,7 @@ static void	rt_get_ray_color(t_ray *r, t_list *o, t_rt *rt)
 	}
 }
 
+//that fucking issue stands here
 static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 {
 	int		pX;
@@ -77,6 +78,20 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	v = pos_normalize(rt->camera->v);
 	w = pos_normalize(rt->camera->w);
 
+/*	
+	ft_putstr("u = ");
+	ft_putdbl(pos_norme(u));// Debug
+	ft_putendl("");
+
+	ft_putstr("v = ");
+	ft_putdbl(pos_norme(v));
+	ft_putendl("");
+
+	ft_putstr("w = ");
+	ft_putdbl(pos_norme(u));
+	ft_putendl("");
+*/
+
 	(void)u;
 	(void)v;
 	(void)s;
@@ -86,47 +101,15 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	pos_add_to_pos(&c, w);
 
 	t = u;
-	pos_mult_to_number(&t, (pX * (rt->screen->resX + 1)) / 2.);
-	pos_sub_to_pos(&c, t);
-
-	t = v;
-	pos_mult_to_number(&t, (pY * (rt->screen->resY - 1)) / 2.);
-	pos_add_to_pos(&c, t);
-
-	t = u;
-	pos_mult_to_number(&t, incX * pX);
+	pos_mult_to_number(&t, - ((pX * (rt->screen->resX + 1)) / 2.) + incX * pX);
 	pos_add_to_pos(&c, t);
 
 	t = v;
-	pos_mult_to_number(&t, incY * pY);
-	pos_sub_to_pos(&c, t);
+	pos_mult_to_number(&t, ((pY * (rt->screen->resY - 1)) / 2.) - incY * pY);
+	pos_add_to_pos(&c, t);
 
-//	s = c;
-	//t.x = s.x - ((pX * (rt->screen->resX + 1)) / 2.) + incX * pX;// * u.x;
-//	t.y = s.y + ((pY * (rt->screen->resY - 1)) / 2.) - incY * pY;// * v.y;
-//	t.z = s.z;
 	set_pos(&(r->camPos), incX, incY, c.z);
 	set_pos(&(r->spPos), c.x, c.y, c.z);
-
-	/*
-	double	x;
-	double	y;
-	double	z;
-	t_pos	*c;
-
-	if (!r)
-		check_errors(NUL, "raytracer.c", "r");
-	c = &(rt->camera->space.o);
-	pX = rt->screen->pixelWidth;
-	pY = rt->screen->pixelHeight;
-	// if you want to solve the camera rotation
-	// issue you might check the code below
-	x = c->x - ((pX * (rt->screen->resX + 1)) / 2.) + incX * pX;
-	y = c->y + ((pY * (rt->screen->resY - 1)) / 2.) - incY * pY;
-	z = c->z + rt->camera->dist;
-	set_pos(&(r->camPos), incX, incY, z);
-	set_pos(&(r->spPos), x, y, z);
-	*/
 }
 
 void		raytracer(t_rt *rt)

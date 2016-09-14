@@ -24,7 +24,7 @@ void		init_rt(t_rt **rt)
 		put_pos((*rt)->camera->u);
 		put_pos((*rt)->camera->v);
 		put_pos((*rt)->camera->w);
-		rot_camera((*rt)->camera, get_pos(90, 0, 0));//Debug
+//		rot_camera((*rt)->camera, get_pos(0, 20, 0));//Debug
 		ft_putstr("after \n");
 		put_pos((*rt)->camera->spPos);
 		put_pos((*rt)->camera->u);
@@ -79,7 +79,6 @@ void		init_camera(t_camera **camera, t_screen screen, t_space *space)
 		camera[0]->fieldOfView = FOV;
 		camera[0]->dist = (double)(screen.pixelWidth * screen.resX)
 		/ (double)(tan(RAD((camera[0]->fieldOfView / 2.)) * 2.));
-//		set_base_zero(&(camera[0]->space));
 		set_pos(&(camera[0]->u), 0, 0, 0);
 		set_pos(&(camera[0]->v), 0, 0, 0);
 		set_pos(&(camera[0]->w), 0, 0, 0);

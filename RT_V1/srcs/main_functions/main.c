@@ -50,6 +50,10 @@
 **	+Create multiple scene files for Defence at 42
 */
 
+/*			BUGS
+**	+Camera rotation issue
+*/
+
 int		main(int ac, char **av)
 {
 	t_rt		*rt;
