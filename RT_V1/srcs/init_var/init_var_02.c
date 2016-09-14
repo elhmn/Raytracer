@@ -15,26 +15,26 @@ void	init_ray(t_ray *ray)
 	}
 }
 
-void	init_camera_base(t_camera *cam, t_base *space)
+void	init_camera_base(t_camera *cam)
 {
-	t_base	*base;
+	t_pos		*o;
+	t_pos		*u;
+	t_pos		*v;
+	t_pos		*w;
 
-	base = NULL;
-	if (cam && space)
+	if (cam)
 	{
-		base =  &(cam->space);
-		set_pos(&(base->o), space->o.x, space->o.y,
-		space->o.z - (cam->dist + SAFE_DIST));
-		
-		set_pos(&(base->k), base->o.x, base->o.y, base->o.z + 1);
-		copy_pos(&(base->k), pos_vector(base->o, base->k));
+		o = &(cam->spPos);
+		u = &(cam->u);
+		v = &(cam->v);
+		w = &(cam->w);
+		set_pos(o, o->x, o->y,
+		o->z - (cam->dist + SAFE_DIST));
+		set_pos(w, o->x, o->y, o->z + 1);
+		copy_pos(w, pos_vector(*o, *w));
 
-		copy_pos(&(base->j), pos_cross_product(base->k, cam->v_up));
-		copy_pos(&(base->i), pos_cross_product(base->j, base->k));
-//		set_pos(&(base->i), base->o.x + 1, base->o.y, base->o.z);
-
-//		set_pos(&(base->j), base->o.x, base->o.y + 1, base->o.z);
-
+		copy_pos(v, pos_cross_product(*w, cam->v_up));
+		copy_pos(u, pos_cross_product(*v, *w));
 	}
 }
 

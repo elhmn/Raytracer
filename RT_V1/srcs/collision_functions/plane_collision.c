@@ -26,8 +26,8 @@ static double		is_collision(t_ray *ray, t_dataPlane *data,
 	{
 		cam = rt->camera;
 		n = pos_normalize(data->v_normal);
-		rd = pos_normalize(pos_vector(cam->space.o, ray->spPos));
-		ro = cam->space.o;
+		rd = pos_normalize(pos_vector(cam->spPos, ray->spPos));
+		ro = cam->spPos;
 		po = obj->spPos;
 		denom = pos_dot_product(n, rd);
 		if (denom > 1e-6)

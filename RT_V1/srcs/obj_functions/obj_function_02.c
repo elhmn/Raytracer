@@ -27,25 +27,22 @@ void	rot_plane(t_obj *plane, t_pos r)
 
 void	rot_camera(t_camera *cam, t_pos r)
 {
-	t_base	*b;
+	t_pos	*o;
+	t_pos	*u;
+	t_pos	*v;
+	t_pos	*w;
 
-	b = NULL;
+	(void)r;
+	(void)cam;
 	if (cam)
 	{
-		b = &cam->space;
-		(void)b;
-		(void)r;
-		(void)cam;
-		pos_rot_xyz(&(b->o), get_pos(0, 0, 0), r);
-		pos_rot_xyz(&(b->k), get_pos(0, 0, 0), r);
-//		pos_rot_xyz(&(b->k), b->o, r);
-//		b->k = pos_normalize(b->k);
-		copy_pos(&(b->j), pos_cross_product(b->k, cam->v_up));
-//		b->j = pos_normalize(b->j);
-		copy_pos(&(b->i), pos_cross_product(b->j, b->k));
-///		b->i = pos_normalize(b->i);
-
-//		pos_rot_xyz(&(b->j), b->o, r);
-//		pos_rot_xyz(&(b->k), b->o, r);
+		o = &cam->spPos;
+		u = &cam->u;
+		v = &cam->v;
+		w = &cam->w;
+		pos_rot_xyz(o, get_pos(0, 0, 0), r);
+		pos_rot_xyz(w, get_pos(0, 0, 0), r);
+		copy_pos(v, pos_cross_product(*w, cam->v_up));
+		copy_pos(u, pos_cross_product(*v, *w));
 	}
 }

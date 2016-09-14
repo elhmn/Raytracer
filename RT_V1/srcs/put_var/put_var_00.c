@@ -36,11 +36,15 @@ void		put_base(t_base base)
 void		put_camera(t_camera camera)
 {
 	ft_putstr("CAMERA \n{\n");
-	ft_putstr("\nself \n{\n");
-	put_base(camera.self);
-	ft_putstr("}\n");
 	ft_putstr("\nspace \n{\n");
-	put_base(camera.space);
+	ft_putstr("pos -> ");
+	put_pos(camera.spPos);
+	ft_putstr("\nu -> ");
+	put_pos(camera.u);
+	ft_putstr("\nv -> ");
+	put_pos(camera.v);
+	ft_putstr("\nw -> ");
+	put_pos(camera.w);
 	ft_putstr("}\n");
 	ft_putstr("\nv_up \n{\n");
 	put_pos(camera.v_up);
