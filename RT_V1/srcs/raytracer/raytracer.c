@@ -61,9 +61,7 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	int		pX;
 	int		pY;
 	t_pos	t; //tmp
-	t_pos	s; //screen
 	t_pos	c; //camera
-
 	t_pos	u; //camera->i
 	t_pos	v; //camera->j
 	t_pos	w; //gaze direction
@@ -77,24 +75,6 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	u = pos_normalize(rt->camera->u);
 	v = pos_normalize(rt->camera->v);
 	w = pos_normalize(rt->camera->w);
-
-/*	
-	ft_putstr("u = ");
-	ft_putdbl(pos_norme(u));// Debug
-	ft_putendl("");
-
-	ft_putstr("v = ");
-	ft_putdbl(pos_norme(v));
-	ft_putendl("");
-
-	ft_putstr("w = ");
-	ft_putdbl(pos_norme(u));
-	ft_putendl("");
-*/
-
-	(void)u;
-	(void)v;
-	(void)s;
 	pX = rt->screen->pixelWidth;
 	pY = rt->screen->pixelHeight;
 	pos_mult_to_number(&w, rt->camera->dist);

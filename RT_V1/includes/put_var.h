@@ -24,4 +24,10 @@ void			put_type(int type);
 void			put_obj(void *obj);
 void			put_dataPlane(t_dataPlane *data);
 
+/*
+** put_var_02.c
+*/
+
+void			put_var_dbl(char *var, double val);
+
 #endif

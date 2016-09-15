@@ -24,7 +24,7 @@ void		init_rt(t_rt **rt)
 		put_pos((*rt)->camera->u);
 		put_pos((*rt)->camera->v);
 		put_pos((*rt)->camera->w);
-//		rot_camera((*rt)->camera, get_pos(0, 20, 0));//Debug
+		rot_camera((*rt)->camera, get_pos(45, 45, 0));//Debug
 		ft_putstr("after \n");
 		put_pos((*rt)->camera->spPos);
 		put_pos((*rt)->camera->u);
@@ -84,6 +84,7 @@ void		init_camera(t_camera **camera, t_screen screen, t_space *space)
 		set_pos(&(camera[0]->w), 0, 0, 0);
 		set_pos(&(camera[0]->v_up), 1, 1, 1);
 		init_camera_base(*camera);
+//		camera[0]->isRot = 0;
 	}
 	ft_putendl("init_camera called"); //Debug
 }

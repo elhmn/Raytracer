@@ -10,38 +10,53 @@
 
 double	deg_to_rad(double r)
 {
-	return ((double)(r * M_PI) / (double)180.);
+	return ((double)((double)r * (double)M_PI) / (double)180.);
 }
 
 void	pos_rot_x(t_pos *src, t_pos o, double r)
 {
+	double	y;
+	double	z;
+
 	if (src && r)
 	{
-		r = deg_to_rad(r);
-		src->y = src->y * cos(r) - src->z * sin(r) + o.y;
-		src->z = src->y * sin(r) + src->z * cos(r) + o.z;
+		y = src->y;
+		z = src->z;
+		r = RAD(r);
+		src->y = y * cos(r) - z * sin(r) + o.y;
+		src->z = y * sin(r) + z * cos(r) + o.z;
 		src->x += o.x;
 	}
 }
 
 void	pos_rot_y(t_pos *src, t_pos o, double r)
 {
+	double	z;
+	double	x;
+
 	if (src && r)
 	{
-		r = deg_to_rad(r);
-		src->x = src->x * cos(r) - src->z * sin(r) + o.x;
-		src->z = src->x * sin(r) + src->z * cos(r) + o.z;
+		z = src->z;
+		x = src->x;
+		r = RAD(r);
+		src->z = z * cos(r) - x * sin(r) + o.z;
+		src->x = z * sin(r) + x * cos(r) + o.x;
 		src->y += o.y;
 	}
 }
 
 void	pos_rot_z(t_pos *src, t_pos o, double r)
 {
+	double	x;
+	double	y;
+
 	if (src && r)
 	{
-		r = deg_to_rad(r);
-		src->x = src->x * cos(r) - src->y * sin(r) + o.x;
-		src->y = src->x * sin(r) + src->y * cos(r) + o.y;
+		x = src->x;
+		y = src->y;
+		r = RAD(r);
+		src->x = x * cos(r) - y * sin(r) + o.x;
+		src->y = x * sin(r) + y * cos(r) + o.y;
 		src->z += o.z;
 	}
 }

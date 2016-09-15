@@ -2,6 +2,7 @@
 #include "object.h"
 #include "libft.h"
 #include "check_errors.h"
+#include "put_var.h"
 #include <stdlib.h>
 
 /*
@@ -44,7 +45,18 @@ void	rot_camera(t_camera *cam, t_pos r)
 		w = &cam->w;
 		pos_rot_xyz(o, get_pos(0, 0, 0), r);
 		pos_rot_xyz(w, get_pos(0, 0, 0), r);
-		copy_pos(v, pos_cross_product(*w, cam->v_up));
-		copy_pos(u, pos_cross_product(*v, *w));
+		pos_rot_xyz(u, get_pos(0, 0, 0), r);
+		pos_rot_xyz(v, get_pos(0, 0, 0), r);
+//		copy_pos(v, pos_cross_product(*w, cam->v_up));
+//		copy_pos(u, pos_cross_product(*v, *w));
+		put_var_dbl("w", pos_norme(*w));
+		put_var_dbl("u", pos_norme(*u));
+		put_var_dbl("v", pos_norme(*v));
+		*u = pos_normalize(*u);
+		*v = pos_normalize(*v);
+		*w = pos_normalize(*w);
+		put_var_dbl("w", pos_norme(*w));
+		put_var_dbl("u", pos_norme(*u));
+		put_var_dbl("v", pos_norme(*v));
 	}
 }

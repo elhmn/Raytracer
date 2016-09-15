@@ -39,7 +39,7 @@ SET = set_var_00.c
 
 OBJFUNC = obj_function_00.c obj_function_01.c obj_function_02.c
 
-PUT = put_var_00.c put_var_01.c
+PUT = put_var_00.c put_var_01.c put_var_02.c
 
 DRAW = draw.c color.c
 
