@@ -8,11 +8,6 @@
 ** rotation de centre o et d'angle r en degre
 */
 
-double	deg_to_rad(double r)
-{
-	return ((double)((double)r * (double)M_PI) / (double)180.);
-}
-
 void	pos_rot_x(t_pos *src, t_pos o, double r)
 {
 	double	y;

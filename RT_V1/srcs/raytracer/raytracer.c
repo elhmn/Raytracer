@@ -55,23 +55,19 @@ static void	rt_get_ray_color(t_ray *r, t_list *o, t_rt *rt)
 	}
 }
 
-//that fucking issue stands here
 static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 {
 	int		pX;
 	int		pY;
-	t_pos	t; //tmp
-	t_pos	c; //camera
-	t_pos	u; //camera->i
-	t_pos	v; //camera->j
-	t_pos	w; //gaze direction
+	t_pos	t;
+	t_pos	c;
+	t_pos	u;
+	t_pos	v;
+	t_pos	w;
 
 	if (!r)
 		check_errors(NUL, "raytracer.c", "r");
 	c = rt->camera->spPos;
-
-	//set camera k i j with cross product
-	//reshape pos function to let them give out put
 	u = pos_normalize(rt->camera->u);
 	v = pos_normalize(rt->camera->v);
 	w = pos_normalize(rt->camera->w);
@@ -79,15 +75,12 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	pY = rt->screen->pixelHeight;
 	pos_mult_to_number(&w, rt->camera->dist);
 	pos_add_to_pos(&c, w);
-
 	t = u;
 	pos_mult_to_number(&t, - ((pX * (rt->screen->resX + 1)) / 2.) + incX * pX);
 	pos_add_to_pos(&c, t);
-
 	t = v;
 	pos_mult_to_number(&t, ((pY * (rt->screen->resY - 1)) / 2.) - incY * pY);
 	pos_add_to_pos(&c, t);
-
 	set_pos(&(r->camPos), incX, incY, c.z);
 	set_pos(&(r->spPos), c.x, c.y, c.z);
 }

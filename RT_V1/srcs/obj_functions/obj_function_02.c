@@ -22,11 +22,6 @@ void	rot_plane(t_obj *plane, t_pos r)
 	}
 }
 
-/*
-** I will work on the camera rotation that later
-** Solve that camera rotation issue later
-*/
-
 void	rot_camera(t_camera *cam, t_pos r)
 {
 	t_pos	*o;
@@ -34,9 +29,6 @@ void	rot_camera(t_camera *cam, t_pos r)
 	t_pos	*v;
 	t_pos	*w;
 
-	(void)r;
-	(void)cam;
-	(void)o;
 	if (cam)
 	{
 		o = &cam->spPos;
@@ -47,16 +39,11 @@ void	rot_camera(t_camera *cam, t_pos r)
 		pos_rot_xyz(w, get_pos(0, 0, 0), r);
 		pos_rot_xyz(u, get_pos(0, 0, 0), r);
 		pos_rot_xyz(v, get_pos(0, 0, 0), r);
-//		copy_pos(v, pos_cross_product(*w, cam->v_up));
-//		copy_pos(u, pos_cross_product(*v, *w));
-		put_var_dbl("w", pos_norme(*w));
-		put_var_dbl("u", pos_norme(*u));
-		put_var_dbl("v", pos_norme(*v));
 		*u = pos_normalize(*u);
 		*v = pos_normalize(*v);
 		*w = pos_normalize(*w);
-		put_var_dbl("w", pos_norme(*w));
-		put_var_dbl("u", pos_norme(*u));
-		put_var_dbl("v", pos_norme(*v));
+//		put_var_dbl("w", pos_norme(*w));
+//		put_var_dbl("u", pos_norme(*u));
+//		put_var_dbl("v", pos_norme(*v));
 	}
 }

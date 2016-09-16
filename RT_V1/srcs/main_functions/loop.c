@@ -5,23 +5,6 @@
 #include "put_var.h"
 #include "check_errors.h"
 
-//Debug
-/*
-static void	put_rays(t_ray **ray)
-{
-	int		i;
-	int		j;
-
-	i = -1;
-	while (++i < 50)
-	{
-		j = -1;
-		while (++j < 50)
-			put_ray(ray[i][j]);
-	}
-}
-*/
-
 void	loop(t_rt *rt)
 {
 //	ft_putendl("loop_hook enter"); //Debug
@@ -29,7 +12,6 @@ void	loop(t_rt *rt)
 	{
 		raytracer(rt);
 		show(rt);
-//		put_rays(rt->ray);
 		/* put mlx->img to window*/
 		if (rt->env
 			&& rt->env->mlx

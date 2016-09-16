@@ -51,7 +51,7 @@
 */
 
 /*			BUGS
-**	+Camera rotation issue
+**	+Camera rotation issue		FIXED
 */
 
 int		main(int ac, char **av)
