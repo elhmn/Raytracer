@@ -6,37 +6,42 @@
 
 /*
 ** rotation de centre o et d'angle r en degre
+** TODO TEST that functions on cylinder
 */
 
 void	pos_rot_x(t_pos *src, t_pos o, double r)
 {
+	double	x;
 	double	y;
 	double	z;
-
+	
 	if (src && r)
 	{
-		y = src->y;
-		z = src->z;
+ 		x = src->x - o.x;
+		y = src->y - o.y;
+ 		z = src->z - o.z;
 		r = RAD(r);
 		src->y = y * cos(r) - z * sin(r) + o.y;
 		src->z = y * sin(r) + z * cos(r) + o.z;
-		src->x += o.x;
+		src->x = x + o.x;
 	}
 }
 
 void	pos_rot_y(t_pos *src, t_pos o, double r)
 {
-	double	z;
 	double	x;
+	double	y;
+	double	z;
 
 	if (src && r)
 	{
-		z = src->z;
-		x = src->x;
+ 		x = src->x - o.x;
+		y = src->y - o.y;
+ 		z = src->z - o.z;
 		r = RAD(r);
 		src->z = z * cos(r) - x * sin(r) + o.z;
 		src->x = z * sin(r) + x * cos(r) + o.x;
-		src->y += o.y;
+		src->y = y + o.y;
 	}
 }
 
@@ -44,15 +49,17 @@ void	pos_rot_z(t_pos *src, t_pos o, double r)
 {
 	double	x;
 	double	y;
+	double	z;
 
 	if (src && r)
 	{
-		x = src->x;
-		y = src->y;
+ 		x = src->x - o.x;
+		y = src->y - o.y;
+ 		z = src->z - o.z;
 		r = RAD(r);
 		src->x = x * cos(r) - y * sin(r) + o.x;
 		src->y = x * sin(r) + y * cos(r) + o.y;
-		src->z += o.z;
+		src->z = z + o.z;
 	}
 }
 

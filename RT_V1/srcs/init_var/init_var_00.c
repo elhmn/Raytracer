@@ -20,16 +20,8 @@ void		init_rt(t_rt **rt)
 		init_ray_array(&((*rt)->ray), (*rt)->screen);
 		init_objs(&(*rt)->objs);
 		(*rt)->img = NULL; 
-		put_pos((*rt)->camera->spPos);
-		put_pos((*rt)->camera->u);
-		put_pos((*rt)->camera->v);
-		put_pos((*rt)->camera->w);
-		rot_camera((*rt)->camera, get_pos(45, 45, 0));//Debug
-		ft_putstr("after \n");
-		put_pos((*rt)->camera->spPos);
-		put_pos((*rt)->camera->u);
-		put_pos((*rt)->camera->v);
-		put_pos((*rt)->camera->w);
+		rot_camera((*rt)->camera, get_pos(20, 0, 0));//Debug
+		pos_add_to_pos(&(rt[0]->camera->spPos), get_pos(0, 200, 100)); //Debug
 
 	}
 	ft_putendl("init_rt called"); //Debug
