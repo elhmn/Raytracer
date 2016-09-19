@@ -57,9 +57,9 @@ static double		is_collision(t_ray *ray, t_dataSphere *data,
 		cam = rt->camera;
 		if (cam)
 		{
-			u = pos_vector(cam->spPos, ray->spPos);
+			u = pos_vector(cam->sp.o, ray->pos);
 			u = pos_normalize(u);
-			v = pos_vector(obj->spPos, cam->spPos);
+			v = pos_vector(obj->sp.o, cam->sp.o);
 			e.x = pos_dot_product(u, u);
 			e.y = 2. * pos_dot_product(u, v);
 			e.z = pos_dot_product(v, v) - pow(data->radius, 2);

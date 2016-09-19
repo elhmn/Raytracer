@@ -10,31 +10,7 @@ void	init_ray(t_ray *ray)
 {
 	if (ray)
 	{
-		set_pos(&(ray->camPos), 0, 0, 0);
-		set_pos(&(ray->spPos), 0, 0, 0);
-	}
-}
-
-void	init_camera_base(t_camera *cam)
-{
-	t_pos		*o;
-	t_pos		*u;
-	t_pos		*v;
-	t_pos		*w;
-
-	if (cam)
-	{
-		o = &(cam->spPos);
-		u = &(cam->u);
-		v = &(cam->v);
-		w = &(cam->w);
-		set_pos(o, o->x, o->y,
-		o->z - (cam->dist + SAFE_DIST));
-		set_pos(w, o->x, o->y, o->z + 1);
-		copy_pos(w, pos_vector(*o, *w));
-
-		copy_pos(v, pos_cross_product(*w, cam->v_up));
-		copy_pos(u, pos_cross_product(*v, *w));
+		set_pos(&(ray->pos), 0, 0, 0);
 	}
 }
 

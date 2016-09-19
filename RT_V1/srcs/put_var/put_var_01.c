@@ -7,10 +7,8 @@
 
 void	put_ray(t_ray ray)
 {
-	ft_putstr("camPos : ");
-	put_pos(ray.camPos);
-	ft_putstr("spPos : ");
-	put_pos(ray.spPos);
+	ft_putstr("pos : ");
+	put_pos(ray.pos);
 	ft_putstr("col :");
 	ft_putnbr(ray.col.color);
 	ft_putendl("");
@@ -53,8 +51,7 @@ void	put_type(int type)
 }
 
 /*
-** put Data for each type //Debug 
-** clean that code to avoid if forest
+** put Data for each tyo->sp** clean that code to avoid if forest
 */
 
 void	put_obj(void *obj)
@@ -67,10 +64,11 @@ void	put_obj(void *obj)
 		ft_putstr("Obj : ");
 		put_type(o->type);
 		ft_putendl(" {\n");
-		ft_putstr("camPos -> ");
-		put_pos(o->camPos);
-		ft_putstr("spPos -> ");
-		put_pos(o->spPos);
+		ft_putstr("pos -> ");
+		put_pos(o->sp.o);
+		ft_putstr("base \n{\n");
+		put_base(o->sp);
+		ft_putstr("}\n");
 		if (o->type == SPHERE)
 			put_dataSphere(o->data);
 		if (o->type == PLANE)

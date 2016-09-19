@@ -23,6 +23,7 @@ PUT_DIR = put_var/
 DRAW_DIR = draw/
 RAYTRACER_DIR = raytracer/
 COLL_DIR = collision_functions/
+TRANS_DIR = transform/
 	
 
 MAIN = main.c loop.c
@@ -47,6 +48,8 @@ RAYTRACER = raytracer.c show.c
 
 COLL = sphere_collision.c plane_collision.c
 
+TRANS = transform_00.c
+
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))
 INITS =  $(addprefix $(INIT_DIR), $(INIT))
@@ -58,12 +61,13 @@ PUTS =  $(addprefix $(PUT_DIR), $(PUT))
 DRAWS =  $(addprefix $(DRAW_DIR), $(DRAW))
 RAYTRACERS =  $(addprefix $(RAYTRACER_DIR), $(RAYTRACER))
 COLLS =  $(addprefix $(COLL_DIR), $(COLL))
+TRANSS = $(addprefix $(TRANS_DIR), $(TRANS))
 
 SRC_OBJ = $(MAIN) $(ERR) $(INIT) $(MLX) $(POS) $(OBJFUNC) \
-			$(SET) $(PUT) $(DRAW) $(RAYTRACER) $(COLL)
+			$(SET) $(PUT) $(DRAW) $(RAYTRACER) $(COLL) $(TRANS)
 
 SRC = 	$(MAINS) $(ERRS) $(INITS) $(MLXS) $(POSS) $(OBJFUNCS) \
-		$(SETS) $(PUTS) $(DRAWS) $(RAYTRACERS) $(COLLS)
+		$(SETS) $(PUTS) $(DRAWS) $(RAYTRACERS) $(COLLS) $(TRANSS)
 		
 
 OBJ = $(SRC_OBJ:.c=.o)

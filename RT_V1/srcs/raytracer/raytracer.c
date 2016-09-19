@@ -67,10 +67,10 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 
 	if (!r)
 		check_errors(NUL, "raytracer.c", "r");
-	c = rt->camera->spPos;
-	u = pos_normalize(rt->camera->u);
-	v = pos_normalize(rt->camera->v);
-	w = pos_normalize(rt->camera->w);
+	c = rt->camera->sp.o;
+	u = pos_normalize(rt->camera->sp.i);
+	v = pos_normalize(rt->camera->sp.j);
+	w = pos_normalize(rt->camera->sp.k);
 	pX = rt->screen->pixelWidth;
 	pY = rt->screen->pixelHeight;
 	pos_mult_to_number(&w, rt->camera->dist);
@@ -81,8 +81,7 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	t = v;
 	pos_mult_to_number(&t, ((pY * (rt->screen->resY - 1)) / 2.) - incY * pY);
 	pos_add_to_pos(&c, t);
-	set_pos(&(r->camPos), incX, incY, c.z);
-	set_pos(&(r->spPos), c.x, c.y, c.z);
+	set_pos(&(r->pos), c.x, c.y, c.z);
 }
 
 void		raytracer(t_rt *rt)

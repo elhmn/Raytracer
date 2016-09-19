@@ -62,12 +62,9 @@ typedef struct	s_base
 
 typedef struct	s_camera
 {
-	t_pos		self;
-	t_pos		spPos;
+	t_base		sp;
 	t_pos		v_up;
-	t_pos		u;
-	t_pos		v;
-	t_pos		w;
+
 	double		dist;
 	double		fieldOfView;
 	int			isRot; //temporaire //debug
@@ -108,8 +105,7 @@ typedef long	t_col;
 
 typedef struct	s_ray
 {
-	t_pos		camPos;
-	t_pos		spPos;
+	t_pos		pos;
 	t_color		col;
 }				t_ray;
 
@@ -205,7 +201,6 @@ void			set_base_zero(t_base *b);
 */
 
 void			init_ray(t_ray *ray);
-void			init_camera_base(t_camera *cam);
 void			init_objs(t_list **objs);
 
 /*

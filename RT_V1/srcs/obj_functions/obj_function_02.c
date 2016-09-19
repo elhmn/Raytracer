@@ -18,7 +18,7 @@ void	rot_plane(t_obj *plane, t_pos r)
 	{
 		if (!(data = (t_dataPlane*)plane->data))
 			check_errors(NUL, "plane->data", "obj->function_02.c");
-		pos_rot_xyz(&(data->v_normal), plane->spPos, r);
+		pos_rot_xyz(&(data->v_normal), plane->sp.o, r);
 	}
 }
 
@@ -30,9 +30,9 @@ void	rot_camera(t_camera *cam, t_pos r)
 
 	if (cam)
 	{
-		u = &cam->u;
-		v = &cam->v;
-		w = &cam->w;
+		u = &cam->sp.i;
+		v = &cam->sp.j;
+		w = &cam->sp.k;
 		pos_rot_xyz(w, get_pos(0, 0, 0), r);
 		pos_rot_xyz(u, get_pos(0, 0, 0), r);
 		pos_rot_xyz(v, get_pos(0, 0, 0), r);

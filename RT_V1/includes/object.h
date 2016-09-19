@@ -51,8 +51,7 @@ struct	s_obj
 	int			type;
 	void		*data;
 
-	t_pos		camPos;
-	t_pos		spPos;
+	t_base		sp;
 	t_color		col;
 
 	/*
@@ -71,15 +70,15 @@ struct	s_obj
 ** obj_function_00.c
 */
 
-void			*new_obj(int type, void *data, t_pos spPos, t_color col);
+void			*new_obj(int type, void *data, t_pos pos, t_color col);
 
 /*
 ** obj_function_01.c
 */
 
 double			get_d(t_pos n, t_pos p);
-t_obj			*newSphere(t_pos spPos, int radius, t_color col);
-t_obj			*newPlane(t_pos spPos, t_pos v_normal, t_color col);
+t_obj			*newSphere(t_pos pos, int radius, t_color col);
+t_obj			*newPlane(t_pos pos, t_pos v_normal, t_color col);
 
 /*
 ** obj_function_02.c

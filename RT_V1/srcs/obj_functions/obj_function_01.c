@@ -4,7 +4,7 @@
 #include "check_errors.h"
 #include <stdlib.h>
 
-t_obj	*newSphere(t_pos spPos, int radius, t_color col)
+t_obj	*newSphere(t_pos pos, int radius, t_color col)
 {
 	t_obj			*sphere;
 	t_dataSphere	*data;
@@ -20,12 +20,12 @@ t_obj	*newSphere(t_pos spPos, int radius, t_color col)
 	sphere->type = SPHERE;
 	sphere->col = col;
 	sphere->ifCollision = sphere_collision;
-	set_pos(&(sphere->spPos), spPos.x, spPos.y, spPos.z);
-	set_pos(&(sphere->camPos), 0, 0, 0);
+	init_base_self(&(sphere->sp));
+	set_pos(&(sphere->sp.o), pos.x, pos.y, pos.z);
 	return (sphere);
 }
 
-t_obj	*newPlane(t_pos spPos, t_pos v_normal, t_color col)
+t_obj	*newPlane(t_pos pos, t_pos v_normal, t_color col)
 {
 	t_obj			*plane;
 	t_dataPlane		*data;
@@ -41,8 +41,8 @@ t_obj	*newPlane(t_pos spPos, t_pos v_normal, t_color col)
 	plane->type = PLANE;
 	plane->col = col;
 	plane->ifCollision = plane_collision;
-	set_pos(&(plane->spPos), spPos.x, spPos.y, spPos.z);
-	set_pos(&(plane->camPos), 0, 0, 0);
+	init_base_self(&(plane->sp));
+	set_pos(&(plane->sp.o), pos.x, pos.y, pos.z);
 	return (plane);
 }
 

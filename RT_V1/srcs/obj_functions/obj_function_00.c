@@ -8,7 +8,7 @@
 ** this function has to be code properly or deleted
 */
 
-void	*new_obj(int type, void	*data, t_pos spPos, t_color col)
+void	*new_obj(int type, void	*data, t_pos pos, t_color col)
 {
 	t_obj		*obj;
 
@@ -29,8 +29,11 @@ void	*new_obj(int type, void	*data, t_pos spPos, t_color col)
 	{
 		obj->type = PLANE;
 	}
-	set_pos(&(obj->spPos), spPos.x, spPos.y, spPos.z);
-	set_pos(&(obj->camPos), 0, 0, 0);
+
+	init_base_self(&(obj->sp));
+	set_pos(&(obj->sp.o), pos.x, pos.y, pos.z);
+
+//	set_pos(&(obj->camPos), 0, 0, 0);
 	obj->data = data;
 	obj->col = col;
 	return ((void*)obj);
