@@ -40,42 +40,6 @@ static t_base		get_a_from_b(t_base a, t_base b)
 	return (e);
 }
 
-void				test_transform(void) //Debug function
-{
-	t_base		a;
-	t_base		b;
-	t_base		e;
-
-	init_base_self(&a);
-	init_base_self(&b);
-
-	//set base a
-	copy_pos(&(a.i), get_pos(1, 0, 0));
-	copy_pos(&(a.j), get_pos(0, 1, 0));
-	copy_pos(&(a.k), get_pos(0, 0, 1));
-	
-	//set base b
-	copy_pos(&(b.o), get_pos(0, 0, 0));
-	copy_pos(&(b.i), get_pos(1, 1, 0));
-	copy_pos(&(b.j), get_pos(0, 1, 0));
-	copy_pos(&(b.k), get_pos(0, 1, 1));
-	
-	ft_putstr("new base a -> "); //Debug
-	put_base(a); //Debug
-	ft_putendl(""); //Debug
-
-	ft_putstr("new base b -> "); //Debug
-	put_base(b); //Debug
-	ft_putendl(""); //Debug
-
-	//run
-	e = get_a_from_b(a, b);
-
-	ft_putstr("new base e -> "); //Debug
-	put_base(e); //Debug
-	ft_putendl(""); //Debug
-}
-
 t_pos		transform(t_base a, t_base b, t_pos pos)
 {
 	t_pos	p;
@@ -103,3 +67,56 @@ t_pos		transform_rev(t_base b, t_pos pos)
 			+ pos.z * b.k.z + b.o.z;
 	return (p);
 }
+
+/*
+void				test_transform(void) //Debug function
+{
+	t_base		a;
+	t_base		b;
+	t_base		e;
+	t_pos		m;
+	t_pos		mp;
+
+	init_base_self(&a);
+	init_base_self(&b);
+
+	//set base a
+	copy_pos(&(a.i), get_pos(1, 0, 0));
+	copy_pos(&(a.j), get_pos(0, 1, 0));
+	copy_pos(&(a.k), get_pos(0, 0, 1));
+	
+	//set base b
+	copy_pos(&(b.o), get_pos(1, 1, 1));
+	copy_pos(&(b.i), get_pos(1, 0, 0));
+	copy_pos(&(b.j), get_pos(0, 1, 0));
+	copy_pos(&(b.k), get_pos(0, 0, 1));
+
+	//set m
+	copy_pos(&m, get_pos(2, 2, 1));
+
+	//run
+	e = get_a_from_b(a, b);
+	mp = transform(a, b, m);
+	mp = transform_rev(b, mp);
+
+	ft_putstr("new base a -> "); //Debug
+	put_base(a); //Debug
+	ft_putendl(""); //Debug
+
+	ft_putstr("new base b -> "); //Debug
+	put_base(b); //Debug
+	ft_putendl(""); //Debug
+
+	ft_putstr("new base e -> "); //Debug
+	put_base(e); //Debug
+	ft_putendl(""); //Debug
+
+	ft_putstr("m -> "); //Debug
+	put_pos(m);  //Debug
+	ft_putendl(""); //Debug
+
+	ft_putstr("m' -> "); //Debug
+	put_pos(mp);  //Debug
+	ft_putendl(""); //Debug
+}
+*/

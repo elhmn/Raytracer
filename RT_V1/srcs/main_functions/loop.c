@@ -23,7 +23,7 @@ void	loop(t_rt *rt)
 		else
 			check_errors(NUL, "loop.c", "rt->env struct");
 		rt = NULL; //Debug used to stop loop
-		test_transform(); //Debug
+//		test_transform(); //Debug
 	}
 //	ft_putendl("loop_hook exit"); //Debug
 }
