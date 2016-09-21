@@ -52,6 +52,8 @@
 
 /*			BUGS
 **	+Camera rotation issue		FIXED
+**	+Plane rotation and creation 
+**	+Camera perspective a bit wierd
 */
 
 int		main(int ac, char **av)

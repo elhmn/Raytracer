@@ -29,21 +29,21 @@ void	init_objs(t_list **objs)
 	{
 		if (!(*objs = ft_lstnew(NULL, 0)))
 			check_errors(MALLOC, "init_var_02.c", "objs");
-		(*objs)->content = newSphere(get_pos(0, 300, 0), 200, get_color(255, 0, 0));
+		(*objs)->content = newSphere(get_pos(0, 400, 0), 200, get_color(255, 0, 0));
 		if (!(*objs)->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj((*objs)->content);
 
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
-		tmp->content = newSphere(get_pos(300, 120, 0), 150, get_color(255, 0, 255));
+		tmp->content = newSphere(get_pos(300, 220, 0), 150, get_color(255, 0, 255));
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
 		
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
-		tmp->content = newSphere(get_pos(-300, 120, 0), 150, get_color(255, 255, 0));
+		tmp->content = newSphere(get_pos(-300, 220, 0), 150, get_color(255, 255, 0));
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
@@ -57,7 +57,7 @@ void	init_objs(t_list **objs)
 
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
-		tmp->content = newPlane(get_pos(0, -400, 0), get_pos(0, -1, 0), get_color(20, 20, 20));
+		tmp->content = newPlane(get_pos(0, -400, 400), get_pos(0, -1, 0), get_color(20, 20, 20));
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
