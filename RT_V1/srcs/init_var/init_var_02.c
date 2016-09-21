@@ -69,6 +69,20 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
+		
+		tmp = ft_lstnew(NULL, 0);
+		ft_lstadd_end(objs, tmp);
+		tmp->content = newCylinder(get_pos(300, 0, -20), 30, -1, get_color(0, 0, 255));
+		if (!tmp->content)
+			check_errors(MALLOC, "init_var_02.c", "objs->content");
+		put_obj(tmp->content);
+		
+		tmp = ft_lstnew(NULL, 0);
+		ft_lstadd_end(objs, tmp);
+		tmp->content = newCylinder(get_pos(-300, 0, -10), 30, -1, get_color(0, 0, 255));
+		if (!tmp->content)
+			check_errors(MALLOC, "init_var_02.c", "objs->content");
+		put_obj(tmp->content);
 	}
 	ft_putendl("init_objs called"); //Debug
 }

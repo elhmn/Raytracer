@@ -33,7 +33,6 @@ static t_base		get_a_from_b(t_base a, t_base b)
 	
 	o = b.i.y * b.j.x - b.i.x * b.j.y;
 	p = b.i.z * b.j.x - b.i.x * b.j.z;
-
 	e.i = get_trans_pos(a.i, b, o, p);
 	e.j = get_trans_pos(a.j, b, o, p);
 	e.k = get_trans_pos(a.k, b, o, p);

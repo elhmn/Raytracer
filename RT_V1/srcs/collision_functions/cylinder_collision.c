@@ -3,6 +3,7 @@
 #include "put_var.h"
 #include "check_errors.h"
 #include "libft.h"
+#include "transform.h"
 #include <math.h>
 
 static double		getDist(double a, double b, double delta)
@@ -59,10 +60,12 @@ static double		is_collision(t_ray *ray, t_dataCylinder *data, t_obj *obj, t_rt *
 	ret = -1;
 	cam = rt->camera;
 	(void)obj;
-	if (cam)
+	if (cam && rt->space)
 	{
 		ro = cam->sp.o;
 		rf = ray->pos;
+		ro = transform(rt->space->self, obj->sp, ro);
+		rf = transform(rt->space->self, obj->sp, rf);
 		rd = pos_vector(ro, rf);
 		rd = pos_normalize(rd);
 		//1- transform ray info to obj
