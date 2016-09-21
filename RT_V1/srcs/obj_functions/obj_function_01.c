@@ -42,8 +42,34 @@ t_obj	*newPlane(t_pos pos, t_pos v_normal, t_color col)
 	plane->col = col;
 	plane->ifCollision = plane_collision;
 	init_base_self(&(plane->sp));
-	set_pos(&(plane->sp.o), pos.x, pos.y, pos.z);
+	copy_pos(&(plane->sp.o), pos);
 	return (plane);
+}
+
+/*
+** build cylinder
+*/
+
+t_obj	*newCylinder(t_pos pos, double r, double h, t_color col)
+{
+	t_obj				*cylinder;
+	t_dataCylinder		*data;
+
+	cylinder = NULL;
+	data = NULL;
+	if (!(cylinder = (t_obj*)malloc(sizeof(t_obj))))
+		check_errors(MALLOC, "cylinder", "obj_function_01.c");
+	if (!(data = (t_dataCylinder*)malloc(sizeof(t_dataCylinder))))
+		check_errors(MALLOC, "data", "obj_function_01.c");
+	data->radius = r;
+	data->height = h;
+	cylinder->data = data;
+	cylinder->type = CYLINDER;
+	cylinder->col = col;
+	cylinder->ifCollision = cylinder_collision;
+	init_base_self(&(cylinder->sp));
+	copy_pos(&(cylinder->sp.o), pos);
+	return (cylinder);
 }
 
 /*

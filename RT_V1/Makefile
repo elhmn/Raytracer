@@ -46,7 +46,7 @@ DRAW = draw.c color.c
 
 RAYTRACER = raytracer.c show.c
 
-COLL = sphere_collision.c plane_collision.c
+COLL = sphere_collision.c plane_collision.c cylinder_collision.c
 
 TRANS = transform_00.c
 

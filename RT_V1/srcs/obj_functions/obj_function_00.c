@@ -21,19 +21,12 @@ void	*new_obj(int type, void	*data, t_pos pos, t_color col)
 		obj->type = SPHERE;
 		obj->ifCollision = sphere_collision;
 	}
-	else if (type == CIRCLE)
-	{
-		obj->type = CIRCLE;
-	}
 	else if (type == PLANE)
 	{
 		obj->type = PLANE;
 	}
-
 	init_base_self(&(obj->sp));
 	set_pos(&(obj->sp.o), pos.x, pos.y, pos.z);
-
-//	set_pos(&(obj->camPos), 0, 0, 0);
 	obj->data = data;
 	obj->col = col;
 	return ((void*)obj);

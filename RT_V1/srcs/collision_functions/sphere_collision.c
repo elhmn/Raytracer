@@ -82,10 +82,6 @@ double		sphere_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt)
 	d = -1;
 	dat = (t_dataSphere*)data;
 	if (ray && dat && rt && obj)
-	{
 		d = is_collision(ray, dat, obj, rt);
-		//determiner si il y a des points d'intersection
-		//determiner si les points 
-	}
 	return (d);
 }

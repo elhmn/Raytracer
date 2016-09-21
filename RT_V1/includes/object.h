@@ -9,10 +9,10 @@
 
 enum		e_type
 {
-	CIRCLE,
 	SPHERE,
 	PLANE,
-	SQUARE,
+	CYLINDER,
+	CONE,
 	TORE,
 	NONE
 };
@@ -35,6 +35,12 @@ typedef struct	s_dataPlane
 {
 	t_pos		v_normal;
 }				t_dataPlane;
+
+typedef struct	s_dataCylinder
+{
+	double		height;
+	double		radius;
+}				t_dataCylinder;
 
 /*
 ** object structure
@@ -79,6 +85,7 @@ void			*new_obj(int type, void *data, t_pos pos, t_color col);
 double			get_d(t_pos n, t_pos p);
 t_obj			*newSphere(t_pos pos, int radius, t_color col);
 t_obj			*newPlane(t_pos pos, t_pos v_normal, t_color col);
+t_obj			*newCylinder(t_pos pos, double r, double h, t_color col);
 
 /*
 ** obj_function_02.c
@@ -97,5 +104,6 @@ void			rot_camera(t_camera *cam, t_pos r);
 
 double			sphere_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
 double			plane_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
+double			cylinder_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
 
 #endif
