@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   obj_function_01.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/24 17:05:42 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/24 18:56:17 by bmbarga          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rt.h"
 #include "object.h"
 #include "libft.h"
@@ -67,6 +79,7 @@ t_obj	*newCylinder(t_pos pos, double r, double h, t_color col)
 	cylinder->type = CYLINDER;
 	cylinder->col = col;
 	cylinder->ifCollision = cylinder_collision;
+	init_base_self(&(cylinder->o));
 	init_base_self(&(cylinder->sp));
 	copy_pos(&(cylinder->sp.o), pos);
 	return (cylinder);

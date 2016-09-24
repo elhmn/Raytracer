@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:06:52 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/24 18:29:24 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/24 18:56:58 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,39 +26,6 @@
 **	-rotation d'angle -r des (i, j, k) dans B
 */
 
-/*
-static t_pos		get_trans_pos(t_pos var, t_base b,
-					double o, double p)
-{
-	t_pos	e;
-
-	e.z = (p * (var.x * b.i.y - var.y * b.i.x)
-			+ o * (var.z * b.i.x - var.x * b.i.z))
-			/ (p * (b.i.y * b.k.x - b.i.x * b.k.y)
-			+ o * (b.i.x * b.k.z - b.i.z * b.k.x));
-	e.y = (var.x * b.i.y - var.y * b.i.x
-			+ e.z * (b.i.x * b.k.y - b.i.y * b.k.x))
-			/ o;
-	e.x = (var.x - e.y * var.x - e.z * b.k.x)
-			/ b.i.x;
-	return (e);
-}
-
-static t_base		get_a_from_b(t_base a, t_base b)
-{
-	t_base	e;
-	double	o;
-	double	p;
-	
-	o = b.i.y * b.j.x - b.i.x * b.j.y;
-	p = b.i.z * b.j.x - b.i.x * b.j.z;
-	e.i = get_trans_pos(a.i, b, o, p);
-	e.j = get_trans_pos(a.j, b, o, p);
-	e.k = get_trans_pos(a.k, b, o, p);
-	return (e);
-}
-*/
-
 t_pos		transform(t_base a, t_base b, t_pos pos, t_pos rot)
 {
 	t_pos	p;
@@ -66,8 +33,6 @@ t_pos		transform(t_base a, t_base b, t_pos pos, t_pos rot)
 
 	e = a;
 	pos_mult_to_number(&rot, -1);
-	rot_base(&e, rot);
-//	e = get_a_from_b(a, b);
 	p.x = (pos.x - b.o.x) * e.i.x + (pos.y - b.o.y) * e.j.x
 			+ (pos.z - b.o.z) * e.k.x;
 	p.y = (pos.x - b.o.x) * e.i.y + (pos.y - b.o.y) * e.j.y
