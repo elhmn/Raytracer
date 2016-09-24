@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/24 17:03:22 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/24 17:43:19 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@
 ** s_screen define
 */
 
-# define RESX			600
-# define RESY			400
-# define SCREEN_WIDTH	600
-# define SCREEN_HEIGHT	400
+# define RESX			1000
+# define RESY			800
+# define SCREEN_WIDTH	RESX	
+# define SCREEN_HEIGHT	RESY
 # define PIXEL_HEIGHT	1
 # define PIXEL_WIDTH	1
 

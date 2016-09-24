@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   put_var_01.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/24 17:04:14 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/24 18:21:23 by bmbarga          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "rt.h"
 #include "put_var.h"
@@ -68,6 +80,8 @@ void	put_obj(void *obj)
 		put_pos(o->sp.o);
 		ft_putstr("base \n{\n");
 		put_base(o->sp);
+		ft_putstr("rotation -> ");
+		put_pos(o->rot);
 		ft_putstr("}\n");
 		if (o->type == SPHERE)
 			put_dataSphere(o->data);

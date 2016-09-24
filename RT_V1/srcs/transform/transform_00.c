@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   transform_00.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/24 17:06:52 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/24 18:29:24 by bmbarga          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "put_var.h"
 #include "transform.h"
@@ -8,6 +20,13 @@
 ** Don't forget to test those functions
 */
 
+/*
+** Transform method 2 Description :
+**	-rotation d'angle r des (u, v, w) dans le repere A
+**	-rotation d'angle -r des (i, j, k) dans B
+*/
+
+/*
 static t_pos		get_trans_pos(t_pos var, t_base b,
 					double o, double p)
 {
@@ -38,13 +57,17 @@ static t_base		get_a_from_b(t_base a, t_base b)
 	e.k = get_trans_pos(a.k, b, o, p);
 	return (e);
 }
+*/
 
-t_pos		transform(t_base a, t_base b, t_pos pos)
+t_pos		transform(t_base a, t_base b, t_pos pos, t_pos rot)
 {
 	t_pos	p;
 	t_base	e;
 
-	e = get_a_from_b(a, b);
+	e = a;
+	pos_mult_to_number(&rot, -1);
+	rot_base(&e, rot);
+//	e = get_a_from_b(a, b);
 	p.x = (pos.x - b.o.x) * e.i.x + (pos.y - b.o.y) * e.j.x
 			+ (pos.z - b.o.z) * e.k.x;
 	p.y = (pos.x - b.o.x) * e.i.y + (pos.y - b.o.y) * e.j.y
@@ -86,9 +109,9 @@ void				test_transform(void) //Debug function
 	
 	//set base b
 	copy_pos(&(b.o), get_pos(1, 1, 1));
-	copy_pos(&(b.i), get_pos(1, 0, 0));
+	copy_pos(&(b.i), get_pos(0, 0, 1));
 	copy_pos(&(b.j), get_pos(0, 1, 0));
-	copy_pos(&(b.k), get_pos(0, 0, 1));
+	copy_pos(&(b.k), get_pos(-1, 0, 0));
 
 	//set m
 	copy_pos(&m, get_pos(2, 2, 1));

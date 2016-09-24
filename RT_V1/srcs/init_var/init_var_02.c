@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_var_02.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/24 18:42:35 by bmbarga          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include "check_errors.h"
 #include "put_var.h"
@@ -76,12 +88,18 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
+		rot_object(tmp->content, get_pos(0, 0, -20)); //Debug
 		
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 		tmp->content = newCylinder(get_pos(-300, 0, -10), 30, -1, get_color(0, 0, 255));
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
+		put_obj(tmp->content);
+		//rot_object(tmp->content, get_pos(90, 0, 0)); //Debug
+//		rot_object(tmp->content, get_pos(90, 0, 0)); //Debug
+		//rot_object(tmp->content, get_pos(90, 0, 20)); //Debug
+		rot_object(tmp->content, get_pos(0, 0, 20)); //Debug
 		put_obj(tmp->content);
 	}
 	ft_putendl("init_objs called"); //Debug

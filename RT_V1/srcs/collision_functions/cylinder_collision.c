@@ -64,8 +64,8 @@ static double		is_collision(t_ray *ray, t_dataCylinder *data, t_obj *obj, t_rt *
 	{
 		ro = cam->sp.o;
 		rf = ray->pos;
-		ro = transform(rt->space->self, obj->sp, ro);
-		rf = transform(rt->space->self, obj->sp, rf);
+		ro = transform(rt->space->self, obj->sp, ro, obj->rot);
+		rf = transform(rt->space->self, obj->sp, rf, obj->rot);
 		rd = pos_vector(ro, rf);
 		rd = pos_normalize(rd);
 		//1- transform ray info to obj

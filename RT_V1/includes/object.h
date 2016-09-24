@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:13:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/24 17:22:19 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/24 18:20:19 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ struct	s_obj
 
 	int			type;
 	void		*data;
+	t_pos		rot;
 
 	t_base		sp;
 	t_color		col;
@@ -105,6 +106,8 @@ t_obj			*newCylinder(t_pos pos, double r, double h, t_color col);
 
 void			rot_plane(t_obj *plane, t_pos r);
 void			rot_camera(t_camera *cam, t_pos r);
+void			rot_object(t_obj *obj, t_pos r);
+void			rot_base(t_base *b, t_pos r);
 
 /*
 ** objects collision functions
