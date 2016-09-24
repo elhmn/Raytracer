@@ -88,9 +88,14 @@ INCLUDES = -I ./includes/
 
 LIB = -lm -L ./libft/ -lft -L /usr/lib64/ -lmlx -lX11 -lXext
 
+LIBMAC = -lm -L ./libft/ -lft -lmlx  -framework OpenGL -framework appkit 
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
+	gcc $(FLAG) $(INCLUDES) -o $(NAME) $(OBJS) $(LIBMAC)
+
+home: $(OBJS)
 	gcc $(FLAG) $(INCLUDES) -o $(NAME) $(OBJS) $(LIB)
 
 $(OBJS): $(SRCS)
