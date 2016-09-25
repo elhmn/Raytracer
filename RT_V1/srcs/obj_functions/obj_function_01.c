@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/25 15:41:25 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 01:08:03 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,34 @@ t_obj	*newPlane(t_pos pos, t_pos v_normal, t_color col)
 */
 
 t_obj	*newCylinder(t_pos pos, double r, double h, t_color col)
+{
+	t_obj				*cylinder;
+	t_dataCylinder		*data;
+
+	cylinder = NULL;
+	data = NULL;
+	if (!(cylinder = (t_obj*)malloc(sizeof(t_obj))))
+		check_errors(MALLOC, "cylinder", "obj_function_01.c");
+	if (!(data = (t_dataCylinder*)malloc(sizeof(t_dataCylinder))))
+		check_errors(MALLOC, "data", "obj_function_01.c");
+	data->radius = r;
+	data->height = h;
+	cylinder->data = data;
+	cylinder->type = CYLINDER;
+	cylinder->rot = get_pos(0, 0, 0);
+	cylinder->col = col;
+	cylinder->ifCollision = cylinder_collision;
+	init_base_self(&(cylinder->o));
+	init_base_self(&(cylinder->sp));
+	copy_pos(&(cylinder->sp.o), pos);
+	return (cylinder);
+}
+
+/*
+** build cone edit the function below :)
+*/
+
+t_obj	*newCone(t_pos pos, double r, double h, t_color col)
 {
 	t_obj				*cylinder;
 	t_dataCylinder		*data;
