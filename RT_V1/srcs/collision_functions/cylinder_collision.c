@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:23 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/25 16:14:36 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/25 16:33:28 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,13 @@ static double		is_collision(t_ray *ray, t_dataCylinder *data, t_obj *obj, t_rt *
 		rd = pos_vector(ro, rf);
 		rd = pos_normalize(rd);
 		ret = find_collision(ro, rd, data->radius);
-		/*
 		if (ret >= 0 && h >= 0 &&
-			!(pow(((ro.y / ret) * -1.), 2) <= pow(rd.y, 2) && pow((1. - (ro.y / ret)), 2) >= pow(rd.y, 2)))
-		return (-1);*/
+			!(((ro.y / ret) * -1.) <= rd.y
+				&& (h / ret - (ro.y / ret)) >= rd.y))
+		return (-1);
+//		if (ret >= 0 && !(pow(ro.x + rd.x * ret, 2) + pow(ro.z + rd.z * ret, 2)
+//				<= pow(data->radius, 2)))
+//		return (-1);
 	}
 	return (ret);
 }
