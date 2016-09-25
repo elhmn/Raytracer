@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/24 18:56:17 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/25 15:41:25 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ t_obj	*newCylinder(t_pos pos, double r, double h, t_color col)
 	data->height = h;
 	cylinder->data = data;
 	cylinder->type = CYLINDER;
+	cylinder->rot = get_pos(0, 0, 0);
 	cylinder->col = col;
 	cylinder->ifCollision = cylinder_collision;
 	init_base_self(&(cylinder->o));

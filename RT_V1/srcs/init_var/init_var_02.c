@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/24 19:02:47 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/25 16:13:58 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	init_objs(t_list **objs)
 	{
 		if (!(*objs = ft_lstnew(NULL, 0)))
 			check_errors(MALLOC, "init_var_02.c", "objs");
-		(*objs)->content = newSphere(get_pos(0, 400, 0), 200, get_color(255, 0, 0));
+		(*objs)->content = newSphere(get_pos(0, 400, 0), 100, get_color(255, 0, 0));
 		if (!(*objs)->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj((*objs)->content);
@@ -77,7 +77,7 @@ void	init_objs(t_list **objs)
 
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
-		tmp->content = newCylinder(get_pos(0, 0, 0), 50, -1, get_color(0, 255, 255));
+		tmp->content = newCylinder(get_pos(0, 0, 0), 50, 20, get_color(0, 255, 255));
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cylinder_collision.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/25 15:27:23 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/25 16:14:36 by bmbarga          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rt.h"
 #include "object.h"
 #include "put_var.h"
@@ -24,7 +36,7 @@ static double		getDist(double a, double b, double delta)
 	return (ret);
 }
 
-static double		find_collision(t_pos ro, t_pos rd, double r, double h)
+static double		find_collision(t_pos ro, t_pos rd, double r)
 {
 	double	ret;
 	double	a;
@@ -33,9 +45,6 @@ static double		find_collision(t_pos ro, t_pos rd, double r, double h)
 	double	delta;
 
 	ret = -1;
-	(void)h;
-//	if (h >= 0)
-		//restreindre le cylindre a une hauter h;
 	a = pow(rd.x, 2) + pow(rd.z, 2);
 	b = 2. * (rd.x * ro.x + rd.z * ro.z);
 	c = pow(ro.x, 2) + pow(ro.z, 2) - pow(r, 2);
@@ -52,28 +61,29 @@ static double		find_collision(t_pos ro, t_pos rd, double r, double h)
 static double		is_collision(t_ray *ray, t_dataCylinder *data, t_obj *obj, t_rt *rt)
 {
 	double			ret;
+	double			h;
 	t_camera		*cam;
-	t_pos			rd; //ray direction
+	t_pos			rd;
 	t_pos			rf;
-	t_pos			ro; //ray origin
+	t_pos			ro;
 
 	ret = -1;
 	cam = rt->camera;
 	(void)obj;
 	if (cam && rt->space)
 	{
+		h  = data->height;
 		ro = cam->sp.o;
 		rf = ray->pos;
 		ro = transform(obj->o, obj->sp, ro, obj->rot);
 		rf = transform(obj->o, obj->sp, rf, obj->rot);
 		rd = pos_vector(ro, rf);
 		rd = pos_normalize(rd);
-		//1- transform ray info to obj
-		//2- detect collision
-		ret = find_collision(ro, rd, data->radius, data->height);
-		//3- transform T-1
-		//4- get position
-	//	put_var_dbl("debug2 : ret", ret);//Debug
+		ret = find_collision(ro, rd, data->radius);
+		/*
+		if (ret >= 0 && h >= 0 &&
+			!(pow(((ro.y / ret) * -1.), 2) <= pow(rd.y, 2) && pow((1. - (ro.y / ret)), 2) >= pow(rd.y, 2)))
+		return (-1);*/
 	}
 	return (ret);
 }
@@ -91,9 +101,6 @@ double				cylinder_collision(t_ray *ray, void *data,
 	d = -1;
 	dat = (t_dataCylinder*)data;
 	if (ray && rt && dat && obj)
-	{
 		d = is_collision(ray, dat, obj, rt);
-//		put_var_dbl("debug1 : d", d);//Debug
-	}
 	return (d);
 }

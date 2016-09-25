@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sphere_collision.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/25 15:27:29 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/25 15:28:09 by bmbarga          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rt.h"
 #include "object.h"
 #include "put_var.h"
@@ -32,14 +44,6 @@ static double	getDist(t_pos e, double delta)
 		ret = d2;
 	return (ret);
 }
-
-//static t_pos		get_point(t_rt *rt, t_pos u, int d)
-//{
-//	t_pos		pos;
-//	pos = rt->camera->o;
-//	pos_mult_to_number(u, d);
-//	return (pos_add_to_pos(&pos, u));
-//}
 
 static double		is_collision(t_ray *ray, t_dataSphere *data,
 								t_obj *obj, t_rt *rt)
