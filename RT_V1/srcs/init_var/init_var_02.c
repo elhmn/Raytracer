@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/25 23:39:18 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 00:08:59 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
-//		rot_object(tmp->content, get_pos(-45, 0, 0)); //Debug
 		rot_object(tmp->content, get_pos(0, 0, 0)); //Debug
 		
 		tmp = ft_lstnew(NULL, 0);
@@ -90,7 +89,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
-//		rot_object(tmp->content, get_pos(90, 0, -15)); //Debug
 		rot_object(tmp->content, get_pos(90, 0, -45)); //Debug
 		
 		tmp = ft_lstnew(NULL, 0);
@@ -99,10 +97,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
-		//rot_object(tmp->content, get_pos(90, 0, 0)); //Debug
-//		rot_object(tmp->content, get_pos(90, 0, 0)); //Debug
-		//rot_object(tmp->content, get_pos(90, 0, 20)); //Debug
-//		rot_object(tmp->content, get_pos(90, 0, 15)); //Debug
 		rot_object(tmp->content, get_pos(90, 0, 45)); //Debug
 		put_obj(tmp->content);
 	}

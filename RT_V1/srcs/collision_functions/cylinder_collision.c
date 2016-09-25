@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:23 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/25 23:42:36 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 00:20:36 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static double		getDist(double a, double b, double delta)
 	return (ret);
 }
 
-static double		get_limit(t_pos ro, t_pos rd, t_pos data)
+static double		get_limit_aux(t_pos ro, t_pos rd, t_pos data)
 {
 	t_pos	rd_tmp;
 	t_pos	ro_tmp;
@@ -74,22 +74,37 @@ static double		find_collision(t_pos ro, t_pos rd, double r)
 	return (ret);
 }
 
-static double		is_collision(t_ray *ray, t_dataCylinder *data, t_obj *obj, t_rt *rt)
+static double		get_limit(t_pos ro, t_pos rd, double ret, t_pos data)
+{
+	double			d1;
+	double			d2;
+
+	if (ret >= 0 && data.y > 0 &&
+		!(((ro.y / ret) * -1.) <= rd.y
+			&& (data.y / ret - (ro.y / ret)) >= rd.y))
+	{
+		d1 = get_limit_aux(ro, rd, get_pos(data.x, data.y, 0));
+		d2 = get_limit_aux(ro, rd, get_pos(data.x, 0, 0));
+		if (d1 > d2)
+			d1 = d2;
+		ret = d1;
+	}
+	return (ret);
+}
+
+static double		is_collision(t_ray *ray, t_dataCylinder *data,
+					t_obj *obj, t_rt *rt)
 {
 	double			ret;
-	double			h;
 	t_camera		*cam;
 	t_pos			rd;
 	t_pos			rf;
 	t_pos			ro;
-	double			d1;
-	double			d2;
 
 	ret = -1;
 	cam = rt->camera;
 	if (cam && rt->space)
 	{
-		h  = data->height;
 		ro = cam->sp.o;
 		rf = ray->pos;
 		ro = transform(obj->o, obj->sp, ro, obj->rot);
@@ -97,16 +112,8 @@ static double		is_collision(t_ray *ray, t_dataCylinder *data, t_obj *obj, t_rt *
 		rd = pos_vector(ro, rf);
 		rd = pos_normalize(rd);
 		ret = find_collision(ro, rd, data->radius);
-		if (ret >= 0 && h > 0 &&
-			!(((ro.y / ret) * -1.) <= rd.y
-				&& ((h) / ret - (ro.y / ret)) >= rd.y))
-		{
-			d1 = get_limit(ro, rd, get_pos(data->radius, h, 0));
-			d2 = get_limit(ro, rd, get_pos(data->radius, 0, 0));
-			if (d1 > d2)
-				d1 = d2;
-			ret = d1;
-		}
+		ret = get_limit(ro, rd, ret,
+				get_pos(data->radius, data->height, 0));
 	}
 	return (ret);
 }
