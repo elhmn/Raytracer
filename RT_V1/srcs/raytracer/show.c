@@ -6,11 +6,12 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:17 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/24 17:18:37 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 20:16:50 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rt.h"
+#include "put_var.h"
 #include "object.h"
 
 /*
@@ -38,7 +39,10 @@ void	show(t_rt *rt)
 		{
 			j = -1;
 			while (++j < h)
-				pixel_put_img(rt, i, j, &(ray[j][i].col));
+			{
+				if (ray && ray[j] && (ray[j] + i))
+					pixel_put_img(rt, i, j, &(ray[j][i].col));
+			}
 		}
 	}
 }

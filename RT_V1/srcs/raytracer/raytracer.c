@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/24 17:58:46 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 20:16:57 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,12 @@ static void	rt_get_ray_color(t_ray *r, t_list *o, t_rt *rt)
 
 	list = o;
 	d = 3.402823e+38;
+	if (!rt || !r)
+		check_errors(NUL, "raytracer.c", "rt && r");
 	while (list != NULL)
 	{
 		obj = (t_obj*)list->content;
-		if (d > (ret = get_distance(r, obj, rt))
+		if (obj && d > (ret = get_distance(r, obj, rt))
 			&& ret >= 0)
 		{
 			r->col = obj->col;
@@ -77,8 +79,8 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	t_pos	v;
 	t_pos	w;
 
-	if (!r)
-		check_errors(NUL, "raytracer.c", "r");
+	if (!rt || !r)
+		check_errors(NUL, "raytracer.c", "rt && r");
 	c = rt->camera->sp.o;
 	u = pos_normalize(rt->camera->sp.i);
 	v = pos_normalize(rt->camera->sp.j);
@@ -113,10 +115,11 @@ void		raytracer(t_rt *rt)
 		j = -1;
 		while (++j < rt->screen->resX)
 		{
-			rt_set_ray_pos(j, i, r[i] + j, rt);
-//			if (i == 0) //Debug
-//				put_ray(r[i][j]); //Debug
-			rt_get_ray_color(r[i] + j, o, rt);
+			if (r && r[i] && r[i] + j)
+			{
+				rt_set_ray_pos(j, i, r[i] + j, rt);
+				rt_get_ray_color(r[i] + j, o, rt);
+			}
 		}
 	}
 //	ft_putendl("raytracer"); //debug

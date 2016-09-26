@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/26 15:48:56 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 20:26:50 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	init_ray(t_ray *ray)
 	if (ray)
 	{
 		set_pos(&(ray->pos), 0, 0, 0);
+		ray->col.color = 0x00000000;
+		set_color(&(ray->col));
 	}
 }
 
@@ -66,7 +68,6 @@ void	init_objs(t_list **objs)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
 
-
 /*	
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -75,8 +76,6 @@ void	init_objs(t_list **objs)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
 		rot_plane(tmp->content, get_pos(90, 0, 0));
-
-
 */
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);

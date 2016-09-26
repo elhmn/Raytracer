@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/09/26 15:51:03 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 20:15:38 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "put_var.h"
 #include <mlx.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /*
 **			TO_DO
@@ -55,7 +56,9 @@
 **	+Plane rotation and creation 			
 **	+Camera perspective a bit wierd				THAT'S NOT AN ISSUE
 **	+Cylinder limitation						
-**	+Segfault unknown
+**	+Segfault unknown							It comes from mlx_loop
+**												and also deals with bad mlx env
+**												closure
 */
 
 int		main(int ac, char **av)

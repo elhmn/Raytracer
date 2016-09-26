@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/10 20:24:59 by bmbarga           #+#    #+#             */
-/*   Updated: 2015/01/21 03:58:46 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 20:16:38 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		pixel_put_img(t_rt *rt, int x, int y, t_color *col)
 	int			b;
 
 	if (!rt)
-		check_errors(NUL, "wolf", "draw.c");
+		check_errors(NUL, "rt", "draw.c");
 	image = rt->img;
 	if (col && image)
 	{

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/26 15:43:49 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 20:28:17 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ void		init_rt(t_rt **rt)
 		init_ray_array(&((*rt)->ray), (*rt)->screen);
 		init_objs(&(*rt)->objs);
 		(*rt)->img = NULL; 
-		rot_camera((*rt)->camera, get_pos(-25, 0, 0));//Debug
-		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, -400, -10)); //Debug
+//		rot_camera((*rt)->camera, get_pos(-25, 0, 0));//Debug
+//		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, -400, -10)); //Debug
 
 //		rot_camera((*rt)->camera, get_pos(45, 0, 0));//Debug
 //		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 2000, -1000)); //Debug
 	//	put_camera(*(rt[0]->camera)); //Debug
-//		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 0, -1000)); //Debug
+		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 0, -1000)); //Debug
 	}
 	ft_putendl("init_rt called"); //Debug
 }

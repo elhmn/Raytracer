@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/26 15:34:07 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 20:27:51 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,19 @@
 ** s_color n define
 */
 
-# define MASK_R		0xFF0000
-# define MASK_G		0x00FF00
-# define MASK_B		0x0000FF
+# define MASK_A		0xFF000000
+# define MASK_R		0x00FF0000
+# define MASK_G		0x0000FF00
+# define MASK_B		0x000000FF
 
 /*
 ** s_screen define
 */
 
-# define RESX			1920
-# define RESY			1080
+//# define RESX			1920
+//# define RESY			1080
+# define RESX			800
+# define RESY			600
 # define SCREEN_WIDTH	RESX	
 # define SCREEN_HEIGHT	RESY
 # define PIXEL_HEIGHT	1
