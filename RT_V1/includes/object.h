@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:13:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/24 18:49:36 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 10:00:12 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,13 @@ typedef struct	s_dataCylinder
 	double		radius;
 }				t_dataCylinder;
 
+typedef struct	s_dataCone
+{
+	double		top;
+	double		lim;
+	double		ang;
+}				t_dataCone;
+
 /*
 ** object structure
 */
@@ -96,10 +103,13 @@ void			*new_obj(int type, void *data, t_pos pos, t_color col);
 ** obj_function_01.c
 */
 
-double			get_d(t_pos n, t_pos p);
+//double			get_d(t_pos n, t_pos p);
 t_obj			*newSphere(t_pos pos, int radius, t_color col);
 t_obj			*newPlane(t_pos pos, t_pos v_normal, t_color col);
 t_obj			*newCylinder(t_pos pos, double r, double h, t_color col);
+t_obj			*newCone_std(t_pos pos, double top,
+							double lim, t_color col);
+t_obj			*newCone(t_pos pos, t_pos var, t_color col);
 
 /*
 ** obj_function_02.c
@@ -119,7 +129,23 @@ void			rot_base(t_base *b, t_pos r);
 */
 
 double			sphere_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
+
+/*
+** 	collision_function/plane_collision.c
+*/
+
 double			plane_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
+
+/*
+** 	collision_function/cylinder_collision.c
+*/
+
 double			cylinder_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
+
+/*
+** 	collision_function/cone_collision.c
+*/
+
+double			cone_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
 
 #endif

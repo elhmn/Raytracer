@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 14:40:58 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/25 15:23:40 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 09:59:17 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void			put_dataSphere(t_dataSphere *data);
 void			put_type(int type);
 void			put_obj(void *obj);
 void			put_dataPlane(t_dataPlane *data);
+void			put_dataCone(t_dataCone *data);
+void			put_dataCylinder(t_dataCylinder *data);
 
 /*
 ** put_var_02.c

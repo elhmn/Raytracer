@@ -46,7 +46,7 @@ DRAW = draw.c color.c
 
 RAYTRACER = raytracer.c show.c
 
-COLL = sphere_collision.c plane_collision.c cylinder_collision.c
+COLL = sphere_collision.c plane_collision.c cylinder_collision.c cone_collision.c
 
 TRANS = transform_00.c
 
@@ -93,14 +93,14 @@ LIBMAC = -lm -L ./libft/ -lft -lmlx  -framework OpenGL -framework appkit
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	gcc $(FLAG) $(INCLUDES) -o $(NAME) $(OBJS) $(LIBMAC)
+	gcc $(FLAG) -g $(INCLUDES) -o $(NAME) $(OBJS) $(LIBMAC)
 
 home: $(OBJS)
-	gcc $(FLAG) $(INCLUDES) -o $(NAME) $(OBJS) $(LIB)
+	gcc $(FLAG) -g $(INCLUDES) -o $(NAME) $(OBJS) $(LIB)
 
 $(OBJS): $(SRCS)
 	make -C ./libft
-	gcc $(FLAG) -c $(SRCS) $(INCLUDES) &&  mv $(OBJ) $(OBJDIR)
+	gcc $(FLAG) -g -c $(SRCS) $(INCLUDES) &&  mv $(OBJ) $(OBJDIR)
 
 clean:
 	make clean -C ./libft

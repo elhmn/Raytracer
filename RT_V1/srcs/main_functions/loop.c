@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:14 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/25 15:24:29 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 13:18:33 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	loop(t_rt *rt)
 								rt->env->img, 0, 0);
 		else
 			check_errors(NUL, "loop.c", "rt->env struct");
-		rt = NULL; //Debug used to stop loop
+//		rt = NULL; //Debug used to stop loop
 //		test_transform(); //Debug
 	}
 //	ft_putendl("loop_hook exit"); //Debug

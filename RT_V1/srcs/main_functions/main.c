@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2014/03/13 08:33:16 by elhmn            ###   ########.fr       */
+/*   Updated: 2016/09/26 15:42:28 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,10 @@
 */
 
 /*			BUGS
-**	+Camera rotation issue		FIXED
-**	+Plane rotation and creation 
-**	+Camera perspective a bit wierd
+**	+Camera rotation issue						FIXED
+**	+Plane rotation and creation 			
+**	+Camera perspective a bit wierd				THAT'S NOT AN ISSUE
+**	+Cylinder limitation						
 */
 
 int		main(int ac, char **av)

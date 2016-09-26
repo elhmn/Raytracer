@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:04:14 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/24 18:21:23 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/26 09:59:16 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,10 @@ void	put_obj(void *obj)
 			put_dataSphere(o->data);
 		if (o->type == PLANE)
 			put_dataPlane(o->data);
+		if (o->type == CYLINDER)
+			put_dataCylinder(o->data);
+		if (o->type == CONE)
+			put_dataCone(o->data);
 		ft_putendl("\n}\n");
 	}
 }

@@ -1,0 +1,32 @@
+Process 586 stopped
+* thread #1: tid = 0x246fa5, 0x00007fff9ce914dd libobjc.A.dylib`objc_msgSend + 29, queue = 'com.apple.main-thread', stop reason = EXC_BAD_ACCESS (code=1, address=0x18)
+frame #0: 0x00007fff9ce914dd libobjc.A.dylib`objc_msgSend + 29
+libobjc.A.dylib`objc_msgSend:
+->  0x7fff9ce914dd <+29>: andl   0x18(%r11), %r10d
+0x7fff9ce914e1 <+33>: shlq   $0x4, %r10
+0x7fff9ce914e5 <+37>: addq   0x10(%r11), %r10
+0x7fff9ce914e9 <+41>: cmpq   (%r10), %rsi
+(lldb) bt
+* thread #1: tid = 0x246fa5, 0x00007fff9ce914dd libobjc.A.dylib`objc_msgSend + 29, queue = 'com.apple.main-thread', stop reason = EXC_BAD_ACCESS (code=1, address=0x18)
+* frame #0: 0x00007fff9ce914dd libobjc.A.dylib`objc_msgSend + 29
+frame #1: 0x00007fff8ba255e3 AppKit`-[NSWorkspaceNotificationCenter _destroyAllUnobservedSubsystems] + 114
+frame #2: 0x00007fff8ba2553b AppKit`-[NSWorkspaceNotificationCenter _checkForObserversOfSubsystem:] + 189
+frame #3: 0x00007fff8ba25463 AppKit`-[NSWorkspaceNotificationCenter hasObserversForNotificationName:] + 97
+frame #4: 0x00007fff8ba253c3 AppKit`-[NSWorkspace _postSessionNotificationIfNeeded] + 46
+frame #5: 0x00007fff8ba25263 AppKit`-[NSApplication _postDidFinishNotification] + 55
+frame #6: 0x00007fff8ba250bf AppKit`-[NSApplication _sendFinishLaunchingNotification] + 203
+frame #7: 0x00007fff8b8dfd99 AppKit`-[NSApplication(NSAppleEventHandling) _handleAEOpenEvent:] + 557
+frame #8: 0x00007fff8b8df843 AppKit`-[NSApplication(NSAppleEventHandling) _handleCoreEvent:withReplyEvent:] + 250
+frame #9: 0x00007fff9140172d Foundation`-[NSAppleEventManager dispatchRawAppleEvent:withRawReply:handlerRefCon:] + 290
+frame #10: 0x00007fff914015a7 Foundation`_NSAppleEventManagerGenericHandler + 102
+frame #11: 0x00007fff8d2eb261 AE`aeDispatchAppleEvent(AEDesc const*, AEDesc*, unsigned int, unsigned char*) + 531
+frame #12: 0x00007fff8d2eafe8 AE`dispatchEventAndSendReply(AEDesc const*, AEDesc*) + 31
+frame #13: 0x00007fff8d2eaf04 AE`aeProcessAppleEvent + 288
+frame #14: 0x00007fff9b58faf9 HIToolbox`AEProcessAppleEvent + 55
+frame #15: 0x00007fff8b8db290 AppKit`_DPSNextEvent + 2245
+frame #16: 0x00007fff8b8da226 AppKit`-[NSApplication _nextEventMatchingEventMask:untilDate:inMode:dequeue:] + 454
+frame #17: 0x00007fff8b8ced80 AppKit`-[NSApplication run] + 682
+frame #18: 0x0000000100009a26 RTV1`mlx_loop + 134
+frame #19: 0x0000000100000e14 RTV1`main(ac=1, av=0x00007fff5fbffaf8) + 132 at main.c:75
+frame #20: 0x00007fff8aafb5ad libdyld.dylib`start + 1
+frame #21: 0x00007fff8aafb5ad libdyld.dylib`start + 1
