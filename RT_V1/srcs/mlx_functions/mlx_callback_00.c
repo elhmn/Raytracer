@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_callback_00.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/27 09:46:44 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/27 09:51:07 by bmbarga          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <mlx.h>
 #include <stdlib.h>
 #include "rt.h"
@@ -6,7 +18,7 @@
 #include "check_errors.h"
 
 /*
-** gerer correctement l expose
+** gerer correctement l'expose
 */
 
 int			loop_hook(void *param)

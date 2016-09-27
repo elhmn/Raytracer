@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/09/27 01:32:07 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 09:54:58 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,11 @@
 */
 
 /*			BUGS
-**	+Camera rotation issue						FIXED
-**	+Plane rotation and creation 			
-**	+Camera perspective a bit wierd				THAT'S NOT AN ISSUE
-**	+Cylinder limitation						
+**	+Camera rotation issue						
+**	+Camera perspective a bit wierd				
+**	+Plane rotation and creation 					
+**	+Cylinder limitation						DONE
+**	+Cone limitation							
 **	+Segfault unknown							It comes from mlx_loop
 **												and also deals with bad mlx env
 **												closure
@@ -75,7 +76,5 @@ int		main(int ac, char **av)
 	mlx_loop_hook(rt->env->mlx, loop_hook, (void*)rt);
 	mlx_key_hook(rt->env->win, key_hook, (void*)rt);
 	mlx_loop(rt->env->mlx);
-	release_mlx(rt);
-	//release resources and quit mlx
 	return (0);
 }

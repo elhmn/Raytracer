@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 00:20:48 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 00:20:58 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 09:57:36 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@ static double		get_limit_aux(t_pos ro, t_pos rd, t_pos data)
 	ro_tmp = ro;
 	pos_mult_to_number(&rd_tmp, d);
 	pos_add_to_pos(&ro_tmp, rd_tmp); 
-//	put_pos(ro_tmp); //Debug
 	tmp = pos_vector(ro_tmp, get_pos(0, data.y, 0));
 	if (pos_norme(tmp) <= data.x)
 		return (d);
-	return (3.402823e+38);
+	return (MAX_DBL);
 }
 
 /*
@@ -56,8 +55,8 @@ static double		get_limit(t_pos ro, t_pos rd, double ret, t_pos data)
 		!((s - (h)) < ro.y + rd.y * ret
 			&& (s + (h)) > ro.y + rd.y * ret))
 	{
-		d1 = get_limit_aux(ro, rd, get_pos((s + h) * e, s + (h), 0));
-		d2 = get_limit_aux(ro, rd, get_pos((s + h) * e, s - (h), 0));
+		d1 = get_limit_aux(ro, rd, get_pos((s + h) * e, s + h, 0));
+		d2 = get_limit_aux(ro, rd, get_pos((s + h) * e, s - h, 0));
 		if (d1 > d2)
 			d1 = d2;
 		ret = d1;

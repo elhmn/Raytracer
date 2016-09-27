@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 01:56:33 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 09:58:39 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static void	rt_get_ray_color(t_ray *r, t_list *o, t_rt *rt)
 	double	d;
 
 	list = o;
-	d = 3.402823e+38;
+	d = MAX_DBL;
 	if (!rt || !r)
 		check_errors(NUL, "raytracer.c", "rt && r");
 	while (list != NULL)
@@ -110,7 +110,6 @@ void		raytracer(t_rt *rt)
 	r = rt->ray;
 	o = rt->objs;
 	set_ray_array_zero(r, rt->screen);
-//pour chaque rayon
 	while (++i < rt->screen->resY)
 	{
 		j = -1;
@@ -123,5 +122,5 @@ void		raytracer(t_rt *rt)
 			}
 		}
 	}
-//	ft_putendl("raytracer"); //debug
+	ft_putendl("raytracer"); //debug
 }

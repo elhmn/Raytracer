@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 02:10:47 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 09:59:34 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,24 @@
 # include "libft.h"
 
 /*
+**	Variable limits define
+*/
+
+#define MAX_DBL			3.402823e+38
+
+/*
 ** s_color n define
 */
 
-# define MASK_A		0xFF000000
-# define MASK_R		0x00FF0000
-# define MASK_G		0x0000FF00
-# define MASK_B		0x000000FF
+# define MASK_A			0xFF000000
+# define MASK_R			0x00FF0000
+# define MASK_G			0x0000FF00
+# define MASK_B			0x000000FF
 
 /*
 ** s_screen define
 */
 
-//# define RESX			1920
-//# define RESY			1080
 # define RESX			800
 # define RESY			600
 # define SCREEN_WIDTH	RESX	
@@ -38,7 +42,7 @@
 # define PIXEL_WIDTH	1
 
 /*
-** KEYCODE
+** KeyCode define
 */
 
 # define K_QUIT			53
@@ -145,9 +149,9 @@ typedef struct	s_ray
 }				t_ray;
 
 /*
-**layer struct
-**depht  =>layer depht
-**img ==> img is not appropriate for this program
+** layer struct
+** depht  =>layer depht
+** img ==> img is not appropriate for this program
 */
 
 typedef struct		s_lay

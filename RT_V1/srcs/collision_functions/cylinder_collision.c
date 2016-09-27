@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:23 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/26 14:21:14 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 09:57:48 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static double		get_limit_aux(t_pos ro, t_pos rd, t_pos data)
 	tmp = pos_vector(ro_tmp, get_pos(0, data.y, 0));
 	if (pos_norme(tmp) <= data.x)
 		return (d);
-	return (3.402823e+38);
+	return (MAX_DBL);
 }
 
 static double		find_collision(t_pos ro, t_pos rd, double r)
