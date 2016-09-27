@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/09/26 20:15:38 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 01:32:07 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,11 @@ int		main(int ac, char **av)
 	
 	init_rt(&rt);
 	set_img(&(rt->img), rt->env->img, &(rt->lay));
-
-//	put_space(*(rt->space)); //Debug
-//	put_camera(*(rt->camera)); //Debug
-//	put_screen(*(rt->screen)); //Debug
-
+	mlx_expose_hook(rt->env->win, expose_hook, (void*)rt);
 	mlx_loop_hook(rt->env->mlx, loop_hook, (void*)rt);
+	mlx_key_hook(rt->env->win, key_hook, (void*)rt);
 	mlx_loop(rt->env->mlx);
+	release_mlx(rt);
+	//release resources and quit mlx
 	return (0);
 }

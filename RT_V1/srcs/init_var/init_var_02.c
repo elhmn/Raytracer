@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/26 20:26:50 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 02:09:24 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	init_objs(t_list **objs)
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 		tmp->content = newSphere(get_pos(-300, 220, 0), 150, get_color(255, 255, 0));
+/*	
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
@@ -68,7 +69,6 @@ void	init_objs(t_list **objs)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
 
-/*	
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 		tmp->content = newPlane(get_pos(0, -400, 1000), get_pos(0, -1, 0), get_color(20, 20, 20));

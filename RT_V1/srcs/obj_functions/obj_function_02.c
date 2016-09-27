@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:44 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/26 19:46:28 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 01:30:09 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void	rot_object(t_obj *o, t_pos r)
 {
 	if (o)
 	{
-
-		pos_copy(&(o->rot), r);
 		rot_base(&(o->sp), r);
 		pos_mult_to_number(&r, -1);
 		init_base_self(&(o->o));

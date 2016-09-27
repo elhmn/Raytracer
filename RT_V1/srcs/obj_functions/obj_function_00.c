@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 14:43:02 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/25 15:11:04 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 00:18:48 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*new_obj(int type, void	*data, t_pos pos, t_color col)
 	if (!(obj = (t_obj*)malloc(sizeof(t_obj))))
 		check_errors(MALLOC, "obj", "obj_function_00.c");
 
-	obj->ifCollision = NULL; //Temp
+	obj->ifCollision = NULL;
 	if (type == SPHERE)
 	{
 		obj->type = SPHERE;

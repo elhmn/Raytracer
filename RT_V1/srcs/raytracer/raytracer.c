@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/26 20:16:57 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 01:56:33 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void		raytracer(t_rt *rt)
 	rt_check_error(rt);
 	r = rt->ray;
 	o = rt->objs;
+	set_ray_array_zero(r, rt->screen);
 //pour chaque rayon
 	while (++i < rt->screen->resY)
 	{

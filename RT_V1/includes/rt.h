@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/26 20:27:51 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/27 02:10:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,27 @@
 # define SCREEN_HEIGHT	RESY
 # define PIXEL_HEIGHT	1
 # define PIXEL_WIDTH	1
+
+/*
+** KEYCODE
+*/
+
+# define K_QUIT			53
+# define K_R			15
+# define K_LEFT			123
+# define K_RIGHT		124
+# define K_UP			126
+# define K_DOWN			125
+
+# define MOVE			100
+# define ROT			10
+
+# define K_A			0
+# define K_S			1
+# define K_D			2
+# define K_W			13
+# define K_Q			12
+# define K_E			14
 
 /*
 ** s_camera define
@@ -82,7 +103,6 @@ typedef struct	s_camera
 
 	double		dist;
 	double		fieldOfView;
-	int			isRot; //temporaire //debug
 }				t_camera;
 
 /*
@@ -175,7 +195,7 @@ typedef struct s_rt
 
 	t_lay		lay;
 	char		*img;
-
+	int			refresh;
 	//and maybe something to store pixels color
 	//char		**pixels;
 }				t_rt;
@@ -191,6 +211,8 @@ void	loop(t_rt *rt);
 */
 
 int				loop_hook(void *param);
+int				key_hook(int keyCode, void *param);
+int				expose_hook(void *param);
 
 /*
 ** init_var_00.c
@@ -289,4 +311,10 @@ void			set_color(t_color *col);
 void			raytracer(t_rt *rt);
 void			show(t_rt *rt);
 
+/*
+** release_mlx.c
+*/
+
+void			clear_image(t_rt *rt);
+void			release_mlx(t_rt *rt);
 #endif
