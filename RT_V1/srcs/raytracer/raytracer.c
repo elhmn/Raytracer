@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/28 18:26:48 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/28 19:30:38 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,21 +86,16 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	u = pos_normalize(rt->camera->sp.i);
 	v = pos_normalize(rt->camera->sp.j);
 	w = pos_normalize(rt->camera->sp.k);
-
 	pX = rt->screen->pixelWidth;
 	pY = rt->screen->pixelHeight;
-
 	pos_mult_to_number(&w, rt->camera->dist);
 	pos_add_to_pos(&c, w);
-
 	t = u;
 	pos_mult_to_number(&t, - ((pX * (rt->screen->resX + 1)) / 2.) + incX * pX);
 	pos_add_to_pos(&c, t);
-
 	t = v;
 	pos_mult_to_number(&t, ((pY * (rt->screen->resY - 1)) / 2.) - incY * pY);
 	pos_add_to_pos(&c, t);
-
 	set_pos(&(r->pos), c.x, c.y, c.z);
 }
 

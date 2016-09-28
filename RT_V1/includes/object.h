@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:13:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/28 18:31:00 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/28 19:06:55 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,4 +151,11 @@ double			cylinder_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
 
 double			cone_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
 
+/*
+** obj_move_00.c
+*/
+
+void			move_base(t_base *b, t_pos pos);
+void			move_camera(t_camera *c, t_pos pos);
+void			move_obj(t_obj *o, t_pos pos);
 #endif

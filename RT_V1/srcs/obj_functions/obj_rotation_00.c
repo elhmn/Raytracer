@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   obj_function_02.c                                  :+:      :+:    :+:   */
+/*   obj_rotation_00.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/24 17:05:44 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 01:30:09 by bmbarga          ###   ########.fr       */
+/*   Created: 2016/09/28 18:47:59 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/28 18:49:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	rot_plane(t_obj *plane, t_pos r)
 	if (plane)
 	{
 		if (!(data = (t_dataPlane*)plane->data))
-			check_errors(NUL, "plane->data", "obj->function_02.c");
+			check_errors(NUL, "plane->data", "obj_rotation_00.c");
 		pos_rot_xyz(&(data->v_normal), plane->sp.o, r);
 	}
 }

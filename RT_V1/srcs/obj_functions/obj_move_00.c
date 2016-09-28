@@ -1,49 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_var_02.c                                       :+:      :+:    :+:   */
+/*   obj_move_00.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/25 15:26:38 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/28 19:10:59 by bmbarga          ###   ########.fr       */
+/*   Created: 2016/09/28 18:51:17 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/28 19:08:26 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "rt.h"
-#include "check_errors.h"
 #include "object.h"
-#include <mlx.h>
+#include "libft.h"
+#include "check_errors.h"
+#include "put_var.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-void		put_var_dbl(char *var, double val)
+void		move_base(t_base *b, t_pos pos)
 {
-	if (var)
+	if (b)
 	{
-		ft_putstr(var);
-		ft_putstr(" = ");
+		pos_add_to_pos(&(b->o), pos);
+		pos_add_to_pos(&(b->i), pos);
+		pos_add_to_pos(&(b->j), pos);
+		pos_add_to_pos(&(b->k), pos);
 	}
-	ft_putstr("[");
-	ft_putdbl(val);
-	ft_putendl("]");
 }
 
-void	put_dataCone(t_dataCone *data)
+void		move_obj(t_obj *o, t_pos pos)
 {
-	t_dataCone	*d;
-
-	d = (t_dataCone*)data;
-	(void)d;
-	ft_putendl("put data Cone");
+	if (o)
+		move_base(&(o->sp), pos); 
 }
 
-void	put_dataCylinder(t_dataCylinder *data)
+void		move_camera(t_camera *c, t_pos pos)
 {
-	t_dataCylinder	*d;
-
-	d = (t_dataCylinder*)data;
-	(void)d;
-	ft_putendl("put data Cone");
+	if (c)
+		move_base(&(c->sp), pos);
 }
