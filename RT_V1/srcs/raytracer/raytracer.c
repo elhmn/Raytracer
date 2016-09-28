@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 10:38:50 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/28 18:26:48 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,20 +81,26 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 
 	if (!rt || !r)
 		check_errors(NUL, "raytracer.c", "rt && r");
+
 	c = rt->camera->sp.o;
 	u = pos_normalize(rt->camera->sp.i);
 	v = pos_normalize(rt->camera->sp.j);
 	w = pos_normalize(rt->camera->sp.k);
+
 	pX = rt->screen->pixelWidth;
 	pY = rt->screen->pixelHeight;
+
 	pos_mult_to_number(&w, rt->camera->dist);
 	pos_add_to_pos(&c, w);
+
 	t = u;
 	pos_mult_to_number(&t, - ((pX * (rt->screen->resX + 1)) / 2.) + incX * pX);
 	pos_add_to_pos(&c, t);
+
 	t = v;
 	pos_mult_to_number(&t, ((pY * (rt->screen->resY - 1)) / 2.) - incY * pY);
 	pos_add_to_pos(&c, t);
+
 	set_pos(&(r->pos), c.x, c.y, c.z);
 }
 
@@ -105,8 +111,9 @@ void		raytracer(t_rt *rt)
 	t_ray	**r;
 	t_list	*o;
 
-	i = -1;
+	ft_putendl("raytracer IN"); //debug
 	rt_check_error(rt);
+	i = -1;
 	r = rt->ray;
 	o = rt->objs;
 	set_ray_array_zero(r, rt->screen);
@@ -122,5 +129,5 @@ void		raytracer(t_rt *rt)
 			}
 		}
 	}
-	ft_putendl("raytracer"); //debug
+	ft_putendl("raytracer OUT"); //debug
 }

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 10:35:00 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/28 18:09:02 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,15 +200,13 @@ typedef struct s_rt
 	t_lay		lay;
 	char		*img;
 	int			refresh;
-	//and maybe something to store pixels color
-	//char		**pixels;
 }				t_rt;
 
 /*
 ** loop.c
 */
 
-void	loop(t_rt *rt);
+void			loop(t_rt *rt);
 
 /*
 ** mlx_callback_00.c

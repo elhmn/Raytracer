@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 00:20:48 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 10:35:49 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/28 18:12:36 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ static double		get_limit(t_pos ro, t_pos rd, double ret, t_pos data)
 	return (ret);
 }
 
-
 static double		getDist(double a, double b, double delta)
 {
 	double		ret;
@@ -82,7 +81,7 @@ static double		getDist(double a, double b, double delta)
 }
 
 static double		find_collision(t_pos ro, t_pos rd,
-						double h, double ang)
+							double h, double ang)
 {
 	double	a;
 	double	b;

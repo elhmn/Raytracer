@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 09:46:44 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 09:51:07 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/28 18:09:56 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int			loop_hook(void *param)
 	t_rt	*rt;
 
 	rt = (t_rt*)param;
+	if (!(rt = (t_rt*)param))
+		check_errors(NUL, "rt", "mlx_callback_00.c");
 	loop(rt);
 	return (0);
 }

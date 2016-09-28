@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/09/27 09:54:58 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/28 18:29:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,15 @@
 */
 
 /*			BUGS
+**	+Correct Rotation Gimbal effect				
 **	+Camera rotation issue						
 **	+Camera perspective a bit wierd				
+**
 **	+Plane rotation and creation 					
 **	+Cylinder limitation						DONE
 **	+Cone limitation							
-**	+Segfault unknown							It comes from mlx_loop
-**												and also deals with bad mlx env
-**												closure
+**
+**	+Segfault unknown							In Progress
 */
 
 int		main(int ac, char **av)
@@ -69,7 +70,7 @@ int		main(int ac, char **av)
 	rt = NULL;
 	(void)av;
 	(void)ac;
-	
+
 	init_rt(&rt);
 	set_img(&(rt->img), rt->env->img, &(rt->lay));
 	mlx_expose_hook(rt->env->win, expose_hook, (void*)rt);

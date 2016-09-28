@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:46 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 02:01:57 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/28 18:16:18 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void		set_ray_array_zero(t_ray **ray, t_screen *screen)
 
 	if (screen && ray)
 	{
+		i = -1;
 		max_x = screen->resX;
 		max_y = screen->resY;
-		i = -1;
 		while (++i < max_y)
 		{
 			j = -1;

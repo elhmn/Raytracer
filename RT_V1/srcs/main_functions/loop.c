@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:14 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 09:49:54 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/28 18:29:52 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,28 @@
 #include "check_errors.h"
 #include "transform.h"
 
-void	loop(t_rt *rt)
+void			loop(t_rt *rt)
 {
-	if (rt)
+	if (!rt)
+		check_errors(NUL, "rt", "loop.c");
+	if (rt->refresh)
 	{
-		if (rt->refresh)
+		ft_putendl("loop_hook enter"); //Debug
+		raytracer(rt);
+		clear_image(rt);
+		show(rt);
+		if (rt->env
+			&& rt->env->mlx
+			&& rt->env->win
+			&& rt->env->img)
 		{
-			ft_putendl("loop_hook enter"); //Debug
-			raytracer(rt);
-			clear_image(rt);
-			show(rt);
-			if (rt->env
-				&& rt->env->mlx
-				&& rt->env->win
-				&& rt->env->img)
-			{
-				mlx_clear_window(rt->env->mlx, rt->env->win);
-				mlx_put_image_to_window(rt->env->mlx, rt->env->win,
-									rt->env->img, 0, 0);
-			}
-			else
-				check_errors(NUL, "loop.c", "rt->env struct");
-			rt->refresh = 0;
-			ft_putendl("loop_hook exit"); //Debug
+			mlx_clear_window(rt->env->mlx, rt->env->win);
+			mlx_put_image_to_window(rt->env->mlx, rt->env->win,
+								rt->env->img, 0, 0);
 		}
+		else
+			check_errors(NUL, "loop.c", "rt->env struct");
+		rt->refresh = 0;
+		ft_putendl("loop_hook exit"); //Debug
 	}
 }

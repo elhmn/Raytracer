@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:13:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 01:34:55 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/28 18:31:00 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ struct	s_obj
 	void		*data;
 	t_pos		rot;
 
+	/*
+	** o base is origin base expressed with obj base
+	*/
+
 	t_base		sp;
 	t_base		o;
 	t_color		col;
@@ -103,7 +107,6 @@ void			*new_obj(int type, void *data, t_pos pos, t_color col);
 ** obj_function_01.c
 */
 
-//double		get_d(t_pos n, t_pos p);
 t_obj			*newSphere(t_pos pos, int radius, t_color col);
 t_obj			*newPlane(t_pos pos, t_pos v_normal, t_color col);
 t_obj			*newCylinder(t_pos pos, double r, double h, t_color col);
