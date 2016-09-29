@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 14:42:04 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/28 18:33:10 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/29 19:33:15 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	pos_rot_x(t_pos *src, t_pos o, double r)
 	double	y;
 	double	z;
 	
-	if (src && r)
+	if (src)
 	{
  		x = src->x - o.x;
 		y = src->y - o.y;
@@ -45,7 +45,7 @@ void	pos_rot_y(t_pos *src, t_pos o, double r)
 	double	y;
 	double	z;
 
-	if (src && r)
+	if (src)
 	{
  		x = src->x - o.x;
 		y = src->y - o.y;
@@ -63,7 +63,7 @@ void	pos_rot_z(t_pos *src, t_pos o, double r)
 	double	y;
 	double	z;
 
-	if (src && r)
+	if (src)
 	{
  		x = src->x - o.x;
 		y = src->y - o.y;

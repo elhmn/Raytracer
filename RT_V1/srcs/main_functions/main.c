@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/09/28 18:29:47 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/29 19:26:36 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@
 */
 
 /*			BUGS
-**	+Correct Rotation Gimbal effect				
-**	+Camera rotation issue						
-**	+Camera perspective a bit wierd				
+**	+Correct Rotation Gimbal effect				In progress
+**	+Camera rotation issue						In progress
+**	+Camera perspective a bit wierd				In progress
 **
 **	+Plane rotation and creation 					
 **	+Cylinder limitation						DONE
 **	+Cone limitation							
 **
-**	+Segfault unknown							In Progress
+**	+Segfault unknown							Will keep in progress
 */
 
 int		main(int ac, char **av)

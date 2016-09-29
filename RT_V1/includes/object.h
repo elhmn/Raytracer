@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:13:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/28 19:06:55 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/29 17:09:37 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ void			rot_plane(t_obj *plane, t_pos r);
 void			rot_camera(t_camera *cam, t_pos r);
 void			rot_object(t_obj *obj, t_pos r);
 void			rot_base(t_base *b, t_pos r);
+void			test_rotation(t_base b); //Debug
 
 /*
 ** objects collision functions
