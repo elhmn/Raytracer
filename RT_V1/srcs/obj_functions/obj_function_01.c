@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/28 18:49:31 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/29 22:24:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ t_obj	*newCone(t_pos pos, t_pos var, t_color col)
 		return (NULL);
 	if (!(cone = (t_obj*)malloc(sizeof(t_obj))))
 		check_errors(MALLOC, "cone", "obj_function_01.c");
-	if (!(data = (t_dataCone*)malloc(sizeof(t_dataCylinder))))
+	if (!(data = (t_dataCone*)malloc(sizeof(t_dataCone))))
 		check_errors(MALLOC, "data", "obj_function_01.c");
 	data->top = var.x;
 	data->lim = var.y;

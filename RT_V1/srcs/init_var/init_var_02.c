@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/29 19:37:53 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/29 22:38:14 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	init_objs(t_list **objs)
 	//init objects
 	//add objects to list
 	t_list	*tmp;
+	t_obj	*o;
 
 	tmp = NULL;
 	if (objs)
@@ -97,19 +98,40 @@ void	init_objs(t_list **objs)
 //		/*
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
-		tmp->content = newPlane(get_pos(0, -80, 0), get_pos(0, -1, 0), get_color(50, 50, 50));
+		tmp->content = newPlane(get_pos(0, 0, 0), get_pos(0, -1, 0), get_color(50, 50, 50));
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
 
+		
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
-		tmp->content = newPlane(get_pos(0, -400, 1000), get_pos(0, -1, 0), get_color(20, 20, 20));
+
+
+		tmp->content = o = newPlane(get_pos(0, 0, 0), get_pos(0, 1, 0), get_color(20, 20, 20));
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
-		rot_plane(tmp->content, get_pos(90, 0, 0));
-		//*/
+		rot_plane(tmp->content, get_pos(90, 0, 90));
+		pos_add_to_pos(&(o->sp.o), get_pos(0, 0, 1000)); //Debug
+
+		tmp = ft_lstnew(NULL, 0);
+		ft_lstadd_end(objs, tmp);
+		tmp->content = o = newPlane(get_pos(0, 0, 0), get_pos(0, -1, 0), get_color(90, 50, 20));
+		if (!tmp->content)
+			check_errors(MALLOC, "init_var_02.c", "objs->content");
+		put_obj(tmp->content);
+		rot_plane(tmp->content, get_pos(0, 0, 90));
+		pos_add_to_pos(&(o->sp.o), get_pos(1500, 0, 0)); //Debug
+
+		tmp = ft_lstnew(NULL, 0);
+		ft_lstadd_end(objs, tmp);
+		tmp->content = o = newPlane(get_pos(0, 0, 0), get_pos(0, 1, 0), get_color(70, 20, 20));
+		if (!tmp->content)
+			check_errors(MALLOC, "init_var_02.c", "objs->content");
+		put_obj(tmp->content);
+		rot_plane(tmp->content, get_pos(0, 0, 90));
+		pos_add_to_pos(&(o->sp.o), get_pos(-1500, 0, 0)); //Debug
 
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -157,21 +179,21 @@ void	init_objs(t_list **objs)
 /*
 **	Cone creation
 */
-		/*
+//
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
-		tmp->content = newCone_std(get_pos(-800, 400, 500), 1000, 800, get_color(150, 100, 255));
+		tmp->content = newCone_std(get_pos(-1200, 0, 500), 1000, -1, get_color(150, 100, 255));
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
 
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
-		tmp->content = newCone_std(get_pos(800, 0, 500), 1000, 500, get_color(150, 100, 255));
+		tmp->content = newCone_std(get_pos(1200, 0, 500), 1000, -1, get_color(150, 100, 255));
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
-		*/
+//
 	}
 	ft_putendl("init_objs called"); //Debug
 }

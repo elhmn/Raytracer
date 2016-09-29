@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/29 16:56:47 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/29 21:14:14 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@
 
 # define FOV			60
 # define RAD(x)			((double)x * (double)M_PI) / (double)180.0
+# define ABS(x)			(x < 0) ? -x : x
 # define SAFE_DIST		400.
 
 typedef unsigned int	t_uint;
