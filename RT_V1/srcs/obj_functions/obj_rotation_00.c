@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/28 18:47:59 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/29 19:39:58 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 14:19:39 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,46 +16,6 @@
 #include "check_errors.h"
 #include "put_var.h"
 #include <stdlib.h>
-/*
-** Rotation test
-*/
-
-
-void		test_rotation(t_base b)
-{
-	double	tmp;
-	t_pos	u;
-	t_pos	v;
-	t_pos	w;
-
-	u = b.i;
-	v = b.j;
-	w = b.k;
-	if ((tmp = pos_dot_product(u, v)))
-	{
-		put_var_dbl("u.v", tmp); //Debug
-		ft_putendl("u et v ==> pas orthogonaux"); //Debug
-	}
-	else
-		ft_putendl("u et v ==> orthogonaux"); //Debug
-
-	if ((tmp = pos_dot_product(u, w)))
-	{
-		put_var_dbl("u.w", tmp);
-		ft_putendl("u et w ==> pas orthogonaux"); //Debug
-	}
-	else
-		ft_putendl("u et w ==> orthogonaux"); //Debug
-
-	if ((tmp = pos_dot_product(v, w)))
-	{
-		put_var_dbl("v.w", tmp);
-		ft_putendl("v et w ==> pas orthogonaux"); //Debug
-	}
-	else
-		ft_putendl("v et w ==> orthogonaux"); //Debug
-}
-
 
 /*
 ** Plane rotation function
@@ -129,6 +89,5 @@ void	rot_camera(t_camera *cam, t_pos r)
 		*u = pos_normalize(*u);
 		*v = pos_normalize(*v);
 		*w = pos_normalize(*w);
-		test_rotation(cam->sp); //Debug Test
 	}
 }

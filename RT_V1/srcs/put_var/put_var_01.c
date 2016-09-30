@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:04:14 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/27 01:35:05 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 15:06:38 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void	put_obj(void *obj)
 		ft_putstr("rotation -> ");
 		put_pos(o->rot);
 		ft_putstr("}\n");
+		if (o->material)
+			put_material(*(o->material));
 		if (o->type == SPHERE)
 			put_dataSphere(o->data);
 		if (o->type == PLANE)

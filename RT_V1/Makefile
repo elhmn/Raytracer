@@ -25,6 +25,9 @@ RAYTRACER_DIR = raytracer/
 COLL_DIR = collision_functions/
 TRANS_DIR = transform/
 DESTROY_DIR = destroy_var/
+RT_COLOR_DIR = rt_color/
+LIGHT_DIR = light/
+MATERIAL_DIR = material/
 	
 
 MAIN = main.c loop.c
@@ -41,7 +44,7 @@ SET = set_var_00.c
 
 OBJFUNC = obj_function_00.c obj_function_01.c obj_rotation_00.c obj_move_00.c
 
-PUT = put_var_00.c put_var_01.c put_var_02.c
+PUT = put_var_00.c put_var_01.c put_var_02.c put_var_03.c
 
 DRAW = draw.c color.c
 
@@ -52,6 +55,12 @@ COLL = sphere_collision.c plane_collision.c cylinder_collision.c cone_collision.
 TRANS = transform_00.c
 
 DESTROY = release_mlx.c
+
+RT_COLOR = rt_color.c
+
+LIGHT = light.c new_omniLight.c light_intensity.c
+
+MATERIAL = new_material.c
 
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))
@@ -66,14 +75,19 @@ RAYTRACERS =  $(addprefix $(RAYTRACER_DIR), $(RAYTRACER))
 COLLS =  $(addprefix $(COLL_DIR), $(COLL))
 TRANSS = $(addprefix $(TRANS_DIR), $(TRANS))
 DESTROYS = $(addprefix $(DESTROY_DIR), $(DESTROY))
+RT_COLORS = $(addprefix $(RT_COLOR_DIR), $(RT_COLOR))
+LIGHTS = $(addprefix $(LIGHT_DIR), $(LIGHT))
+MATERIALS = $(addprefix $(MATERIAL_DIR), $(MATERIAL))
 
 SRC_OBJ = $(MAIN) $(ERR) $(INIT) $(MLX) $(POS) $(OBJFUNC) \
 			$(SET) $(PUT) $(DRAW) $(RAYTRACER) $(COLL) $(TRANS) \
-			$(DESTROY)
+			$(DESTROY) $(RT_COLOR) $(LIGHT) $(MATERIAL)
 
 SRC = 	$(MAINS) $(ERRS) $(INITS) $(MLXS) $(POSS) $(OBJFUNCS) \
 		$(SETS) $(PUTS) $(DRAWS) $(RAYTRACERS) $(COLLS) $(TRANSS) \
-		$(DESTROYS)
+		$(DESTROYS) $(RT_COLORS) $(LIGHTS) $(MATERIALS)
+
+
 		
 OBJ = $(SRC_OBJ:.c=.o)
 

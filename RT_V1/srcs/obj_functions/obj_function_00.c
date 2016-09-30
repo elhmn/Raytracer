@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/28 18:13:22 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 15:32:21 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,30 @@
 #include "object.h"
 #include "libft.h"
 #include "check_errors.h"
+#include "material.h"
+#include "rt_color.h"
 #include <stdlib.h>
 
 /*
 ** this function has to be code properly or deleted
 */
 
-void	*new_obj(int type, void	*data, t_pos pos, t_color col)
+t_obj	*new_obj(int type, t_pos pos, t_color col)
 {
 	t_obj		*obj;
 
+	obj = NULL;
 	if (!(obj = (t_obj*)malloc(sizeof(t_obj))))
 		check_errors(MALLOC, "obj", "obj_function_00.c");
-
+	obj->type = type;
 	obj->ifCollision = NULL;
-	if (type == SPHERE)
-	{
-		obj->type = SPHERE;
-		obj->ifCollision = sphere_collision;
-	}
-	else if (type == PLANE)
-	{
-		obj->type = PLANE;
-	}
-	init_base_self(&(obj->sp));
-	set_pos(&(obj->sp.o), pos.x, pos.y, pos.z);
-	obj->data = data;
+	obj->material = NULL;
+	obj->data = NULL;
+	obj->rot = get_pos(0, 0, 0);
 	obj->col = col;
-	return ((void*)obj);
+	obj->sCol = get_sColor(0, 0, 0);
+	obj->sCol = color_to_sColor(obj->col);
+	init_base_self(&(obj->sp));
+	copy_pos(&(obj->sp.o), pos);
+	return (obj);
 }

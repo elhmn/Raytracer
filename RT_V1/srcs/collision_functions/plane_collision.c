@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:26 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/29 21:21:51 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 08:49:50 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,12 @@ static double		is_collision(t_ray *ray, t_dataPlane *data,
 		ro = cam->sp.o;
 		po = obj->sp.o;
 		denom = pos_dot_product(n, rd);
-		if (denom > 1e-6)
+		if (denom > 1e-6 && denom)
 		{
-//			pos_sub_to_pos(&po, ro);
-//			pos_normalize(po);
 			enume = pos_dot_product(n, po) - pos_dot_product(n, ro);
 			ret = (enume) / (denom);
 		}
 	}
-//	if (ret >= 0) //Debug
-	//	put_var_dbl("ret", ret);//Debug
 	return (ret);
 }
 

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/29 22:38:14 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 15:32:43 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "put_var.h"
 #include "object.h"
 #include "rt.h"
+#include "light.h"
+#include "rt_color.h"
 #include <mlx.h>
 #include <stdlib.h>
 
@@ -40,15 +42,18 @@ void	init_objs(t_list **objs)
 	t_obj	*o;
 
 	tmp = NULL;
+	(void)o;
 	if (objs)
 	{
 		if (!(*objs = ft_lstnew(NULL, 0)))
 			check_errors(MALLOC, "init_var_02.c", "objs");
-		(*objs)->content = newSphere(get_pos(0, 400, 0), 200, get_color(255, 0, 0));
+		(*objs)->content = o = newSphere(get_pos(0, 400, 0), 200, get_color(255, 0, 0));
 		if (!(*objs)->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
+		o->material = new_material(NULL, 0.3, 0.4, 0.5);
 		put_obj((*objs)->content);
 
+/*
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 		tmp->content = newSphere(get_pos(100, 220, 0), 150, get_color(255, 0, 255));
@@ -90,12 +95,12 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
+*/
 
 /*
 ** Plane Init
 */
 
-//		/*
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 		tmp->content = newPlane(get_pos(0, 0, 0), get_pos(0, -1, 0), get_color(50, 50, 50));
@@ -104,6 +109,7 @@ void	init_objs(t_list **objs)
 		put_obj(tmp->content);
 
 		
+		/*
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 
@@ -140,9 +146,11 @@ void	init_objs(t_list **objs)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
 		rot_object(tmp->content, get_pos(0, 0, 0)); //Debug
+		*/
 /*
 **	Cylinder creation
 */
+		/*
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 		tmp->content = newCylinder(get_pos(0, 0, 0), 30, 0, get_color(0, 0, 255));
@@ -176,10 +184,13 @@ void	init_objs(t_list **objs)
 		put_obj(tmp->content);
 		rot_object(tmp->content, get_pos(-90, 0, 0)); //Debug
 		put_obj(tmp->content);
+		*/
+
 /*
 **	Cone creation
 */
-//
+
+/*
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 		tmp->content = newCone_std(get_pos(-1200, 0, 500), 1000, -1, get_color(150, 100, 255));
@@ -193,7 +204,29 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		put_obj(tmp->content);
-//
+*/
 	}
 	ft_putendl("init_objs called"); //Debug
+}
+
+void		init_lights(t_list **lights)
+{
+	t_list	*tmp;
+	t_light	*l;
+
+	(void)lights;
+	(void)l;
+	tmp = NULL;
+	if (lights)
+	{
+		if (!(*lights = ft_lstnew(NULL, 0)))
+			check_errors(MALLOC, "lights", "init_var_02.c"); 
+		(*lights)->content = l = new_omniLight(get_pos(0, 0, -1000),
+								get_inty(getI(0.3, 0.3, 0.3),
+								getI(0.4, 0.4, 0.4),
+								getI(0.3, 0.3, 0.3)));
+		put_light(l);
+
+	}
+	ft_putendl("init_lights"); //Debug
 }

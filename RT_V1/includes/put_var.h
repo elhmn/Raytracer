@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 14:40:58 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/26 09:59:17 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 15:06:49 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PUT_VAR_H
 
 # include "rt.h"
+# include "light.h"
+# include "rt_color.h"
 # include "object.h"
 
 /*
@@ -35,13 +37,21 @@ void			put_dataSphere(t_dataSphere *data);
 void			put_type(int type);
 void			put_obj(void *obj);
 void			put_dataPlane(t_dataPlane *data);
-void			put_dataCone(t_dataCone *data);
-void			put_dataCylinder(t_dataCylinder *data);
 
 /*
 ** put_var_02.c
 */
 
 void			put_var_dbl(char *var, double val);
+void			put_sColor(t_sColor s);
+void			put_light(t_light *l);
+void			put_dataCone(t_dataCone *data);
+void			put_dataCylinder(t_dataCylinder *data);
+
+/*
+** put_var_03.c
+*/
+
+void			put_material(t_material m);
 
 #endif

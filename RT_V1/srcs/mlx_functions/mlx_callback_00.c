@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 09:46:44 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/29 17:11:08 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 14:27:13 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ int			key_hook(int keyCode, void *param)
 	    pos_add_to_pos(&(rt->camera->sp.o), get_pos(0, 0, -MOVE));
 	}
 	put_camera(*(rt->camera)); //Debug
-	test_rotation(rt->camera->sp); //Debug
 	//Debug------------------
 	return (0);
 }

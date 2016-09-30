@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   light.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/21 01:26:25 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 15:15:45 by bmbarga          ###   ########.fr       */
+/*   Created: 2016/09/30 12:21:54 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/30 14:11:21 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <unistd.h>
-#include "libft.h"
+#include "light.h"
+#include "check_errors.h"
+#include <stdlib.h>
 
-void	ft_putendl(char const *s)
+t_light			*newLight(void)
 {
-	if (s)
-		write(1, s, ft_strlen(s));
-	write(1, "\n", 1);
+	t_light		*l;
+
+	l = NULL;
+	if (!(l = (t_light*)malloc(sizeof(t_light))))
+		check_errors(MALLOC, "l", "light.c");
+	return (l);
 }

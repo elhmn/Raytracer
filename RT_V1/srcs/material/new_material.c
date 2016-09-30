@@ -1,0 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   new_material.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/09/30 14:21:13 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/30 14:38:30 by bmbarga          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "rt.h"
+#include "material.h"
+#include "check_errors.h"
+#include <stdlib.h>
+
+/*
+** material standard creation function 
+*/
+
+t_material		*new_material(char *name, double ka, double ks, double kd)
+{
+	t_material		*m;
+
+	(void)m;
+	m = NULL;
+	if (!(m = (t_material*)malloc(sizeof(t_material))))
+		check_errors(MALLOC, "m", "new_material");
+	m->ka = LIMIT_COEF(ka);
+	m->ks = LIMIT_COEF(ks);
+	m->kd = LIMIT_COEF(kd);
+	m->name = name;
+	ft_putendl("je suis con"); //Debug
+	return (m);
+}

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:13:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/29 17:09:37 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 15:30:43 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define OBJECT_H
 
 # include "rt.h"
+# include "rt_color.h"
+# include "material.h"
 
 /*
 ** Objet structure
@@ -84,6 +86,8 @@ struct	s_obj
 	t_base		sp;
 	t_base		o;
 	t_color		col;
+	t_sColor	sCol;
+	t_material	*material;
 
 	/*
 	** functions
@@ -101,7 +105,7 @@ struct	s_obj
 ** obj_function_00.c
 */
 
-void			*new_obj(int type, void *data, t_pos pos, t_color col);
+t_obj			*new_obj(int type, t_pos pos, t_color col);
 
 /*
 ** obj_function_01.c
@@ -122,7 +126,6 @@ void			rot_plane(t_obj *plane, t_pos r);
 void			rot_camera(t_camera *cam, t_pos r);
 void			rot_object(t_obj *obj, t_pos r);
 void			rot_base(t_base *b, t_pos r);
-void			test_rotation(t_base b); //Debug
 
 /*
 ** objects collision functions

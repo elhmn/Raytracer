@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/29 21:14:14 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 13:15:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,7 @@ typedef struct s_rt
 	t_space		*space;
 	t_ray		**ray;
 	t_list		*objs;
+	t_list		*lights;
 
 	t_lay		lay;
 	char		*img;
@@ -242,6 +243,7 @@ void			set_base_zero(t_base *b);
 
 void			init_ray(t_ray *ray);
 void			init_objs(t_list **objs);
+void			init_lights(t_list **lights);
 
 /*
 ** set_var_00.c
