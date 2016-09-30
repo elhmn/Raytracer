@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 20:45:40 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 01:10:12 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ t_obj	*newCylinder(t_pos pos, double r, double h, t_color col)
 	data->height = h;
 	cylinder->data = (void*)data;
 	cylinder->ifCollision = cylinder_collision;
+	cylinder->normal = cylinder_normal;
 	return (cylinder);
 }
 
@@ -105,5 +106,6 @@ t_obj	*newCone(t_pos pos, t_pos var, t_color col)
 	data->ang = var.z;
 	cone->data = (void*)data;
 	cone->ifCollision = cone_collision;
+//	cone->normal = plane_normal;
 	return (cone);
 }

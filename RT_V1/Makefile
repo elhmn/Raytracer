@@ -63,7 +63,7 @@ LIGHT = light.c new_omniLight.c light_intensity.c lighting.c
 
 MATERIAL = new_material.c
 
-NORMAL_COMP = plane_normal.c sphere_normal.c
+NORMAL_COMP = plane_normal.c sphere_normal.c cylinder_normal.c
 
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))

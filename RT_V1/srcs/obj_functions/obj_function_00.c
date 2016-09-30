@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 17:30:04 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 01:08:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_obj	*new_obj(int type, t_pos pos, t_color col)
 	obj->col = col;
 	obj->sCol = get_sColor(0, 0, 0);
 	obj->sCol = color_to_sColor(obj->col);
+	init_base_self(&(obj->o));
 	init_base_self(&(obj->sp));
 	copy_pos(&(obj->sp.o), pos);
 	return (obj);

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 21:44:37 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 01:10:29 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 	list = rt->lights;
 	sCol = get_sColor(o->sCol.r * o->material->ka,
 			o->sCol.g * o->material->ka, o->sCol.b * o->material->ka);
+	(void)light;
+	(void)p;
 	while (list)
 	{
 		light = (t_light*)list->content;
