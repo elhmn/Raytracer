@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 13:15:30 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 16:52:36 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -308,6 +308,7 @@ void			pixel_put_img(t_rt *rt, int x, int y, t_color *col);
 t_color			get_color(t_uint r, t_uint g, t_uint b);
 t_uint			rgb_to_color(t_uint r, t_uint g, t_uint b);
 void			set_color(t_color *col);
+t_color			get_reshaped_color(t_color col);
 
 /*
 ** raytracer.c

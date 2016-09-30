@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 12:04:54 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 13:51:52 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 18:37:13 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 
 # include "rt.h"
 # include "rt_color.h"
+# include "object.h"
+
+/*
+** does not depends on light source
+*/
+
+# define				I_AMBIENT	0.3
 
 enum					e_light
 {
@@ -37,7 +44,6 @@ typedef struct			s_volSpot
 
 typedef struct			s_inty
 {
-	t_sColor			Ia;
 	t_sColor			Id;
 	t_sColor			Is;
 }						t_inty;
@@ -63,11 +69,18 @@ t_light				*new_omniLight(t_pos pos, t_inty I);
 t_light				*newLight(void);
 
 /*
+** lighting.c
+*/
+
+t_sColor			diffuse_light(t_light *light, t_obj *o,
+									t_pos l, t_pos n);
+
+/*
 ** light_intensity.c
 */
 
 void				inty_copy(t_inty *d, t_inty s);
-t_inty				get_inty(t_sColor Ia, t_sColor Id, t_sColor Is);
+t_inty				get_inty(t_sColor Id, t_sColor Is);
 t_sColor			getI(double r, double g, double b);
 
 #endif

@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   light_intensity.c                                  :+:      :+:    :+:   */
+/*   sphere_computation.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/30 12:37:55 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 16:21:43 by bmbarga          ###   ########.fr       */
+/*   Created: 2016/09/30 20:42:05 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/09/30 20:47:06 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "light.h"
 #include "put_var.h"
-#include "rt_color.h"
+#include "check_errors.h"
+#include "normal_computation.h"
 
-t_sColor	getI(double r, double g, double b)
+t_pos		sphere_normal(t_obj *o, t_pos r, t_pos p)
 {
-	t_sColor	s;
+	t_pos			n;
 
-	s.r = LIMIT_SCOL(r);
-	s.g = LIMIT_SCOL(g);
-	s.b = LIMIT_SCOL(b);
-	return (s);
-}
-
-t_inty		get_inty(t_sColor Id, t_sColor Is)
-{
-	t_inty		I;
-
-	I.Id = Id;
-	I.Is = Is;
-	return (I);
-}
-
-void		inty_copy(t_inty *d, t_inty s)
-{
-	d->Id = s.Id;
-	d->Is = s.Is;
+	(void)n;
+	(void)o;
+	(void)r;
+	(void)p;
+	n = pos_vector(o->sp.o, p);
+	n = pos_normalize(n);
+	return (n);
 }

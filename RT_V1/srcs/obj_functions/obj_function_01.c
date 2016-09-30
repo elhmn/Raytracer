@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 15:36:44 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 20:45:40 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "object.h"
 #include "libft.h"
 #include "check_errors.h"
+#include "normal_computation.h"
 #include <stdlib.h>
 
 t_obj	*newSphere(t_pos pos, int radius, t_color col)
@@ -30,6 +31,7 @@ t_obj	*newSphere(t_pos pos, int radius, t_color col)
 	data->radius = radius;
 	sphere->data = (void*)data;
 	sphere->ifCollision = sphere_collision;
+	sphere->normal = sphere_normal;
 	return (sphere);
 }
 
@@ -44,9 +46,11 @@ t_obj	*newPlane(t_pos pos, t_pos v_normal, t_color col)
 		check_errors(MALLOC, "plane", "obj_function_01.c");
 	if (!(data = (t_dataPlane*)malloc(sizeof(t_dataPlane))))
 			check_errors(MALLOC, "data", "obj_function_01.c");
-	data->v_normal = v_normal;
+	(void)v_normal;
+	data->v_normal = v_normal;//get_pos(0, 1, 0);//v_normal;
 	plane->data = (void*)data;
 	plane->ifCollision = plane_collision;
+	plane->normal = plane_normal;
 	return (plane);
 }
 

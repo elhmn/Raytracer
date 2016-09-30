@@ -28,6 +28,7 @@ DESTROY_DIR = destroy_var/
 RT_COLOR_DIR = rt_color/
 LIGHT_DIR = light/
 MATERIAL_DIR = material/
+NORMAL_COMP_DIR = normal_computation/
 	
 
 MAIN = main.c loop.c
@@ -58,9 +59,11 @@ DESTROY = release_mlx.c
 
 RT_COLOR = rt_color.c
 
-LIGHT = light.c new_omniLight.c light_intensity.c
+LIGHT = light.c new_omniLight.c light_intensity.c lighting.c
 
 MATERIAL = new_material.c
+
+NORMAL_COMP = plane_normal.c sphere_normal.c
 
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))
@@ -78,14 +81,15 @@ DESTROYS = $(addprefix $(DESTROY_DIR), $(DESTROY))
 RT_COLORS = $(addprefix $(RT_COLOR_DIR), $(RT_COLOR))
 LIGHTS = $(addprefix $(LIGHT_DIR), $(LIGHT))
 MATERIALS = $(addprefix $(MATERIAL_DIR), $(MATERIAL))
+NORMAL_COMPS = $(addprefix $(NORMAL_COMP_DIR), $(NORMAL_COMP))
 
 SRC_OBJ = $(MAIN) $(ERR) $(INIT) $(MLX) $(POS) $(OBJFUNC) \
 			$(SET) $(PUT) $(DRAW) $(RAYTRACER) $(COLL) $(TRANS) \
-			$(DESTROY) $(RT_COLOR) $(LIGHT) $(MATERIAL)
+			$(DESTROY) $(RT_COLOR) $(LIGHT) $(MATERIAL) $(NORMAL_COMP)
 
 SRC = 	$(MAINS) $(ERRS) $(INITS) $(MLXS) $(POSS) $(OBJFUNCS) \
 		$(SETS) $(PUTS) $(DRAWS) $(RAYTRACERS) $(COLLS) $(TRANSS) \
-		$(DESTROYS) $(RT_COLORS) $(LIGHTS) $(MATERIALS)
+		$(DESTROYS) $(RT_COLORS) $(LIGHTS) $(MATERIALS) $(NORMAL_COMPS)
 
 
 		

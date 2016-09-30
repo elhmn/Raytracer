@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/06 07:42:16 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/26 19:38:59 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 16:51:59 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ t_color			get_color(t_uint r, t_uint g, t_uint b)
 	col.color = rgb_to_color(r, g, b);
 	set_color(&col);
 	return (col);
+}
+
+t_color			get_reshaped_color(t_color col)
+{
+	return (get_color(col.r, col.g, col.b));
 }
 
 void			set_color(t_color *col)

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:13:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 15:30:43 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 18:21:37 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ struct	s_obj
 	*/
 
 	double		(*ifCollision)(t_ray *ray, void *data, t_obj *obj, t_rt *rt);
+	t_pos		(*normal)(t_obj *o, t_pos r, t_pos p);
 
 	/*
 	** Later i want each object to have their own

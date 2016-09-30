@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 15:32:21 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 17:30:04 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_obj	*new_obj(int type, t_pos pos, t_color col)
 		check_errors(MALLOC, "obj", "obj_function_00.c");
 	obj->type = type;
 	obj->ifCollision = NULL;
+	obj->normal = NULL;
 	obj->material = NULL;
 	obj->data = NULL;
 	obj->rot = get_pos(0, 0, 0);

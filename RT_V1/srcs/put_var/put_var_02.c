@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:26:38 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 15:02:40 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/09/30 16:22:31 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void	put_light(t_light *l)
 		put_base(l->sp);
 		ft_putstr("}\n");
 		ft_putendl("I : \n{\n");
-		ft_putstr("Ia : ");
-		put_sColor(l->I.Ia);
 		ft_putstr("Id : ");
 		put_sColor(l->I.Id);
 		ft_putstr("Is : ");
