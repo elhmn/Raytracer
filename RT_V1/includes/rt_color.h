@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 11:02:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 17:45:04 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 17:34:35 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ t_sColor			color_to_sColor(t_color c);
 t_sColor			get_sColor(double r, double g, double b);
 void				set_sColor(t_sColor *s, double r, double g, double b);
 t_sColor			add_sColor(t_sColor a, t_sColor b);
+t_sColor			sub_sColor(t_sColor a, t_sColor b);
 
 #endif

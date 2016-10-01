@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:26 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 20:17:58 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 16:04:49 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,13 @@ static double		is_collision(t_ray *ray, t_dataPlane *data,
 	t_pos		rd;
 	t_pos		ro;
 	t_pos		po;
-	t_camera	*cam;
 
 	ret = -1;
-	if (ray && data && obj && rt && rt->camera)
+	if (ray && data && obj && rt)
 	{
-		cam = rt->camera;
 		n = pos_normalize(data->v_normal);
-		rd = pos_normalize(pos_vector(cam->sp.o, ray->pos));
-		ro = cam->sp.o;
+		rd = ray->rd;
+		ro = ray->ro;
 		po = obj->sp.o;
 		denom = pos_dot_product(n, rd);
 		if (denom > 1e-6 && denom)

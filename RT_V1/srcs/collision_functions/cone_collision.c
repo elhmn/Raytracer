@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 00:20:48 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 14:08:32 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 16:42:49 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,16 +111,14 @@ static double		is_collision(t_ray *ray, t_dataCone *data,
 {
 	double			ret;
 	double			e;
-	t_camera		*cam;
 	t_pos			rd;
 	t_pos			rf;
 	t_pos			ro;
 
 	ret = -1;
-	cam = rt->camera;
-	if (cam && rt->space)
+	if (rt && ray && rt->space)
 	{
-		ro = cam->sp.o;
+		ro = ray->ro;
 		rf = ray->pos;
 		ro = transform(obj->o, obj->sp, ro, obj->rot);
 		rf = transform(obj->o, obj->sp, rf, obj->rot);

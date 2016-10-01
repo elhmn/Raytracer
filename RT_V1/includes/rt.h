@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 14:22:06 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 16:32:12 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@
 # define SAFE_DIST		400.
 
 typedef unsigned int	t_uint;
+typedef struct s_obj	t_obj;
 
 /*
 ** 3D coordinate structure
@@ -150,6 +151,8 @@ typedef long	t_col;
 typedef struct	s_ray
 {
 	t_pos		pos;
+	t_pos		rd;
+	t_pos		ro;
 	t_color		col;
 }				t_ray;
 
@@ -327,6 +330,7 @@ t_color			get_reshaped_color(t_color col);
 
 void			raytracer(t_rt *rt);
 void			show(t_rt *rt);
+int				get_distance(t_ray *r, t_obj *obj, t_rt *rt);
 
 /*
 ** release_mlx.c

@@ -6,16 +6,19 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 17:38:45 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 14:06:39 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 18:19:56 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "rt.h"
 #include "rt_color.h"
 #include "light.h"
 #include "material.h"
 #include "object.h"
 #include "put_var.h"
 #include <math.h>
+#include <stdlib.h>
+#include "check_errors.h"
 
 t_sColor	diffuse_light(t_light *light, t_obj *o, t_pos l, t_pos n)
 {
@@ -81,3 +84,35 @@ t_sColor	specular_light(t_light *light, t_obj *o, t_base b)
 	}
 	return (s);
 }
+
+int		enlightened(t_rt *rt, t_obj* o, t_pos p, t_pos ld, t_pos lo)
+{
+	t_ray	*r;
+	t_list	*list;
+	t_obj	*obj;
+	double	d;
+
+	list = rt->objs;
+	if (!(r = (t_ray*)malloc(sizeof(t_ray))))
+		check_errors(NUL, "raytracer.c", "r");
+	r->ro = p;
+	r->pos = lo;
+	r->rd = pos_normalize(ld);
+	while (list != NULL)
+	{
+		obj = (t_obj*)list->content;
+		if (obj && obj != o
+				&& (d = get_distance(r, obj, rt)) >= 0)
+		{
+			if (d <= pos_norme(pos_vector(p, lo)))
+			{
+				free(r);
+				return (0);
+			}
+		}
+		list = list->next;
+	}
+	free(r);
+	return (1);
+}
+

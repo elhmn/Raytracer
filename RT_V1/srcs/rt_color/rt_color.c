@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 11:02:31 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 17:03:16 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 17:34:40 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,15 @@ t_sColor			add_sColor(t_sColor a, t_sColor b)
 	c.r = LIMIT_SCOL(a.r + b.r);
 	c.g = LIMIT_SCOL(a.g + b.g);
 	c.b = LIMIT_SCOL(a.b + b.b);
+	return (c);
+}
+
+t_sColor			sub_sColor(t_sColor a, t_sColor b)
+{
+	t_sColor	c;
+
+	c.r = LIMIT_SCOL(a.r - b.r);
+	c.g = LIMIT_SCOL(a.g - b.g);
+	c.b = LIMIT_SCOL(a.b - b.b);
 	return (c);
 }

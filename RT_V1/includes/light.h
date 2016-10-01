@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 12:04:54 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 13:49:10 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 16:41:20 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ t_sColor			specular_light(t_light *light,
 void				inty_copy(t_inty *d, t_inty s);
 t_inty				get_inty(t_sColor Id, t_sColor Is);
 t_sColor			getI(double r, double g, double b);
+int					enlightened(t_rt *rt, t_obj *o, t_pos p, t_pos ld, t_pos lo);
 
 #endif

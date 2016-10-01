@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:23 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/29 20:37:34 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 16:01:49 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,20 +96,16 @@ static double		is_collision(t_ray *ray, t_dataCylinder *data,
 					t_obj *obj, t_rt *rt)
 {
 	double			ret;
-	t_camera		*cam;
 	t_pos			rd;
-	t_pos			rf;
 	t_pos			ro;
 
 	ret = -1;
-	cam = rt->camera;
-	if (cam && rt->space)
+	if (rt && ray && rt->space)
 	{
-		ro = cam->sp.o;
-		rf = ray->pos;
+		ro = ray->ro;
 		ro = transform(obj->o, obj->sp, ro, obj->rot);
-		rf = transform(obj->o, obj->sp, rf, obj->rot);
-		rd = pos_vector(ro, rf);
+		rd = ray->rd;
+		rd = transform(obj->o, obj->sp, rd, obj->rot);
 		rd = pos_normalize(rd);
 		ret = find_collision(ro, rd, data->radius);
 		ret = get_limit(ro, rd, ret,

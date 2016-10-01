@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:29 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/25 15:28:09 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 16:05:34 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,16 @@ static double		is_collision(t_ray *ray, t_dataSphere *data,
 								t_obj *obj, t_rt *rt)
 {
 	double			ret;
-	t_camera		*cam;
 	t_pos			u;
 	t_pos			v;
 	t_pos			e;
 	double			tmp;
 
 	ret = -1.;
-	if (rt && data)
+	if (rt && ray && data)
 	{
-		cam = rt->camera;
-		if (cam)
-		{
-			u = pos_vector(cam->sp.o, ray->pos);
-			u = pos_normalize(u);
-			v = pos_vector(obj->sp.o, cam->sp.o);
+			u = ray->rd;
+			v = pos_vector(obj->sp.o, ray->ro);
 			e.x = pos_dot_product(u, u);
 			e.y = 2. * pos_dot_product(u, v);
 			e.z = pos_dot_product(v, v) - pow(data->radius, 2);
@@ -73,7 +68,6 @@ static double		is_collision(t_ray *ray, t_dataSphere *data,
 				ret = (-1. * e.y) / (2. * e.x);
 			else
 				ret = getDist(e, tmp);
-		}
 	}
 	return (ret);
 }
