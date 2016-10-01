@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 14:21:55 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 15:49:56 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 13:22:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 **	- ka ambiant material coef
 **	- kd diffuse material coef
 **	- ks specular material coef
+**	- p specular power
 */
 
 typedef struct		s_material
@@ -28,6 +29,7 @@ typedef struct		s_material
 	double			ka;
 	double			ks;
 	double			kd;
+	double			pow;
 }					t_material;
 
 /*

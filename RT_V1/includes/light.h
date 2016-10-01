@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 12:04:54 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 18:37:13 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 13:49:10 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ t_light				*newLight(void);
 
 t_sColor			diffuse_light(t_light *light, t_obj *o,
 									t_pos l, t_pos n);
+t_sColor			specular_light(t_light *light,
+								t_obj *o, t_base b);
 
 /*
 ** light_intensity.c

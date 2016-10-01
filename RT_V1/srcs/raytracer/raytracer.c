@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 11:57:02 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 13:48:22 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 	t_pos		n;
 	t_pos		r;
 	t_pos		l;
+	t_base		base;
 
 	if (!rt || !ray || !o)
 		check_errors(NUL, "raytracer.c", "rt || ray || o");
@@ -73,22 +74,19 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 				if (rt->diffuse)
 					sCol = add_sColor(sCol,
 							diffuse_light(light, o, l, n));
-			/*	if (rt->specular)
-					ft_putendl("Specular");//Debug
-					*/
+				if (rt->specular)
+				{
+					base.o = p;
+					base.i = l;
+					base.j = n;
+					base.k = rt->camera->sp.o;
+					sCol = add_sColor(sCol, specular_light(light, o, base));
+				}
 			}
-		//			add_color(diffuse_light(l, n, ), specular_color(l, )));
 		}
 		list = list->next;
 	}
 	ray->col = get_reshaped_color(sColor_to_color(sCol));
-	(void)r;
-	(void)n;
-	(void)ray;
-	(void)o;
-	(void)rt;
-	(void)l;
-	(void)list;
 }
 
 static t_pos		get_point(t_pos ro, t_pos r, double d)
