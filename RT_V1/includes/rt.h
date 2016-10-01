@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 16:52:36 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 08:57:57 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@
 # define K_W			13
 # define K_Q			12
 # define K_E			14
+
+# define K_1			18
+# define K_2			19
+# define K_3			20
 
 /*
 ** s_camera define
@@ -202,6 +206,13 @@ typedef struct s_rt
 	t_lay		lay;
 	char		*img;
 	int			refresh;
+
+/*
+**		Raytracer render option
+*/
+	int			render;
+	int			diffuse;
+	int			specular;
 }				t_rt;
 
 /*

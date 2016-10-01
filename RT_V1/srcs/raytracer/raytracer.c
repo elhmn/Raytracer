@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 01:10:29 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 09:12:26 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 	list = rt->lights;
 	sCol = get_sColor(o->sCol.r * o->material->ka,
 			o->sCol.g * o->material->ka, o->sCol.b * o->material->ka);
-	(void)light;
-	(void)p;
-	while (list)
+	while (rt->render && list)
 	{
 		light = (t_light*)list->content;
 		if (light)
@@ -72,7 +70,12 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 			if (o->normal)
 			{
 				n = o->normal(o, r, p);
-				sCol = add_sColor(sCol, diffuse_light(light, o, l, n));
+				if (rt->diffuse)
+					sCol = add_sColor(sCol,
+							diffuse_light(light, o, l, n));
+			/*	if (rt->specular)
+					ft_putendl("Specular");//Debug
+					*/
 			}
 		//			add_color(diffuse_light(l, n, ), specular_color(l, )));
 		}
