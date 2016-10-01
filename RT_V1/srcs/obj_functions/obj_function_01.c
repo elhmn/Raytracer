@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 01:10:12 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 11:20:16 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,6 @@ t_obj	*newCone(t_pos pos, t_pos var, t_color col)
 	data->ang = var.z;
 	cone->data = (void*)data;
 	cone->ifCollision = cone_collision;
-//	cone->normal = plane_normal;
+	cone->normal = cone_normal;
 	return (cone);
 }
