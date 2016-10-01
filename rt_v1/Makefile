@@ -10,7 +10,7 @@
 ##                                                                            ##
 ## ########################################################################## ##
 
-NAME = RTV1
+NAME = rtv1 
 
 ERR_DIR = error_handling/
 MAIN_DIR = main_functions/

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 16:32:12 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 20:10:31 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 **	Variable limits define
 */
 
-#define MAX_DBL			3.402823e+38
+# define MAX_DBL			3.402823e+38
+# define SHADOW_COEF		5.
 
 /*
 ** s_color n define

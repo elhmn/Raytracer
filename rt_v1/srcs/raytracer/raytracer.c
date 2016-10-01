@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 18:18:34 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 19:50:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 				}
 				else
 					sCol = sub_sColor(sCol,
-							get_sColor(sCol.r / 5., sCol.g / 5., sCol.b / 5.));
+							get_sColor(sCol.r / SHADOW_COEF, sCol.g / SHADOW_COEF, sCol.b / SHADOW_COEF));
 			}
 		}
 		list = list->next;

@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/09/29 20:20:33 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 20:11:13 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@
 /*
 **			TO_DO_2
 **	+Create Other Objects
-**		-Plane
-**		-Cylindre
-**		-Cone
-**		-Tore (bonus)
+**		-Plane 							DONE
+**		-Cylindre						DONE
+**		-Cone							DONE
+**		-Tore (bonus)					NOT YET
 **	+Camera transformation
 **		-Camera movement
 **		-Camera rotation
