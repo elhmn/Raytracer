@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 12:46:18 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/01/12 22:12:37 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 19:40:02 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define MAX_NBR 2147483647
 # define MIN_NBR -2147483647
 # include <string.h>
-
+ 
 typedef struct		s_list
 {
 	void			*content;
@@ -108,5 +108,6 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f) (t_list *elem));
 */
 
 void			ft_putdbl(double nbr);
+void			*ft_realloc(void *old, size_t old_size, size_t new_size);
 
 #endif 

@@ -29,6 +29,7 @@ RT_COLOR_DIR = rt_color/
 LIGHT_DIR = light/
 MATERIAL_DIR = material/
 NORMAL_COMP_DIR = normal_computation/
+LOAD_SCENE_DIR = load_scene/
 	
 
 MAIN = main.c loop.c
@@ -65,6 +66,8 @@ MATERIAL = new_material.c
 
 NORMAL_COMP = plane_normal.c sphere_normal.c cylinder_normal.c cone_normal.c
 
+LOAD_SCENE = read_file.c
+
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))
 INITS =  $(addprefix $(INIT_DIR), $(INIT))
@@ -82,15 +85,17 @@ RT_COLORS = $(addprefix $(RT_COLOR_DIR), $(RT_COLOR))
 LIGHTS = $(addprefix $(LIGHT_DIR), $(LIGHT))
 MATERIALS = $(addprefix $(MATERIAL_DIR), $(MATERIAL))
 NORMAL_COMPS = $(addprefix $(NORMAL_COMP_DIR), $(NORMAL_COMP))
+LOAD_SCENES = $(addprefix $(LOAD_SCENE_DIR), $(LOAD_SCENE))
 
 SRC_OBJ = $(MAIN) $(ERR) $(INIT) $(MLX) $(POS) $(OBJFUNC) \
 			$(SET) $(PUT) $(DRAW) $(RAYTRACER) $(COLL) $(TRANS) \
-			$(DESTROY) $(RT_COLOR) $(LIGHT) $(MATERIAL) $(NORMAL_COMP)
+			$(DESTROY) $(RT_COLOR) $(LIGHT) $(MATERIAL) $(NORMAL_COMP) \
+			$(LOAD_SCENE)
 
 SRC = 	$(MAINS) $(ERRS) $(INITS) $(MLXS) $(POSS) $(OBJFUNCS) \
 		$(SETS) $(PUTS) $(DRAWS) $(RAYTRACERS) $(COLLS) $(TRANSS) \
-		$(DESTROYS) $(RT_COLORS) $(LIGHTS) $(MATERIALS) $(NORMAL_COMPS)
-
+		$(DESTROYS) $(RT_COLORS) $(LIGHTS) $(MATERIALS) $(NORMAL_COMPS) \
+		$(LOAD_SCENES)
 
 		
 OBJ = $(SRC_OBJ:.c=.o)

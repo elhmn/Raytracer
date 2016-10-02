@@ -6,7 +6,7 @@
 #    By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/20 23:42:45 by bmbarga           #+#    #+#              #
-#    Updated: 2014/01/13 04:19:25 by bmbarga          ###   ########.fr        #
+#    Updated: 2016/10/02 19:28:57 by bmbarga          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ SRC =	ft_isprint.c	ft_isalnum.c	ft_isdigit.c	ft_isalpha.c  \
 		ft_memccpy.c	ft_memmove.c	ft_memset.c		ft_bzero.c	  \
 		ft_itoa.c		ft_strsplit.c	ft_lstnew.c		ft_lstdel.c	  \
 		ft_lstdelone.c	ft_lstiter.c	ft_lstadd.c		ft_lstmap.c   \
-		ft_lstadd_end.c	get_next_line.c \
-		ft_putdbl.c
+		ft_lstadd_end.c	get_next_line.c ft_realloc.c \
+		ft_putdbl.c 
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 17:47:50 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 20:31:08 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void		init_rt(t_rt **rt)
 //		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 2000, -1000)); //Debug
 //		put_camera(*(rt[0]->camera)); //Debug
 
-//		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 400, -2000)); //Debug
-		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 1000, -3000)); //Debug
+		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 1000, -2000)); //Debug
+//		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 1000, -3000)); //Debug
 	}
 	ft_putendl("init_rt called"); //Debug
 }

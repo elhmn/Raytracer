@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 20:06:32 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 22:33:22 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	init_objs(t_list **objs)
 		o->material = new_material(NULL, 0.5, 0.3, 0.3);
 		put_obj(tmp->content);
 //*/		
-///*
+//*
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 		tmp->content = o = newSphere(get_pos(-100, 1120, 0), 150, get_color(0, 100, 100));
@@ -128,7 +128,7 @@ void	init_objs(t_list **objs)
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 
-//*
+///*
 
 		tmp->content = o = newPlane(get_pos(0, 0, 0), get_pos(0, 1, 0), get_color(20, 20, 20));
 		if (!tmp->content)
@@ -168,6 +168,7 @@ void	init_objs(t_list **objs)
 		put_obj(tmp->content);
 		rot_object(tmp->content, get_pos(0, 0, 0)); //Debug
 //*/
+
 /*
 **	Cylinder creation
 */
@@ -213,7 +214,7 @@ void	init_objs(t_list **objs)
 /*
 **	Cone creation
 */
-//	/*
+	/*
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 		tmp->content = o = newCone_std(get_pos(-1200, 0, 500), 1000, -1, get_color(150, 100, 255));

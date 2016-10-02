@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 15:23:28 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/01 20:29:51 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_obj	*newPlane(t_pos pos, t_pos v_normal, t_color col)
 	if (!(data = (t_dataPlane*)malloc(sizeof(t_dataPlane))))
 			check_errors(MALLOC, "data", "obj_function_01.c");
 	(void)v_normal;
-	data->v_normal = v_normal;//get_pos(0, 1, 0);//v_normal;
+	data->v_normal = v_normal;
 	plane->data = (void*)data;
 	plane->ifCollision = plane_collision;
 	plane->normal = plane_normal;

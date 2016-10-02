@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:14 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 20:45:01 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 16:10:12 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void			loop(t_rt *rt)
 		check_errors(NUL, "rt", "loop.c");
 	if (rt->refresh)
 	{
-		ft_putendl("loop_hook enter"); //Debug
 		raytracer(rt);
 		clear_image(rt);
 		show(rt);
@@ -40,6 +39,5 @@ void			loop(t_rt *rt)
 		else
 			check_errors(NUL, "loop.c", "rt->env struct");
 		rt->refresh = 0;
-		ft_putendl("loop_hook exit"); //Debug
 	}
 }

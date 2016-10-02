@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   fun_err_01.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/21 19:53:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/02 18:01:56 by bmbarga          ###   ########.fr       */
+/*   Created: 2014/11/08 16:49:17 by bmbarga           #+#    #+#             */
+/*   Updated: 2015/01/20 00:57:18 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "check_errors.h"
 #include "libft.h"
 
-void		*ft_memmove(void *s1, const void *s2, size_t n)
+void		f_malloc(void)
 {
-	void	*tmp[n];
+	ERR_MALLOC;
+}
 
-	ft_memcpy(tmp, s2, n);
-	ft_memcpy(s1, tmp, n);
-	return (s1);
+void		f_nul(void)
+{
+	ERR_NULL;
 }

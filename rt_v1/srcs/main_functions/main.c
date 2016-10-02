@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/10/01 20:11:13 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 19:52:01 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@
 #include <mlx.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+/*
+** Ongoing :
+**	+ Design scene description format
+**	+ Open and Read description format
+**	+ Parse file
+**	+ Load scene From file
+**	+ Reshape Code
+**	+ Mise a la norme
+*/
+
 
 /*
 **			TO_DO
@@ -35,32 +46,31 @@
 **		-Plane 							DONE
 **		-Cylindre						DONE
 **		-Cone							DONE
-**		-Tore (bonus)					NOT YET
-**	+Camera transformation
-**		-Camera movement
-**		-Camera rotation
-**		-Camera lookAt object
-**	+Create Light source
-**		-Luminosite
-**		-Ombres
-**		-Brillance (bonus)
-**	+MultiSpot (bonus)
-**	+Load those object from file
+**	+Camera transformation				
+**		-Camera movement				DONE
+**		-Camera rotation				DONE
+**		-Camera lookAt object			NOT YET
+**
+**	+Create Light source				
+**		-Luminosite						DONE
+**		-Ombres							DONE
+**		-Brillance (bonus)				DONE
+**
+**	+MultiSpot (bonus)					DONE
+**
+**	+Load those object from file		
 **		-Design file format
+**
 **	+Load Scene from file
+**
 **	+Create multiple scene files for Defence at 42
 */
 
-/*			BUGS
-**	+Correct Rotation Gimbal effect				In progress
-**	+Camera rotation issue						In progress
-**	+Camera perspective a bit wierd				In progress
+
+/*
+**		BUGS:
 **
-**	+Plane rotation and creation 					
-**	+Cylinder limitation						DONE
-**	+Cone limitation							
 **
-**	+Segfault unknown							Will keep in progress
 */
 
 int		main(int ac, char **av)
@@ -71,6 +81,17 @@ int		main(int ac, char **av)
 	(void)av;
 	(void)ac;
 
+	if (ac > 1)
+	{
+		//load scene from file
+		ft_putendl("Load rt from file");
+	}
+	else
+	{
+		ft_putendl("empty scene, with a simple camera");
+		//create an empty scene
+		// and open a command prompt
+	}
 	init_rt(&rt);
 	set_img(&(rt->img), rt->env->img, &(rt->lay));
 	mlx_expose_hook(rt->env->win, expose_hook, (void*)rt);

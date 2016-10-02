@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   read_file.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/21 19:53:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/02 18:01:56 by bmbarga          ###   ########.fr       */
+/*   Created: 2016/10/02 19:41:08 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/10/02 19:42:17 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include "libft.h"
+#ifndef READ_FILE_H
+# define READ_FILE_H
 
-void		*ft_memmove(void *s1, const void *s2, size_t n)
-{
-	void	*tmp[n];
+# define BUFF_SIZE 8
 
-	ft_memcpy(tmp, s2, n);
-	ft_memcpy(s1, tmp, n);
-	return (s1);
-}
+/*
+** read_file.c
+*/
+
+int			get_all(int fd, char **a);
+char		*read_file(char *path);
+
+#endif
