@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 22:33:22 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 20:48:37 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,7 @@ void	init_objs(t_list **objs)
 **	Cone creation
 */
 	/*
+	*/
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
 		tmp->content = o = newCone_std(get_pos(-1200, 0, 500), 1000, -1, get_color(150, 100, 255));
@@ -230,7 +231,6 @@ void	init_objs(t_list **objs)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.2, 0.5, 0.5);
 		put_obj(tmp->content);
-//	*/
 	}
 	ft_putendl("init_objs called"); //Debug
 }
