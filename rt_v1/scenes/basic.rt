@@ -13,6 +13,31 @@ light
 	Is(100, 100, 100)
 }
 
+light
+{
+	type(omni)
+	position(0, 0, 0)
+	Id(100, 100, 100)
+	Is(10, 100, 100)
+}
+
+light
+{
+	type(omni)
+	position(0, 0, 0)
+	Id(10, 0, 100)
+	Is(100, 100, 100)
+}
+
+light
+{
+	type(omni)
+	position(0, 0, 0)
+	Id(100, 10, 10)
+	Is(100, -100, 100)
+}
+
+
 object
 {
 	type(plane)

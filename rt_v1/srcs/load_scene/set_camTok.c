@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 02:48:52 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 02:57:13 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 16:25:34 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void					get_lookAt(char **s, char **tab)
 	s[0] = str;
 	ft_putstr("name = ");
 	ft_putendl(s[0]);
+	free(str);
 }
 
 void					set_camTok_var(t_camTok *cam, char *str)
@@ -58,6 +59,7 @@ void					set_camTok_var(t_camTok *cam, char *str)
 		get_position(&(cam->pos), tab);
 		get_rotation(&(cam->rot), tab);
 		get_lookAt(&(cam->lookAt), tab);
+		free_tab(tab);
 	}
 }
 
@@ -75,4 +77,5 @@ void					set_cameraTok(t_sceneTok *sTok, char **tab)
 		check_errors(NUL, "no camera defined", "");
 	new_camTok(sTok);
 	set_camTok_var(sTok->camera, str);
+	free(str);
 }

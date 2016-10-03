@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 21:09:21 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 03:41:20 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 14:39:06 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void		init_scene(t_rt *rt, char *scene)
 						rt->space);
 		rt->objs = NULL;
 		rt->lights = NULL;
-//		/*
+		/*
 			init_objs(&(rt->objs));
 			init_lights(&(rt->lights));
-//		*/
-//		load_scene(scene);
+		*/
+		load_scene(scene);
 		ft_putendl("load empty scene"); //Debug
 		if (scene)
 		{

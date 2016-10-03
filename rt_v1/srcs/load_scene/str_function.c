@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 01:01:57 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 02:32:51 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 16:36:38 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,22 @@ void					put_tab(char **tab)
 		ft_putstr("[");
 		ft_putstr(*tab++);
 		ft_putendl("]");
+	}
+}
+
+void					free_tab(char **tab)
+{
+	int		i;
+
+	i = 0;
+	if (tab)
+	{
+		while (tab[i])
+		{
+			free(tab[i]);
+			i++;
+		}
+		free(tab);
 	}
 }
 

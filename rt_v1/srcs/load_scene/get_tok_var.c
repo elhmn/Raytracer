@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 02:51:02 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 02:57:12 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 16:32:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "rt.h"
@@ -36,6 +36,8 @@ void					get_position(t_pos *p, char **tab)
 	p->y = ft_atoi(tmp[1]);
 	p->z = ft_atoi(tmp[2]);
 	put_pos(*p);
+	free(str);
+	free_tab(tmp);
 }
 
 void					get_rotation(t_pos *p, char **tab)
@@ -56,5 +58,7 @@ void					get_rotation(t_pos *p, char **tab)
 	p->x = ft_atoi(tmp[0]);
 	p->y = ft_atoi(tmp[1]);
 	p->z = ft_atoi(tmp[2]);
-	put_pos(*p);
+	free(str);
+	free_tab(tmp);
+	put_pos(*p); //Debug
 }
