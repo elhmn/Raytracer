@@ -1,54 +1,50 @@
-scene
+camera
 {
-	camera
-	{
-		position (x, y, z);
-		rotation (x, y, z);
-		lookat (where);
-	}
-	light
-	{
-		type();
-		position();
-		Id(Idx, Idy, Idz);
-		Is(Isx, Isy, Isz);
-		data <--> depends on type
-		(
-			;
-		)
-	}
-	object
-	{
-		type();
-		name(bonjour);
-		position(x, y, z);
-		rotation(x, y, z);
-		material(Ka, Kd, Ks);
-		color();
-		data <--> sphere
-		(
-			radius();
-		);
-		OR
-		data <--> cone
-		(
-			top();
-			limit();
-			angle();
-		);
-		OR
-		data <--> plane
-		(
-			axis(x = 0);
-			axis(y = 0);
-			axis(z = 0);
-			normal(x, y, z);
-		);
-		OR
-		data <--> cylinder
-		(
-			height();
-			radius();
-		);
-	}
+	position (x, y, z)
+	rotation (x, y, z)
+	lookat (where)
+}
+light
+{
+	type()
+	position()
+	Id(Idx, Idy, Idz)
+	Is(Isx, Isy, Isz)
+	data <--> depends on type
+	(
+		
+	)
+}
+object
+{
+	name(bonjour)
+	position(x, y, z)
+	rotation(x, y, z)
+	material(Ka, Kd, Ks)
+	color()
+	data <--> sphere
+	(
+		radius()
+	)
+	OR
+	data <--> cone
+	(
+		top()
+		limit()
+		angle()
+	)
+	OR
+	data <--> plane
+	(
+		axis(x = 0)
+		axis(y = 0)
+		axis(z = 0)
+		normal(x, y, z)
+	)
+	OR
+	data <--> cylinder
+	(
+		height()
+		radius()
+	)
 }

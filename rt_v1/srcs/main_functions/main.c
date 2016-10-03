@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/10/02 20:56:41 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 02:38:04 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "rt.h"
 #include "check_errors.h"
 #include "put_var.h"
+#include "read_file.h"
 #include <mlx.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -66,6 +67,9 @@
 **	+Create multiple scene files for Defence at 42
 */
 
+/*
+** CONTINUE PARSING
+*/
 
 /*
 **		BUGS:
@@ -76,23 +80,20 @@
 int		main(int ac, char **av)
 {
 	t_rt		*rt;
+	char		*scene;
 	
 	rt = NULL;
-	(void)av;
-	(void)ac;
-
+	scene = NULL;
 	if (ac > 1)
-	{
-		//load scene from file
-		ft_putendl("Load rt from file");
-	}
+		scene = read_file(av[1]);
+	/*
 	else
 	{
-		ft_putendl("empty scene, with a simple camera");
-		//create an empty scene
-		// and open a command prompt
+		ft_putendl("rt_v1 :: too few argument");
+		return (0);
 	}
-	init_rt(&rt);
+	*/
+	init_rt(&rt, scene);
 	set_img(&(rt->img), rt->env->img, &(rt->lay));
 	mlx_expose_hook(rt->env->win, expose_hook, (void*)rt);
 	mlx_loop_hook(rt->env->mlx, loop_hook, (void*)rt);

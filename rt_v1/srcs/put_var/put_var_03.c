@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 15:02:26 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 15:10:07 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 21:38:34 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -27,4 +27,16 @@ void		put_material(t_material m)
 	put_var_dbl("kd", m.kd);
 	put_var_dbl("ks", m.ks);
 	ft_putstr("}\n");
+}
+
+void		start_block(char *str)
+{
+	ft_putstr(str);
+	ft_putendl(" 			loading...");
+}
+
+void		end_block(char *str)
+{
+	ft_putstr(str);
+	ft_putendl("			OK");
 }

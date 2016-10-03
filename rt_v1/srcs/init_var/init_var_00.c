@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/02 20:57:12 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 21:35:51 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,42 +19,32 @@
 #include <stdlib.h>
 #include <math.h>
 
-void		init_rt(t_rt **rt)
+void		init_rt(t_rt **rt, char *scene)
 {
 	if (rt)
 	{
+		start_block("init_rt");
 		if (!(*rt = (t_rt*)malloc(sizeof(t_rt))))
 			check_errors(MALLOC, "init_var_00.c", "rt");
 		init_env(&((*rt)->env));
 		init_screen(&((*rt)->screen));
 		init_space(&((*rt)->space));
-		init_camera(&((*rt)->camera), *((*rt)->screen), (*rt)->space);
 		init_ray_array(&((*rt)->ray), (*rt)->screen);
-		init_objs(&(*rt)->objs);
-		init_lights(&(*rt)->lights);
+		init_scene(*rt, scene);
 		(*rt)->img = NULL; 
 		(*rt)->refresh = 1;
 		(*rt)->render = 0;
 		(*rt)->diffuse = 0;
 		(*rt)->specular = 0;
-
-//		rot_camera((*rt)->camera, get_pos(-25, 0, 0));//Debug
-//		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, -400, -10)); //Debug
-//		rot_camera((*rt)->camera, get_pos(45, 0, 0));//Debug
-//		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 2000, -1000)); //Debug
-//		put_camera(*(rt[0]->camera)); //Debug
-
-		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 1000, -2000)); //Debug
-//		pos_add_to_pos(&(rt[0]->camera->sp.o), get_pos(0, 1000, -3000)); //Debug
+		end_block("init_rt");
 	}
-	ft_putendl("init_rt called"); //Debug
 }
 
 void		init_env(t_env **env)
 {
 	if (env)
 	{
-
+		start_block("init_env");
 		if (!(*env = (t_env*)malloc(sizeof(t_env))))
 			check_errors(MALLOC, "init_var_00.c", "env");
 		if (!((*env)->mlx = mlx_init()))
@@ -64,14 +54,15 @@ void		init_env(t_env **env)
 			check_errors(MALLOC, "init_var_00.c", "win");
 		if (!((*env)->img = mlx_new_image((*env)->mlx, SCREEN_WIDTH, SCREEN_HEIGHT)))
 			check_errors(MALLOC, "init_var_00.c", "img");
+		end_block("init_env");
 	}
-	ft_putendl("init_env called"); //Debug
 }
 
 void		init_screen(t_screen **screen)
 {
 	if (screen)
 	{
+		start_block("init_screen");
 		if (!(*screen = (t_screen*)malloc(sizeof(t_screen))))
 			check_errors(MALLOC, "init_var_00.c", "screen");
 
@@ -81,14 +72,15 @@ void		init_screen(t_screen **screen)
 		screen[0]->height = SCREEN_HEIGHT;
 		screen[0]->resX = RESX;
 		screen[0]->resY = RESY;
+		end_block("init_screen");
 	}
-	ft_putendl("init_screen called"); //Debug
 }
 
 void		init_camera(t_camera **camera, t_screen screen, t_space *space)
 {
 	if (camera && space)
 	{
+		start_block("init_camera");
 		if (!(*camera = (t_camera*)malloc(sizeof(t_camera))))
 			check_errors(MALLOC, "init_var_00.c", "camera");
 		camera[0]->fieldOfView = FOV;
@@ -98,6 +90,6 @@ void		init_camera(t_camera **camera, t_screen screen, t_space *space)
 		init_base_self(&(camera[0]->sp));
 		set_pos(&(camera[0]->sp.o), 0, 0,
 		- (camera[0]->dist + SAFE_DIST));
+		end_block("init_camera");
 	}
-	ft_putendl("init_camera called"); //Debug
 }

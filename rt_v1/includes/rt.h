@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 20:10:31 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 23:25:35 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -237,7 +237,7 @@ int				expose_hook(void *param);
 ** init_var_00.c
 */
 
-void			init_rt(t_rt **rt);
+void			init_rt(t_rt **rt, char *scene);
 void			init_env(t_env **env);
 void			init_screen(t_screen **screen);
 void			init_camera(t_camera **camera, t_screen screen, t_space *space);
@@ -259,6 +259,12 @@ void			set_base_zero(t_base *b);
 void			init_ray(t_ray *ray);
 void			init_objs(t_list **objs);
 void			init_lights(t_list **lights);
+
+/*
+** init_scene.c
+*/
+
+void			init_scene(t_rt *rt, char *scene);
 
 /*
 ** set_var_00.c

@@ -1,0 +1,98 @@
+camera
+{
+	position (-100, 10, -200)
+	rotation (0, 10, -20)
+	lookAt (origin)
+}
+
+light
+{
+	type(omni)
+	position(0, 0, 0)
+	Id(100, 100, 100)
+	Is(100, 100, 100)
+}
+
+object
+{
+	type(plane)
+	name(bonjour)
+	position(0, 0, 0)
+	color(255, 20, 233)
+	normal(0, -1, 0)
+	material(10, 100, 100)
+}
+
+object
+{
+	type(plane)
+	name(illusion)
+	position(0, 0, 0)
+	color(255, 20, 233)
+	normal(0, -1, 0)
+	axis(y)
+}
+
+object	
+{
+	type(plane)
+	name(illusion)
+	position(0, 0, 0)
+	color(255, 20, 233)
+	axis(x)
+}
+
+object	
+{
+	type(plane)
+	name(illusion)
+	position(0, 0, 0)
+	color(255, 20, 233)
+}
+
+object	
+{
+	type(sphere)
+	position(0, 0, -10)
+	color(0, 255, 0)
+	rot(10, 10, 0)
+}
+
+object
+{
+	type(sphere)
+	position(0, 0, -10)
+	color(0, 255, 0)
+	rot(10, 10, 0)
+	radius(50)
+}
+
+object
+{
+	type(cylinder)
+	position(0, 0, -10)
+	color(0, 255, 0)
+	rot(10, 10, 0)
+	radius(50)
+}
+
+object
+{
+	type(cylinder)
+	position(0, 0, -10)
+	color(0, 255, 0)
+	rot(10, 10, 0)
+	radius(50)
+	height(100)
+}
+
+object
+{
+	type(cone)
+	position(0, 0, -10)
+	color(0, 255, 0)
+	rot(10, 10, 0)
+	radius(10)
+	height(100)
+	angle(10)
+}

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/02 20:48:37 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 21:35:17 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	init_ray(t_ray *ray)
 	}
 }
 
-//a mettre au propre
-
 void	init_objs(t_list **objs)
 {
 	//Load objects properties from a file
@@ -52,7 +50,6 @@ void	init_objs(t_list **objs)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 	
 		o->material = new_material(NULL, 0.5, 0.3, 0.5);
-		put_obj((*objs)->content);
 	
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -60,7 +57,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.5, 0.3, 0.3);
-		put_obj(tmp->content);	
 ///*
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -68,7 +64,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.5, 0.3, 0.3);
-		put_obj(tmp->content);
 //*/		
 //*
 		tmp = ft_lstnew(NULL, 0);
@@ -77,7 +72,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.5, 0.3, 0.3);
-		put_obj(tmp->content);
 
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -85,7 +79,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.5, 0.7, 0.3);
-		put_obj(tmp->content);
 		
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -93,7 +86,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.5, 0.7, 0.3);
-		put_obj(tmp->content);
 
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -101,7 +93,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.5, 0.7, 0.3);
-		put_obj(tmp->content);
 		
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -109,7 +100,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.5, 0.7, 0.3);
-		put_obj(tmp->content);
 //*/
 
 /*
@@ -122,8 +112,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.3, 0.2, 0.6);
-		put_obj((*objs)->content);
-		put_obj(tmp->content);
 		
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -134,7 +122,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.3, 0.1, 0.6);
-		put_obj(tmp->content);
 		rot_plane(tmp->content, get_pos(90, 0, 90));
 		pos_add_to_pos(&(o->sp.o), get_pos(0, 0, 1000)); //Debug
 
@@ -144,7 +131,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.3, 0.1, 0.6);
-		put_obj(tmp->content);
 		rot_plane(tmp->content, get_pos(0, 0, 90));
 		pos_add_to_pos(&(o->sp.o), get_pos(1500, 0, 0)); //Debug
 
@@ -155,7 +141,6 @@ void	init_objs(t_list **objs)
 		
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
-		put_obj(tmp->content);
 		rot_plane(tmp->content, get_pos(0, 0, 90));
 		pos_add_to_pos(&(o->sp.o), get_pos(-1500, 0, 0)); //Debug
 
@@ -165,7 +150,6 @@ void	init_objs(t_list **objs)
 		o->material = new_material(NULL, 0.3, 0.1, 0.2);
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
-		put_obj(tmp->content);
 		rot_object(tmp->content, get_pos(0, 0, 0)); //Debug
 //*/
 
@@ -179,7 +163,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.3, 0.5, 0.6);
-		put_obj(tmp->content);
 		rot_object(tmp->content, get_pos(90, 0, -45)); //Debug
 		
 		tmp = ft_lstnew(NULL, 0);
@@ -188,9 +171,7 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.3, 0.5, 0.6);
-		put_obj(tmp->content);
 		rot_object(tmp->content, get_pos(90, 0, 45)); //Debug
-		put_obj(tmp->content);
 
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -198,7 +179,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.3, 0.5, 0.6);
-		put_obj(tmp->content);
 		rot_object(tmp->content, get_pos(90, 0, 90)); //Debug
 		
 		tmp = ft_lstnew(NULL, 0);
@@ -207,9 +187,7 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.3, 0.5, 0.6);
-		put_obj(tmp->content);
 		rot_object(tmp->content, get_pos(-90, 0, 0)); //Debug
-		put_obj(tmp->content);
 //	*/
 /*
 **	Cone creation
@@ -222,7 +200,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.2, 0.5, 0.5);
-		put_obj(tmp->content);
 
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
@@ -230,7 +207,6 @@ void	init_objs(t_list **objs)
 		if (!tmp->content)
 			check_errors(MALLOC, "init_var_02.c", "objs->content");
 		o->material = new_material(NULL, 0.2, 0.5, 0.5);
-		put_obj(tmp->content);
 	}
 	ft_putendl("init_objs called"); //Debug
 }
@@ -251,7 +227,6 @@ void		init_lights(t_list **lights)
 		(*lights)->content = l = new_omniLight(get_pos(0, 300, -800),
 								get_inty(getI(0.4, 0.4, 0.4),
 								getI(0, 0.2, 0.2)));
-		put_light(l);
 ///*		
 		if (!(tmp = ft_lstnew(NULL, 0)))
 			check_errors(MALLOC, "lights", "init_var_02.c"); 
@@ -275,5 +250,4 @@ void		init_lights(t_list **lights)
 								getI(0, 0.2, 0)));
 //*/
 	}
-	ft_putendl("init_lights"); //Debug
 }

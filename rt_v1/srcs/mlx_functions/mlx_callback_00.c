@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 09:46:44 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 11:12:46 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 21:29:22 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,6 @@ int			key_hook(int keyCode, void *param)
 		rt->specular = (rt->specular) ? 0 : 1;
 		rt->refresh = 1;
 	}
-	put_camera(*(rt->camera)); //Debug
+	//put_camera(*(rt->camera)); //Debug
 	return (0);
 }

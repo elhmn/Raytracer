@@ -36,7 +36,7 @@ MAIN = main.c loop.c
 
 ERR = check_errors.c fun_err_01.c
 
-INIT = init_var_00.c init_var_01.c init_var_02.c
+INIT = init_var_00.c init_var_01.c init_var_02.c init_scene.c
 
 MLX = mlx_callback_00.c
 
@@ -66,7 +66,7 @@ MATERIAL = new_material.c
 
 NORMAL_COMP = plane_normal.c sphere_normal.c cylinder_normal.c cone_normal.c
 
-LOAD_SCENE = read_file.c
+LOAD_SCENE = read_file.c load_scene.c str_function.c get_tok_var.c set_camTok.c
 
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))

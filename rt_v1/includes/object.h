@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:13:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 15:41:16 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 02:58:53 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** Objet structure
 */
 
-enum		e_type
+enum		e_obj
 {
 	SPHERE,
 	PLANE,
@@ -74,6 +74,9 @@ struct	s_obj
 	/*
 	** attributs
 	*/
+
+	char		*name;
+	int			id;
 
 	int			type;
 	void		*data;

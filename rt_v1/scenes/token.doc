@@ -1,0 +1,4 @@
+camera -> position -> rotation -> lookat
+light -> type -> position -> Id -> Is -> data
+object -> type -> name -> position -> rotation -> material -> color -> data
+

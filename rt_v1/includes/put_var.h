@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 14:40:58 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 20:18:10 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 21:20:25 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,7 @@ void			put_dataCylinder(t_dataCylinder *data);
 */
 
 void			put_material(t_material m);
+void			end_block(char *str);
+void			start_block(char *str);
 
 #endif

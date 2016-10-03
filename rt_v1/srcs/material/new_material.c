@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 14:21:13 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 16:24:42 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 21:55:07 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_material		*new_material(char *name, double ka, double ks, double kd)
 	m->kd = LIMIT_COEF(kd);
 	m->pow = 2.;
 	m->name = name;
-	ft_putendl("je suis con"); //Debug
+//	ft_putendl("je suis con"); //Debug
 	return (m);
 }
 

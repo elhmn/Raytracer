@@ -6,13 +6,14 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:46 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 17:47:43 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/02 21:41:32 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "check_errors.h"
 #include "rt.h"
+#include "put_var.h"
 #include <mlx.h>
 #include <stdlib.h>
 
@@ -45,6 +46,7 @@ void		init_ray_array(t_ray ***ray, t_screen *screen)
 
 	if (screen)
 	{
+		start_block("init_ray_array");
 		max_x = screen->resX;
 		max_y = screen->resY;
 		i = -1;
@@ -59,8 +61,8 @@ void		init_ray_array(t_ray ***ray, t_screen *screen)
 				check_errors(MALLOC, "init_var_00.c", "*ray");
 		}
 		set_ray_array_zero(*ray, screen);
+		end_block("init_ray_array");
 	}
-	ft_putendl("init_ray called"); //Debug
 }
 
 void		init_base_self(t_base *b)
@@ -110,5 +112,4 @@ void		init_space(t_space **space)
 		init_base_self(&(space[0]->self));
 		set_base_zero(&(space[0]->camera));
 	}
-	ft_putendl("init_space called"); //Debug
 }
