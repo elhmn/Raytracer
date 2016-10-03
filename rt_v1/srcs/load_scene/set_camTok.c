@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 02:48:52 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 16:25:34 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 17:03:43 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,6 @@ void					new_camTok(t_sceneTok *sTok)
 	}
 }
 
-void					get_lookAt(char **s, char **tab)
-{
-	char	*str;
-
-	str = NULL;
-	if (tab)
-		while (*tab)
-			if ((str = find_type(*tab++, A_LOOKAT, SEP_4)))
-				break ;
-	if (!str)
-		check_errors(NUL, "no lookAt defined", "");
-	s[0] = str;
-	ft_putstr("name = ");
-	ft_putendl(s[0]);
-	free(str);
-}
 
 void					set_camTok_var(t_camTok *cam, char *str)
 {
@@ -55,10 +39,10 @@ void					set_camTok_var(t_camTok *cam, char *str)
 	if (cam && str)
 	{
 		tab = ft_strsplit(str, SEP_3);
-		put_tab(tab);
-		get_position(&(cam->pos), tab);
-		get_rotation(&(cam->rot), tab);
-		get_lookAt(&(cam->lookAt), tab);
+		put_tab(tab); //Debug
+		get_pos_tok(&(cam->pos), tab, A_POSITION);
+		get_pos_tok(&(cam->rot), tab, A_ROTATION);
+		get_label_tok(&(cam->lookAt), tab, A_LOOKAT);
 		free_tab(tab);
 	}
 }

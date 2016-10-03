@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_lightTok.c                                     :+:      :+:    :+:   */
+/*   set_objTok.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/03 03:10:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 17:38:25 by bmbarga          ###   ########.fr       */
+/*   Created: 2016/10/03 17:34:06 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/10/03 17:53:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,54 +18,27 @@
 #include "put_var.h"
 #include <stdlib.h>
 
-void			get_index(char **tab, int *t, char *type)
-{
-	int		i;
-
-	i = -1;
-	if (tab)
-	{
-		while (tab[++i])
-		{
-			if ((find_type(tab[i], type, SEP_2)))
-				*t++ = i;
-		}
-	}
-}
-
-int					obj_number(char **tab, char *type)
-{
-	int		len;
-
-	len = 0;
-	if (tab)
-		while (*tab)
-			if ((find_type(*tab++, type, SEP_2)))
-				len++;
-	return (len);
-}
-
-void				new_lightsTok(t_sceneTok *sTok, int len)
+void				new_objsTok(t_sceneTok *sTok, int len)
 {
 	int				i;
 
 	if (sTok)
 	{
-		if (!(sTok->lightsTok =
-				(t_lightTok**)malloc(sizeof(t_lightTok*) * (len + 1))))
-			check_errors(MALLOC, "sTok->lightsTok", "set_lightTok");
-		sTok->lightsTok[len] = NULL;
+		if (!(sTok->objsTok =
+				(t_objTok**)malloc(sizeof(t_objTok*) * (len + 1))))
+			check_errors(MALLOC, "sTok->objsTok", "set_objTok");
+		sTok->objsTok[len] = NULL;
 		i = -1;
 		while (++i < len)
 		{
-			if (!(sTok->lightsTok[i] =
-					(t_lightTok*)malloc(sizeof(t_lightTok))))
-				check_errors(MALLOC, "sTok->lightsTok[i]", "set_lightTok");
+			if (!(sTok->objsTok[i] =
+					(t_objTok*)malloc(sizeof(t_objTok))))
+				check_errors(MALLOC, "sTok->objsTok[i]", "set_objTok");
 		}
 	}
 }
 
-void				set_lightTok_var(t_lightTok *t, char *s)
+void				set_objTok_var(t_objTok *t, char *s)
 {
 	char		**tab;
 
@@ -76,23 +49,26 @@ void				set_lightTok_var(t_lightTok *t, char *s)
 	{
 		tab = ft_strsplit(s, SEP_3);
 		get_label_tok(&t->type, tab, A_TYPE);
+		get_label_tok(&t->name, tab, A_NAME);
+
 		get_pos_tok(&t->pos, tab, A_POSITION);
-		get_pos_tok(&t->Id, tab, A_ID);
-		get_pos_tok(&t->Is, tab, A_IS);
+		get_pos_tok(&t->rot, tab, A_ROTATION);
+		get_pos_tok(&t->col, tab, A_COLOR);
+		get_pos_tok(&t->mat, tab, A_MATERIAL);
 		t->data = NULL;
 
 		ft_putendl(" >----------------< "); //Debug
 		ft_putstr("type = ");
 		ft_putendl(t->type);
 		put_pos(t->pos);
-		put_pos(t->Id);
-		put_pos(t->Is);
+		put_pos(t->rot);
+		put_pos(t->mat);
 		ft_putendl(" >----------------> "); //Debug
 	}
 	free_tab(tab);
 }
 
-void				set_lightsTok_tab(t_lightTok **t, char **tab, int *index, int len)
+void				set_objsTok_tab(t_objTok **t, char **tab, int *index, int len)
 {
 	int			i;
 	char		**tmp;
@@ -107,9 +83,9 @@ void				set_lightsTok_tab(t_lightTok **t, char **tab, int *index, int len)
 			{
 				tmp = ft_strsplit(tab[index[i]], SEP_2);
 				if (tmp && tmp[0] && tmp[1])
-					set_lightTok_var(*t, tmp[1]);
+					set_objTok_var(*t, tmp[1]);
 				else
-					check_errors(NUL, "light bad format", tab[index[i]]);
+					check_errors(NUL, "obj bad format", tab[index[i]]);
 				i++;
 			}
 			t++;
@@ -119,20 +95,21 @@ void				set_lightsTok_tab(t_lightTok **t, char **tab, int *index, int len)
 }
 
 
-void				set_lightTok(t_sceneTok *sTok, char **tab)
+void				set_objTok(t_sceneTok *sTok, char **tab)
 {
 	int		len;
 	int		*tmp;
 
 	(void)sTok;
 	(void)tab;
-	len = obj_number(tab, N_LIGHT);
+
+	len = obj_number(tab, N_OBJECT);
 	if (!len)
-		check_errors(NUL, "no light defined", "");
+		check_errors(NUL, "no obj defined", "");
 	if (!(tmp = (int*)malloc(sizeof(int) * (len))))
-		check_errors(MALLOC, "tmp", "set_lightTok.c");
-	get_index(tab, tmp, N_LIGHT);
-	new_lightsTok(sTok, len);
-	set_lightsTok_tab((sTok->lightsTok), tab, tmp, len);
+		check_errors(MALLOC, "tmp", "set_objsTok.c");
+	get_index(tab, tmp, N_OBJECT);
+	new_objsTok(sTok, len);
+	set_objsTok_tab((sTok->objsTok), tab, tmp, len);
 	free(tmp);
 }

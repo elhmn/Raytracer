@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 21:47:26 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 03:08:06 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 17:54:07 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,23 @@ typedef struct		s_camTok
 
 typedef struct		s_lightTok
 {
-	enum e_light	type;
+	char			*type;
 	t_pos			pos;
 	t_pos			rot;
 	t_pos			Id;
-	void			*data;
+	t_pos			Is;
+	char			*data; //add all datas
 }					t_lightTok;
 
 typedef struct		s_objTok
 {
-	enum e_obj		type;
+	char			*type;
 	char			*name;
 	t_pos			pos;
 	t_pos			rot;
-	char			*lookAt;
-	t_material		*mat;
-	t_color			col;
-	void			*data;
+	t_pos			mat;
+	t_pos			col;
+	char			*data;
 }					t_objTok;
 
 typedef struct		s_sceneTok

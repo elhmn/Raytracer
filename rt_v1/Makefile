@@ -66,7 +66,8 @@ MATERIAL = new_material.c
 
 NORMAL_COMP = plane_normal.c sphere_normal.c cylinder_normal.c cone_normal.c
 
-LOAD_SCENE = read_file.c load_scene.c str_function.c get_tok_var.c set_camTok.c set_lightTok.c
+LOAD_SCENE = read_file.c load_scene.c str_function.c get_tok_var.c set_camTok.c set_lightTok.c\
+			 set_objTok.c
 
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))

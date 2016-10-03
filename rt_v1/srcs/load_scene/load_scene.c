@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:42:19 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 16:32:22 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 17:54:59 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void					build_sceneTok(t_sceneTok *sTok, char *scene)
 		check_errors(NUL, "scene file Error", "");
 	set_cameraTok(sTok, tab);
 	set_lightTok(sTok, tab);
+	set_objTok(sTok, tab);
 
 	ft_putendl("------------------");
 	put_tab(tab);

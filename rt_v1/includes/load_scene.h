@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:56:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 16:26:11 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 18:12:00 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,20 @@
 
 # define	N_CAMERA		"camera"
 # define	N_LIGHT			"light"
+# define	N_OBJECT		"object"
 
 # define	A_POSITION		"position"
 # define	A_ROTATION		"rotation"
 # define	A_LOOKAT		"lookat"
+# define	A_TYPE			"type"
+# define	A_NAME			"name"
+# define	A_MATERIAL		"material"
+
+# define	A_DATA			"data"
+
+# define	A_COLOR			"color"
+# define	A_ID			"id"
+# define	A_IS			"is"
 
 # define SEP_1		'}'
 # define SEP_2		'{'
@@ -51,18 +61,20 @@ void					free_tab(char **tab);
 void					set_camTok_var(t_camTok *cam, char *str);
 void					set_cameraTok(t_sceneTok *sTok, char **tab);
 void					new_camTok(t_sceneTok *sTok);
-void					get_lookAt(char **s, char **tab);
 
 /*
 ** set_lightTok.c
 */
 
+void					get_index(char **tab, int *t, char *type);
+int						obj_number(char **tab, char *type);
 void					set_lightTok(t_sceneTok *sTok, char **tab);
+void					set_objTok(t_sceneTok *sTok, char **tab);
 
 /*
 ** set_tok_var.c
 */
 
-void					get_rotation(t_pos *p, char **tab);
-void					get_position(t_pos *p, char **tab);
+void					get_pos_tok(t_pos *p, char **tab, char *type);
+void					get_label_tok(char **s, char **tab, char *type);
 #endif
