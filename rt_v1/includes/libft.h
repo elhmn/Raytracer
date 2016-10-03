@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 12:46:18 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 02:57:10 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 03:04:24 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f) (t_list *elem));
 ** ft_putdbl.c
 */
 
-void			ft_putdbl(double nbr);
-void			*ft_realloc(void *old, size_t old_size, size_t new_size);
+void	ft_putdbl(double nbr);
+void	*ft_realloc(void *old, size_t old_size, size_t new_size);
 
 #endif 

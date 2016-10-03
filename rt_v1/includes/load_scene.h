@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:56:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 02:57:09 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 03:16:23 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LOAD_SCENE_H
 
 # define	N_CAMERA		"camera"
+# define	N_LIGHT			"light"
 
 # define	A_POSITION		"position"
 # define	A_ROTATION		"rotation"
@@ -50,6 +51,12 @@ void					set_camTok_var(t_camTok *cam, char *str);
 void					set_cameraTok(t_sceneTok *sTok, char **tab);
 void					new_camTok(t_sceneTok *sTok);
 void					get_lookAt(char **s, char **tab);
+
+/*
+** set_lightTok.c
+*/
+
+void					set_lightTok(t_sceneTok *sTok, char **tab);
 
 /*
 ** set_tok_var.c

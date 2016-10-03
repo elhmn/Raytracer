@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 21:47:26 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/02 22:55:25 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/03 03:08:06 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ typedef struct		s_objTok
 typedef struct		s_sceneTok
 {
 	t_camTok		*camera;
-	t_list			*objsTok;
-	t_list			*lightsTok;
+	t_lightTok		**lightsTok;
+	t_objTok		**objsTok;
 }					t_sceneTok;
 
 
