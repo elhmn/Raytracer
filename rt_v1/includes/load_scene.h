@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:56:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 12:18:13 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 14:50:49 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,15 @@
 # define SEP_4		'('
 # define SEP_5		','
 
+# define LIMIT_100(x)	(x > 100 && x < 0) ? ((x > 100) ? 100 : 0) : x
+
+# define CONV_100(x)	(x / 100.)
+
 /*
 ** load_scene.c
 */
 
-t_sceneTok				*load_scene(char *scene);
+void					load_scene(t_rt *rt, char *scene);
 void					build_sceneTok(t_sceneTok *sTok, char *scene);
 char					*find_type(char *src, char *f, char c);
 
@@ -84,4 +88,23 @@ void					get_dbl_tok(double *p, char **tab, char *type);
 
 void					get_pos_tok(t_pos *p, char **tab, char *type);
 void					get_label_tok(char **s, char **tab, char *type);
+
+/*
+** load_camera.c
+*/
+
+void		load_camera(t_camera *c, t_camTok *t);
+
+/*
+** load_lights.c
+*/
+
+void		load_lights(t_list **list, t_lightTok **t);
+
+/*
+** load_objs.c
+*/
+
+void		load_objs(t_list **list, t_objTok **t);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:42:19 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 13:53:19 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 14:07:56 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,11 @@ void					build_sceneTok(t_sceneTok *sTok, char *scene)
 	free_tab(tab);
 }
 
-t_sceneTok				*load_scene(char *scene)
+void		load_scene(t_rt *rt, char *scene)
 {
 	t_sceneTok		*sTok;
 
+	(void)rt;
 	sTok = NULL;
 	if (scene)
 	{
@@ -82,10 +83,14 @@ t_sceneTok				*load_scene(char *scene)
 		if (!sTok)
 			check_errors(MALLOC, "sTok", "load_scene.c");
 		build_sceneTok(sTok, scene);
+		
 		put_sceneTok(sTok); //Debug
+
+		load_camera(rt->camera, sTok->camera);
+		load_lights(&rt->lights, sTok->lightsTok);
+		load_objs(&rt->objs, sTok->objsTok);
 	//	load_cam(sTok);
 	//	load_light(sTok);
 	//	load_obj(sTok);
 	}
-	return (sTok);
 }

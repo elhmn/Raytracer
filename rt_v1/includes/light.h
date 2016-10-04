@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 12:04:54 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 16:41:20 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 14:39:13 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct			s_inty
 
 typedef struct			s_light
 {
+	int					id;
 	t_inty				I;
 	enum e_light		type;
 	t_base				sp;

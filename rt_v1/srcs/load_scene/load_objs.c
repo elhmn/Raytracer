@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_sceneTok.c                                     :+:      :+:    :+:   */
+/*   load_objs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/04 13:37:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 14:10:32 by bmbarga          ###   ########.fr       */
+/*   Created: 2016/10/04 14:01:49 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/10/04 14:03:05 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "put_var.h"
 #include "rt.h"
-#include "load_scene.h"
 #include "init.h"
+#include "libft.h"
+#include "check_errors.h"
+#include "load_scene.h"
+#include "put_var.h"
+#include <stdlib.h>
 
-void		put_sceneTok(t_sceneTok *s)
+void		load_objs(t_list **list, t_objTok **t)
 {
-	if (!s)
-		return ;
-	ft_putendl("scene : \n{");
-	put_camTok(s->camera);
-	put_lightsTok(s->lightsTok);
-	put_objsTok(s->objsTok);
-	ft_putendl("}\n");
+	(void)list;
+	(void)t;
+	ft_putendl("load objs"); //Debug
 }
