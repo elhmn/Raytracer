@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 17:34:06 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 17:50:44 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 17:53:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ static void				set_objTok_var(t_objTok *t, char *s)
 		get_pos_tok(&t->normal, tab, A_NORMAL);
 		get_pos_tok(&t->pos, tab, A_POSITION);
 		get_pos_tok(&t->rot, tab, A_ROTATION);
+		get_pos_tok(&t->trans, tab, A_TRANSLATION);
 		get_pos_tok(&t->col, tab, A_COLOR);
 		get_pos_tok(&t->mat, tab, A_MATERIAL);
 		get_dbl_tok(&t->radius, tab, A_RADIUS);

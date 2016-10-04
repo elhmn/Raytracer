@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 14:01:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 17:39:20 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 17:54:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static t_obj		*load_obj(t_objTok *t, int id)
 			rot_object(o, t->rot);
 		else if (o->type == PLANE)
 			rot_plane(o, t->rot);
-		
+		add_pos_to_pos(l->sp.o, t->trans);
 		if (!(o->material = new_material(NULL,
 						CONV_100(LIMIT_100(t->mat.x)),
 						CONV_100(LIMIT_100(t->mat.y)),
