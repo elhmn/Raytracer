@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 14:01:35 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 17:57:16 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 18:05:03 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		load_light(t_light *l, t_lightTok *t, int id)
 
 		l->I = get_inty(getI(t->Id.x, t->Id.y, t->Id.z), getI(t->Is.x, t->Is.y, t->Is.z));
 		l->sp.o = t->pos;
-		pos_add_to_pos(l->sp.o, t->trans);
+		pos_add_to_pos(&(l->sp.o), t->trans);
 		l->volume = NULL;
 	}
 }
