@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/10/04 22:09:39 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 23:18:38 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,8 @@
 ** Ongoing :
 
 **	+ Mise a la norme
-**	+ corriger les bugs
 **	+ test rt_loader
-*/
-
-/*
-**		BUGS:
-**	BUS		ERROR
-**
+**	+ delete debug
 */
 
 int		main(int ac, char **av)

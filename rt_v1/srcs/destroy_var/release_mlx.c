@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 00:28:56 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 22:24:39 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 23:16:54 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,24 @@
 
 void	clear_image(t_rt *rt)
 {
-	if (rt)
+	int		i;
+	int		j;
+	int		w;
+	int		h;
+	t_color	col;
+
+	col = get_color(0, 0, 0);
+	if (rt && rt->screen)
 	{
-		ft_memset((void*)(rt->img), '\0', rt->lay.depht);
+		i = -1;
+		w = rt->screen->resX;
+		h = rt->screen->resY;
+		while (++i < w)
+		{
+			j = -1;
+			while (++j < h)
+					pixel_put_img(rt, i, j, &col);
+		}
 	}
 }
 
