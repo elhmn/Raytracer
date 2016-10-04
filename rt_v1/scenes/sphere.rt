@@ -20,31 +20,31 @@ object
 {
 	type (sphere)
 	position(0, 200, 0)
-	color(30, 30, 30)
+	color(20, 20, 60)
 	radius(100)
-	material(10, 40, 50)
+	material(20, 20, 60)
 }
 
 light
 {
 	type (omni)
 	position (-100, 400, -300)
-	Id(60, 60, 60)
-	Is(40, 40, 40)
+	Id(80, 80, 80)
+	Is(20, 20, 20)
 }
 
 light
 {
 	type (omni)
 	position (100, 400, -300)
-	Id(50, 0, 0)
-	Is(40, 40, 40)
+	Id(40, 0, 0)
+	Is(20, 20, 20)
 }
 
 light
 {
 	type (omni)
 	position (0, 400, -300)
-	Id(0, 50, 0)
+	Id(0, 40, 0)
 	Is(20, 20, 20)
 }
