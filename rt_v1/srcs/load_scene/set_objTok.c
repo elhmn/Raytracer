@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 17:34:06 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 18:00:08 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 22:01:05 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ static void				set_objTok_var(t_objTok *t, char *s)
 		get_dbl_tok(&t->height, tab, A_HEIGHT);
 		get_dbl_tok(&t->angle, tab, A_ANGLE);
 		get_dbl_tok(&t->top, tab, A_TOP);
+		free_tab(&tab);
 	}
-	free_tab(tab);
 }
 
 static void				set_objsTok_tab(t_objTok **t, char **tab, int *index, int len)
@@ -99,15 +99,17 @@ static void				set_objsTok_tab(t_objTok **t, char **tab, int *index, int len)
 			{
 				tmp = ft_strsplit(tab[index[i]], SEP_2);
 				if (tmp && tmp[0] && tmp[1])
+				{
 					set_objTok_var(*t, tmp[1]);
+				}
 				else
 					check_errors(NUL, "obj bad format", tab[index[i]]);
+				free_tab(&tmp);
 				i++;
 			}
 			t++;
 		}
 	}
-	free_tab(tmp);
 }
 
 

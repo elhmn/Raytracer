@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 14:23:28 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 21:44:31 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,9 @@
 # define ABS(x)			(x < 0) ? -x : x
 # define SAFE_DIST		400.
 
-typedef unsigned int	t_uint;
-typedef struct s_obj	t_obj;
+typedef unsigned int		t_uint;
+typedef struct s_obj		t_obj;
+typedef struct s_sceneTok	t_sceneTok;
 
 /*
 ** 3D coordinate structure
@@ -210,6 +211,8 @@ typedef struct s_rt
 	t_lay		lay;
 	char		*img;
 	int			refresh;
+
+	t_sceneTok	*tok;
 
 /*
 **		Raytracer render option

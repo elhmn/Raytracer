@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:42:19 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 17:07:04 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 22:10:34 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,16 @@ char			*find_type(char *src, char *f, char c)
 		if (ft_strcmp(tab[0], f) == 0)
 		{
 			ret = ft_strdup(tab[1]);
-			free_tab(tab);
+			free_tab(&tab);
 			return (ret);
 		}
 		else
 		{
-			free_tab(tab);
+			free_tab(&tab);
 			return (NULL);
 		}
 	}
-	free_tab(tab);
+	free_tab(&tab);
 	return (NULL);
 }
 
@@ -67,8 +67,7 @@ void					build_sceneTok(t_sceneTok *sTok, char *scene)
 	set_cameraTok(sTok, tab);
 	set_lightTok(sTok, tab);
 	set_objTok(sTok, tab);
-	free(scene);
-	free_tab(tab);
+	free_tab(&tab);
 }
 
 void		load_scene(t_rt *rt, char *scene)
@@ -89,5 +88,6 @@ void		load_scene(t_rt *rt, char *scene)
 		load_camera(rt->camera, sTok->camera);
 		load_lights(&rt->lights, sTok->lightsTok);
 		load_objs(&rt->objs, sTok->objsTok);
+		rt->tok = sTok;
 	}
 }

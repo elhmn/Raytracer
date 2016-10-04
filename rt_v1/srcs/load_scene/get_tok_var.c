@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 02:51:02 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 13:01:24 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 21:59:57 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "rt.h"
@@ -23,9 +23,13 @@ void					get_dbl_tok(double *p, char **tab, char *type)
 
 	str = NULL;
 	if (tab)
+	{
 		while (*tab)
+		{
 			if ((str = find_type(*tab++, type, SEP_4)))
 				break ;
+		}
+	}
 	if (str)
 	{
 		*p = ft_atoi(str);
@@ -41,9 +45,13 @@ void					get_pos_tok(t_pos *p, char **tab, char *type)
 	str = NULL;
 	tmp = NULL;
 	if (tab)
+	{
 		while (*tab)
+		{
 			if ((str = find_type(*tab++, type, SEP_4)))
 				break ;
+		}
+	}
 	if (str)
 	{
 		tmp = ft_strsplit(str, SEP_5);
@@ -53,8 +61,8 @@ void					get_pos_tok(t_pos *p, char **tab, char *type)
 		p->y = ft_atoi(tmp[1]);
 		p->z = ft_atoi(tmp[2]);
 		free(str);
+		free_tab(&tmp);
 	}
-	free_tab(tmp);
 }
 
 void					get_label_tok(char **s, char **tab, char *type)
@@ -63,9 +71,13 @@ void					get_label_tok(char **s, char **tab, char *type)
 
 	str = NULL;
 	if (tab)
+	{
 		while (*tab)
+		{
 			if ((str = find_type(*tab++, type, SEP_4)))
 				break ;
+		}
+	}
 	if (str)
 		s[0] = str;
 }

@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 05:57:16 by bmbarga           #+#    #+#             */
-/*   Updated: 2014/01/14 00:28:00 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 20:57:38 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,10 @@ char 			**ft_strsplit(char const *s, char c)
 {
 	int			nbr;
 	char		**tab;
-	char		*tmp ;
+	char		*tmp;
 
+	tmp = NULL;
+	tab = NULL;
 	tmp = (char*) s;
 	while (*tmp == c)
 		tmp++;
@@ -84,5 +86,5 @@ char 			**ft_strsplit(char const *s, char c)
 			return (NULL);
 		return (tab);
 	}
-		return (NULL);
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/10/03 17:32:33 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 22:09:39 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,59 +21,15 @@
 
 /*
 ** Ongoing :
-**	+ Design scene description format
-**	+ Open and Read description format
-**	+ Parse file
-**	+ Load scene From file
-**	+ Reshape Code
+
 **	+ Mise a la norme
-*/
-
-
-/*
-**			TO_DO
-**	+Get scene from file
-**	+Load scene
-**	+Loop
-**		- Raytracer
-**		- Realtime events
-**		- Simple Real Time Renderer
-**	+Destroy objects (don't forget to do that)
-*/
-
-/*
-**			TO_DO_2
-**	+Create Other Objects
-**		-Plane 							DONE
-**		-Cylindre						DONE
-**		-Cone							DONE
-**	+Camera transformation				
-**		-Camera movement				DONE
-**		-Camera rotation				DONE
-**		-Camera lookAt object			NOT YET
-**
-**	+Create Light source				
-**		-Luminosite						DONE
-**		-Ombres							DONE
-**		-Brillance (bonus)				DONE
-**
-**	+MultiSpot (bonus)					DONE
-**
-**	+Load those object from file		
-**		-Design file format
-**
-**	+Load Scene from file
-**
-**	+Create multiple scene files for Defence at 42
-*/
-
-/*
-** CONTINUE PARSING
+**	+ corriger les bugs
+**	+ test rt_loader
 */
 
 /*
 **		BUGS:
-**
+**	BUS		ERROR
 **
 */
 
@@ -86,13 +42,6 @@ int		main(int ac, char **av)
 	scene = NULL;
 	if (ac > 1)
 		scene = read_file(av[1]);
-	/*
-	else
-	{
-		ft_putendl("rt_v1 :: too few argument");
-		return (0);
-	}
-	*/
 	init_rt(&rt, scene);
 	set_img(&(rt->img), rt->env->img, &(rt->lay));
 	mlx_expose_hook(rt->env->win, expose_hook, (void*)rt);

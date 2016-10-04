@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:56:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 17:49:26 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 21:57:49 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int						tab_len(char **tab);
 void					put_tab(char **tab);
 void					cust_epurstr(char *s);
 void					str_lower(char *s);
-void					free_tab(char **tab);
+void					free_tab(char ***tab);
 
 /*
 ** set_camTok.c

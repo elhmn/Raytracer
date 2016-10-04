@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 03:10:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 17:52:52 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 22:00:52 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,18 @@ static void				init_lightTok(t_lightTok *t)
 void			get_index(char **tab, int *t, char *type)
 {
 	int		i;
+	char	*s;
 
 	i = -1;
 	if (tab)
 	{
 		while (tab[++i])
 		{
-			if ((find_type(tab[i], type, SEP_2)))
+			if ((s = find_type(tab[i], type, SEP_2)))
+			{
 				*t++ = i;
+				free(s);
+			}
 		}
 	}
 }
@@ -49,12 +53,20 @@ void			get_index(char **tab, int *t, char *type)
 int					obj_number(char **tab, char *type)
 {
 	int		len;
+	char	*s;
 
 	len = 0;
 	if (tab)
+	{
 		while (*tab)
-			if ((find_type(*tab++, type, SEP_2)))
+		{
+			if (((s = find_type(*tab++, type, SEP_2))))
+			{
 				len++;
+				free(s);
+			}
+		}
+	}
 	return (len);
 }
 
@@ -92,8 +104,8 @@ void				set_lightTok_var(t_lightTok *t, char *s)
 		get_pos_tok(&t->trans, tab, A_TRANSLATION);
 		get_pos_tok(&t->Id, tab, A_ID);
 		get_pos_tok(&t->Is, tab, A_IS);
+		free_tab(&tab);
 	}
-	free_tab(tab);
 }
 
 void				set_lightsTok_tab(t_lightTok **t, char **tab, int *index, int len)
@@ -115,11 +127,11 @@ void				set_lightsTok_tab(t_lightTok **t, char **tab, int *index, int len)
 				else
 					check_errors(NUL, "light bad format", tab[index[i]]);
 				i++;
+				free_tab(&tmp);
 			}
 			t++;
 		}
 	}
-	free_tab(tmp);
 }
 
 

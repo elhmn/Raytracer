@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 01:01:57 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 17:25:37 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 21:57:56 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,21 @@ void					put_tab(char **tab)
 	}
 }
 
-void					free_tab(char **tab)
+void					free_tab(char ***tab)
 {
 	int		i;
 
 	i = 0;
-	if (tab)
+	if (tab && tab[0])
 	{
-		while (tab[i])
+		while (tab[0][i])
 		{
-			free(tab[i]);
+			free(tab[0][i]);
+			tab[0][i] = NULL;
 			i++;
 		}
-		free(tab);
+		free(tab[0]);
+		tab[0] = NULL;
 	}
 }
 
