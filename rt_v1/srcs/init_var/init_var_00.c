@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 13:16:09 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 17:30:02 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void		init_rt(t_rt **rt, char *scene)
 		init_screen(&((*rt)->screen));
 		init_space(&((*rt)->space));
 		init_ray_array(&((*rt)->ray), (*rt)->screen);
+		(*rt)->camera = NULL;
+		(*rt)->lights = NULL;
+		(*rt)->objs = NULL;
 		init_scene(*rt, scene);
 		(*rt)->img = NULL; 
 		(*rt)->refresh = 1;
@@ -88,7 +91,7 @@ void		init_camera(t_camera **camera, t_screen screen, t_space *space)
 		/ (double)(tan(RAD((camera[0]->fieldOfView / 2.)) * 2.));
 		set_pos(&(camera[0]->v_up), 1, 1, 1);
 		init_base_self(&(camera[0]->sp));
-		set_pos(&(camera[0]->sp.o), 0, 0,
+		set_pos(&(camera[0]->sp.o), 0, 100,
 		- (camera[0]->dist + SAFE_DIST));
 		end_block("init_camera");
 	}

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 03:10:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 13:46:55 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 17:52:52 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void				init_lightTok(t_lightTok *t)
 	{
 		t->type = NULL;
 		t->pos = get_pos(0, 0, 0);
+		t->trans = get_pos(0, 0, 0);
 		t->rot = get_pos(0, 0, 0);
 		t->Id = get_pos(0, 0, 0);
 		t->Is = get_pos(0, 0, 0);
@@ -88,6 +89,7 @@ void				set_lightTok_var(t_lightTok *t, char *s)
 		tab = ft_strsplit(s, SEP_3);
 		get_label_tok(&t->type, tab, A_TYPE);
 		get_pos_tok(&t->pos, tab, A_POSITION);
+		get_pos_tok(&t->trans, tab, A_TRANSLATION);
 		get_pos_tok(&t->Id, tab, A_ID);
 		get_pos_tok(&t->Is, tab, A_IS);
 	}
@@ -128,11 +130,14 @@ void				set_lightTok(t_sceneTok *sTok, char **tab)
 
 	len = obj_number(tab, N_LIGHT);
 	if (!len)
-		check_errors(NUL, "no light defined", "");
-	if (!(tmp = (int*)malloc(sizeof(int) * (len))))
-		check_errors(MALLOC, "tmp", "set_lightTok.c");
-	get_index(tab, tmp, N_LIGHT);
-	new_lightsTok(sTok, len);
-	set_lightsTok_tab((sTok->lightsTok), tab, tmp, len);
-	free(tmp);
+		sTok->lightsTok = NULL;
+	else
+	{
+		if (!(tmp = (int*)malloc(sizeof(int) * (len))))
+			check_errors(MALLOC, "tmp", "set_lightTok.c");
+		get_index(tab, tmp, N_LIGHT);
+		new_lightsTok(sTok, len);
+		set_lightsTok_tab((sTok->lightsTok), tab, tmp, len);
+		free(tmp);
+	}
 }

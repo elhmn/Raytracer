@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 17:34:06 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 13:48:48 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 17:50:44 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@ static void				init_objTok(t_objTok *t)
 		t->type = NULL;
 		t->pos = get_pos(0, 0, 0);
 		t->rot = get_pos(0, 0, 0);
+		t->translation = get_pos(0, 0, 0);
 		t->mat = get_pos(0, 0, 0);
 		t->col = get_pos(0, 0, 0);
 		t->normal = get_pos(0, -1, 0);
 		t->radius = 0;
 		t->height = 0;
 		t->angle = 0;
+		t->top = 0;
 	}	
 }
 
@@ -76,6 +78,7 @@ static void				set_objTok_var(t_objTok *t, char *s)
 		get_dbl_tok(&t->radius, tab, A_RADIUS);
 		get_dbl_tok(&t->height, tab, A_HEIGHT);
 		get_dbl_tok(&t->angle, tab, A_ANGLE);
+		get_dbl_tok(&t->top, tab, A_TOP);
 	}
 	free_tab(tab);
 }

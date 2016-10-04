@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 13:36:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 13:36:12 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 17:50:13 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ void		put_objTok(t_objTok *t)
 		put_pos(t->normal);
 		ft_putstr("rot -> ");
 		put_pos(t->rot);
+		ft_putstr("trans -> ");
+		put_pos(t->trans);
 		ft_putstr("mat -> ");
 		put_pos(t->mat);
 		put_var_dbl("radius", t->radius);
 		put_var_dbl("height", t->height);
 		put_var_dbl("angle", t->angle);
+		put_var_dbl("top", t->top);
 		ft_putendl("}\n");
 	}
 }

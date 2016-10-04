@@ -11,6 +11,7 @@ light
 	position(0, 0, 0)
 	Id(100, 100, 100)
 	Is(100, 100, 100)
+	translation(0, 10, 0)
 }
 
 light
@@ -35,6 +36,7 @@ light
 	position(0, 0, 0)
 	Id(100, 10, 10)
 	Is(100, -100, 100)
+	translation(0, 10, 0)
 }
 
 
@@ -55,6 +57,7 @@ object
 	position(0, 0, 0)
 	color(255, 20, 233)
 	normal(0, -1, 0)
+	translation(0, 10, 0)
 	axis(y)
 }
 
@@ -99,6 +102,7 @@ object
 	color(0, 255, 0)
 	rot(10, 10, 0)
 	radius(50)
+	translation(0, 10, 0)
 }
 
 object
@@ -109,6 +113,7 @@ object
 	rot(10, 10, 0)
 	radius(50)
 	height(100)
+	top(10)
 }
 
 object

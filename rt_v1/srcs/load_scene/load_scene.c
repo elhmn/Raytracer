@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:42:19 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 14:07:56 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 17:07:04 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,5 @@ void		load_scene(t_rt *rt, char *scene)
 		load_camera(rt->camera, sTok->camera);
 		load_lights(&rt->lights, sTok->lightsTok);
 		load_objs(&rt->objs, sTok->objsTok);
-	//	load_cam(sTok);
-	//	load_light(sTok);
-	//	load_obj(sTok);
 	}
 }

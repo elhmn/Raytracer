@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 21:47:26 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 13:07:45 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 17:51:35 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct		s_camTok
 {
 	t_pos			pos;
 	t_pos			rot;
+	t_pos			trans;
 	char			*lookAt;
 }					t_camTok;
 
@@ -30,6 +31,7 @@ typedef struct		s_lightTok
 {
 	char			*type;
 	t_pos			pos;
+	t_pos			trans;
 	t_pos			rot;
 	t_pos			Id;
 	t_pos			Is;
@@ -41,6 +43,7 @@ typedef struct		s_objTok
 	char			*name;
 	t_pos			pos;
 	t_pos			rot;
+	t_pos			trans;
 	t_pos			mat;
 	t_pos			col;
 	
@@ -49,6 +52,7 @@ typedef struct		s_objTok
 	char			*axis;
 	double			height;
 	double			angle;
+	double			top;
 
 }					t_objTok;
 

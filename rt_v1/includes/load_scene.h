@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:56:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 14:50:49 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 17:49:26 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,18 @@
 # define	A_AXIS			"axis"
 # define	A_HEIGHT		"height"
 # define	A_ANGLE			"angle"
+# define	A_TOP			"top"
+
+# define	A_TRANSLATION	"translation"
 
 # define	A_COLOR			"color"
 # define	A_ID			"id"
 # define	A_IS			"is"
+
+# define	T_PLANE			"plane"
+# define	T_SPHERE		"sphere"
+# define	T_CONE			"cone"
+# define	T_CYLINDER		"cylinder"
 
 # define SEP_1		'}'
 # define SEP_2		'{'
@@ -41,7 +49,7 @@
 # define SEP_4		'('
 # define SEP_5		','
 
-# define LIMIT_100(x)	(x > 100 && x < 0) ? ((x > 100) ? 100 : 0) : x
+# define LIMIT_100(x)	(x > 100 || x < 0) ? (((x > 100) ? 100 : 0)) : x
 
 # define CONV_100(x)	(x / 100.)
 

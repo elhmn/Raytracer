@@ -6,17 +6,18 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/06 07:42:16 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 16:51:59 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 16:42:54 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "rt_color.h"
 #include "rt.h"
 
 t_color			get_color(t_uint r, t_uint g, t_uint b)
 {
 	t_color		col;
 
-	col.color = rgb_to_color(r, g, b);
+	col.color = rgb_to_color(LIMIT_COL(r), LIMIT_COL(g), LIMIT_COL(b));
 	set_color(&col);
 	return (col);
 }

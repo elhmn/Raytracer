@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 14:01:35 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 15:31:55 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 17:09:45 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 static void		load_light(t_light *l, t_lightTok *t, int id)
 {
-	if (l)
+	if (l && t)
 	{
 		l->type = 0;
 		l->id = id;

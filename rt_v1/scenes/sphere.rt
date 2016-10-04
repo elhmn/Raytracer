@@ -1,0 +1,30 @@
+object
+{
+	type (plane)
+	position(0, 0, 0)
+	color(70, 70 , 0)
+	material(50, 20, 60)
+	normal(0, -1, 0)
+	translation(0, 0, 0);
+}
+
+object
+{
+	type (plane)
+	position(0, 0, 1000)
+	color(70, 70 , 0)
+	material(50, 20, 60)
+	normal(0, -1, 0)
+	rotation(0, 90, 90)
+}
+
+object
+{
+	type (sphere)
+	position(0, 200, 0)
+	color(20, 20 , 20)
+	radius(100)
+	material(50, 20, 60)
+	normal(0, -1, 0)
+}
+
