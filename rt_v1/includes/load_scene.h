@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:56:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 18:12:00 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 12:18:13 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@
 # define	A_MATERIAL		"material"
 
 # define	A_DATA			"data"
+# define	A_RADIUS		"radius"
+# define	A_NORMAL		"normal"
+# define	A_AXIS			"axis"
+# define	A_HEIGHT		"height"
+# define	A_ANGLE			"angle"
 
 # define	A_COLOR			"color"
 # define	A_ID			"id"
@@ -72,8 +77,10 @@ void					set_lightTok(t_sceneTok *sTok, char **tab);
 void					set_objTok(t_sceneTok *sTok, char **tab);
 
 /*
-** set_tok_var.c
+** get_tok_var.c
 */
+
+void					get_dbl_tok(double *p, char **tab, char *type);
 
 void					get_pos_tok(t_pos *p, char **tab, char *type);
 void					get_label_tok(char **s, char **tab, char *type);

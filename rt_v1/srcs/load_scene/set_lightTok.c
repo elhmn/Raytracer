@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 03:10:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 17:38:25 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 13:46:55 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@
 #include "load_scene.h"
 #include "put_var.h"
 #include <stdlib.h>
+
+static void				init_lightTok(t_lightTok *t)
+{
+	if (t)
+	{
+		t->type = NULL;
+		t->pos = get_pos(0, 0, 0);
+		t->rot = get_pos(0, 0, 0);
+		t->Id = get_pos(0, 0, 0);
+		t->Is = get_pos(0, 0, 0);
+	}
+}
 
 void			get_index(char **tab, int *t, char *type)
 {
@@ -61,6 +73,7 @@ void				new_lightsTok(t_sceneTok *sTok, int len)
 			if (!(sTok->lightsTok[i] =
 					(t_lightTok*)malloc(sizeof(t_lightTok))))
 				check_errors(MALLOC, "sTok->lightsTok[i]", "set_lightTok");
+			init_lightTok(sTok->lightsTok[i]);
 		}
 	}
 }
@@ -69,8 +82,6 @@ void				set_lightTok_var(t_lightTok *t, char *s)
 {
 	char		**tab;
 
-	(void)t;
-	(void)s;
 	tab = NULL;
 	if (s && t)
 	{
@@ -79,15 +90,6 @@ void				set_lightTok_var(t_lightTok *t, char *s)
 		get_pos_tok(&t->pos, tab, A_POSITION);
 		get_pos_tok(&t->Id, tab, A_ID);
 		get_pos_tok(&t->Is, tab, A_IS);
-		t->data = NULL;
-
-		ft_putendl(" >----------------< "); //Debug
-		ft_putstr("type = ");
-		ft_putendl(t->type);
-		put_pos(t->pos);
-		put_pos(t->Id);
-		put_pos(t->Is);
-		ft_putendl(" >----------------> "); //Debug
 	}
 	free_tab(tab);
 }
@@ -124,8 +126,6 @@ void				set_lightTok(t_sceneTok *sTok, char **tab)
 	int		len;
 	int		*tmp;
 
-	(void)sTok;
-	(void)tab;
 	len = obj_number(tab, N_LIGHT);
 	if (!len)
 		check_errors(NUL, "no light defined", "");

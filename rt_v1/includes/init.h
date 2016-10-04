@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 21:47:26 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/03 17:54:07 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 13:07:45 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ typedef struct		s_lightTok
 	t_pos			rot;
 	t_pos			Id;
 	t_pos			Is;
-	char			*data; //add all datas
 }					t_lightTok;
 
 typedef struct		s_objTok
@@ -44,7 +43,13 @@ typedef struct		s_objTok
 	t_pos			rot;
 	t_pos			mat;
 	t_pos			col;
-	char			*data;
+	
+	double			radius;
+	t_pos			normal;
+	char			*axis;
+	double			height;
+	double			angle;
+
 }					t_objTok;
 
 typedef struct		s_sceneTok

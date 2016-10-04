@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 14:40:58 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/02 21:20:25 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/04 13:42:12 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "light.h"
 # include "rt_color.h"
 # include "object.h"
+# include "init.h"
 
 /*
 ** put_var_00.c
@@ -55,5 +56,31 @@ void			put_dataCylinder(t_dataCylinder *data);
 void			put_material(t_material m);
 void			end_block(char *str);
 void			start_block(char *str);
+
+/*
+** put_lightsTok.c
+*/
+
+void			put_lightsTok(t_lightTok **t);
+void			put_lightTok(t_lightTok *t);
+
+/*
+** put_objsTok.c
+*/
+
+void			put_objsTok(t_objTok **t);
+void			put_objTok(t_objTok *t);
+
+/*
+** put_camTok.c
+*/
+
+void			put_camTok(t_camTok *t);
+
+/*
+** put_sceneTok.c
+*/
+
+void			put_sceneTok(t_sceneTok *s);
 
 #endif
