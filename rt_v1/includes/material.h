@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 14:21:55 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/02 21:56:24 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 23:28:16 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define LIMIT_COEF(x) (x > 1. && x < 0.) ? ((x > 1.) ? 1. : 0.) : x
 
 /*
-** material struct : 
+** material struct :
 **	- ka ambiant material coef
 **	- kd diffuse material coef
 **	- ks specular material coef

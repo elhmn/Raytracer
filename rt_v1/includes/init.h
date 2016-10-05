@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 21:47:26 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 17:51:35 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 23:20:29 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,25 @@
 
 void				init_scene(t_rt *rt, char *scene);
 
-typedef struct		s_camTok
+typedef struct		s_cam_tok
 {
 	t_pos			pos;
 	t_pos			rot;
 	t_pos			trans;
-	char			*lookAt;
-}					t_camTok;
+	char			*lookat;
+}					t_cam_tok;
 
-typedef struct		s_lightTok
+typedef struct		s_light_tok
 {
 	char			*type;
 	t_pos			pos;
 	t_pos			trans;
 	t_pos			rot;
-	t_pos			Id;
-	t_pos			Is;
-}					t_lightTok;
+	t_pos			id;
+	t_pos			is;
+}					t_light_tok;
 
-typedef struct		s_objTok
+typedef struct		s_obj_tok
 {
 	char			*type;
 	char			*name;
@@ -46,7 +46,6 @@ typedef struct		s_objTok
 	t_pos			trans;
 	t_pos			mat;
 	t_pos			col;
-	
 	double			radius;
 	t_pos			normal;
 	char			*axis;
@@ -54,14 +53,13 @@ typedef struct		s_objTok
 	double			angle;
 	double			top;
 
-}					t_objTok;
+}					t_obj_tok;
 
-typedef struct		s_sceneTok
+typedef struct		s_scene_tok
 {
-	t_camTok		*camera;
-	t_lightTok		**lightsTok;
-	t_objTok		**objsTok;
-}					t_sceneTok;
-
+	t_cam_tok		*camera;
+	t_light_tok		**lights_tok;
+	t_obj_tok		**objs_tok;
+}					t_scene_tok;
 
 #endif

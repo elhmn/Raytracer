@@ -6,12 +6,12 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 17:23:25 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 11:20:00 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 23:27:57 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NORMAL_COMPUTATION
-# define NORMAL_COMPUTATION
+#ifndef NORMAL_COMPUTATION_H
+# define NORMAL_COMPUTATION_H
 
 # include "rt.h"
 # include "object.h"

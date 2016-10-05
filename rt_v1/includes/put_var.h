@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 14:40:58 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 13:42:12 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 23:42:22 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,20 @@ void			put_screen(t_screen screen);
 */
 
 void			put_ray(t_ray ray);
-void			put_dataSphere(t_dataSphere *data);
+void			put_data_sphere(t_data_sphere *data);
 void			put_type(int type);
 void			put_obj(void *obj);
-void			put_dataPlane(t_dataPlane *data);
+void			put_data_plane(t_data_plane *data);
 
 /*
 ** put_var_02.c
 */
 
 void			put_var_dbl(char *var, double val);
-void			put_sColor(t_sColor s);
+void			put_s_color(t_s_color s);
 void			put_light(t_light *l);
-void			put_dataCone(t_dataCone *data);
-void			put_dataCylinder(t_dataCylinder *data);
+void			put_data_cone(t_data_cone *data);
+void			put_data_cylinder(t_data_cylinder *data);
 
 /*
 ** put_var_03.c
@@ -58,29 +58,29 @@ void			end_block(char *str);
 void			start_block(char *str);
 
 /*
-** put_lightsTok.c
+** put_lights_tok.c
 */
 
-void			put_lightsTok(t_lightTok **t);
-void			put_lightTok(t_lightTok *t);
+void			put_lights_tok(t_light_tok **t);
+void			put_light_tok(t_light_tok *t);
 
 /*
-** put_objsTok.c
+** put_objs_tok.c
 */
 
-void			put_objsTok(t_objTok **t);
-void			put_objTok(t_objTok *t);
+void			put_objs_tok(t_obj_tok **t);
+void			put_obj_tok(t_obj_tok *t);
 
 /*
-** put_camTok.c
+** put_cam_tok.c
 */
 
-void			put_camTok(t_camTok *t);
+void			put_cam_tok(t_cam_tok *t);
 
 /*
-** put_sceneTok.c
+** put_scene_tok.c
 */
 
-void			put_sceneTok(t_sceneTok *s);
+void			put_scene_tok(t_scene_tok *s);
 
 #endif

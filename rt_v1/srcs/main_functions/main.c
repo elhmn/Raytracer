@@ -6,7 +6,7 @@
 /*   By: elhmn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/13 08:33:16 by elhmn             #+#    #+#             */
-/*   Updated: 2016/10/04 23:21:10 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/06 00:16:18 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		main(int ac, char **av)
 {
 	t_rt		*rt;
 	char		*scene;
-	
+
 	rt = NULL;
 	scene = NULL;
 	if (ac > 1)
