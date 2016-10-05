@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 19:29:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/28 20:58:26 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:39:54 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void		*ft_memcpy(void *dest, const void *src, size_t n)
 
 	tmp_s = (char*)src;
 	tmp_d = (char*)dest;
+	if (!src || !dest)
+		return (NULL);
 	while (n)
 	{
 		*tmp_d = *tmp_s;

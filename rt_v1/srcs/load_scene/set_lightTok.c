@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 03:10:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 22:00:52 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:15:08 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ static void				init_lightTok(t_lightTok *t)
 {
 	if (t)
 	{
-		t->type = NULL;
-		t->pos = get_pos(0, 0, 0);
+		t->type = T_OMNI;
+		t->pos = get_pos(0, 400, 0);
 		t->trans = get_pos(0, 0, 0);
 		t->rot = get_pos(0, 0, 0);
-		t->Id = get_pos(0, 0, 0);
-		t->Is = get_pos(0, 0, 0);
+		t->Id = get_pos(60, 60, 60);
+		t->Is = get_pos(40, 40, 40);
 	}
 }
 

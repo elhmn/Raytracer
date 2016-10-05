@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 02:51:02 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 21:59:57 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:05:32 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "rt.h"
@@ -55,7 +55,7 @@ void					get_pos_tok(t_pos *p, char **tab, char *type)
 	if (str)
 	{
 		tmp = ft_strsplit(str, SEP_5);
-		if (!tmp && tab_len(tmp) != 3)
+		if (!tmp || tab_len(tmp) != 3)
 			check_errors(NUL, "wrong format", "");
 		p->x = ft_atoi(tmp[0]);
 		p->y = ft_atoi(tmp[1]);

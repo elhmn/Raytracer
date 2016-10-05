@@ -2,16 +2,16 @@ object
 {
 	type (plane)
 	position(0, 0, 0)
-	color(70, 70 , 0)
+	color(70, 70, 0)
 	material(20, 20, 60)
-	normal(0, -1, 0)
+	normal(0, -2, 0)
 }
 
 object
 {
 	type (sphere)
 	position(0, 200, 0)
-	color(60, 60 , 0)
+	color(60, 60, 0)
 	radius(100)
 	material(20, 30, 50)
 }

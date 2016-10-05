@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 17:34:06 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 22:01:05 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:22:31 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ static void				init_objTok(t_objTok *t)
 {
 	if (t)
 	{
-		t->name = NULL;
+		t->name = O_NAME;
 		t->axis = NULL;
-		t->type = NULL;
+		t->type = T_SPHERE;
 		t->pos = get_pos(0, 0, 0);
 		t->rot = get_pos(0, 0, 0);
 		t->trans = get_pos(0, 0, 0);
-		t->mat = get_pos(0, 0, 0);
-		t->col = get_pos(0, 0, 0);
+		t->mat = get_pos(20, 30, 50);
+		t->col = get_pos(50, 50, 50);
 		t->normal = get_pos(0, -1, 0);
-		t->radius = 0;
-		t->height = 0;
-		t->angle = 0;
-		t->top = 0;
+		t->radius = 100;
+		t->height = -1;
+		t->angle = 15;
+		t->top = 100;
 	}	
 }
 
@@ -120,7 +120,7 @@ void				set_objTok(t_sceneTok *sTok, char **tab)
 
 	len = obj_number(tab, N_OBJECT);
 	if (!len)
-		check_errors(NUL, "no obj defined", "");
+		sTok->objsTok = NULL;
 	if (!(tmp = (int*)malloc(sizeof(int) * (len))))
 		check_errors(MALLOC, "tmp", "set_objsTok.c");
 	get_index(tab, tmp, N_OBJECT);

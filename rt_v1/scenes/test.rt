@@ -1,0 +1,6 @@
+object{type(sphere)}
+object{type(sphere)}
+object{type(plane) translation(0, -100, 0)}
+object{type(plane) rotation(-90, 0, 90)
+translation(0, 0, 5000)}
+light{type(omni)}

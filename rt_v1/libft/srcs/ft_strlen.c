@@ -6,19 +6,12 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 12:22:35 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 13:01:28 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:38:01 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
-/*
-size_t	ft_strlen(const char *s)
-{
-	if (!s || *s == '\0')
-		return (0);
-	return (1 + ft_strlen(s + 1));
-}
-*/
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	len;

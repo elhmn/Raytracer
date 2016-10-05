@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 17:41:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/28 21:24:01 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:36:59 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strdup(const char *s1)
 	tmp = (char*) malloc (sizeof(*tmp) * (ft_strlen(s1) + 1));
 	if (!tmp)
 		return (NULL);
-	while (s1[i] && s1)
+	while (s1 && s1[i])
 	{
 		tmp[i] = s1[i];
 		i++;

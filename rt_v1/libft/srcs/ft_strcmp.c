@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 17:21:30 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/28 04:04:39 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:35:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@ int	ft_strcmp(const char *s1, const char *s2)
 	int	i;
 
 	i = 0;
+	if (!s1 || !s2)
+		return (-1);
 	while (s1[i] == s2[i] && s1[i] && s2[i])
 		i++;
 	return (s1[i] - s2[i]);

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:56:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 21:57:49 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:14:59 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@
 # define	A_ID			"id"
 # define	A_IS			"is"
 
+# define	T_OMNI			"omni"
 # define	T_PLANE			"plane"
 # define	T_SPHERE		"sphere"
 # define	T_CONE			"cone"
 # define	T_CYLINDER		"cylinder"
+
+# define	O_NAME			"zboob"
 
 # define SEP_1		'}'
 # define SEP_2		'{'
