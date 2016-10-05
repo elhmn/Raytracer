@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putdbl.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcanal <zboub@42.fr>                       +#+  +:+       +#+        */
+/*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/02/18 05:46:14 by mcanal            #+#    #+#             */
-/*   Updated: 2016/05/01 15:09:52 by mcanal           ###   ########.fr       */
+/*   Created: 2016/10/05 20:54:58 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/10/05 21:43:37 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-** print a double on stdout
-*/
-
 #include "libft.h"
-
-#define PRECISION 9
 
 static size_t	length(size_t n)
 {

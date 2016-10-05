@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 04:30:55 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/12/04 11:43:42 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:46:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t size)
 	char	*tmp;
 
 	i = 0;
-	tmp = (char*) s;
+	tmp = (char*)s;
 	new_str = ft_strnew(size);
 	if (!new_str)
 		return (NULL);
@@ -32,4 +32,3 @@ char	*ft_strsub(char const *s, unsigned int start, size_t size)
 	}
 	return (new_str);
 }
-

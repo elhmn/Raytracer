@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 04:58:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/02 23:10:12 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:47:03 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static int	ft_is_blank(char c)
 char		*ft_strtrim(char const *s)
 {
 	char		*new_str;
-	size_t	i;
-	size_t	len;
+	size_t		i;
+	size_t		len;
 
 	len = ft_strlen(s) - 1;
 	i = 0;
@@ -42,4 +42,3 @@ char		*ft_strtrim(char const *s)
 		return (NULL);
 	return (new_str);
 }
-

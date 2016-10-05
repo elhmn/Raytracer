@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/26 05:50:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/29 09:28:01 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:27:21 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char		*ft_itoa(int n)
 	if (n > MAX_NBR || n < MIN_NBR)
 		return (NULL);
 	size = ft_get_nbr_size(n);
-	car_nbr = ft_strnew((size_t) size);
+	car_nbr = ft_strnew((size_t)size);
 	if (n < 0)
 	{
 		car_nbr[0] = '-';

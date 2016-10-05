@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 11:58:46 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/28 04:05:30 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:35:51 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ char	*ft_strcpy(char *dest, const char *src)
 		i++;
 	}
 	dest[i] = '\0';
-		return (dest);
+	return (dest);
 }

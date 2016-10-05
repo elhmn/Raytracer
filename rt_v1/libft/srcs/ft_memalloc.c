@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 02:05:25 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/25 13:29:28 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:25:44 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memalloc(size_t size)
 {
 	char	*ptr;
 
-	ptr = (char*) malloc(sizeof(*ptr) * size);
+	ptr = (char*)malloc(sizeof(*ptr) * size);
 	if (!ptr)
 		return (NULL);
 	ft_memset(ptr, 0, size);

@@ -6,11 +6,11 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/28 03:48:20 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/28 03:48:43 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:24:37 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isascii(int c)
 {
-	return ((unsigned) c <= 0177);
+	return ((unsigned)c <= 177);
 }

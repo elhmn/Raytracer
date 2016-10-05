@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 17:06:40 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/28 04:24:35 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:45:42 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 			tmp_2++;
 			tmp_1++;
 		}
-		if ((!(*tmp_1) && *tmp_2) || ((tmp_1 == s1 + n ) && *tmp_2))
+		if ((!(*tmp_1) && *tmp_2) || ((tmp_1 == s1 + n) && *tmp_2))
 			return (NULL);
 		if (!(*tmp_2))
 			return (tmp);

@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 05:57:16 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/05 09:36:37 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:34:43 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static int		ft_fillmap(char **tab, char *s, char c, int nbr)
 	while (j < nbr)
 	{
 		wd_size = ft_get_word_size(s_tmp, &i, c);
-		*(tab + j) = ft_strsub(s_tmp, i, (size_t) wd_size);
+		*(tab + j) = ft_strsub(s_tmp, i, (size_t)wd_size);
 		if (!(*tab + j))
 			return (0);
 		j++;
@@ -62,7 +62,7 @@ static int		ft_fillmap(char **tab, char *s, char c, int nbr)
 	return (1);
 }
 
-char 			**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	int			nbr;
 	char		**tab;
@@ -70,7 +70,7 @@ char 			**ft_strsplit(char const *s, char c)
 
 	tmp = NULL;
 	tab = NULL;
-	tmp = (char*) s;
+	tmp = (char*)s;
 	if (!tmp)
 		return (NULL);
 	while (*tmp == c)
@@ -81,10 +81,10 @@ char 			**ft_strsplit(char const *s, char c)
 		nbr = ft_get_words_nbr(0, tmp, c);
 	if (nbr)
 	{
-		tab = (char**) malloc(sizeof(char*) * (nbr + 1));
+		tab = (char**)malloc(sizeof(char*) * (nbr + 1));
 		if (!tab)
 			return (NULL);
-		if (!ft_fillmap(tab, (char*) s, c, nbr))
+		if (!ft_fillmap(tab, (char*)s, c, nbr))
 			return (NULL);
 		return (tab);
 	}

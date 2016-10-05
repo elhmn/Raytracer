@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 03:31:07 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/28 04:18:13 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:37:13 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 char		*ft_strmap(char const *s, char (*f)(char))
 {
 	char	*new_str;
-	int	i;
+	int		i;
 
 	i = 0;
 	new_str = ft_strnew(ft_strlen(s));

@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 13:01:58 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/29 09:30:05 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:43:28 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ size_t		ft_strlcat(char *dest, const char *src, size_t size)
 	if (!free_space)
 		return (len + ft_strlen(src));
 	ft_strlcat_aux(s, d, free_space);
-		return (len + ft_strlen(src));
+	return (len + ft_strlen(src));
 }
-

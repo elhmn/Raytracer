@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 20:10:43 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/28 03:56:17 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:32:01 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char				car;
-	const unsigned char	*ptr;
+	unsigned char			car;
+	const unsigned char		*ptr;
 
-	car = (unsigned char) c;
-	ptr = (const unsigned char*) s;
-
+	car = (unsigned char)c;
+	ptr = (const unsigned char*)s;
 	while (n)
 	{
 		if (*ptr == car)

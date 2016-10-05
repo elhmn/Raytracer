@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 01:54:18 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/29 09:29:40 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:31:19 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ void		ft_putnbr_fd(int n, int fd)
 	else
 		ft_put_aux_nbr_fd(n, fd);
 }
-

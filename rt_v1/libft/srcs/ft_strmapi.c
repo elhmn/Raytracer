@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 03:41:32 by bmbarga           #+#    #+#             */
-/*   Updated: 2013/11/28 04:19:11 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/05 20:41:56 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*new_str;
+	char			*new_str;
 	unsigned int	i;
 
 	i = 0;
