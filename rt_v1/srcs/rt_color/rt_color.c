@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 11:02:31 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 17:34:40 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:57:17 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "put_var.h"
 #include "check_errors.h"
 
-t_color				sColor_to_color(t_sColor s)
+t_color				s_color_to_color(t_s_color s)
 {
 	t_color		c;
 
@@ -24,9 +24,9 @@ t_color				sColor_to_color(t_sColor s)
 	return (c);
 }
 
-t_sColor			color_to_sColor(t_color c)
+t_s_color			color_to_s_color(t_color c)
 {
-	t_sColor		s;
+	t_s_color		s;
 
 	s.r = LIMIT_SCOL(c.r / 255.);
 	s.g = LIMIT_SCOL(c.g / 255.);
@@ -34,16 +34,16 @@ t_sColor			color_to_sColor(t_color c)
 	return (s);
 }
 
-void			set_sColor(t_sColor *s, double r, double g, double b)
+void			set_s_color(t_s_color *s, double r, double g, double b)
 {
 	s->r = LIMIT_SCOL(r);
 	s->g = LIMIT_SCOL(g);
 	s->b = LIMIT_SCOL(b);
 }
 
-t_sColor			get_sColor(double r, double g, double b)
+t_s_color			get_s_color(double r, double g, double b)
 {
-	t_sColor	s;
+	t_s_color	s;
 
 	s.r = LIMIT_SCOL(r);
 	s.g = LIMIT_SCOL(g);
@@ -51,9 +51,9 @@ t_sColor			get_sColor(double r, double g, double b)
 	return (s);
 }
 
-t_sColor			add_sColor(t_sColor a, t_sColor b)
+t_s_color			add_s_color(t_s_color a, t_s_color b)
 {
-	t_sColor	c;
+	t_s_color	c;
 
 	c.r = LIMIT_SCOL(a.r + b.r);
 	c.g = LIMIT_SCOL(a.g + b.g);
@@ -61,9 +61,9 @@ t_sColor			add_sColor(t_sColor a, t_sColor b)
 	return (c);
 }
 
-t_sColor			sub_sColor(t_sColor a, t_sColor b)
+t_s_color			sub_s_color(t_s_color a, t_s_color b)
 {
-	t_sColor	c;
+	t_s_color	c;
 
 	c.r = LIMIT_SCOL(a.r - b.r);
 	c.g = LIMIT_SCOL(a.g - b.g);

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:04:14 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 15:06:38 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:47:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	put_ray(t_ray ray)
 	ft_putendl("");
 }
 
-void	put_dataSphere(t_dataSphere *data)
+void	put_data_sphere(t_data_sphere *data)
 {
-	t_dataSphere *sp;
+	t_data_sphere *sp;
 
-	sp = (t_dataSphere*)data;
+	sp = (t_data_sphere*)data;
 	if (sp)
 	{
 		ft_putstr("radius =  [");
@@ -39,11 +39,11 @@ void	put_dataSphere(t_dataSphere *data)
 	}
 }
 
-void	put_dataPlane(t_dataPlane *data)
+void	put_data_plane(t_data_plane *data)
 {
-	t_dataPlane	*pl;
+	t_data_plane	*pl;
 
-	pl = (t_dataPlane*)data;
+	pl = (t_data_plane*)data;
 	if (pl)
 	{
 		ft_putstr("v_normal -> ");
@@ -86,13 +86,13 @@ void	put_obj(void *obj)
 		if (o->material)
 			put_material(*(o->material));
 		if (o->type == SPHERE)
-			put_dataSphere(o->data);
+			put_data_sphere(o->data);
 		if (o->type == PLANE)
-			put_dataPlane(o->data);
+			put_data_plane(o->data);
 		if (o->type == CYLINDER)
-			put_dataCylinder(o->data);
+			put_data_cylinder(o->data);
 		if (o->type == CONE)
-			put_dataCone(o->data);
+			put_data_cone(o->data);
 		ft_putendl("\n}\n");
 	}
 }

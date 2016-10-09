@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:29 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 16:05:34 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:37:41 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static double	getDist(t_pos e, double delta)
 	return (ret);
 }
 
-static double		is_collision(t_ray *ray, t_dataSphere *data,
+static double		is_collision(t_ray *ray, t_data_sphere *data,
 								t_obj *obj, t_rt *rt)
 {
 	double			ret;
@@ -75,10 +75,10 @@ static double		is_collision(t_ray *ray, t_dataSphere *data,
 double		sphere_collision(t_ray *ray, void *data, t_obj *obj, t_rt *rt)
 {
 	double			d;
-	t_dataSphere	*dat;
+	t_data_sphere	*dat;
 
 	d = -1;
-	dat = (t_dataSphere*)data;
+	dat = (t_data_sphere*)data;
 	if (ray && dat && rt && obj)
 		d = is_collision(ray, dat, obj, rt);
 	return (d);

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/26 00:20:48 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 16:42:49 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:47:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ static double		find_collision(t_pos ro, t_pos rd,
 	return (ret);
 }
 
-static double		is_collision(t_ray *ray, t_dataCone *data,
+static double		is_collision(t_ray *ray, t_data_cone *data,
 					t_obj *obj, t_rt *rt)
 {
 	double			ret;
@@ -136,10 +136,10 @@ double				cone_collision(t_ray *ray, void *data,
 									t_obj *obj, t_rt *rt)
 {
 	double			d;
-	t_dataCone		*dat;
+	t_data_cone		*dat;
 
 	d = -1;
-	dat = (t_dataCone*)data;
+	dat = (t_data_cone*)data;
 	if (ray && rt && dat && obj)
 		d = is_collision(ray, dat, obj, rt);
 	return (d);

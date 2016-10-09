@@ -1,0 +1,24 @@
+./srcs/load_scene/load_scene.c:67:2: error: implicit declaration of function 'set_cameraTok' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        set_cameraTok(sTok, tab);
+        ^
+./srcs/load_scene/load_scene.c:67:2: note: did you mean 'set_camera_tok'?
+./includes/load_scene.h:82:10: note: 'set_camera_tok' declared here
+void                                    set_camera_tok(t_scene_tok *stok, char **tab);
+                                        ^
+1 error generated.
+./srcs/load_scene/set_camTok.c:54:38: error: use of undeclared identifier 'A_lookat'
+                get_label_tok(&(cam->lookat), tab, A_lookat);
+                                                   ^
+1 error generated.
+./srcs/load_scene/load_objs.c:40:10: error: implicit declaration of function 'newCylinder' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                        tmp = newCylinder(t->pos, t->radius, t->height, get_color(t->col.x, t->col.y, t->col.z));
+                              ^
+./srcs/load_scene/load_objs.c:40:10: note: did you mean 'new_cylinder'?
+./includes/object.h:101:11: note: 'new_cylinder' declared here
+t_obj                           *new_cylinder(t_pos pos, double r, double h, t_color col);
+                                 ^
+./srcs/load_scene/load_objs.c:40:8: error: incompatible integer to pointer conversion assigning to 't_obj *' (aka 'struct s_obj *') from 'int' [-Werror,-Wint-conversion]
+                        tmp = newCylinder(t->pos, t->radius, t->height, get_color(t->col.x, t->col.y, t->col.z));
+                            ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2 errors generated.
+make: *** [objs/main.o] Error 1

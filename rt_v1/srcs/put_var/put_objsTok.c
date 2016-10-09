@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_objsTok.c                                      :+:      :+:    :+:   */
+/*   put_objs_tok.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 13:36:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 17:50:13 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:56:06 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "load_scene.h"
 #include "init.h"
 
-void		put_objTok(t_objTok *t)
+void		put_obj_tok(t_obj_tok *t)
 {
 	if (t)
 	{
@@ -43,10 +43,10 @@ void		put_objTok(t_objTok *t)
 		ft_putendl("}\n");
 	}
 }
-void		put_objsTok(t_objTok **t)
+void		put_objs_tok(t_obj_tok **t)
 {
 	if (!t)
 		return ;
 	while (*t)
-		put_objTok(*t++);
+		put_obj_tok(*t++);
 }

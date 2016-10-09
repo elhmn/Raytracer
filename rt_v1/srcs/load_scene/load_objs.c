@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 14:01:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 18:05:35 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:54:51 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include "put_var.h"
 #include <stdlib.h>
 
-static t_obj		*create_obj(t_objTok *t)
+static t_obj		*create_obj(t_obj_tok *t)
 {
 	t_obj		*tmp;
 
@@ -32,14 +32,14 @@ static t_obj		*create_obj(t_objTok *t)
 			** if (t->axis)
 			** 	t->normal = convert_axis();
 			*/
-			tmp = newPlane(t->pos, t->normal, get_color(t->col.x, t->col.y, t->col.z));
+			tmp = new_plane(t->pos, t->normal, get_color(t->col.x, t->col.y, t->col.z));
 		}
 		else if (!ft_strcmp(t->type, T_SPHERE))
-			tmp = newSphere(t->pos, t->radius, get_color(t->col.x, t->col.y, t->col.z));
+			tmp = new_sphere(t->pos, t->radius, get_color(t->col.x, t->col.y, t->col.z));
 		else if (!ft_strcmp(t->type, T_CYLINDER))
 			tmp = newCylinder(t->pos, t->radius, t->height, get_color(t->col.x, t->col.y, t->col.z));
 		else if (!ft_strcmp(t->type, T_CONE))
-			tmp = newCone(t->pos, get_pos(t->top, t->height, t->angle), get_color(t->col.x, t->col.y, t->col.z));
+			tmp = new_cone(t->pos, get_pos(t->top, t->height, t->angle), get_color(t->col.x, t->col.y, t->col.z));
 		else
 			check_errors(NUL, "object", "wrong format");
 		if (!tmp)
@@ -48,7 +48,7 @@ static t_obj		*create_obj(t_objTok *t)
 	return (tmp);
 }
 
-static t_obj		*load_obj(t_objTok *t, int id)
+static t_obj		*load_obj(t_obj_tok *t, int id)
 {
 	t_obj		*o;
 
@@ -72,7 +72,7 @@ static t_obj		*load_obj(t_objTok *t, int id)
 	return (o);
 }
 
-static t_list		*add_new_obj(t_objTok *t, int id)
+static t_list		*add_new_obj(t_obj_tok *t, int id)
 {
 	t_list		*l;
 
@@ -85,7 +85,7 @@ static t_list		*add_new_obj(t_objTok *t, int id)
 	return (l);
 }
 
-void		load_objs(t_list **list, t_objTok **t)
+void		load_objs(t_list **list, t_obj_tok **t)
 {
 	int			i;
 	t_list		*tmp;

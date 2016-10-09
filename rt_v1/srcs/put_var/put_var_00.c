@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 16:15:33 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/25 16:15:37 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:23:24 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void		put_camera(t_camera camera)
 	ft_putstr("\ndist = [");
 	ft_putdbl(camera.dist);
 	ft_putendl("]");
-	ft_putstr("\nfieldOfView = [");
-	ft_putdbl(camera.fieldOfView);
+	ft_putstr("\nfield_of_view = [");
+	ft_putdbl(camera.field_of_view);
 	ft_putendl("]");
 	ft_putstr("\n} END\n");
 }
@@ -85,11 +85,11 @@ void	put_space(t_space space)
 void	put_screen(t_screen screen)
 {
 	ft_putstr("SCREEN \n{\n\n");
-	ft_putstr("pixelWidth = [");
-	ft_putdbl(screen.pixelWidth);
+	ft_putstr("pixel_width = [");
+	ft_putdbl(screen.pixel_width);
 	ft_putendl("]");
-	ft_putstr("pixelHeight = [");
-	ft_putdbl(screen.pixelHeight);
+	ft_putstr("pixel_height = [");
+	ft_putdbl(screen.pixel_height);
 	ft_putendl("]");
 	ft_putstr("width = [");
 	ft_putdbl(screen.width);
@@ -97,11 +97,11 @@ void	put_screen(t_screen screen)
 	ft_putstr("height = [");
 	ft_putdbl(screen.height);
 	ft_putendl("]");
-	ft_putstr("resX = [");
-	ft_putdbl(screen.resX);
+	ft_putstr("res_x = [");
+	ft_putdbl(screen.res_x);
 	ft_putendl("]");
-	ft_putstr("resY = [");
-	ft_putdbl(screen.resY);
+	ft_putstr("res_y = [");
+	ft_putdbl(screen.res_y);
 	ft_putendl("]");
 	ft_putstr("\n} END\n");
 }

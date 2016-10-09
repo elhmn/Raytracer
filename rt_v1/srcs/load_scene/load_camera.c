@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 13:53:37 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 18:05:55 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:53:58 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "put_var.h"
 #include <stdlib.h>
 
-void		load_camera(t_camera *c, t_camTok *t)
+void		load_camera(t_camera *c, t_cam_tok *t)
 {
 	if (c && t)
 	{

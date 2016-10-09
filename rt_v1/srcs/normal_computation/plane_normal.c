@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 17:20:52 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 11:56:39 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:39:34 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 t_pos		plane_normal(t_obj *o, t_pos r, t_pos p)
 {
 	t_pos			n;
-	t_dataPlane		*dat;
+	t_data_plane		*dat;
 
 	(void)r;
 	(void)p;
 	n = get_pos(0, 0, 0);
-	dat = (t_dataPlane*)o->data;
+	dat = (t_data_plane*)o->data;
 	if (dat)
 		n = dat->v_normal;
 	return (n);

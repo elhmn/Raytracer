@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 22:23:23 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:35:20 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int			get_distance(t_ray *r, t_obj *obj, t_rt *rt)
 	d = -1;
 	if (obj != NULL)
 	{
-		if (obj->ifCollision)
-			d = obj->ifCollision(r, obj->data, obj, rt);
+		if (obj->if_collision)
+			d = obj->if_collision(r, obj->data, obj, rt);
 	}
 	return (d);
 }
@@ -49,7 +49,7 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 {
 	t_list		*list;
 	t_light		*light;
-	t_sColor	sCol;
+	t_s_color	s_col;
 	t_pos		n;
 	t_pos		l;
 	t_base		base;
@@ -57,8 +57,8 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 	if (!rt || !ray || !o)
 		check_errors(NUL, "raytracer.c", "rt || ray || o");
 	list = rt->lights;
-	sCol = get_sColor(o->sCol.r * o->material->ka,
-			o->sCol.g * o->material->ka, o->sCol.b * o->material->ka);
+	s_col = get_s_color(o->s_col.r * o->material->ka,
+			o->s_col.g * o->material->ka, o->s_col.b * o->material->ka);
 	while (rt->render && list)
 	{
 		light = (t_light*)list->content;
@@ -71,7 +71,7 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 				{
 					n = o->normal(o, ray->rd, p);
 					if (rt->diffuse)
-						sCol = add_sColor(sCol,
+						s_col = add_s_color(s_col,
 								diffuse_light(light, o, l, n));
 					if (rt->specular)
 					{
@@ -79,17 +79,17 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 						base.i = l;
 						base.j = n;
 						base.k = rt->camera->sp.o;
-						sCol = add_sColor(sCol, specular_light(light, o, base));
+						s_col = add_s_color(s_col, specular_light(light, o, base));
 					}
 				}
 				else
-					sCol = sub_sColor(sCol,
-							get_sColor(sCol.r / SHADOW_COEF, sCol.g / SHADOW_COEF, sCol.b / SHADOW_COEF));
+					s_col = sub_s_color(s_col,
+							get_s_color(s_col.r / SHADOW_COEF, s_col.g / SHADOW_COEF, s_col.b / SHADOW_COEF));
 			}
 		}
 		list = list->next;
 	}
-	ray->col = get_reshaped_color(sColor_to_color(sCol));
+	ray->col = get_reshaped_color(s_color_to_color(s_col));
 }
 
 static t_pos		get_point(t_pos ro, t_pos r, double d)
@@ -149,15 +149,15 @@ static void	rt_set_ray_pos(int incX, int incY, t_ray *r, t_rt *rt)
 	u = pos_normalize(rt->camera->sp.i);
 	v = pos_normalize(rt->camera->sp.j);
 	w = pos_normalize(rt->camera->sp.k);
-	pX = rt->screen->pixelWidth;
-	pY = rt->screen->pixelHeight;
+	pX = rt->screen->pixel_width;
+	pY = rt->screen->pixel_height;
 	pos_mult_to_number(&w, rt->camera->dist);
 	pos_add_to_pos(&c, w);
 	t = u;
-	pos_mult_to_number(&t, - ((pX * (rt->screen->resX + 1)) / 2.) + incX * pX);
+	pos_mult_to_number(&t, - ((pX * (rt->screen->res_x + 1)) / 2.) + incX * pX);
 	pos_add_to_pos(&c, t);
 	t = v;
-	pos_mult_to_number(&t, ((pY * (rt->screen->resY - 1)) / 2.) - incY * pY);
+	pos_mult_to_number(&t, ((pY * (rt->screen->res_y - 1)) / 2.) - incY * pY);
 	pos_add_to_pos(&c, t);
 	set_pos(&(r->pos), c.x, c.y, c.z);
 	r->ro = rt->camera->sp.o;
@@ -177,10 +177,10 @@ void		raytracer(t_rt *rt)
 	r = rt->ray;
 	o = rt->objs;
 	set_ray_array_zero(r, rt->screen);
-	while (++i < rt->screen->resY)
+	while (++i < rt->screen->res_y)
 	{
 		j = -1;
-		while (++j < rt->screen->resX)
+		while (++j < rt->screen->res_x)
 		{
 			if (r && r[i] && r[i] + j)
 			{

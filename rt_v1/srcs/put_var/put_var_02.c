@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:26:38 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 16:22:31 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:53:24 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,25 @@ void		put_var_dbl(char *var, double val)
 	ft_putendl("]");
 }
 
-void	put_dataCone(t_dataCone *data)
+void	put_data_cone(t_data_cone *data)
 {
-	t_dataCone	*d;
+	t_data_cone	*d;
 
-	d = (t_dataCone*)data;
+	d = (t_data_cone*)data;
 	(void)d;
 	ft_putendl("put data Cone");
 }
 
-void	put_dataCylinder(t_dataCylinder *data)
+void	put_data_cylinder(t_data_cylinder *data)
 {
-	t_dataCylinder	*d;
+	t_data_cylinder	*d;
 
-	d = (t_dataCylinder*)data;
+	d = (t_data_cylinder*)data;
 	(void)d;
 	ft_putendl("put data Cone");
 }
 
-void	put_sColor(t_sColor s)
+void	put_s_color(t_s_color s)
 {
 	ft_putstr("(");
 	ft_putdbl(s.r);
@@ -73,10 +73,10 @@ void	put_light(t_light *l)
 		put_base(l->sp);
 		ft_putstr("}\n");
 		ft_putendl("I : \n{\n");
-		ft_putstr("Id : ");
-		put_sColor(l->I.Id);
+		ft_putstr("id : ");
+		put_s_color(l->inty.id);
 		ft_putstr("Is : ");
-		put_sColor(l->I.Is);
+		put_s_color(l->inty.is);
 		ft_putstr("}\n");
 		ft_putendl("\n}\n");
 	}

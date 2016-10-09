@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 14:01:35 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 22:18:00 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 23:03:21 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,42 +18,42 @@
 #include "put_var.h"
 #include <stdlib.h>
 
-static void		load_light(t_light *l, t_lightTok *t, int id)
+static void		load_light(t_light *l, t_light_tok *t, int id)
 {
 	if (l && t)
 	{
 		l->type = 0;
 		l->id = id;
-		t->Id = get_pos(CONV_100(LIMIT_100(t->Id.x)),
-				CONV_100(LIMIT_100(t->Id.y)),
-				CONV_100(LIMIT_100(t->Id.z)));
+		t->id = get_pos(CONV_100(LIMIT_100(t->id.x)),
+				CONV_100(LIMIT_100(t->id.y)),
+				CONV_100(LIMIT_100(t->id.z)));
 
-		t->Is = get_pos(CONV_100(LIMIT_100(t->Is.x)),
-				CONV_100(LIMIT_100(t->Is.y)),
-				CONV_100(LIMIT_100(t->Is.z)));
+		t->is = get_pos(CONV_100(LIMIT_100(t->is.x)),
+				CONV_100(LIMIT_100(t->is.y)),
+				CONV_100(LIMIT_100(t->is.z)));
 
-		l->I = get_inty(getI(t->Id.x, t->Id.y, t->Id.z), getI(t->Is.x, t->Is.y, t->Is.z));
+		l->inty = get_inty(get_i(t->id.x, t->id.y, t->id.z), get_i(t->is.x, t->is.y, t->is.z));
 		l->sp.o = t->pos;
 		pos_add_to_pos(&(l->sp.o), t->trans);
 		l->volume = NULL;
 	}
 }
 
-static t_list		*add_new_light(t_lightTok *t, int id)
+static t_list		*add_new_light(t_light_tok *t, int id)
 {
 	t_list		*l;
 
 	l = NULL;
 	if (!(l = ft_lstnew(NULL, 0)))
 		check_errors(MALLOC, "l", "load_lights.c");
-	l->content = new_omniLight(get_pos(0, 0, 0), get_inty(getI(0, 0, 0), getI(0, 0, 0)));
+	l->content = new_omni_light(get_pos(0, 0, 0), get_inty(get_i(0, 0, 0), get_i(0, 0, 0)));
 	load_light((t_light*)l->content, t, id);
 	if (!l->content)
 		check_errors(MALLOC, "l->content", "load_lights.c");
 	return (l);
 }
 
-void			load_lights(t_list **list, t_lightTok **t)
+void			load_lights(t_list **list, t_light_tok **t)
 {
 	int			i;
 	t_list		*tmp;

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 17:30:02 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:24:19 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,12 @@ void		init_screen(t_screen **screen)
 		if (!(*screen = (t_screen*)malloc(sizeof(t_screen))))
 			check_errors(MALLOC, "init_var_00.c", "screen");
 
-		screen[0]->pixelWidth = PIXEL_WIDTH;
-		screen[0]->pixelHeight = PIXEL_HEIGHT;
+		screen[0]->pixel_width = PIXEL_WIDTH;
+		screen[0]->pixel_height = PIXEL_HEIGHT;
 		screen[0]->width = SCREEN_WIDTH;
 		screen[0]->height = SCREEN_HEIGHT;
-		screen[0]->resX = RESX;
-		screen[0]->resY = RESY;
+		screen[0]->res_x = RESX;
+		screen[0]->res_y = RESY;
 		end_block("init_screen");
 	}
 }
@@ -86,9 +86,9 @@ void		init_camera(t_camera **camera, t_screen screen, t_space *space)
 		start_block("init_camera");
 		if (!(*camera = (t_camera*)malloc(sizeof(t_camera))))
 			check_errors(MALLOC, "init_var_00.c", "camera");
-		camera[0]->fieldOfView = FOV;
-		camera[0]->dist = (double)(screen.pixelWidth * screen.resX)
-		/ (double)(tan(RAD((camera[0]->fieldOfView / 2.)) * 2.));
+		camera[0]->field_of_view = FOV;
+		camera[0]->dist = (double)(screen.pixel_width * screen.res_x)
+		/ (double)(tan(RAD((camera[0]->field_of_view / 2.)) * 2.));
 		set_pos(&(camera[0]->v_up), 1, 1, 1);
 		init_base_self(&(camera[0]->sp));
 		set_pos(&(camera[0]->sp.o), 0, 100,

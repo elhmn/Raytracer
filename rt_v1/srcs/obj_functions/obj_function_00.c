@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 01:08:30 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:36:24 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ t_obj	*new_obj(int type, t_pos pos, t_color col)
 	if (!(obj = (t_obj*)malloc(sizeof(t_obj))))
 		check_errors(MALLOC, "obj", "obj_function_00.c");
 	obj->type = type;
-	obj->ifCollision = NULL;
+	obj->if_collision = NULL;
 	obj->normal = NULL;
 	obj->material = NULL;
 	obj->data = NULL;
 	obj->rot = get_pos(0, 0, 0);
 	obj->col = col;
-	obj->sCol = get_sColor(0, 0, 0);
-	obj->sCol = color_to_sColor(obj->col);
+	obj->s_col = get_s_color(0, 0, 0);
+	obj->s_col = color_to_s_color(obj->col);
 	init_base_self(&(obj->o));
 	init_base_self(&(obj->sp));
 	copy_pos(&(obj->sp.o), pos);

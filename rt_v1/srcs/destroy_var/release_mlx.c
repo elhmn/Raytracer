@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 00:28:56 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 23:16:54 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:20:04 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	clear_image(t_rt *rt)
 	if (rt && rt->screen)
 	{
 		i = -1;
-		w = rt->screen->resX;
-		h = rt->screen->resY;
+		w = rt->screen->res_x;
+		h = rt->screen->res_y;
 		while (++i < w)
 		{
 			j = -1;

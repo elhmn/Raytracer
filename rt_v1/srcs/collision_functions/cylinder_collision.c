@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:23 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 19:05:49 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:47:12 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ static double		get_limit(t_pos ro, t_pos rd, double ret, t_pos data)
 	return (ret);
 }
 
-static double		is_collision(t_ray *ray, t_dataCylinder *data,
+static double		is_collision(t_ray *ray, t_data_cylinder *data,
 					t_obj *obj, t_rt *rt)
 {
 	double			ret;
@@ -124,10 +124,10 @@ double				cylinder_collision(t_ray *ray, void *data,
 									t_obj *obj, t_rt *rt)
 {
 	double			d;
-	t_dataCylinder	*dat;
+	t_data_cylinder	*dat;
 
 	d = -1;
-	dat = (t_dataCylinder*)data;
+	dat = (t_data_cylinder*)data;
 	if (ray && rt && dat && obj)
 		d = is_collision(ray, dat, obj, rt);
 	return (d);

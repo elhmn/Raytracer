@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 17:38:45 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 18:19:56 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 23:06:22 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@
 #include <stdlib.h>
 #include "check_errors.h"
 
-t_sColor	diffuse_light(t_light *light, t_obj *o, t_pos l, t_pos n)
+t_s_color	diffuse_light(t_light *light, t_obj *o, t_pos l, t_pos n)
 {
-	t_sColor	s;
+	t_s_color	s;
 	t_material	*m;
 	double		prod;
 	double		d;
 
 	d = 1;
 	m = NULL;
-	s = get_sColor(0, 0, 0);
+	s = get_s_color(0, 0, 0);
 	l = pos_normalize(l);
 	if (light && o)
 	{
@@ -37,15 +37,15 @@ t_sColor	diffuse_light(t_light *light, t_obj *o, t_pos l, t_pos n)
 		if (m)
 		{
 			prod = pos_dot_product(l, n);
-			s.r = ABS(m->kd * (light->I.Id.r / d) * prod);
-			s.g = ABS(m->kd * (light->I.Id.g / d) * prod);
-			s.b = ABS(m->kd * (light->I.Id.b / d) * prod);
+			s.r = ABS(m->kd * (light->inty.id.r / d) * prod);
+			s.g = ABS(m->kd * (light->inty.id.g / d) * prod);
+			s.b = ABS(m->kd * (light->inty.id.b / d) * prod);
 		}
 	}
 	return (s);
 }
 
-t_sColor	specular_light(t_light *light, t_obj *o, t_base b)
+t_s_color	specular_light(t_light *light, t_obj *o, t_base b)
 {
 	t_pos		p;
 	t_pos		l;
@@ -53,7 +53,7 @@ t_sColor	specular_light(t_light *light, t_obj *o, t_base b)
 	t_pos		cam;
 	t_pos		v;
 
-	t_sColor	s;
+	t_s_color	s;
 	t_material	*m;
 	double		prod;
 
@@ -63,7 +63,7 @@ t_sColor	specular_light(t_light *light, t_obj *o, t_base b)
 	cam = b.k;
 
 	m = NULL;
-	s = get_sColor(0, 0, 0);
+	s = get_s_color(0, 0, 0);
 	if (light && o)
 	{
 		m = o->material;
@@ -77,9 +77,9 @@ t_sColor	specular_light(t_light *light, t_obj *o, t_base b)
 			v = pos_normalize(pos_vector(p, cam));
 			prod = pow(pos_dot_product(n, v), m->pow);
 
-			s.r = ABS(m->ks * (light->I.Is.r) * prod);
-			s.g = ABS(m->ks * (light->I.Is.g) * prod);
-			s.b = ABS(m->ks * (light->I.Is.b) * prod);		
+			s.r = ABS(m->ks * (light->inty.is.r) * prod);
+			s.g = ABS(m->ks * (light->inty.is.g) * prod);
+			s.b = ABS(m->ks * (light->inty.is.b) * prod);		
 		}
 	}
 	return (s);

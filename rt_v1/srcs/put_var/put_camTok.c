@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   put_camTok.c                                       :+:      :+:    :+:   */
+/*   put_cam_tok.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 13:34:40 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 13:34:57 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:54:19 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "load_scene.h"
 #include "init.h"
 
-void		put_camTok(t_camTok *t)
+void		put_cam_tok(t_cam_tok *t)
 {
 	if (t)
 	{
@@ -24,8 +24,8 @@ void		put_camTok(t_camTok *t)
 		put_pos(t->pos);
 		ft_putstr("rot -> ");
 		put_pos(t->rot);
-		ft_putstr("lookAt = ");
-		ft_putendl(t->lookAt);
+		ft_putstr("lookat = ");
+		ft_putendl(t->lookat);
 		ft_putendl("}\n");
 	}
 }

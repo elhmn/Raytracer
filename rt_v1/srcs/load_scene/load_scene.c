@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:42:19 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 22:10:34 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:56:06 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 #include "put_var.h"
 #include <stdlib.h>
 
-static t_sceneTok		*new_sceneTok(void)
+static t_scene_tok		*new_scene_tok(void)
 {
-	t_sceneTok		*s;
+	t_scene_tok		*s;
 
 	s = NULL;
-	if (!(s = (t_sceneTok*)malloc(sizeof(t_sceneTok))))
+	if (!(s = (t_scene_tok*)malloc(sizeof(t_scene_tok))))
 		check_errors(MALLOC, "s", "LOAD_SCENE");
-	s->objsTok = NULL;
-	s->lightsTok = NULL;
+	s->objs_tok = NULL;
+	s->lights_tok = NULL;
 	s->camera = NULL;
 	return (s);
 }
@@ -55,7 +55,7 @@ char			*find_type(char *src, char *f, char c)
 	return (NULL);
 }
 
-void					build_sceneTok(t_sceneTok *sTok, char *scene)
+void					build_scene_tok(t_scene_tok *sTok, char *scene)
 {
 	char		**tab;
 
@@ -65,29 +65,29 @@ void					build_sceneTok(t_sceneTok *sTok, char *scene)
 	if (!(tab = ft_strsplit(scene, SEP_1)))
 		check_errors(NUL, "scene file Error", "");
 	set_cameraTok(sTok, tab);
-	set_lightTok(sTok, tab);
-	set_objTok(sTok, tab);
+	set_light_tok(sTok, tab);
+	set_obj_tok(sTok, tab);
 	free_tab(&tab);
 }
 
 void		load_scene(t_rt *rt, char *scene)
 {
-	t_sceneTok		*sTok;
+	t_scene_tok		*sTok;
 
 	(void)rt;
 	sTok = NULL;
 	if (scene)
 	{
-		sTok = new_sceneTok();
+		sTok = new_scene_tok();
 		if (!sTok)
 			check_errors(MALLOC, "sTok", "load_scene.c");
-		build_sceneTok(sTok, scene);
+		build_scene_tok(sTok, scene);
 		
-		put_sceneTok(sTok); //Debug
+		put_scene_tok(sTok); //Debug
 
 		load_camera(rt->camera, sTok->camera);
-		load_lights(&rt->lights, sTok->lightsTok);
-		load_objs(&rt->objs, sTok->objsTok);
+		load_lights(&rt->lights, sTok->lights_tok);
+		load_objs(&rt->objs, sTok->objs_tok);
 		rt->tok = sTok;
 	}
 }

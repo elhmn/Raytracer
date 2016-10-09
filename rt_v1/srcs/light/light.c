@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 12:21:54 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 14:54:27 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:58:13 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "check_errors.h"
 #include <stdlib.h>
 
-t_light			*newLight(void)
+t_light			*new_light(void)
 {
 	t_light		*l;
 

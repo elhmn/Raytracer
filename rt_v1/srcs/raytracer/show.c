@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:17 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 23:16:47 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:21:32 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	show(t_rt *rt)
 	{
 		i = -1;
 		ray = rt->ray;
-		w = rt->screen->resX;
-		h = rt->screen->resY;
+		w = rt->screen->res_x;
+		h = rt->screen->res_y;
 		while (++i < w)
 		{
 			j = -1;

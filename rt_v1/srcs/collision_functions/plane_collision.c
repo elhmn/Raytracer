@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:26 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 16:04:49 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:38:57 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** plane collision function
 */
 
-static double		is_collision(t_ray *ray, t_dataPlane *data,
+static double		is_collision(t_ray *ray, t_data_plane *data,
 								t_obj *obj, t_rt *rt)
 {
 	double		ret;
@@ -53,10 +53,10 @@ double				plane_collision(t_ray *ray, void *data,
 									t_obj *obj, t_rt *rt)
 {
 	double			d;
-	t_dataPlane		*dat;
+	t_data_plane		*dat;
 
 	d = -1;
-	dat = (t_dataPlane*)data;
+	dat = (t_data_plane*)data;
 	if (ray && dat && rt && obj)
 		d = is_collision(ray, dat, obj, rt);
 	return (d);

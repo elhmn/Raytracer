@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/01 11:14:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 19:51:52 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/09 22:47:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_pos		cone_normal(t_obj *o, t_pos r, t_pos p)
 	t_pos			n;
 	t_pos			a;
 	t_pos			c;
-	t_dataCone		*data;
+	t_data_cone		*data;
 
 	(void)n;
 	(void)o;
@@ -30,7 +30,7 @@ t_pos		cone_normal(t_obj *o, t_pos r, t_pos p)
 	(void)p;
 	(void)data;
 	n = get_pos(0, 0, 0);
-	data = (t_dataCone*)o->data;
+	data = (t_data_cone*)o->data;
 	if (data)
 	{
 		p = transform(o->o, o->sp, p, o->rot);
