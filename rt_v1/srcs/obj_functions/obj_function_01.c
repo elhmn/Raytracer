@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:47:50 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/10 15:19:06 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_obj	*new_plane(t_pos pos, t_pos v_normal, t_color col)
 ** build cylinder
 */
 
-t_obj	*newCylinder(t_pos pos, double r, double h, t_color col)
+t_obj	*new_cylinder(t_pos pos, double r, double h, t_color col)
 {
 	t_obj				*cylinder;
 	t_data_cylinder		*data;

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 02:48:52 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:55:37 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/10 15:14:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void					set_cam_tok_var(t_cam_tok *cam, char *str)
 		get_pos_tok(&(cam->pos), tab, A_POSITION);
 		get_pos_tok(&(cam->rot), tab, A_ROTATION);
 		get_pos_tok(&(cam->trans), tab, A_TRANSLATION);
-		get_label_tok(&(cam->lookat), tab, A_lookat);
+		get_label_tok(&(cam->lookat), tab, A_LOOKAT);
 		free_tab(&tab);
 	}
 }
 
-void					set_cameraTok(t_scene_tok *sTok, char **tab)
+void					set_camera_tok(t_scene_tok *sTok, char **tab)
 {
 	char		*str;
 

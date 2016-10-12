@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:42:19 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:56:06 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/10 15:13:35 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void					build_scene_tok(t_scene_tok *sTok, char *scene)
 	str_lower(scene);
 	if (!(tab = ft_strsplit(scene, SEP_1)))
 		check_errors(NUL, "scene file Error", "");
-	set_cameraTok(sTok, tab);
+	set_camera_tok(sTok, tab);
 	set_light_tok(sTok, tab);
 	set_obj_tok(sTok, tab);
 	free_tab(&tab);

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 14:01:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:54:51 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/10 15:18:59 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static t_obj		*create_obj(t_obj_tok *t)
 		else if (!ft_strcmp(t->type, T_SPHERE))
 			tmp = new_sphere(t->pos, t->radius, get_color(t->col.x, t->col.y, t->col.z));
 		else if (!ft_strcmp(t->type, T_CYLINDER))
-			tmp = newCylinder(t->pos, t->radius, t->height, get_color(t->col.x, t->col.y, t->col.z));
+			tmp = new_cylinder(t->pos, t->radius, t->height, get_color(t->col.x, t->col.y, t->col.z));
 		else if (!ft_strcmp(t->type, T_CONE))
 			tmp = new_cone(t->pos, get_pos(t->top, t->height, t->angle), get_color(t->col.x, t->col.y, t->col.z));
 		else

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 14:21:13 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 23:03:54 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/11 10:25:09 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_material		*new_material(char *name, double ka, double ks, double kd)
 	m->ka = LIMIT_COEF(ka);
 	m->ks = LIMIT_COEF(ks);
 	m->kd = LIMIT_COEF(kd);
-	m->pow = 2.;
+	m->pow = 30.;
 	m->name = name;
 //	ft_putendl("je s.is con"); //Debug
 	return (m);
