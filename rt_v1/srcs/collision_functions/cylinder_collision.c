@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/25 15:27:23 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/17 12:03:01 by bmbarga          ###   ########.fr       */
+/*   Created: 2016/10/17 19:28:05 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/10/17 19:28:05 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,6 @@ static double		get_dist(double a, double b, double delta)
 	return (ret);
 }
 
-static double		get_limit_aux(t_pos ro, t_pos rd, t_pos data)
-{
-	t_pos	rd_tmp;
-	t_pos	ro_tmp;
-	t_pos	tmp;
-	double	d;
-
-	d = (((data.y) - ro.y) / rd.y);
-	rd_tmp = rd;
-	ro_tmp = ro;
-	pos_mult_to_number(&rd_tmp, d);
-	pos_add_to_pos(&ro_tmp, rd_tmp);
-	tmp = pos_vector(ro_tmp, get_pos(0, data.y, 0));
-	if (pos_norme(tmp) <= data.x)
-		return (d);
-	return (MAX_DBL);
-}
-
 static double		find_collision(t_pos ro, t_pos rd, double r)
 {
 	double	a;
@@ -74,24 +56,6 @@ static double		find_collision(t_pos ro, t_pos rd, double r)
 	return (ret);
 }
 
-static double		get_limit(t_pos ro, t_pos rd, double ret, t_pos data)
-{
-	double			d1;
-	double			d2;
-
-	if (ret >= 0 && data.y > 0 &&
-		!(((ro.y / ret) * -1.) <= rd.y
-			&& (data.y / ret - (ro.y / ret)) >= rd.y))
-	{
-		d1 = get_limit_aux(ro, rd, get_pos(data.x, data.y, 0));
-		d2 = get_limit_aux(ro, rd, get_pos(data.x, 0, 0));
-		if (d1 > d2)
-			d1 = d2;
-		ret = d1;
-	}
-	return (ret);
-}
-
 static double		is_collision(t_ray *ray, t_data_cylinder *data,
 					t_obj *obj, t_rt *rt)
 {
@@ -110,7 +74,7 @@ static double		is_collision(t_ray *ray, t_data_cylinder *data,
 		rd = pos_vector(ro, rf);
 		rd = pos_normalize(rd);
 		ret = find_collision(ro, rd, data->radius);
-		ret = get_limit(ro, rd, ret,
+		ret = get_cylinder_limit(ro, rd, ret,
 				get_pos(data->radius, data->height, 0));
 	}
 	return (ret);

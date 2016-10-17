@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/28 18:51:17 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 23:56:24 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 18:32:12 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		move_base(t_base *b, t_pos pos)
 void		move_obj(t_obj *o, t_pos pos)
 {
 	if (o)
-		move_base(&(o->sp), pos); 
+		move_base(&(o->sp), pos);
 }
 
 void		move_camera(t_camera *c, t_pos pos)

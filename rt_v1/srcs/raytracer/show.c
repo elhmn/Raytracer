@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:17 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:21:32 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 19:01:34 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 /*
 ** i will solve that issue later
-** modifier la fonction show 
+** modifier la fonction show
 ** et y ajouter la gestion
 ** de la taille des pixels = pixelRatio
 */

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 11:02:31 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:57:17 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 19:29:46 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_s_color			color_to_s_color(t_color c)
 	return (s);
 }
 
-void			set_s_color(t_s_color *s, double r, double g, double b)
+void				set_s_color(t_s_color *s, double r, double g, double b)
 {
 	s->r = LIMIT_SCOL(r);
 	s->g = LIMIT_SCOL(g);
@@ -49,24 +49,4 @@ t_s_color			get_s_color(double r, double g, double b)
 	s.g = LIMIT_SCOL(g);
 	s.b = LIMIT_SCOL(b);
 	return (s);
-}
-
-t_s_color			add_s_color(t_s_color a, t_s_color b)
-{
-	t_s_color	c;
-
-	c.r = LIMIT_SCOL(a.r + b.r);
-	c.g = LIMIT_SCOL(a.g + b.g);
-	c.b = LIMIT_SCOL(a.b + b.b);
-	return (c);
-}
-
-t_s_color			sub_s_color(t_s_color a, t_s_color b)
-{
-	t_s_color	c;
-
-	c.r = LIMIT_SCOL(a.r - b.r);
-	c.g = LIMIT_SCOL(a.g - b.g);
-	c.b = LIMIT_SCOL(a.b - b.b);
-	return (c);
 }

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/28 18:47:59 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:46:40 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 18:33:52 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	rot_plane(t_obj *plane, t_pos r)
 }
 
 /*
-** Implement base rotation function 
+** Implement base rotation function
 */
 
 void	rot_object(t_obj *o, t_pos r)

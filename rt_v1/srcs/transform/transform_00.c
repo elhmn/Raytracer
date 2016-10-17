@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:06:52 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 23:07:14 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 19:04:46 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 /*
 ** Transform method 2 Description :
-**	-rotation d'angle r des (u, v, w) dans le repere A
-**	-rotation d'angle -r des (i, j, k) dans B
+**  -rotation d'angle r des (u, v, w) dans le repere A
+**  -rotation d'angle -r des (i, j, k) dans B
 */
 
 t_pos		transform(t_base a, t_base b, t_pos pos, t_pos rot)
@@ -54,56 +54,3 @@ t_pos		transform_rev(t_base b, t_pos pos)
 			+ pos.z * b.k.z + b.o.z;
 	return (p);
 }
-
-/*
-void				test_transform(void) //Debug function
-{
-	t_base		a;
-	t_base		b;
-	t_base		e;
-	t_pos		m;
-	t_pos		mp;
-
-	init_base_self(&a);
-	init_base_self(&b);
-
-	//set base a
-	copy_pos(&(a.i), get_pos(1, 0, 0));
-	copy_pos(&(a.j), get_pos(0, 1, 0));
-	copy_pos(&(a.k), get_pos(0, 0, 1));
-	
-	//set base b
-	copy_pos(&(b.o), get_pos(1, 1, 1));
-	copy_pos(&(b.i), get_pos(0, 0, 1));
-	copy_pos(&(b.j), get_pos(0, 1, 0));
-	copy_pos(&(b.k), get_pos(-1, 0, 0));
-
-	//set m
-	copy_pos(&m, get_pos(2, 2, 1));
-
-	//run
-	e = get_a_from_b(a, b);
-	mp = transform(a, b, m);
-	mp = transform_rev(b, mp);
-
-	ft_putstr("new base a -> "); //Debug
-	put_base(a); //Debug
-	ft_putendl(""); //Debug
-
-	ft_putstr("new base b -> "); //Debug
-	put_base(b); //Debug
-	ft_putendl(""); //Debug
-
-	ft_putstr("new base e -> "); //Debug
-	put_base(e); //Debug
-	ft_putendl(""); //Debug
-
-	ft_putstr("m -> "); //Debug
-	put_pos(m);  //Debug
-	ft_putendl(""); //Debug
-
-	ft_putstr("m' -> "); //Debug
-	put_pos(mp);  //Debug
-	ft_putendl(""); //Debug
-}
-*/

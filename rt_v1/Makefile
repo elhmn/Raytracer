@@ -38,7 +38,7 @@ ERR = check_errors.c fun_err_01.c
 
 INIT = init_var_00.c init_var_01.c init_var_02.c init_scene.c
 
-MLX = mlx_callback_00.c
+MLX = mlx_callback_00.c key_hook.c
 
 POS = pos_function_00.c pos_function_01.c pos_function_02.c pos_function_03.c
 
@@ -46,19 +46,19 @@ SET = set_var_00.c
 
 OBJFUNC = obj_function_00.c obj_function_01.c obj_rotation_00.c obj_move_00.c
 
-PUT = put_var_00.c put_var_01.c put_var_02.c put_var_03.c put_camTok.c	put_objsTok.c put_lightsTok.c put_sceneTok.c
+PUT = put_var_00.c put_var_01.c put_var_02.c put_var_03.c put_cam_tok.c	put_objs_tok.c put_lights_tok.c put_scene_tok.c
 
 DRAW = draw.c color.c
 
 RAYTRACER = raytracer.c show.c
 
-COLL = sphere_collision.c plane_collision.c cylinder_collision.c cone_collision.c
+COLL = sphere_collision.c plane_collision.c cylinder_collision.c cone_collision.c cone_collision_limit.c cylinder_collision_limit.c
 
 TRANS = transform_00.c
 
 DESTROY = release_mlx.c
 
-RT_COLOR = rt_color.c
+RT_COLOR = rt_color.c rt_color_operation.c
 
 LIGHT = light.c new_omni_light.c light_intensity.c lighting.c
 
@@ -67,7 +67,7 @@ MATERIAL = new_material.c
 NORMAL_COMP = plane_normal.c sphere_normal.c cylinder_normal.c cone_normal.c
 
 LOAD_SCENE = read_file.c load_scene.c str_function.c get_tok_var.c set_cam_tok.c set_light_tok.c\
-			 set_obj_tok.c load_camera.c load_objs.c load_lights.c
+			 set_obj_tok.c load_camera.c load_objs.c load_lights.c new_lights_tok.c
 
 MAINS =  $(addprefix $(MAIN_DIR), $(MAIN))
 ERRS =  $(addprefix $(ERR_DIR), $(ERR))

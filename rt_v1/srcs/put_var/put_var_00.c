@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 16:15:33 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:23:24 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 18:49:54 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void		put_pos(t_pos pos)
+void	put_pos(t_pos pos)
 {
 	ft_putstr("(");
 	ft_putdbl(pos.x);
@@ -29,7 +29,7 @@ void		put_pos(t_pos pos)
 	ft_putendl("");
 }
 
-void		put_base(t_base base)
+void	put_base(t_base base)
 {
 	ft_putstr("o -> ");
 	put_pos(base.o);
@@ -45,7 +45,7 @@ void		put_base(t_base base)
 ** do the same thing with the function bellow
 */
 
-void		put_camera(t_camera camera)
+void	put_camera(t_camera camera)
 {
 	ft_putstr("CAMERA \n{\n");
 	ft_putstr("\nspace \n{\n");

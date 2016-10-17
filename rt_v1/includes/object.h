@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:13:08 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/06 00:04:58 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 19:22:49 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,19 @@ double				cylinder_collision(t_ray *ray, void *data,
 
 double				cone_collision(t_ray *ray, void *data,
 					t_obj *obj, t_rt *rt);
+
+/*
+** 	collision_function/cone_collision_limit.c
+*/
+
+double				get_cone_limit(t_pos ro, t_pos rd, double ret, t_pos data);
+
+
+/*
+** 	collision_function/cylinder_collision_limit.c
+*/
+
+double			get_cylinder_limit(t_pos ro, t_pos rd, double ret, t_pos data);
 
 /*
 ** obj_move_00.c

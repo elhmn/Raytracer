@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 14:42:04 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/09/30 21:09:48 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 18:48:04 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	pos_rot_x(t_pos *src, t_pos o, double r)
 	double	x;
 	double	y;
 	double	z;
-	
+
 	if (src)
 	{
- 		x = src->x - o.x;
+		x = src->x - o.x;
 		y = src->y - o.y;
- 		z = src->z - o.z;
+		z = src->z - o.z;
 		r = RAD(r);
 		src->y = y * cos(r) - z * sin(r) + o.y;
 		src->z = y * sin(r) + z * cos(r) + o.z;
@@ -47,9 +47,9 @@ void	pos_rot_y(t_pos *src, t_pos o, double r)
 
 	if (src)
 	{
- 		x = src->x - o.x;
+		x = src->x - o.x;
 		y = src->y - o.y;
- 		z = src->z - o.z;
+		z = src->z - o.z;
 		r = RAD(r);
 		src->z = z * cos(r) - x * sin(r) + o.z;
 		src->x = z * sin(r) + x * cos(r) + o.x;
@@ -65,9 +65,9 @@ void	pos_rot_z(t_pos *src, t_pos o, double r)
 
 	if (src)
 	{
- 		x = src->x - o.x;
+		x = src->x - o.x;
 		y = src->y - o.y;
- 		z = src->z - o.z;
+		z = src->z - o.z;
 		r = RAD(r);
 		src->x = x * cos(r) - y * sin(r) + o.x;
 		src->y = x * sin(r) + y * cos(r) + o.y;

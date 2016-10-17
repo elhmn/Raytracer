@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:56:51 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/05 23:35:35 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 19:27:11 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,13 @@ void					get_index(char **tab, int *t, char *type);
 int						obj_number(char **tab, char *type);
 void					set_light_tok(t_scene_tok *stok, char **tab);
 void					set_obj_tok(t_scene_tok *stok, char **tab);
+
+/*
+** new_lights_tok.c
+*/
+
+void					new_lights_tok(t_scene_tok *s_tok, int len);
+void					init_light_tok(t_light_tok *t);
 
 /*
 ** get_tok_var.c

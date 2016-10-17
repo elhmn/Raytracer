@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:26:38 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:53:24 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 18:49:08 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void		put_var_dbl(char *var, double val)
 	ft_putendl("]");
 }
 
-void	put_data_cone(t_data_cone *data)
+void		put_data_cone(t_data_cone *data)
 {
 	t_data_cone	*d;
 
@@ -39,7 +39,7 @@ void	put_data_cone(t_data_cone *data)
 	ft_putendl("put data Cone");
 }
 
-void	put_data_cylinder(t_data_cylinder *data)
+void		put_data_cylinder(t_data_cylinder *data)
 {
 	t_data_cylinder	*d;
 
@@ -48,7 +48,7 @@ void	put_data_cylinder(t_data_cylinder *data)
 	ft_putendl("put data Cone");
 }
 
-void	put_s_color(t_s_color s)
+void		put_s_color(t_s_color s)
 {
 	ft_putstr("(");
 	ft_putdbl(s.r);
@@ -60,7 +60,7 @@ void	put_s_color(t_s_color s)
 	ft_putendl("");
 }
 
-void	put_light(t_light *l)
+void		put_light(t_light *l)
 {
 	if (l)
 	{

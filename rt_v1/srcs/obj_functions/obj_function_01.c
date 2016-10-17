@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:05:42 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/10 15:19:06 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 18:41:45 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_obj	*new_sphere(t_pos pos, int radius, t_color col)
 
 	sphere = NULL;
 	data = NULL;
-	if(!(sphere = new_obj(SPHERE, pos, col)))
+	if (!(sphere = new_obj(SPHERE, pos, col)))
 		check_errors(MALLOC, "sphere", "obj_function_01.c");
 	if (!(data = (t_data_sphere*)malloc(sizeof(t_data_sphere))))
 		check_errors(MALLOC, "data", "obj_function_01.c");
@@ -37,7 +37,7 @@ t_obj	*new_sphere(t_pos pos, int radius, t_color col)
 
 t_obj	*new_plane(t_pos pos, t_pos v_normal, t_color col)
 {
-	t_obj			*plane;
+	t_obj				*plane;
 	t_data_plane		*data;
 
 	plane = NULL;
@@ -45,7 +45,7 @@ t_obj	*new_plane(t_pos pos, t_pos v_normal, t_color col)
 	if (!(plane = new_obj(PLANE, pos, col)))
 		check_errors(MALLOC, "plane", "obj_function_01.c");
 	if (!(data = (t_data_plane*)malloc(sizeof(t_data_plane))))
-			check_errors(MALLOC, "data", "obj_function_01.c");
+		check_errors(MALLOC, "data", "obj_function_01.c");
 	(void)v_normal;
 	data->v_normal = v_normal;
 	plane->data = (void*)data;
@@ -95,7 +95,7 @@ t_obj	*new_cone(t_pos pos, t_pos var, t_color col)
 
 	cone = NULL;
 	data = NULL;
-	if (var.z /  2. == 90)
+	if (var.z / 2. == 90)
 		return (NULL);
 	if (!(cone = new_obj(CONE, pos, col)))
 		check_errors(MALLOC, "cone", "obj_function_01.c");

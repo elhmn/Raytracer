@@ -6,9 +6,10 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 15:02:26 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/02 21:38:34 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 19:01:01 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 #include "rt.h"
 #include "check_errors.h"
@@ -39,4 +40,29 @@ void		end_block(char *str)
 {
 	ft_putstr(str);
 	ft_putendl("			OK");
+}
+
+void		put_data_sphere(t_data_sphere *data)
+{
+	t_data_sphere *sp;
+
+	sp = (t_data_sphere*)data;
+	if (sp)
+	{
+		ft_putstr("radius =  [");
+		ft_putdbl(sp->radius);
+		ft_putendl("]");
+	}
+}
+
+void		put_data_plane(t_data_plane *data)
+{
+	t_data_plane	*pl;
+
+	pl = (t_data_plane*)data;
+	if (pl)
+	{
+		ft_putstr("v_normal -> ");
+		put_pos(pl->v_normal);
+	}
 }

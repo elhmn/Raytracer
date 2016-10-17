@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/06 00:15:38 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 19:45:29 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -344,5 +344,14 @@ int					get_distance(t_ray *r, t_obj *obj, t_rt *rt);
 
 void				clear_image(t_rt *rt);
 void				release_mlx(t_rt *rt);
+
+/*
+** key_hook.c
+*/
+
+int			key_hook(int keycode, void *param);
+void		key_render_control(t_rt *rt, int keycode);
+void		key_rotation(t_rt *rt, int keycode);
+void		key_move(t_rt *rt, int keycode);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:04:14 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:47:30 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 19:00:55 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void	put_ray(t_ray ray)
+void			put_ray(t_ray ray)
 {
 	ft_putstr("pos : ");
 	put_pos(ray.pos);
@@ -26,33 +26,7 @@ void	put_ray(t_ray ray)
 	ft_putendl("");
 }
 
-void	put_data_sphere(t_data_sphere *data)
-{
-	t_data_sphere *sp;
-
-	sp = (t_data_sphere*)data;
-	if (sp)
-	{
-		ft_putstr("radius =  [");
-		ft_putdbl(sp->radius);
-		ft_putendl("]");
-	}
-}
-
-void	put_data_plane(t_data_plane *data)
-{
-	t_data_plane	*pl;
-
-	pl = (t_data_plane*)data;
-	if (pl)
-	{
-		ft_putstr("v_normal -> ");
-		put_pos(pl->v_normal);
-	}
-}
-
-
-void	put_type(int type)
+void			put_type(int type)
 {
 	if (type == SPHERE)
 		ft_putstr("Sphere");
@@ -66,7 +40,21 @@ void	put_type(int type)
 ** put Data for each tyo->sp** clean that code to avoid if forest
 */
 
-void	put_obj(void *obj)
+static void		put_obj_aux(t_obj *o)
+{
+	if (o->material)
+		put_material(*(o->material));
+	if (o->type == SPHERE)
+		put_data_sphere(o->data);
+	if (o->type == PLANE)
+		put_data_plane(o->data);
+	if (o->type == CYLINDER)
+		put_data_cylinder(o->data);
+	if (o->type == CONE)
+		put_data_cone(o->data);
+}
+
+void			put_obj(void *obj)
 {
 	t_obj		*o;
 
@@ -83,16 +71,7 @@ void	put_obj(void *obj)
 		ft_putstr("rotation -> ");
 		put_pos(o->rot);
 		ft_putstr("}\n");
-		if (o->material)
-			put_material(*(o->material));
-		if (o->type == SPHERE)
-			put_data_sphere(o->data);
-		if (o->type == PLANE)
-			put_data_plane(o->data);
-		if (o->type == CYLINDER)
-			put_data_cylinder(o->data);
-		if (o->type == CONE)
-			put_data_cone(o->data);
+		put_obj_aux(o);
 		ft_putendl("\n}\n");
 	}
 }
