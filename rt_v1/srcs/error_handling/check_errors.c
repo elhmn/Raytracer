@@ -6,7 +6,7 @@
 /*   By: bmbarga <bmbarga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/06 17:15:13 by bmbarga           #+#    #+#             */
-/*   Updated: 2015/01/20 18:24:40 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 11:59:34 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include "check_errors.h"
 
-static void	fun_error_init(t_ferr *f)
+static void		fun_error_init(t_ferr *f)
 {
 	if (f)
 	{
@@ -28,9 +28,9 @@ static void	fun_error_init(t_ferr *f)
 	}
 }
 
-void		check_errors(int code, char *file_name, char *var_name)
+void			check_errors(int code, char *file_name, char *var_name)
 {
-	int	i;
+	int		i;
 	t_ferr	fun_error[NUL + 1];
 
 	i = -1;

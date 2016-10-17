@@ -60,7 +60,7 @@ DESTROY = release_mlx.c
 
 RT_COLOR = rt_color.c
 
-LIGHT = light.c new_omniLight.c light_intensity.c lighting.c
+LIGHT = light.c new_omni_light.c light_intensity.c lighting.c
 
 MATERIAL = new_material.c
 

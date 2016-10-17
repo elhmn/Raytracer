@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 13:53:37 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:53:58 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 12:26:51 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,4 @@ void		load_camera(t_camera *c, t_cam_tok *t)
 		rot_camera(c, t->rot);
 		pos_add_to_pos(&(c->sp.o), t->trans);
 	}
-	ft_putendl("load camera"); //Debug
 }

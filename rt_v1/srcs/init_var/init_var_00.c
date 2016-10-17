@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:24:19 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 12:27:11 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		init_rt(t_rt **rt, char *scene)
 		(*rt)->lights = NULL;
 		(*rt)->objs = NULL;
 		init_scene(*rt, scene);
-		(*rt)->img = NULL; 
+		(*rt)->img = NULL;
 		(*rt)->refresh = 1;
 		(*rt)->render = 0;
 		(*rt)->diffuse = 0;
@@ -55,7 +55,8 @@ void		init_env(t_env **env)
 		if (!((*env)->win = mlx_new_window((*env)->mlx,
 			SCREEN_WIDTH, SCREEN_HEIGHT, "RTV1")))
 			check_errors(MALLOC, "init_var_00.c", "win");
-		if (!((*env)->img = mlx_new_image((*env)->mlx, SCREEN_WIDTH, SCREEN_HEIGHT)))
+		if (!((*env)->img = mlx_new_image((*env)->mlx,
+								SCREEN_WIDTH, SCREEN_HEIGHT)))
 			check_errors(MALLOC, "init_var_00.c", "img");
 		end_block("init_env");
 	}
@@ -68,7 +69,6 @@ void		init_screen(t_screen **screen)
 		start_block("init_screen");
 		if (!(*screen = (t_screen*)malloc(sizeof(t_screen))))
 			check_errors(MALLOC, "init_var_00.c", "screen");
-
 		screen[0]->pixel_width = PIXEL_WIDTH;
 		screen[0]->pixel_height = PIXEL_HEIGHT;
 		screen[0]->width = SCREEN_WIDTH;
@@ -79,7 +79,8 @@ void		init_screen(t_screen **screen)
 	}
 }
 
-void		init_camera(t_camera **camera, t_screen screen, t_space *space)
+void		init_camera(t_camera **camera,
+							t_screen screen, t_space *space)
 {
 	if (camera && space)
 	{
@@ -92,7 +93,7 @@ void		init_camera(t_camera **camera, t_screen screen, t_space *space)
 		set_pos(&(camera[0]->v_up), 1, 1, 1);
 		init_base_self(&(camera[0]->sp));
 		set_pos(&(camera[0]->sp.o), 0, 100,
-		- (camera[0]->dist + SAFE_DIST));
+		-(camera[0]->dist + SAFE_DIST));
 		end_block("init_camera");
 	}
 }

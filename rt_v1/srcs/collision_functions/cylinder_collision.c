@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/25 15:27:23 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:47:12 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 12:03:01 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@
 #include "transform.h"
 #include <math.h>
 
-static double		getDist(double a, double b, double delta)
+static double		get_dist(double a, double b, double delta)
 {
 	double		ret;
-	double		rDelta;
+	double		r_delta;
 	double		d1;
 	double		d2;
 
-	rDelta = sqrt(delta);
-	d1 = (-b - rDelta) / (2. * a);
-	d2 = (-b + rDelta) / (2. * a);
+	r_delta = sqrt(delta);
+	d1 = (-b - r_delta) / (2. * a);
+	d2 = (-b + r_delta) / (2. * a);
 	ret = d1;
 	if (ret > d2)
 		ret = d2;
@@ -45,7 +45,7 @@ static double		get_limit_aux(t_pos ro, t_pos rd, t_pos data)
 	rd_tmp = rd;
 	ro_tmp = ro;
 	pos_mult_to_number(&rd_tmp, d);
-	pos_add_to_pos(&ro_tmp, rd_tmp); 
+	pos_add_to_pos(&ro_tmp, rd_tmp);
 	tmp = pos_vector(ro_tmp, get_pos(0, data.y, 0));
 	if (pos_norme(tmp) <= data.x)
 		return (d);
@@ -70,7 +70,7 @@ static double		find_collision(t_pos ro, t_pos rd, double r)
 	else if (delta == 0)
 		ret = -b / (2. * a);
 	else
-		ret = getDist(a, b, delta);
+		ret = get_dist(a, b, delta);
 	return (ret);
 }
 

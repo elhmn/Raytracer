@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 12:37:55 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 23:04:25 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 12:18:28 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ t_s_color	get_i(double r, double g, double b)
 	return (s);
 }
 
-t_inty		get_inty(t_s_color id, t_s_color Is)
+t_inty		get_inty(t_s_color id, t_s_color is)
 {
-	t_inty		I;
+	t_inty		i;
 
-	I.id = id;
-	I.is = Is;
-	return (I);
+	i.id = id;
+	i.is = is;
+	return (i);
 }
 
 void		inty_copy(t_inty *d, t_inty s)

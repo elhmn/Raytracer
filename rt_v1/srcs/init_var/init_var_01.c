@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:46 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:20:18 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 12:18:49 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,12 @@ void		init_base_self(t_base *b)
 	b->o.x = 0;
 	b->o.y = 0;
 	b->o.z = 0;
-
 	b->i.x = 1;
 	b->i.y = 0;
 	b->i.z = 0;
-	
 	b->j.x = 0;
 	b->j.y = 1;
 	b->j.z = 0;
-	
 	b->k.x = 0;
 	b->k.y = 0;
 	b->k.z = 1;
@@ -89,15 +86,12 @@ void		set_base_zero(t_base *b)
 	b->o.x = 0;
 	b->o.y = 0;
 	b->o.z = 0;
-
 	b->i.x = 0;
 	b->i.y = 0;
 	b->i.z = 0;
-	
 	b->j.x = 0;
 	b->j.y = 0;
 	b->j.z = 0;
-	
 	b->k.x = 0;
 	b->k.y = 0;
 	b->k.z = 0;
