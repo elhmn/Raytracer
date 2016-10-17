@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 17:38:45 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 23:06:22 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 17:56:47 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ t_s_color	diffuse_light(t_light *light, t_obj *o, t_pos l, t_pos n)
 		if (m)
 		{
 			prod = pos_dot_product(l, n);
-			s.r = ABS(m->kd * (light->inty.id.r / d) * prod);
-			s.g = ABS(m->kd * (light->inty.id.g / d) * prod);
-			s.b = ABS(m->kd * (light->inty.id.b / d) * prod);
+			s.r = LIMIT_SCOL(m->kd * (light->inty.id.r / d) * prod);
+			s.g = LIMIT_SCOL(m->kd * (light->inty.id.g / d) * prod);
+			s.b = LIMIT_SCOL(m->kd * (light->inty.id.b / d) * prod);
 		}
 	}
 	return (s);
@@ -50,69 +50,45 @@ t_s_color	specular_light(t_light *light, t_obj *o, t_base b)
 	t_pos		p;
 	t_pos		l;
 	t_pos		n;
-	t_pos		cam;
-	t_pos		v;
-
 	t_s_color	s;
-	t_material	*m;
 	double		prod;
 
 	p = b.o;
 	l = pos_normalize(b.i);
 	n = b.j;
-	cam = b.k;
-
-	m = NULL;
 	s = get_s_color(0, 0, 0);
-	if (light && o)
+	if (!light || !o)
+		return (s);
+	if (o->material)
 	{
-		m = o->material;
-		if (m)
-		{
-			prod = pos_dot_product(l, n);
-			pos_mult_to_number(&n, prod);
-			pos_mult_to_number(&n, 2);
-			pos_mult_to_number(&l, -1);
-			pos_add_to_pos(&n, l);
-			v = pos_normalize(pos_vector(p, cam));
-			prod = pow(pos_dot_product(n, v), m->pow);
-
-			s.r = ABS(m->ks * (light->inty.is.r) * prod);
-			s.g = ABS(m->ks * (light->inty.is.g) * prod);
-			s.b = ABS(m->ks * (light->inty.is.b) * prod);		
-		}
+		prod = pos_dot_product(l, n);
+		pos_mult_to_number(&n, prod * 2);
+		pos_mult_to_number(&l, -1);
+		pos_add_to_pos(&n, l);
+		prod = pow(pos_dot_product(n,
+					pos_normalize(pos_vector(p, b.k))), o->material->pow);
+		s.r = LIMIT_SCOL(o->material->ks * (light->inty.is.r) * prod);
+		s.g = LIMIT_SCOL(o->material->ks * (light->inty.is.g) * prod);
+		s.b = LIMIT_SCOL(o->material->ks * (light->inty.is.b) * prod);
 	}
 	return (s);
 }
 
-int		enlightened(t_rt *rt, t_obj* o, t_pos p, t_pos ld, t_pos lo)
+int			enlightened(t_rt *rt, t_obj *o, t_ray r)
 {
-	t_ray	*r;
 	t_list	*list;
 	t_obj	*obj;
 	double	d;
 
 	list = rt->objs;
-	if (!(r = (t_ray*)malloc(sizeof(t_ray))))
-		check_errors(NUL, "raytracer.c", "r");
-	r->ro = p;
-	r->pos = lo;
-	r->rd = pos_normalize(ld);
 	while (list != NULL)
 	{
 		obj = (t_obj*)list->content;
 		if (obj && obj != o
-				&& (d = get_distance(r, obj, rt)) >= 0)
-		{
-			if (d <= pos_norme(pos_vector(p, lo)))
-			{
-				free(r);
+				&& (d = get_distance(&r, obj, rt)) >= 0)
+			if (d <= pos_norme(pos_vector(r.ro, r.pos)))
 				return (0);
-			}
-		}
 		list = list->next;
 	}
-	free(r);
 	return (1);
 }
-

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 22:42:19 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/10 15:13:35 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 17:04:32 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static t_scene_tok		*new_scene_tok(void)
 	return (s);
 }
 
-char			*find_type(char *src, char *f, char c)
+char					*find_type(char *src, char *f, char c)
 {
 	char	**tab;
 	char	*ret;
@@ -55,7 +55,7 @@ char			*find_type(char *src, char *f, char c)
 	return (NULL);
 }
 
-void					build_scene_tok(t_scene_tok *sTok, char *scene)
+void					build_scene_tok(t_scene_tok *s_tok, char *scene)
 {
 	char		**tab;
 
@@ -64,30 +64,27 @@ void					build_scene_tok(t_scene_tok *sTok, char *scene)
 	str_lower(scene);
 	if (!(tab = ft_strsplit(scene, SEP_1)))
 		check_errors(NUL, "scene file Error", "");
-	set_camera_tok(sTok, tab);
-	set_light_tok(sTok, tab);
-	set_obj_tok(sTok, tab);
+	set_camera_tok(s_tok, tab);
+	set_light_tok(s_tok, tab);
+	set_obj_tok(s_tok, tab);
 	free_tab(&tab);
 }
 
-void		load_scene(t_rt *rt, char *scene)
+void					load_scene(t_rt *rt, char *scene)
 {
-	t_scene_tok		*sTok;
+	t_scene_tok		*s_tok;
 
 	(void)rt;
-	sTok = NULL;
+	s_tok = NULL;
 	if (scene)
 	{
-		sTok = new_scene_tok();
-		if (!sTok)
+		s_tok = new_scene_tok();
+		if (!s_tok)
 			check_errors(MALLOC, "sTok", "load_scene.c");
-		build_scene_tok(sTok, scene);
-		
-		put_scene_tok(sTok); //Debug
-
-		load_camera(rt->camera, sTok->camera);
-		load_lights(&rt->lights, sTok->lights_tok);
-		load_objs(&rt->objs, sTok->objs_tok);
-		rt->tok = sTok;
+		build_scene_tok(s_tok, scene);
+		load_camera(rt->camera, s_tok->camera);
+		load_lights(&rt->lights, s_tok->lights_tok);
+		load_objs(&rt->objs, s_tok->objs_tok);
+		rt->tok = s_tok;
 	}
 }

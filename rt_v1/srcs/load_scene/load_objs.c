@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 14:01:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/10 15:18:59 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 18:05:06 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,18 @@ static t_obj		*create_obj(t_obj_tok *t)
 	if (t)
 	{
 		if (!ft_strcmp(t->type, T_PLANE))
-		{
-			/*
-			** if (t->axis)
-			** 	t->normal = convert_axis();
-			*/
-			tmp = new_plane(t->pos, t->normal, get_color(t->col.x, t->col.y, t->col.z));
-		}
+			tmp = new_plane(t->pos, t->normal,
+					get_color(t->col.x, t->col.y, t->col.z));
 		else if (!ft_strcmp(t->type, T_SPHERE))
-			tmp = new_sphere(t->pos, t->radius, get_color(t->col.x, t->col.y, t->col.z));
+			tmp = new_sphere(t->pos, t->radius,
+					get_color(t->col.x, t->col.y, t->col.z));
 		else if (!ft_strcmp(t->type, T_CYLINDER))
-			tmp = new_cylinder(t->pos, t->radius, t->height, get_color(t->col.x, t->col.y, t->col.z));
+			tmp = new_cylinder(t->pos, t->radius,
+					t->height, get_color(t->col.x, t->col.y, t->col.z));
 		else if (!ft_strcmp(t->type, T_CONE))
-			tmp = new_cone(t->pos, get_pos(t->top, t->height, t->angle), get_color(t->col.x, t->col.y, t->col.z));
+			tmp = new_cone(t->pos, get_pos(t->top,
+					t->height, t->angle), get_color(t->col.x,
+					t->col.y, t->col.z));
 		else
 			check_errors(NUL, "object", "wrong format");
 		if (!tmp)
@@ -85,7 +84,7 @@ static t_list		*add_new_obj(t_obj_tok *t, int id)
 	return (l);
 }
 
-void		load_objs(t_list **list, t_obj_tok **t)
+void				load_objs(t_list **list, t_obj_tok **t)
 {
 	int			i;
 	t_list		*tmp;
@@ -97,19 +96,14 @@ void		load_objs(t_list **list, t_obj_tok **t)
 		while (*t)
 		{
 			if (++i == 0)
-			{
 				*list = add_new_obj(*t, i);
-				put_obj((t_obj*)(*list)->content); //Debug
-			}
 			else
 			{
 				tmp = add_new_obj(*t, i);
 				ft_lstadd_end(list, tmp);
-				put_obj((t_obj*)tmp->content); //Debug
 				tmp = NULL;
 			}
 			t++;
 		}
 	}
-	ft_putendl("load objs"); //Debug
 }

@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:35:20 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 17:53:10 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 	t_list		*list;
 	t_light		*light;
 	t_s_color	s_col;
+	t_ray		r;
 	t_pos		n;
 	t_pos		l;
 	t_base		base;
@@ -65,9 +66,12 @@ static void	rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 		if (light)
 		{
 			l = pos_vector(p, light->sp.o);
+			r.rd = pos_normalize(l);
+			r.pos = light->sp.o;
+			r.ro = p;
 			if (o->normal)
 			{
-				if (enlightened(rt, o, p, l, light->sp.o))
+				if (enlightened(rt, o, r))
 				{
 					n = o->normal(o, ray->rd, p);
 					if (rt->diffuse)

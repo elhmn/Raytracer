@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 14:21:13 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/11 10:25:09 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 18:09:16 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,13 @@
 #include <stdlib.h>
 
 /*
-** material standard creation function 
+** material standard creation function
 */
 
 t_material		*new_material(char *name, double ka, double ks, double kd)
 {
 	t_material		*m;
 
-	(void)m;
 	m = NULL;
 	if (!(m = (t_material*)malloc(sizeof(t_material))))
 		check_errors(MALLOC, "m", "new_material");
@@ -32,7 +31,6 @@ t_material		*new_material(char *name, double ka, double ks, double kd)
 	m->kd = LIMIT_COEF(kd);
 	m->pow = 30.;
 	m->name = name;
-//	ft_putendl("je s.is con"); //Debug
 	return (m);
 }
 
@@ -47,7 +45,7 @@ t_material		*new_material_pos(char *name, t_pos k, double pow)
 	return (m);
 }
 
-void		set_specular_power(t_material *m, double pow)
+void			set_specular_power(t_material *m, double pow)
 {
 	if (m)
 		m->pow = pow;

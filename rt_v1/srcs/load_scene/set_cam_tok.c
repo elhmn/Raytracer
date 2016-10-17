@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_cam_tok.c                                       :+:      :+:    :+:   */
+/*   set_cam_tok.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/03 02:48:52 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/10 15:14:47 by bmbarga          ###   ########.fr       */
+/*   Created: 2016/10/17 17:59:21 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/10/17 18:02:26 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,15 @@ static void				init_cam_tok(t_cam_tok *t)
 	}
 }
 
-void					new_cam_tok(t_scene_tok *sTok)
+void					new_cam_tok(t_scene_tok *s_tok)
 {
-	if (sTok)
+	if (s_tok)
 	{
-		if (!(sTok->camera = (t_cam_tok*)malloc(sizeof(t_cam_tok))))
+		if (!(s_tok->camera = (t_cam_tok*)malloc(sizeof(t_cam_tok))))
 			check_errors(MALLOC, "Tok->camera", "");
-		init_cam_tok(sTok->camera);
+		init_cam_tok(s_tok->camera);
 	}
 }
-
 
 void					set_cam_tok_var(t_cam_tok *cam, char *str)
 {
@@ -56,7 +55,7 @@ void					set_cam_tok_var(t_cam_tok *cam, char *str)
 	}
 }
 
-void					set_camera_tok(t_scene_tok *sTok, char **tab)
+void					set_camera_tok(t_scene_tok *s_tok, char **tab)
 {
 	char		*str;
 
@@ -70,11 +69,11 @@ void					set_camera_tok(t_scene_tok *sTok, char **tab)
 		}
 	}
 	if (!str)
-		sTok->camera = NULL;
+		s_tok->camera = NULL;
 	else
 	{
-		new_cam_tok(sTok);
-		set_cam_tok_var(sTok->camera, str);
+		new_cam_tok(s_tok);
+		set_cam_tok_var(s_tok->camera, str);
 		free(str);
 	}
 }

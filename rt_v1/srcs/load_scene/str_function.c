@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/03 01:01:57 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 21:57:56 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 18:06:28 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void					cust_epurstr(char *s)
 		i = 0;
 		while (s[i] && s[tmp])
 		{
-			if (s[tmp] && s[i] && (s[i] != '\n' && s[i] != ' ' && s[i] != '\t'))
+			if (s[tmp] && s[i] && (s[i] != '\n'
+					&& s[i] != ' ' && s[i] != '\t'))
 			{
 				s[tmp] = s[i];
 				if (i != tmp)
@@ -76,7 +77,7 @@ void					cust_epurstr(char *s)
 				tmp++;
 			}
 			if (!s[tmp])
-				break;
+				break ;
 			i++;
 		}
 		if (!s[i])

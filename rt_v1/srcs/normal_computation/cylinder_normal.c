@@ -6,10 +6,9 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/01 00:36:23 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/01 11:56:19 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 18:12:28 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "put_var.h"
 #include "check_errors.h"
@@ -22,6 +21,7 @@ t_pos		cylinder_normal(t_obj *o, t_pos r, t_pos p)
 	t_pos				c;
 
 	(void)r;
+	(void)p;
 	n = get_pos(0, 0, 0);
 	p = transform(o->o, o->sp, p, o->rot);
 	c = get_pos(0, p.y, 0);

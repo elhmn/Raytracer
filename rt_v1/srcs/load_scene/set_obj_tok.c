@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_obj_tok.c                                       :+:      :+:    :+:   */
+/*   set_obj_tok.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/03 17:34:06 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/09 22:56:06 by bmbarga          ###   ########.fr       */
+/*   Created: 2016/10/17 18:18:38 by bmbarga           #+#    #+#             */
+/*   Updated: 2016/10/17 18:27:25 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "put_var.h"
 #include <stdlib.h>
 
-static void				init_obj_tok(t_obj_tok *t)
+static void			init_obj_tok(t_obj_tok *t)
 {
 	if (t)
 	{
@@ -35,31 +35,31 @@ static void				init_obj_tok(t_obj_tok *t)
 		t->height = -1;
 		t->angle = 15;
 		t->top = 100;
-	}	
+	}
 }
 
-static void				new_objs_tok(t_scene_tok *sTok, int len)
+static void			new_objs_tok(t_scene_tok *s_tok, int len)
 {
 	int				i;
 
-	if (sTok)
+	if (s_tok)
 	{
-		if (!(sTok->objs_tok =
+		if (!(s_tok->objs_tok =
 				(t_obj_tok**)malloc(sizeof(t_obj_tok*) * (len + 1))))
-			check_errors(MALLOC, "sTok->objs_tok", "set_obj_tok");
-		sTok->objs_tok[len] = NULL;
+			check_errors(MALLOC, "s_tok->objs_tok", "set_obj_tok");
+		s_tok->objs_tok[len] = NULL;
 		i = -1;
 		while (++i < len)
 		{
-			if (!(sTok->objs_tok[i] =
-					(t_obj_tok*)malloc(sizeof(t_obj_tok))))	
-				check_errors(MALLOC, "sTok->objs_tok[i]", "set_obj_tok");
-			init_obj_tok(sTok->objs_tok[i]);
+			if (!(s_tok->objs_tok[i] =
+					(t_obj_tok*)malloc(sizeof(t_obj_tok))))
+				check_errors(MALLOC, "s_tok->objs_tok[i]", "set_obj_tok");
+			init_obj_tok(s_tok->objs_tok[i]);
 		}
 	}
 }
 
-static void				set_obj_tok_var(t_obj_tok *t, char *s)
+static void			set_obj_tok_var(t_obj_tok *t, char *s)
 {
 	char		**tab;
 
@@ -84,7 +84,8 @@ static void				set_obj_tok_var(t_obj_tok *t, char *s)
 	}
 }
 
-static void				set_objs_tok_tab(t_obj_tok **t, char **tab, int *index, int len)
+static void			set_objs_tok_tab(t_obj_tok **t,
+						char **tab, int *index, int len)
 {
 	int			i;
 	char		**tmp;
@@ -112,19 +113,18 @@ static void				set_objs_tok_tab(t_obj_tok **t, char **tab, int *index, int len)
 	}
 }
 
-
-void				set_obj_tok(t_scene_tok *sTok, char **tab)
+void				set_obj_tok(t_scene_tok *s_tok, char **tab)
 {
 	int		len;
 	int		*tmp;
 
 	len = obj_number(tab, N_OBJECT);
 	if (!len)
-		sTok->objs_tok = NULL;
+		s_tok->objs_tok = NULL;
 	if (!(tmp = (int*)malloc(sizeof(int) * (len))))
 		check_errors(MALLOC, "tmp", "set_objs_tok.c");
 	get_index(tab, tmp, N_OBJECT);
-	new_objs_tok(sTok, len);
-	set_objs_tok_tab((sTok->objs_tok), tab, tmp, len);
+	new_objs_tok(s_tok, len);
+	set_objs_tok_tab((s_tok->objs_tok), tab, tmp, len);
 	free(tmp);
 }

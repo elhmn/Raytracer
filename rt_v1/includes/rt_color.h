@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 11:02:01 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/06 00:17:35 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 17:30:21 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "rt.h"
 
-# define LIMIT_SCOL(x)	(x > 1 && x < 0) ? ((x > 1) ? 1 : 0) : x
-# define LIMIT_COL(x)	(x > 255. && x < 0.) ? ((x > 255.) ? 255. : 0.) : x
+# define LIMIT_SCOL(x)	(x > 1 || x < 0) ? ((x > 1) ? 1 : 0) : x
+# define LIMIT_COL(x)	(x > 255. || x < 0.) ? ((x > 255.) ? 255. : 0.) : x
 
 /*
 ** sColor terms are limited between 0 and 1. s stands for scaled
