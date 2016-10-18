@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:08:15 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/17 20:10:22 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 20:42:20 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,28 +32,6 @@ static void	rt_check_error(t_rt *rt)
 		check_errors(NUL, "raytracer.c", "rt->ray");
 }
 
-int			get_distance(t_ray *r, t_obj *obj, t_rt *rt)
-{
-	int		d;
-
-	d = -1;
-	if (obj != NULL)
-	{
-		if (obj->if_collision)
-			d = obj->if_collision(r, obj->data, obj, rt);
-	}
-	return (d);
-}
-
-
-static t_pos		get_point(t_pos ro, t_pos r, double d)
-{
-	pos_mult_to_number(&r, d);
-	pos_add_to_pos(&ro, r);
-	return (ro);
-}
-
-
 static void	rt_set_ray_pos(int incx, int incy, t_ray *r, t_rt *rt)
 {
 	int		px;
@@ -72,7 +50,7 @@ static void	rt_set_ray_pos(int incx, int incy, t_ray *r, t_rt *rt)
 	pos_mult_to_number(&(b.k), rt->camera->dist);
 	pos_add_to_pos(&(b.o), b.k);
 	t = b.i;
-	pos_mult_to_number(&t, - ((px * (rt->screen->res_x + 1)) / 2.) + incx * px);
+	pos_mult_to_number(&t, -((px * (rt->screen->res_x + 1)) / 2.) + incx * px);
 	pos_add_to_pos(&(b.o), t);
 	t = b.j;
 	pos_mult_to_number(&t, ((py * (rt->screen->res_y - 1)) / 2.) - incy * px);

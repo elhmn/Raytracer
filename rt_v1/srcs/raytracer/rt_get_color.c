@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 20:06:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/17 20:09:32 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/18 19:06:10 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@
 #include "material.h"
 #include "rt_color.h"
 
+/*
+static void			rt_light_effect(t_rt *rt, t_ray *ray,
+								t_light *light, t_obj *o, t_pos p)
+{
+	t_s_color	s_col;
+	t_ray		r;
+	t_pos		n;
+	t_pos		l;
+	t_base		base;
+}
+*/
 
 void			rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 {
@@ -30,6 +41,7 @@ void			rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 	t_pos		n;
 	t_pos		l;
 	t_base		base;
+
 
 	if (!rt || !ray || !o)
 		check_errors(NUL, "raytracer.c", "rt || ray || o");

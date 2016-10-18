@@ -50,7 +50,7 @@ PUT = put_var_00.c put_var_01.c put_var_02.c put_var_03.c put_cam_tok.c	put_objs
 
 DRAW = draw.c color.c
 
-RAYTRACER = raytracer.c show.c
+RAYTRACER = raytracer.c show.c rt_get_color.c rt_get_ray_color.c
 
 COLL = sphere_collision.c plane_collision.c cylinder_collision.c cone_collision.c cone_collision_limit.c cylinder_collision_limit.c
 

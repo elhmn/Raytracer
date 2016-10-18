@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/17 19:45:29 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/17 20:39:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -336,7 +336,20 @@ t_color				get_reshaped_color(t_color col);
 
 void				raytracer(t_rt *rt);
 void				show(t_rt *rt);
+
+
+/*
+** rt_get_ray_color.c
+*/
+
+void				rt_get_ray_color(t_ray *r, t_list *o, t_rt *rt);
 int					get_distance(t_ray *r, t_obj *obj, t_rt *rt);
+
+/*
+** rt_get_color.c
+*/
+
+void				rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p);
 
 /*
 ** release_mlx.c
@@ -349,9 +362,9 @@ void				release_mlx(t_rt *rt);
 ** key_hook.c
 */
 
-int			key_hook(int keycode, void *param);
-void		key_render_control(t_rt *rt, int keycode);
-void		key_rotation(t_rt *rt, int keycode);
-void		key_move(t_rt *rt, int keycode);
+int					key_hook(int keycode, void *param);
+void				key_render_control(t_rt *rt, int keycode);
+void				key_rotation(t_rt *rt, int keycode);
+void				key_move(t_rt *rt, int keycode);
 
 #endif
