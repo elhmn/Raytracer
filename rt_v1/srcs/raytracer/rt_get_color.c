@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 20:06:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/18 19:52:17 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/19 15:56:26 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 static t_base	get_base(t_pos p, t_pos l, t_pos n, t_pos cam)
 {
 	t_base	b;
-	
+
 	b.o = p;
 	b.i = l;
 	b.j = n;
@@ -32,24 +32,22 @@ static t_base	get_base(t_pos p, t_pos l, t_pos n, t_pos cam)
 }
 
 static void		get_light(t_rt *rt, t_s_color *s_col, t_light *light,
-						t_obj *o, t_pos p, t_ray *ray)
+						t_base b)
 {
 	t_ray		r;
-	t_base		b;
 
-	b.o = (o->normal) ? o->normal(o, ray->rd, p) : get_pos(0, 0, 0);
-	b.i = pos_vector(p, light->sp.o);
 	r.rd = pos_normalize(b.i);
 	r.pos = light->sp.o;
-	r.ro = p;
-	if (enlightened(rt, o, r))
+	r.ro = b.j;
+	if (enlightened(rt, rt->cur_obj, r))
 	{
 		if (rt->diffuse)
 			*s_col = add_s_color(*s_col,
-					diffuse_light(light, o, b.i, b.o));
+					diffuse_light(light, rt->cur_obj, b.i, b.o));
 		if (rt->specular)
 			*s_col = add_s_color(*s_col,
-					specular_light(light, o, get_base(p, b.i, b.o, rt->camera->sp.o)));
+					specular_light(light, rt->cur_obj,
+						get_base(b.j, b.i, b.o, rt->camera->sp.o)));
 	}
 	else
 		*s_col = sub_s_color(*s_col,
@@ -58,7 +56,7 @@ static void		get_light(t_rt *rt, t_s_color *s_col, t_light *light,
 }
 
 /*
-** base b is used to store normal and light direction
+** base b is used to store normal and light direction and hit point
 */
 
 void			rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
@@ -66,7 +64,7 @@ void			rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 	t_list		*list;
 	t_light		*light;
 	t_s_color	s_col;
-
+	t_base		b;
 
 	if (!rt || !ray || !o)
 		check_errors(NUL, "raytracer.c", "rt || ray || o");
@@ -78,8 +76,12 @@ void			rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 		light = (t_light*)list->content;
 		if (light)
 		{
+			b.j = p;
+			b.o = (o->normal) ? o->normal(o, ray->rd, b.j) : get_pos(0, 0, 0);
+			b.i = pos_vector(b.j, light->sp.o);
+			rt->cur_obj = o;
 			if (o->normal)
-				get_light(rt, &s_col, light, o, p, ray);
+				get_light(rt, &s_col, light, b);
 		}
 		list = list->next;
 	}

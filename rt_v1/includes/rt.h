@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/17 20:39:30 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/19 15:58:48 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,7 @@ typedef struct		s_rt
 	int			render;
 	int			diffuse;
 	int			specular;
+	t_obj		*cur_obj;
 }					t_rt;
 
 /*
@@ -336,7 +337,6 @@ t_color				get_reshaped_color(t_color col);
 
 void				raytracer(t_rt *rt);
 void				show(t_rt *rt);
-
 
 /*
 ** rt_get_ray_color.c
