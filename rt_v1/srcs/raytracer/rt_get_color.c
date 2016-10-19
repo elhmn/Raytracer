@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 20:06:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/19 15:56:26 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/19 18:38:00 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,15 @@ void			rt_get_color(t_ray *ray, t_obj *o, t_rt *rt, t_pos p)
 			o->s_col.g * o->material->ka, o->s_col.b * o->material->ka);
 	while (rt->render && list)
 	{
-		light = (t_light*)list->content;
-		if (light)
-		{
-			b.j = p;
-			b.o = (o->normal) ? o->normal(o, ray->rd, b.j) : get_pos(0, 0, 0);
-			b.i = pos_vector(b.j, light->sp.o);
-			rt->cur_obj = o;
+		if ((light = (t_light*)list->content))
 			if (o->normal)
+			{
+				b.j = p;
+				b.o = o->normal(o, ray->rd, b.j);
+				b.i = pos_vector(b.j, light->sp.o);
+				rt->cur_obj = o;
 				get_light(rt, &s_col, light, b);
-		}
+			}
 		list = list->next;
 	}
 	ray->col = get_reshaped_color(s_color_to_color(s_col));
