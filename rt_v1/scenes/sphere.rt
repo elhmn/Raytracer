@@ -3,15 +3,15 @@ object
 	type (plane)
 	position(0, 0, 0)
 	color(50, 50, 50)
-	material(30, 20, 50)
-	normal(0, -1, 0)
+	material(40, 20, 40)
+	normal(0, 1, 0)
 }
 
 object
 {
 	type (sphere)
-	position(0, 200, 0)
-	color(60, 60, 60)
+	position(0, 300, 0)
+	color(0, 60, 0)
 	radius(100)
 	material(20, 30, 50)
 }
@@ -19,7 +19,31 @@ object
 light
 {
 	type (omni)
-	position (0, 100, 100)
+	position (0, 100, -100)
 	Id(80, 80, 0)
 	Is(40, 40, 0)
+}
+
+light
+{
+	type (omni)
+	position (0, 100, 100)
+	Id(0, 0, 50)
+	Is(0, 0, 50)
+}
+
+light
+{
+	type (omni)
+	position (100, 100, 100)
+	Id(80, 0, 0)
+	Is(40, 0, 0)
+}
+
+light
+{
+	type (omni)
+	position (-100, 100, 100)
+	Id(0, 80, 0)
+	Is(0, 40, 0)
 }

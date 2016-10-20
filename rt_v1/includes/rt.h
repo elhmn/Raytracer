@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:03:22 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/19 15:58:48 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/20 17:39:55 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@
 # define K_1				18
 # define K_2				19
 # define K_3				20
+# define K_4				21
 
 /*
 ** s_camera define
@@ -215,6 +216,7 @@ typedef struct		s_rt
 	int			render;
 	int			diffuse;
 	int			specular;
+	int			shadow;
 	t_obj		*cur_obj;
 }					t_rt;
 

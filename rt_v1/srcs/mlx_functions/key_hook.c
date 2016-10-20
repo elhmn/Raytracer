@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 19:42:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/17 19:45:51 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/20 17:52:30 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,14 @@ void		key_render_control(t_rt *rt, int keycode)
 		{
 			rt->diffuse = 1;
 			rt->specular = 1;
+			rt->shadow = 1;
 		}
 	}
 	else if (keycode == K_2)
 		rt->diffuse = (rt->diffuse) ? 0 : 1;
 	else if (keycode == K_3)
+		rt->shadow = (rt->shadow) ? 0 : 1;
+	else if (keycode == K_4)
 		rt->specular = (rt->specular) ? 0 : 1;
 	else
 		return ;

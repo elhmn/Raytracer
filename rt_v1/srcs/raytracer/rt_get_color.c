@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 20:06:39 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/19 18:38:00 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/20 17:52:27 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void		get_light(t_rt *rt, t_s_color *s_col, t_light *light,
 	r.rd = pos_normalize(b.i);
 	r.pos = light->sp.o;
 	r.ro = b.j;
-	if (enlightened(rt, rt->cur_obj, r))
+	if (!rt->shadow || enlightened(rt, rt->cur_obj, r))
 	{
 		if (rt->diffuse)
 			*s_col = add_s_color(*s_col,

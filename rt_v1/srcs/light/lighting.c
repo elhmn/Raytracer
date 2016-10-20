@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/30 17:38:45 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/19 19:07:28 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/20 17:35:19 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ t_s_color	diffuse_light(t_light *light, t_obj *o, t_pos l, t_pos n)
 		if (m)
 		{
 			prod = pos_dot_product(l, n);
-			s.r = m->kd * (light->inty.id.r / d) * prod;
-			s.g = m->kd * (light->inty.id.g / d) * prod;
-			s.b = m->kd * (light->inty.id.b / d) * prod;
+			s.r = LIMIT_SCOL(m->kd * (light->inty.id.r / d) * prod);
+			s.g = LIMIT_SCOL(m->kd * (light->inty.id.g / d) * prod);
+			s.b = LIMIT_SCOL(m->kd * (light->inty.id.b / d) * prod);
 		}
 	}
 	return (s);

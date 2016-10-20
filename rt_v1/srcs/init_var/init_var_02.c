@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:49 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/17 12:26:18 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/20 17:38:28 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	init_objs(t_list **objs)
 		o->material = new_material(NULL, 0.4, 0.4, 0.6);
 		tmp = ft_lstnew(NULL, 0);
 		ft_lstadd_end(objs, tmp);
-		o = new_plane(get_pos(0, 0, 0), get_pos(0, -1, 0),
+		o = new_plane(get_pos(0, 0, 0), get_pos(0, 1, 0),
 						get_color(80, 60, 0));
 		tmp->content = o;
 		if (!tmp->content)

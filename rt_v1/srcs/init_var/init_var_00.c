@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/24 17:28:41 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/17 12:27:11 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/20 17:40:16 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void		init_rt(t_rt **rt, char *scene)
 		(*rt)->render = 0;
 		(*rt)->diffuse = 0;
 		(*rt)->specular = 0;
+		(*rt)->shadow = 0;
 		end_block("init_rt");
 	}
 }
