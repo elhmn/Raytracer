@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/28 18:47:59 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/17 18:33:52 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/20 20:21:33 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	rot_plane(t_obj *plane, t_pos r)
 	{
 		if (!(data = (t_data_plane*)plane->data))
 			check_errors(NUL, "plane->data", "obj_rotation_00.c");
-		pos_rot_xyz(&(data->v_normal), plane->sp.o, r);
+		pos_rot_xyz(&(data->v_normal), get_pos(0, 0, 0), r);
 		pos_copy(&data->v_normal, pos_normalize(data->v_normal));
 	}
 }

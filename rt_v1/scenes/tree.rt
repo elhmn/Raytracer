@@ -56,8 +56,3 @@ object
 	color(100, 0, 0)
 	material(20, 40, 20)
 }
-
-camera
-{
-	position(0, 0, 0)
-}

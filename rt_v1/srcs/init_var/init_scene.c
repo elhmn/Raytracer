@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/02 21:09:21 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/04 22:09:32 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/20 21:23:42 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void		init_scene(t_rt *rt, char *scene)
 	{
 		rt->objs = NULL;
 		rt->lights = NULL;
-		load_scene(rt, scene);
 		if (!(rt->camera))
 			init_camera(&(rt->camera), *(rt->screen),
 						rt->space);
+		load_scene(rt, scene);
 		if (!(rt->lights))
 			init_lights(&(rt->lights));
 		if (!(rt->objs))
