@@ -1,0 +1,25 @@
+object
+{
+	type (plane)
+	position(0, 0, 0)
+	color(50, 50, 50)
+	material(40, 20, 40)
+	normal(0, 1, 0)
+}
+
+object
+{
+	type (sphere)
+	position(0, 300, 0)
+	color(60, 60, 60)
+	radius(100)
+	material(30, 20, 50)
+}
+
+light
+{
+	type (omni)
+	position (0, 700, -100)
+	Id(60, 60, 60)
+	Is(40, 40, 40)
+}

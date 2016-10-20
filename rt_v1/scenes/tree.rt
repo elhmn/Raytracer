@@ -1,0 +1,63 @@
+object
+{
+	type(cylinder)
+	position(0, 0, 0)
+	radius(100)
+	rotation(0, 0, 0)
+	height(-1)
+	color(100, 0, 0)
+	material(20, 40, 20)
+}
+
+object
+{
+	type (plane)
+	position(0, 0, 0)
+	color(70, 70 , 0)
+	material(40, 20, 40)
+	normal(0, 1, 0)
+}
+
+light
+{
+	type (omni)
+	position(600, 200, 1000)
+	Id(80, 80, 80)
+	Is(40, 40, 40)
+}
+
+light
+{
+	type (omni)
+	position(-600, 200, -1000)
+	Id(80, 80, 80)
+	Is(40, 40, 40)
+}
+
+object
+{
+	type(cylinder)
+	position(0, 100, 40)
+	radius(50)
+	height(1000)
+	color(100, 0, 0)
+	material(20, 40, 20)
+	rotation(0, 0, 40)
+	translation(0, 0, 0)
+}
+
+object
+{
+	type(cylinder)
+	position(0, 0, 0)
+	radius(100)
+	rotation(0, 0, 0)
+	height(-1)
+	color(100, 0, 0)
+	material(20, 40, 20)
+}
+
+camera
+{
+	position(0, 0, 0)
+}

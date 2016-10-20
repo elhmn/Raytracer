@@ -1,65 +1,49 @@
 object
 {
-	type(cylinder)
-	position(0, 0, 0)
+	type (sphere)
+	position(0, 300, 0)
+	color(60, 60, 60)
 	radius(100)
-	rotation(0, 0, 0)
-	height(-1)
-	color(100, 0, 0)
-	material(20, 40, 20)
+	material(20, 40, 40)
 }
 
 object
 {
 	type (plane)
-	position(0, 0, 0)
-	color(70, 70 , 0)
-	material(20, 20, 60)
-	normal(0, -1, 0)
+	position (0, 0, 0)
+	color (60, 60, 60)
+	material (20, 30, 50)
+	normal(0, 1, 0)
 }
 
 light
 {
 	type (omni)
-	position(600, 600, 600)
-	color(100, 100, 100)
-	Id(60, 60, 60)
-	Is(40, 40, 40)
+	position (0, 100, -100)
+	Id(0, 60, 0)
+	Is(0, 40, 0)
 }
 
 light
 {
 	type (omni)
-	position(-600, 600, -600)
-	color(100, 100, 100)
+	position (0, 100, 100)
 	Id(60, 60, 0)
-	Is(40, 40, 40)
+	Is(40, 40, 0)
 }
 
-object
+light
 {
-	type(cylinder)
-	position(0, 100, 40)
-	radius(50)
-	height(1000)
-	color(100, 0, 0)
-	material(20, 40, 20)
-	rotation(0, 0, 40)
-	translation(0, 0, 0)
+	type (omni)
+	position (100, 100, 0)
+	Id(60, 0, 0)
+	Is(40, 0, 0)
 }
 
-object
+light
 {
-	type(cylinder)
-	position(0, 0, 0)
-	radius(100)
-	rotation(0, 0, 0)
-	height(-1)
-	color(100, 0, 0)
-	material(20, 40, 20)
-}
-
-camera
-{
-	position(0, 0, 0)
+	type (omni)
+	position (-100, 100, 0)
+	Id(0, 0, 60)
+	Is(0, 0, 40)
 }

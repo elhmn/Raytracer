@@ -6,7 +6,7 @@
 /*   By: bmbarga <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/17 18:18:38 by bmbarga           #+#    #+#             */
-/*   Updated: 2016/10/17 18:27:25 by bmbarga          ###   ########.fr       */
+/*   Updated: 2016/10/20 18:13:54 by bmbarga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void			init_obj_tok(t_obj_tok *t)
 		t->trans = get_pos(0, 0, 0);
 		t->mat = get_pos(20, 30, 50);
 		t->col = get_pos(50, 50, 50);
-		t->normal = get_pos(0, -1, 0);
+		t->normal = get_pos(0, 1, 0);
 		t->radius = 100;
 		t->height = -1;
 		t->angle = 15;

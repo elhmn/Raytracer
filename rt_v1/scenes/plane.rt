@@ -1,10 +1,11 @@
 object
 {
-	type (sphere)
-	position(0, 300, 0)
-	color(100, 100, 100)
-	radius(100)
+	type (plane)
+	position(0, 0, 0)
+	color(50, 50, 50)
 	material(40, 20, 40)
+	normal(0, 1, 0)
+	rotation(0, 0, 0)
 }
 
 light

@@ -1,0 +1,17 @@
+object
+{
+	type (cone)
+	position(0, 0, 0)
+	color(50, 50, 50)
+	material(40, 20, 40)
+	angle(50)
+	top(0)
+}
+
+light
+{
+	type (omni)
+	position (0, 0, -500)
+	Id(60, 60, 60)
+	Is(40, 40, 40)
+}
