@@ -6,6 +6,7 @@ object
 	material(40, 20, 40)
 	angle(50)
 	top(0)
+	rotation(0, 0, 0)
 }
 
 light
