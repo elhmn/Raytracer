@@ -20,7 +20,7 @@ light
 {
 	type (omni)
 	position (0, 100, -100)
-	Id(0, 60, 0)
+	Id(0, 80, 0)
 	Is(0, 40, 0)
 }
 
@@ -28,7 +28,7 @@ light
 {
 	type (omni)
 	position (0, 100, 100)
-	Id(60, 60, 0)
+	Id(80, 80, 0)
 	Is(40, 40, 0)
 }
 
@@ -36,7 +36,7 @@ light
 {
 	type (omni)
 	position (100, 100, 0)
-	Id(60, 0, 0)
+	Id(80, 0, 0)
 	Is(40, 0, 0)
 }
 
@@ -44,6 +44,6 @@ light
 {
 	type (omni)
 	position (-100, 100, 0)
-	Id(0, 0, 60)
+	Id(0, 0, 80)
 	Is(0, 0, 40)
 }
