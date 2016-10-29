@@ -46,27 +46,61 @@
 ** KeyCode define
 */
 
-# define K_QUIT				53
-# define K_R				15
-# define K_LEFT				123
-# define K_RIGHT			124
-# define K_UP				126
-# define K_DOWN				125
+/*
+** HOME and 42 define
+*/
 
-# define MOVE				100
-# define ROT				10
+/*
+** #define FT
+*/
 
-# define K_A				0
-# define K_S				1
-# define K_D				2
-# define K_W				13
-# define K_Q				12
-# define K_E				14
+# ifdef FT
 
-# define K_1				18
-# define K_2				19
-# define K_3				20
-# define K_4				21
+#  define K_QUIT				53
+#  define K_LEFT			123
+#  define K_RIGHT			124
+#  define K_UP				126
+#  define K_DOWN			125
+
+#  define MOVE				100
+#  define ROT				10
+
+#  define K_A				0
+#  define K_S				1
+#  define K_D				2
+#  define K_W				13
+#  define K_Q				12
+#  define K_E				14
+
+#  define K_1				18
+#  define K_2				19
+#  define K_3				20
+#  define K_4				21
+
+# else
+
+#  define K_QUIT			65307
+#  define K_LEFT			65361
+#  define K_RIGHT			65363
+#  define K_UP				65362
+#  define K_DOWN			65364
+
+#  define MOVE				100
+#  define ROT				10
+
+#  define K_A				97
+#  define K_S				115
+#  define K_D				100
+#  define K_W				119
+#  define K_Q				113
+#  define K_E				101
+
+#  define K_1				49
+#  define K_2				50
+#  define K_3				51
+#  define K_4				52
+
+# endif
 
 /*
 ** s_camera define

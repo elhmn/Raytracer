@@ -46,7 +46,8 @@ SET = set_var_00.c
 
 OBJFUNC = obj_function_00.c obj_function_01.c obj_rotation_00.c obj_move_00.c
 
-PUT = put_var_00.c put_var_01.c put_var_02.c put_var_03.c put_cam_tok.c	put_objs_tok.c put_lights_tok.c put_scene_tok.c
+PUT = put_var_00.c put_var_01.c put_var_02.c put_var_03.c put_cam_tok.c \
+		put_objs_tok.c put_lights_tok.c put_scene_tok.c
 
 DRAW = draw.c color.c
 
