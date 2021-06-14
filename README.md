@@ -2,11 +2,9 @@
 
 Raytracer engine
 
-### The engine is built using a custom X11 wrapper implemented at (Ecole 42)[https://www.42.fr/]
+#### The engine is built using a custom X11 wrapper implemented at [Ecole 42](https://www.42.fr)
 
 You can't run it, I will update the code and the readme to make it easier to run
-
-### Raytracer V1 (basic) ###
 
 ####  Step 3 (basic) ####
 <HTML>
