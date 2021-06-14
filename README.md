@@ -2,13 +2,11 @@
 
 Raytracer engine
 
-### TODO: ###
+### The engine is built using a custom X11 wrapper implemented at (Ecole 42)[https://www.42.fr/]
 
-* do the job
+You can't run it, I will update the code and the readme to make it easier to run
 
 ### Raytracer V1 (basic) ###
-
-
 
 ####  Step 3 (basic) ####
 <HTML>
@@ -24,4 +22,3 @@ Raytracer engine
 <HTML>
    <img src="./rt_v1/imgs/step_3.png" alt="cat">   
 </HTML>
-
